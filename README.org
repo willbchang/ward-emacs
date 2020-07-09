@@ -1,0 +1,26 @@
+*This repo is on building, use it at your own risk.*
+
+* An Expected Emacs Setup for MacOS
+- Default with shortcuts and features that you already learned.
+- Has an expected vim emulator via [[https://github.com/emacs-evil/evil][evil-mode]].
+- Provides tools like [[https://orgmode.org/][org-mode]] and [[https://magit.vc/][magit]].
+- Highly customizable.
+- It's just an Text Editor, not an IDE(I use [[https://www.jetbrains.com/idea/][IDEA]]).
+- Do not expected too much, and you'll be happy.
+
+So this is the ultimate Text Editor for lifetime, if it looks good to you, welcome aboard.
+
+* Checklist
+- Emacs 26.3
+- You'd better learn Vim before trying this.
+
+* Installation
+#+BEGIN_SRC bash
+cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.
+#+END_SRC
+
+* Credit
+It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
+
+* LICENSE
+GPL-3.0 License

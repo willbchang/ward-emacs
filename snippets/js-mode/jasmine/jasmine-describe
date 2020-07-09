@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# group: jasmine
+# name: jasmine describe
+# key: jas
+describe('$1', function(){
+  beforeEach(function(){
+  });
+
+  afterEach(function(){
+  });
+
+  it('description', function(){
+    expect(true).toBe(true);
+  });
+
+});
