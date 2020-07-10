@@ -191,15 +191,20 @@
 ;; The code above will be refactored in the future.
 ;; ------------------- Customized Configuation ----------------------
 ;; ------------------- UI -------------------------------------------
-;; Set Font Family and Font Size.
+;; Set Font Family and Font Size
 (set-face-attribute 'default nil
                     :font "Inconsolata-18")
 
-;; Set Color Theme.
+;; Set Color Theme
 (load-theme 'idea-darkula t)
 
-;; Set Cursor Color.
+;; Set Cursor Color
 (set-cursor-color "#e2416c")
+
+;; Set Titlebar Appearance
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 
 ;; ------------------- Shortcuts ------------------------------------
 
