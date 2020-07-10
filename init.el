@@ -198,6 +198,9 @@
 ;; Set Color Theme.
 (load-theme 'idea-darkula t)
 
+;; Set Cursor Color.
+(set-cursor-color "#e2416c")
+
 ;; ------------------- Shortcuts ------------------------------------
 
 
