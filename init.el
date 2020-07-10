@@ -195,6 +195,9 @@
 (set-face-attribute 'default nil
                     :font "Inconsolata-18")
 
+;; Set Color Theme.
+(load-theme 'idea-darkula t)
+
 ;; ------------------- Shortcuts ------------------------------------
 
 
