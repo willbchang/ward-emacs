@@ -191,7 +191,9 @@
 ;; The code above will be refactored in the future.
 ;; ------------------- Customized Configuation ----------------------
 ;; ------------------- UI -------------------------------------------
-
+;; Set Font Family and Font Size.
+(set-face-attribute 'default nil
+                    :font "Inconsolata-18")
 
 ;; ------------------- Shortcuts ------------------------------------
 
