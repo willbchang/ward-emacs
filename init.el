@@ -236,6 +236,9 @@ there's no active region."
 ;; Save cursor position for each file
 (save-place-mode t)
 
+;; Overwrite selection on pasting
+(delete-selection-mode)
+
 ;; Disable the ring bell when scroll beyond the document
 (setq ring-bell-function 'ignore)
 
