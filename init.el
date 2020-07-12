@@ -239,6 +239,10 @@ there's no active region."
 ;; Overwrite selection on pasting
 (delete-selection-mode)
 
+;; Delete trailing whitespace on saving a buffer
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
 ;; Disable the ring bell when scroll beyond the document
 (setq ring-bell-function 'ignore)
 
