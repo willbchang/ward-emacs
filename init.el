@@ -214,7 +214,7 @@
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 
 
-;; Set shortcut to comment/uncomment a region/line.
+;; Set shortcut to comment/uncomment a region/line
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 
 ;; TODO:
@@ -236,7 +236,7 @@ there's no active region."
 ;; Save cursor position for each file
 (save-place-mode t)
 
-;; Disable the bell when scroll beyond the document
+;; Disable the ring bell when scroll beyond the document
 (setq ring-bell-function 'ignore)
 
 ;; ------------------- Functionalities ------------------------------
