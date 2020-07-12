@@ -214,6 +214,23 @@
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 
 
+;; Set shortcut to comment/uncomment a region/line.
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+;; TODO:
+;; 1. Comment on empty line, it adds ;; (e.g.) and put the cursor behind
+;; 2. Comment one line, it adds ;; before and forward one line
+;; 3. Comment on region, it add ;; and move to the next line of the region
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if
+there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)))
+
 
 ;; ------------------- Behaviors ------------------------------------
 
