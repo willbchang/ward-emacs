@@ -233,8 +233,11 @@ there's no active region."
 
 
 ;; ------------------- Behaviors ------------------------------------
-;; Save cursor position for each file.
+;; Save cursor position for each file
 (save-place-mode t)
+
+;; Disable the bell when scroll beyond the document
+(setq ring-bell-function 'ignore)
 
 ;; ------------------- Functionalities ------------------------------
 
