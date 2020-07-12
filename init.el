@@ -233,7 +233,8 @@ there's no active region."
 
 
 ;; ------------------- Behaviors ------------------------------------
-
+;; Save cursor position for each file.
+(save-place-mode t)
 
 ;; ------------------- Functionalities ------------------------------
 
