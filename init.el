@@ -217,6 +217,8 @@
 (global-set-key (kbd "s-<backspace>") 'delete-current-line)
 ;; Kill whole line entirely
 (global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
+;; Close current buffer
+(global-set-key (kbd "s-w") 'kill-this-buffer)
 
 ;; Set shortcut to comment/uncomment a region/line
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
