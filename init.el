@@ -256,6 +256,9 @@ there's no active region."
 ;; Highlight urls and make them clickable
 (goto-address-mode)
 
+;; Highlight paired brackets
+(show-paren-mode 1)
+
 ;; Delete trailing whitespace on saving a buffer
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
