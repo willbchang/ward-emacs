@@ -213,9 +213,19 @@
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 
+;; Delete current line and put cursor in the beginning
+(global-set-key (kbd "s-<backspace>") 'delete-current-line)
 
 ;; Set shortcut to comment/uncomment a region/line
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+
+(defun delete-current-line ()
+  (interactive)
+  (delete-region
+   (line-beginning-position)
+   (line-end-position)))
+
 
 ;; TODO:
 ;; 1. Comment on empty line, it adds ;; (e.g.) and put the cursor behind
