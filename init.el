@@ -215,6 +215,8 @@
 
 ;; Delete current line and put cursor in the beginning
 (global-set-key (kbd "s-<backspace>") 'delete-current-line)
+;; Kill whole line entirely
+(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
 
 ;; Set shortcut to comment/uncomment a region/line
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
