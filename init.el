@@ -239,6 +239,9 @@ there's no active region."
 ;; Overwrite selection on pasting
 (delete-selection-mode)
 
+;; Highlight urls and make them clickable
+(goto-address-mode)
+
 ;; Delete trailing whitespace on saving a buffer
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
