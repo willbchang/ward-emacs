@@ -270,9 +270,9 @@ there's no active region."
 ;; Disable the ring bell when scroll beyond the document
 (setq ring-bell-function 'ignore)
 
-;; Start server for opening file/folder from emacsclient
-(server-start)
 ;; ------------------- Functionalities ------------------------------
 
 
 ;; ------------------- Proxy ----------------------------------------
+;; Start server for opening file/folder from emacsclient
+(server-start)
