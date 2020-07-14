@@ -258,6 +258,10 @@ there's no active region."
 
 ;; Highlight paired brackets
 (show-paren-mode 1)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#fad56e")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 
 ;; Delete trailing whitespace on saving a buffer
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
