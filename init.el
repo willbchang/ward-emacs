@@ -225,7 +225,8 @@
 
 ;; Set frame full screen with Ctrl + Command + F
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
-
+;; Create new frame with Command + N, default with org-mode and evil-mode
+(global-set-key (kbd "s-n") 'new-empty-frame)
 
 (defun delete-current-line ()
   (interactive)
@@ -233,6 +234,15 @@
    (line-beginning-position)
    (line-end-position)))
 
+;; TODO: Make the buffers independent in each frame.
+(defun new-empty-frame ()
+  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer buffer)
+    (org-mode)
+    (evil-mode 1)
+    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
 
 ;; TODO:
 ;; 1. Comment on empty line, it adds ;; (e.g.) and put the cursor behind
