@@ -227,6 +227,9 @@
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
 ;; Create new frame with Command + N, default with org-mode and evil-mode
 (global-set-key (kbd "s-n") 'new-empty-frame)
+;; Close current frame with Shift + Command + W
+(global-set-key (kbd "s-W") 'delete-frame)
+
 
 (defun delete-current-line ()
   (interactive)
