@@ -223,6 +223,9 @@
 ;; Set shortcut to comment/uncomment a region/line
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 
+;; Set frame full screen with Ctrl + Command + F
+(global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
+
 
 (defun delete-current-line ()
   (interactive)
