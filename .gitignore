@@ -9,6 +9,7 @@ anaconda-mode/
 /.session
 /session.*
 /custom.el
+/README.el
 *.elc
 company-statistics-cache.el
 CVS
