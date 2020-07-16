@@ -214,7 +214,7 @@
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 
 ;; Delete current line and put cursor in the beginning
-(global-set-key (kbd "s-<backspace>") 'delete-current-line)
+(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
 ;; Kill whole line entirely
 (global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
 ;; Close current buffer
@@ -231,11 +231,10 @@
 (global-set-key (kbd "s-W") 'delete-frame)
 
 
-(defun delete-current-line ()
-  (interactive)
-  (delete-region
-   (line-beginning-position)
-   (line-end-position)))
+(defun backward-kill-line (arg)
+  "Kill ARG lines backward."
+  (interactive "p")
+  (kill-line (- 1 arg)))
 
 ;; TODO: Make the buffers independent in each frame.
 (defun new-empty-frame ()
