@@ -29,7 +29,9 @@ cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.
 ;; ------------------- Color Theme --------------------------------------
 ;; Set Color Theme
 #+begin_src emacs-lisp
-(load-theme 'idea-darkula t)
+(use-package idea-darkula-theme
+    :ensure t
+    :config)
 #+end_src
 
 ;; Set Cursor Color
