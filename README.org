@@ -20,6 +20,12 @@ cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
 #+END_SRC
 * Configuration
 ** UI
+*** Widgets
+Disable toolbar items.
+#+begin_src emacs-lisp
+(tool-bar-mode 0)
+#+end_src
+
 *** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
