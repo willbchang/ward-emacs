@@ -33,12 +33,12 @@ cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
     :config)
 #+end_src
 
-*** Cursor Color
+Set cursor color to pink.
 #+begin_src emacs-lisp
 (set-cursor-color "#e2416c")
 #+end_src
 
-*** Titlebar Appearance
+Set titlebar appearance to transparent and dark.
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -104,6 +104,12 @@ Make =Command + ArrowKey= behaves like MacOS app.
 =Command + /=: Comment/Uncomment line(s).
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+#+end_src
+
+TODO: Enable shift selection
+#+begin_src emacs-lisp
+  ;; (setg org-support-shift-select t)
+  ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
 #+end_src
 
 #+begin_src emacs-lisp
