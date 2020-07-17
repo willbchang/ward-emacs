@@ -16,7 +16,7 @@ So this is the ultimate Text Editor for lifetime, if it looks good to you, welco
 
 * Installation
 #+BEGIN_SRC bash
-cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.
+cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
 #+END_SRC
 * Configuration
 ** UI
@@ -77,11 +77,11 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
 #+end_src
 
 ** Text Editing
-Make =Command + ArrowKey= behave like MacOS app.
-=Command + ↑=: move to the top of the file.
-=Command + ↓=: move to the bottom of the file.
-=Command + ←=: move to the beginning of the line.
-=Command + →=: move to the end of the line.
+Make =Command + ArrowKey= behaves like MacOS app.
+- =Command + ↑=: move to the top of the file.
+- =Command + ↓=: move to the bottom of the file.
+- =Command + ←=: move to the beginning of the line.
+- =Command + →=: move to the end of the line.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "s-<down>") 'end-of-buffer)
@@ -94,7 +94,7 @@ Make =Command + ArrowKey= behave like MacOS app.
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
 #+end_src
 
-=Command + Shift + Backspace=: Delete whole line entirely.
+=Command + Shift + Backspace=: Delete whole line entirely.\\
 /This is not the default behivor of MacOS, but I found it's useful./
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-S-<ackspace>") 'kill-whole-line)
@@ -199,7 +199,7 @@ Disable the ring bell when scroll beyond the document.
 (setq ring-bell-function 'ignore)
 #+end_src
 
-**  Proxy
+**  Server & Proxy
 Start server for opening file/folder from emacsclient.
 #+begin_src emacs-lisp
 (server-start)
