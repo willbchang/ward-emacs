@@ -57,6 +57,17 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
   (evil-mode 1))
 #+end_src
 
+Install evil-collection, which provides evil-friendly bindings for many modes.
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (setq evil-collection-mode-list
+        '(dired magit))
+  (evil-collection-init))
+#+end_src
+
 ;; ------------------- Text Editing --------------------------------------
 ;; Set Command + ArrowKey to behave like MacOS
 #+begin_src emacs-lisp
