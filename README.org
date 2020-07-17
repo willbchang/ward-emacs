@@ -19,27 +19,26 @@ So this is the ultimate Text Editor for lifetime, if it looks good to you, welco
 cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.
 #+END_SRC
 * Configuration
-;; ------------------- Font -------------------------------------------
-;; Set Font Family and Font Size
+** UI
+*** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "Inconsolata-18")
 #+end_src
 
-;; ------------------- Color Theme --------------------------------------
-;; Set Color Theme
+*** Color Theme
 #+begin_src emacs-lisp
 (use-package idea-darkula-theme
     :ensure t
     :config)
 #+end_src
 
-;; Set Cursor Color
+*** Cursor Color
 #+begin_src emacs-lisp
 (set-cursor-color "#e2416c")
 #+end_src
 
-;; Set Titlebar Appearance
+*** Titlebar Appearance
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -68,6 +67,7 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (evil-collection-init))
 #+end_src
 
+=evil-surround= makes surround text with paired symbols easily.
 #+begin_src emacs-lisp
 (use-package evil-surround
   :after evil
@@ -75,8 +75,13 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   :config
   (global-evil-surround-mode 1))
 #+end_src
-;; ------------------- Text Editing --------------------------------------
-;; Set Command + ArrowKey to behave like MacOS
+
+** Text Editing
+Make =Command + ArrowKey= behave like MacOS app.
+=Command + ↑=: move to the top of the file.
+=Command + ↓=: move to the bottom of the file.
+=Command + ←=: move to the beginning of the line.
+=Command + →=: move to the end of the line.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "s-<down>") 'end-of-buffer)
@@ -84,19 +89,19 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 #+end_src
 
-
-;; Delete current line and put cursor in the beginning
+=Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
 #+end_src
 
-;; Kill whole line entirely
+=Command + Shift + Backspace=: Delete whole line entirely.
+/This is not the default behivor of MacOS, but I found it's useful./
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-S-<ackspace>") 'kill-whole-line)
 #+end_src
 
 
-;; Set shortcut to comment/uncomment a region/line
+=Command + /=: Comment/Uncomment line(s).
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 #+end_src
@@ -108,10 +113,10 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
  (kill-line (- 1 arg)))
 #+end_src
 
-;; TODO:
-;; 1. Comment on empty line, it adds ;; (e.g.) and put the cursor behind
-;; 2. Comment one line, it adds ;; before and forward one line
-;; 3. Comment on region, it add ;; and move to the next line of the region
+TODO:
+1. Comment on empty line, it adds (e.g.) and put the cursor behind
+2. Comment one line, it adds before and forward one line
+3. Comment on region, it add and move to the next line of the region
 #+begin_src emacs-lisp
 (defun comment-or-uncomment-region-or-line ()
   "Comments or uncomments the region or the current line if
@@ -124,20 +129,30 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 
+
+**  Window Management
+=Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
-
-;; ------------------- Window Management ---------------------------------
-;; Set frame full screen with Ctrl + Command + F
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
-;; Create new frame with Command + N, default with org-mode and evil-mode
+#+end_src
+
+=Command + N=: Create new window, default with org-mode and evil-mode
+#+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
+#+end_src
 
-;; Close current buffer
+=Command + W=: Close current buffer.
+#+begin_src emacs-lisp
 (global-set-key (kbd "s-w") 'kill-this-buffer)
-;; Close current frame with Shift + Command + W
-(global-set-key (kbd "s-W") 'delete-frame)
+#+end_src
 
-;; TODO: Make the buffers independent in each frame.
+=Shift + Command + W=: Close current window.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-W") 'delete-frame)
+#+end_src
+
+TODO: Make the buffers independent in each frame.
+#+begin_src emacs-lisp
 (defun new-empty-frame ()
   "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
   (interactive)
@@ -146,36 +161,50 @@ there's no active region."
     (org-mode)
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
+#+end_src
 
-
-;; ------------------- Behaviors ------------------------------------
-;; Save cursor position for each file
+**  Behaviors
+Save cursor position for each file.
+#+begin_src emacs-lisp
 (save-place-mode t)
+#+end_src
 
-;; Overwrite selection on pasting
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
 (delete-selection-mode)
+#+end_src
 
-;; Highlight urls and make them clickable
+Highlight urls and make them clickable
+#+begin_src emacs-lisp
 (goto-address-mode)
+#+end_src
 
-;; Highlight paired brackets
+Highlight paired brackets, includes (), [], {} and so on...
+#+begin_src emacs-lisp
 (show-paren-mode 1)
 (require 'paren)
 (set-face-background 'show-paren-match (face-background 'default))
 (set-face-foreground 'show-paren-match "#fad56e")
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+#+end_src
 
-;; Delete trailing whitespace on saving a buffer
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
 
 
-;; Disable the ring bell when scroll beyond the document
+Disable the ring bell when scroll beyond the document.
+#+begin_src emacs-lisp
 (setq ring-bell-function 'ignore)
+#+end_src
 
-;; ------------------- Proxy ----------------------------------------
-;; Start server for opening file/folder from emacsclient
+**  Proxy
+Start server for opening file/folder from emacsclient.
+#+begin_src emacs-lisp
 (server-start)
 #+end_src
+
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
