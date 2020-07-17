@@ -117,6 +117,7 @@ TODO:
 1. Comment on empty line, it adds (e.g.) and put the cursor behind
 2. Comment one line, it adds before and forward one line
 3. Comment on region, it add and move to the next line of the region
+4. Cannot uncomment inside org mode code block
 #+begin_src emacs-lisp
 (defun comment-or-uncomment-region-or-line ()
   "Comments or uncomments the region or the current line if
