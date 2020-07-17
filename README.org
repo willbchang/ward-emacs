@@ -45,6 +45,17 @@ cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+end_src
 
+** Extensions
+*** Evil Mode
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
+#+begin_src emacs-lisp
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
 
 ;; ------------------- Text Editing --------------------------------------
 ;; Set Command + ArrowKey to behave like MacOS
