@@ -95,9 +95,9 @@ Make =Command + ArrowKey= behaves like MacOS app.
 #+end_src
 
 =Command + Shift + Backspace=: Delete whole line entirely.\\
-/This is not the default behivor of MacOS, but I found it's useful./
+/This is not the default behavior of MacOS, but I found it's useful./
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-S-<ackspace>") 'kill-whole-line)
+(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
 #+end_src
 
 
