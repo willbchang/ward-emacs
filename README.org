@@ -68,6 +68,13 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (evil-collection-init))
 #+end_src
 
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :after evil
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
 ;; ------------------- Text Editing --------------------------------------
 ;; Set Command + ArrowKey to behave like MacOS
 #+begin_src emacs-lisp
