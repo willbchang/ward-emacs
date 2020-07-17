@@ -172,12 +172,12 @@ Save cursor position for each file.
 
 Overwrite selection on pasting.
 #+begin_src emacs-lisp
-(delete-selection-mode)
+(delete-selection-mode 1)
 #+end_src
 
 Highlight urls and make them clickable
 #+begin_src emacs-lisp
-(goto-address-mode)
+(goto-address-mode 1)
 #+end_src
 
 Highlight paired brackets, includes (), [], {} and so on...
