@@ -181,6 +181,11 @@ TODO: Make the buffers independent in each frame.
 #+end_src
 
 ** Behaviors
+Save files automatically.
+#+begin_src emacs-lisp
+(auto-save-visited-mode 1)
+#+end_src
+
 Save cursor position for each file.
 #+begin_src emacs-lisp
 (save-place-mode t)
