@@ -201,7 +201,7 @@ Highlight paired brackets, includes (), [], {} and so on...
 (show-paren-mode 1)
 (require 'paren)
 (set-face-background 'show-paren-match (face-background 'default))
-(set-face-foreground 'show-paren-match "#fad56e")
+(set-face-foreground 'show-paren-match "#f7d451")
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+end_src
 
