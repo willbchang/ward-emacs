@@ -186,9 +186,14 @@ Save files automatically.
 (auto-save-visited-mode 1)
 #+end_src
 
-Disable Startup screen
+Disable startup screen.
 #+begin_src emacs-lisp
 (setq inhibit-startup-screen t)
+#+end_src
+
+Empty scratch file on init.
+#+begin_src emacs-lisp
+(setq initial-scratch-message nil)
 #+end_src
 
 Save cursor position for each file.
