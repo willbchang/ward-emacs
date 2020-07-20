@@ -186,6 +186,11 @@ Save files automatically.
 (auto-save-visited-mode 1)
 #+end_src
 
+Disable Startup screen
+#+begin_src emacs-lisp
+(setq inhibit-startup-screen t)
+#+end_src
+
 Save cursor position for each file.
 #+begin_src emacs-lisp
 (save-place-mode t)
