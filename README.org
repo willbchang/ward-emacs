@@ -91,6 +91,15 @@ Use magit as git interface.
 (setq magit-diff-refine-hunk t))
 #+end_src
 
+*** Git Gutter
+Show changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode 't))
+#+end_src
+
 ** Text Editing
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
