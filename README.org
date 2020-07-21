@@ -51,7 +51,6 @@ Set titlebar appearance to transparent and dark.
 #+end_src
 
 ** Extensions
-   TODO: Magit
    TODO: Ivy or Helm
 *** Evil Mode
 Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
@@ -82,6 +81,14 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   :ensure t
   :config
   (global-evil-surround-mode 1))
+#+end_src
+*** Magit
+Use magit as git interface.
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t
+  :config
+(setq magit-diff-refine-hunk t))
 #+end_src
 
 ** Text Editing
