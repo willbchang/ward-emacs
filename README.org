@@ -197,6 +197,11 @@ TODO: Make the buffers independent in each frame.
 #+end_src
 
 ** Behaviors
+Cancel partially typed or accidental command.
+#+begin_src emacs-lisp
+(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+#+end_src
+
 Save files automatically.
 #+begin_src emacs-lisp
 (auto-save-visited-mode 1)
