@@ -251,6 +251,10 @@ Disable the ring bell when scroll beyond the document.
 (setq ring-bell-function 'ignore)
 #+end_src
 
+Revert (update) buffers automatically when underlying files are changed externally.
+#+begin_src emacs-lisp
+(global-auto-revert-mode t)
+#+end_src
 ** Server & Proxy
 Start server for opening file/folder from emacsclient.
 #+begin_src emacs-lisp
