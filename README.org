@@ -19,6 +19,11 @@ So this is the ultimate Text Editor for lifetime, if it looks good to you, welco
 cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
 #+END_SRC
 * Configuration
+Always ensure the package is installed.
+#+begin_src emacs-lisp
+(setq use-package-always-ensure t)
+#+end_src
+
 ** UI
 *** Widgets
 Disable toolbar items.
@@ -35,7 +40,6 @@ Disable toolbar items.
 *** Color Theme
 #+begin_src emacs-lisp
 (use-package idea-darkula-theme
-    :ensure t
     :config)
 #+end_src
 
@@ -56,7 +60,6 @@ Set titlebar appearance to transparent and dark.
 Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
 #+begin_src emacs-lisp
 (use-package evil
-  :ensure t
   :init
   (setq evil-want-keybinding nil)
   :config
@@ -66,7 +69,6 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
 Install evil-collection, which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-collection
-  :ensure t
   :after evil
   :config
   (setq evil-collection-mode-list
@@ -78,7 +80,6 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-surround
   :after evil
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 #+end_src
@@ -86,7 +87,6 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
 Use magit as git interface.
 #+begin_src emacs-lisp
 (use-package magit
-  :ensure t
   :config
 (setq magit-diff-refine-hunk t))
 #+end_src
@@ -95,7 +95,6 @@ Use magit as git interface.
 Show changes in the left margin.
 #+begin_src emacs-lisp
 (use-package git-gutter
-  :ensure t
   :config
   (global-git-gutter-mode 't))
 #+end_src
