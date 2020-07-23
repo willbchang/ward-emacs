@@ -31,6 +31,12 @@ Disable toolbar items.
 (tool-bar-mode 0)
 #+end_src
 
+*** Modeline
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+#+end_src
+
 *** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
