@@ -168,6 +168,11 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
 ** Window Management
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
