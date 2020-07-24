@@ -46,6 +46,20 @@ Disable toolbar items.
   :init (doom-modeline-mode 1))
 #+end_src
 
+*** Tab Bar
+#+begin_src emacs-lisp
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-style "bar")
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-height 32)
+  :bind
+  ("M-s-<left>" . centaur-tabs-backward)
+  ("M-s-<right>" . centaur-tabs-forward))
+#+end_src
+
 *** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
