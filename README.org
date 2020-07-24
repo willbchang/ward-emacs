@@ -21,6 +21,7 @@ cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
 * Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
+(require 'use-package-ensure)
 (setq use-package-always-ensure t)
 #+end_src
 
