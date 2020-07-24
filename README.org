@@ -55,6 +55,7 @@ Disable toolbar items.
   (setq centaur-tabs-style "bar")
   (setq centaur-tabs-set-icons t)
   (setq centaur-tabs-height 32)
+  (setq centaur-tabs-gray-out-icons 'buffer)
   :bind
   ("M-s-<left>" . centaur-tabs-backward)
   ("M-s-<right>" . centaur-tabs-forward))
