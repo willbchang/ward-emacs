@@ -19,6 +19,7 @@ So this is the ultimate Text Editor for lifetime, if it looks good to you, welco
 cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
 #+END_SRC
 * Configuration
+** Pre-Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
 (require 'use-package-ensure)
@@ -34,16 +35,11 @@ Always compile packages, and use the newest version available.
 #+end_src
 
 ** UI
-*** Widgets
-Disable toolbar items.
+*** Title Bar
+*** Tool Bar
+Disable toolbar.
 #+begin_src emacs-lisp
 (tool-bar-mode 0)
-#+end_src
-
-*** Modeline
-#+begin_src emacs-lisp
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
 #+end_src
 
 *** Tab Bar
@@ -59,6 +55,14 @@ Disable toolbar items.
   :bind
   ("M-s-<left>" . centaur-tabs-backward)
   ("M-s-<right>" . centaur-tabs-forward))
+#+end_src
+
+*** Side Bar
+*** Scroll Bar
+*** Status Bar
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
 #+end_src
 
 *** Font
@@ -84,52 +88,10 @@ Set titlebar appearance to transparent and dark.
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+end_src
 
-** Extensions
-   TODO: Ivy or Helm
-*** Evil Mode
-Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
-#+begin_src emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-#+end_src
-
-Install evil-collection, which provides evil-friendly bindings for many modes.
-#+begin_src emacs-lisp
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list
-        '(dired magit))
-  (evil-collection-init))
-#+end_src
-
-=evil-surround= makes surround text with paired symbols easily.
-#+begin_src emacs-lisp
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-#+end_src
-*** Magit
-Use magit as git interface.
-#+begin_src emacs-lisp
-(use-package magit
-  :config
-(setq magit-diff-refine-hunk t))
-#+end_src
-
-*** Git Gutter
-Show changes in the left margin.
-#+begin_src emacs-lisp
-(use-package git-gutter
-  :config
-  (global-git-gutter-mode 't))
-#+end_src
-
 ** Text Editing
+*** Moving Cursor
+*** Selecting Text
+*** Editing Text
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
 - =Command + ↓=: move to the bottom of the file.
@@ -198,11 +160,13 @@ Auto pair brackets, quotes etc.
 #+end_src
 
 ** Window Management
+*** Resize Window
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
 #+end_src
 
+*** Create/Close Window/Buffer
 =Command + N=: Create new window, default with org-mode and evil-mode
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
@@ -231,6 +195,9 @@ TODO: Make the buffers independent in each frame.
 #+end_src
 
 ** Behaviors
+*** Display Contents
+*** Sounds
+*** Buffers
 Save/Restore opened files and windows configuration.
 #+begin_src emacs-lisp
 (desktop-save-mode 1)
@@ -295,6 +262,7 @@ Revert (update) buffers automatically when underlying files are changed external
 #+begin_src emacs-lisp
 (global-auto-revert-mode t)
 #+end_src
+** Remap Shortcuts
 ** Server & Proxy
 Start server for opening file/folder from emacsclient.
 #+begin_src emacs-lisp
@@ -307,6 +275,51 @@ Set http(s) proxy for Emacs, for VPN users.
                           ("http" . "127.0.0.1:1087")
                           ("https" . "127.0.0.1:1087")
                           ))
+#+end_src
+
+** Extensions
+   TODO: Ivy or Helm
+*** Evil Mode
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
+
+Install evil-collection, which provides evil-friendly bindings for many modes.
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list
+        '(dired magit))
+  (evil-collection-init))
+#+end_src
+
+=evil-surround= makes surround text with paired symbols easily.
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+*** Magit
+Use magit as git interface.
+#+begin_src emacs-lisp
+(use-package magit
+  :config
+(setq magit-diff-refine-hunk t))
+#+end_src
+
+*** Git Gutter
+Show changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode 't))
 #+end_src
 
 * Credit
