@@ -298,11 +298,16 @@ Update all window when Emacs focus in.
 #+end_src
 
 ** Remap Shortcuts
-*** Unset Shorctus
 *** Rebind Shorcuts
 Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+#+end_src
+
+*** Unset Shorctus
+Unset =Command + K== for kill buffer.
+#+begin_src emacs-lisp
+(global-unset-key (kbd "s-k"))
 #+end_src
 
 ** Sounds
@@ -321,8 +326,7 @@ Set http(s) proxy for Emacs, for VPN users.
 #+begin_src emacs-lisp
 (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
                           ("http" . "127.0.0.1:1087")
-                          ("https" . "127.0.0.1:1087")
-                          ))
+                          ("https" . "127.0.0.1:1087")))
 #+end_src
 
 * Credit
