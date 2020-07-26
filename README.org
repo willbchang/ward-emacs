@@ -64,13 +64,6 @@ Disable toolbar.
 #+end_src
 
 *** Side Bar
-*** Side Margin
-Show changes in the left margin.
-#+begin_src emacs-lisp
-(use-package git-gutter
-  :config
-  (global-git-gutter-mode 't))
-#+end_src
 *** Scroll Bar
 *** Status Bar
 #+begin_src emacs-lisp
@@ -289,6 +282,13 @@ Use magit as git interface.
 (use-package magit
   :config
 (setq magit-diff-refine-hunk t))
+#+end_src
+
+Show file changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode 't))
 #+end_src
 
 Update all window when Emacs focus in.
