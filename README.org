@@ -88,6 +88,21 @@ Set cursor color to pink.
                     :font "Inconsolata-18")
 #+end_src
 
+*** Behavior
+Highlight urls and make them clickable.
+#+begin_src emacs-lisp
+(goto-address-mode 1)
+#+end_src
+
+Highlight paired brackets, includes (), [], {} and so on...
+#+begin_src emacs-lisp
+(show-paren-mode 1)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#f7d451")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+#+end_src
+
 ** Text Editing
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
@@ -157,6 +172,47 @@ Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
 (electric-pair-mode 1)
 #+end_src
+*** Behavior
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
+
+** File
+Disable startup screen.
+#+begin_src emacs-lisp
+(setq inhibit-startup-screen t)
+#+end_src
+
+Empty scratch file on init.
+#+begin_src emacs-lisp
+(setq initial-scratch-message nil)
+#+end_src
+
+Save cursor position for each file.
+#+begin_src emacs-lisp
+(save-place-mode t)
+#+end_src
+
+Save/Restore opened files and windows configuration.
+#+begin_src emacs-lisp
+(desktop-save-mode 1)
+#+end_src
+
+Save files automatically.
+#+begin_src emacs-lisp
+(auto-save-visited-mode 1)
+#+end_src
+
+Revert (update) buffers automatically when underlying files are changed externally.
+#+begin_src emacs-lisp
+(global-auto-revert-mode t)
+#+end_src
 
 ** Window Management
 *** Resize Window
@@ -192,76 +248,12 @@ TODO: Make the buffers independent in each frame.
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
 #+end_src
-
-** Behaviors
-*** Display Contents
-*** Sounds
-*** Buffers
-Save/Restore opened files and windows configuration.
-#+begin_src emacs-lisp
-(desktop-save-mode 1)
-#+end_src
-
+** Remap Shortcuts
 Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 #+end_src
 
-Save files automatically.
-#+begin_src emacs-lisp
-(auto-save-visited-mode 1)
-#+end_src
-
-Disable startup screen.
-#+begin_src emacs-lisp
-(setq inhibit-startup-screen t)
-#+end_src
-
-Empty scratch file on init.
-#+begin_src emacs-lisp
-(setq initial-scratch-message nil)
-#+end_src
-
-Save cursor position for each file.
-#+begin_src emacs-lisp
-(save-place-mode t)
-#+end_src
-
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Highlight urls and make them clickable
-#+begin_src emacs-lisp
-(goto-address-mode 1)
-#+end_src
-
-Highlight paired brackets, includes (), [], {} and so on...
-#+begin_src emacs-lisp
-(show-paren-mode 1)
-(require 'paren)
-(set-face-background 'show-paren-match (face-background 'default))
-(set-face-foreground 'show-paren-match "#f7d451")
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-#+end_src
-
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
-
-Disable the ring bell when scroll beyond the document.
-#+begin_src emacs-lisp
-(setq ring-bell-function 'ignore)
-#+end_src
-
-Revert (update) buffers automatically when underlying files are changed externally.
-#+begin_src emacs-lisp
-(global-auto-revert-mode t)
-#+end_src
-** Remap Shortcuts
 ** Server & Proxy
 Start server for opening file/folder from emacsclient.
 #+begin_src emacs-lisp
@@ -274,6 +266,12 @@ Set http(s) proxy for Emacs, for VPN users.
                           ("http" . "127.0.0.1:1087")
                           ("https" . "127.0.0.1:1087")
                           ))
+#+end_src
+
+** Sounds
+Disable the ring bell when scroll beyond the document.
+#+begin_src emacs-lisp
+(setq ring-bell-function 'ignore)
 #+end_src
 
 ** Extensions
