@@ -169,6 +169,14 @@ Revert (update) buffers automatically when underlying files are changed external
 (global-auto-revert-mode t)
 #+end_src
 
+Display relative line numbers on text mode and code mode.
+#+begin_src emacs-lisp
+(setq-default display-line-numbers-type 'visual
+              display-line-numbers-current-absolute t)
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+#+end_src
+
 ** Text Editing
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
