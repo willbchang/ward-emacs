@@ -90,8 +90,6 @@ Set cursor color to pink.
 
 ** Text Editing
 *** Moving Cursor
-*** Selecting Text
-*** Editing Text
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
 - =Command + ↓=: move to the bottom of the file.
@@ -104,6 +102,8 @@ Make =Command + ArrowKey= behaves like MacOS app.
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 #+end_src
 
+*** Selecting Text
+*** Editing Text
 =Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
@@ -124,7 +124,6 @@ Make =Command + ArrowKey= behaves like MacOS app.
 TODO: Enable shift selection
 TODO: Highlight FIXME/TODO/BUG
 TODO: Auto Save mode
-TODO: Pair Brackets Mode
 #+begin_src emacs-lisp
   ;; (setg org-support-shift-select t)
   ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
