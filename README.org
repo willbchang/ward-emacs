@@ -176,6 +176,16 @@ Revert (update) buffers automatically when underlying files are changed external
 (global-auto-revert-mode t)
 #+end_src
 
+Revert buffer without confirm when buffer focus in.
+/This fixes git gutter cannot update git status when committing outside the Emacs/
+#+begin_src emacs-lisp
+(add-hook 'focus-in-hook 'revert-buffer-no-confirm)
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+#+end_src
+
 ** Text Editing
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
