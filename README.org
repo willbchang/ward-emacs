@@ -248,54 +248,6 @@ Delete trailing whitespace on saving a buffer.
 #+begin_src emacs-lisp
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
-*** Vim Emulator
-Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
-#+begin_src emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-#+end_src
-
-Install evil-collection, which provides evil-friendly bindings for many modes.
-#+begin_src emacs-lisp
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list
-        '(dired magit))
-  (evil-collection-init))
-#+end_src
-
-=evil-surround= makes surround text with paired symbols easily.
-#+begin_src emacs-lisp
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-#+end_src
-
-** Git Interface
-Use magit as git interface.
-#+begin_src emacs-lisp
-(use-package magit
-  :config
-(setq magit-diff-refine-hunk t))
-#+end_src
-
-Show file changes in the left margin.
-#+begin_src emacs-lisp
-(use-package git-gutter
-  :config
-  (global-git-gutter-mode 't))
-#+end_src
-
-Update all window when Emacs focus in.
-/This fixes git gutter cannot update the file status after committing outside of Emacs./
-#+begin_src emacs-lisp
-(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
-#+end_src
 
 ** Remap Shortcuts
 *** Rebind Shorcuts
@@ -327,6 +279,55 @@ Set http(s) proxy for Emacs, for VPN users.
 (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
                           ("http" . "127.0.0.1:1087")
                           ("https" . "127.0.0.1:1087")))
+#+end_src
+
+** Extensions
+*** Vim Emulator
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
+
+Install evil-collection, which provides evil-friendly bindings for many modes.
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list
+        '(dired magit))
+  (evil-collection-init))
+#+end_src
+
+=evil-surround= makes surround text with paired symbols easily.
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+*** Git Interface
+Use magit as git interface.
+#+begin_src emacs-lisp
+(use-package magit
+  :config
+(setq magit-diff-refine-hunk t))
+#+end_src
+
+Show file changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode 't))
+#+end_src
+
+Update all window when Emacs focus in.
+/This fixes git gutter cannot update the file status after committing outside of Emacs./
+#+begin_src emacs-lisp
+(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 #+end_src
 
 * Credit
