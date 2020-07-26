@@ -64,6 +64,13 @@ Disable toolbar.
 #+end_src
 
 *** Side Bar
+*** Side Margin
+Show changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode 't))
+#+end_src
 *** Scroll Bar
 *** Status Bar
 #+begin_src emacs-lisp
@@ -101,6 +108,72 @@ Highlight paired brackets, includes (), [], {} and so on...
 (set-face-background 'show-paren-match (face-background 'default))
 (set-face-foreground 'show-paren-match "#f7d451")
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+#+end_src
+
+** Window Management
+*** Resize Window
+=Ctrl + Command + F=: Set window full screen.
+#+begin_src emacs-lisp
+(global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
+#+end_src
+
+*** Create/Close Window/Buffer
+=Command + N=: Create new window, default with org-mode and evil-mode
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-n") 'new-empty-frame)
+#+end_src
+
+=Command + W=: Close current buffer.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+#+end_src
+
+=Shift + Command + W=: Close current window.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-W") 'delete-frame)
+#+end_src
+
+TODO: Make the buffers independent in each frame.
+#+begin_src emacs-lisp
+(defun new-empty-frame ()
+  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer buffer)
+    (org-mode)
+    (evil-mode 1)
+    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
+#+end_src
+
+** File
+Disable startup screen.
+#+begin_src emacs-lisp
+(setq inhibit-startup-screen t)
+#+end_src
+
+Empty scratch file on init.
+#+begin_src emacs-lisp
+(setq initial-scratch-message nil)
+#+end_src
+
+Save cursor position for each file.
+#+begin_src emacs-lisp
+(save-place-mode t)
+#+end_src
+
+Save/Restore opened files and windows configuration.
+#+begin_src emacs-lisp
+(desktop-save-mode 1)
+#+end_src
+
+Save files automatically.
+#+begin_src emacs-lisp
+(auto-save-visited-mode 1)
+#+end_src
+
+Revert (update) buffers automatically when underlying files are changed externally.
+#+begin_src emacs-lisp
+(global-auto-revert-mode t)
 #+end_src
 
 ** Text Editing
@@ -182,102 +255,8 @@ Delete trailing whitespace on saving a buffer.
 #+begin_src emacs-lisp
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
-
-** File
-Disable startup screen.
-#+begin_src emacs-lisp
-(setq inhibit-startup-screen t)
-#+end_src
-
-Empty scratch file on init.
-#+begin_src emacs-lisp
-(setq initial-scratch-message nil)
-#+end_src
-
-Save cursor position for each file.
-#+begin_src emacs-lisp
-(save-place-mode t)
-#+end_src
-
-Save/Restore opened files and windows configuration.
-#+begin_src emacs-lisp
-(desktop-save-mode 1)
-#+end_src
-
-Save files automatically.
-#+begin_src emacs-lisp
-(auto-save-visited-mode 1)
-#+end_src
-
-Revert (update) buffers automatically when underlying files are changed externally.
-#+begin_src emacs-lisp
-(global-auto-revert-mode t)
-#+end_src
-
-** Window Management
-*** Resize Window
-=Ctrl + Command + F=: Set window full screen.
-#+begin_src emacs-lisp
-(global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
-#+end_src
-
-*** Create/Close Window/Buffer
-=Command + N=: Create new window, default with org-mode and evil-mode
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-n") 'new-empty-frame)
-#+end_src
-
-=Command + W=: Close current buffer.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-w") 'kill-this-buffer)
-#+end_src
-
-=Shift + Command + W=: Close current window.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-W") 'delete-frame)
-#+end_src
-
-TODO: Make the buffers independent in each frame.
-#+begin_src emacs-lisp
-(defun new-empty-frame ()
-  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
-  (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (set-buffer buffer)
-    (org-mode)
-    (evil-mode 1)
-    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-** Remap Shortcuts
-Cancel partially typed or accidental command.
-#+begin_src emacs-lisp
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-#+end_src
-
-** Server & Proxy
-Start server for opening file/folder from emacsclient.
-#+begin_src emacs-lisp
-(server-start)
-#+end_src
-
-Set http(s) proxy for Emacs, for VPN users.
-#+begin_src emacs-lisp
-(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                          ("http" . "127.0.0.1:1087")
-                          ("https" . "127.0.0.1:1087")
-                          ))
-#+end_src
-
-** Sounds
-Disable the ring bell when scroll beyond the document.
-#+begin_src emacs-lisp
-(setq ring-bell-function 'ignore)
-#+end_src
-
-** Extensions
-   TODO: Ivy or Helm
-*** Evil Mode
-Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
+*** Vim Emulator
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
   :init
@@ -303,7 +282,8 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   :config
   (global-evil-surround-mode 1))
 #+end_src
-*** Magit
+
+** Git Interface
 Use magit as git interface.
 #+begin_src emacs-lisp
 (use-package magit
@@ -311,12 +291,30 @@ Use magit as git interface.
 (setq magit-diff-refine-hunk t))
 #+end_src
 
-*** Git Gutter
-Show changes in the left margin.
+** Remapped Shortcuts
+Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
-(use-package git-gutter
-  :config
-  (global-git-gutter-mode 't))
+(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+#+end_src
+
+** Sounds
+Disable the ring bell when scroll beyond the document.
+#+begin_src emacs-lisp
+(setq ring-bell-function 'ignore)
+#+end_src
+
+** Server & Proxy
+Start server for opening file/folder from emacsclient.
+#+begin_src emacs-lisp
+(server-start)
+#+end_src
+
+Set http(s) proxy for Emacs, for VPN users.
+#+begin_src emacs-lisp
+(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                          ("http" . "127.0.0.1:1087")
+                          ("https" . "127.0.0.1:1087")
+                          ))
 #+end_src
 
 * Credit
