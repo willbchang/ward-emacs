@@ -282,7 +282,7 @@ Set http(s) proxy for Emacs, for VPN users.
 #+end_src
 
 ** Extensions
-*** Vim Emulator
+*** Evil Mode
 Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
@@ -309,7 +309,8 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   :config
   (global-evil-surround-mode 1))
 #+end_src
-*** Git Interface
+
+*** Magit
 Use magit as git interface.
 #+begin_src emacs-lisp
 (use-package magit
@@ -317,6 +318,7 @@ Use magit as git interface.
 (setq magit-diff-refine-hunk t))
 #+end_src
 
+*** Git Gutter
 Show file changes in the left margin.
 #+begin_src emacs-lisp
 (use-package git-gutter
