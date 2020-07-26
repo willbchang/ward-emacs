@@ -297,7 +297,9 @@ Update all window when Emacs focus in.
 (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 #+end_src
 
-** Remapped Shortcuts
+** Remap Shortcuts
+*** Unset Shorctus
+*** Rebind Shorcuts
 Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
