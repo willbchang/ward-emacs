@@ -36,6 +36,12 @@ Always compile packages, and use the newest version available.
 
 ** UI
 *** Title Bar
+Set titlebar appearance to transparent and dark.
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+#+end_src
+
 *** Tool Bar
 Disable toolbar.
 #+begin_src emacs-lisp
@@ -65,12 +71,6 @@ Disable toolbar.
   :init (doom-modeline-mode 1))
 #+end_src
 
-*** Font
-#+begin_src emacs-lisp
-(set-face-attribute 'default nil
-                    :font "Inconsolata-18")
-#+end_src
-
 *** Color Theme
 #+begin_src emacs-lisp
 (use-package idea-darkula-theme
@@ -82,10 +82,10 @@ Set cursor color to pink.
 (set-cursor-color "#e2416c")
 #+end_src
 
-Set titlebar appearance to transparent and dark.
+*** Font
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(set-face-attribute 'default nil
+                    :font "Inconsolata-18")
 #+end_src
 
 ** Text Editing
