@@ -70,6 +70,7 @@ Disable toolbar.
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 (setq doom-modeline-buffer-encoding nil)
+(setq doom-modeline-indent-info t)
 #+end_src
 
 *** Color Theme
