@@ -83,6 +83,11 @@ Disable toolbar.
 Set cursor color to pink.
 #+begin_src emacs-lisp
 (set-cursor-color "#e2416c")
+(add-hook 'after-make-frame-functions 'set-cursor-hook)
+
+(defun set-cursor-hook (frame)
+(modify-frame-parameters
+  frame (list (cons 'cursor-color "#e2416c"))))
 #+end_src
 
 *** Font
