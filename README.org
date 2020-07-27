@@ -69,6 +69,7 @@ Disable toolbar.
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
+(setq doom-modeline-buffer-encoding nil)
 #+end_src
 
 *** Color Theme
