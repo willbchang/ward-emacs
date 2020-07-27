@@ -71,6 +71,7 @@ Disable toolbar.
   :init (doom-modeline-mode 1))
 (setq doom-modeline-buffer-encoding nil)
 (setq doom-modeline-indent-info t)
+(setq column-number-mode t)
 #+end_src
 
 *** Color Theme
