@@ -63,12 +63,6 @@ Disable toolbar.
   :bind
   ("M-s-<left>" . centaur-tabs-backward)
   ("M-s-<right>" . centaur-tabs-forward))
-
-(dolist (centaur-face '(centaur-tabs-selected
-	  centaur-tabs-selected-modified
-	  centaur-tabs-unselected
-	  centaur-tabs-unselected-modified))
-  (set-face-attribute centaur-face nil :weight 'normal))
 #+end_src
 
 *** Side Bar
