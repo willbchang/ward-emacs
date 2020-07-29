@@ -74,6 +74,14 @@ Disable toolbar.
 (setq doom-modeline-buffer-encoding nil)
 (setq doom-modeline-indent-info t)
 (setq column-number-mode t)
+(dolist (modeline-face '(
+      doom-modeline-buffer-path
+      doom-modeline-buffer-file
+      doom-modeline-project-dir
+      doom-modeline-buffer-modified
+      doom-modeline-buffer-major-mode
+      doom-modeline-info))
+  (set-face-attribute modeline-face nil :weight 'normal))
 #+end_src
 
 *** Color Theme
