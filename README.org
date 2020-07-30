@@ -164,6 +164,11 @@ TODO: Make the buffers independent in each frame.
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
 #+end_src
 
+*** Behavior
+When you double-click on a file in the Mac Finder open it as a buffer in the existing Emacs frame, rather than creating a new frame just for that file.
+#+begin_src emacs-lisp
+(setq ns-pop-up-frames nil)
+#+end_src
 ** File
 Disable startup screen.
 #+begin_src emacs-lisp
