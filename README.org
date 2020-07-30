@@ -106,6 +106,14 @@ Set cursor color to pink.
                     :font "Inconsolata-18")
 #+end_src
 
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-0") 'reset-font-size)
+
+(defun reset-font-size ()
+  (interactive)
+  (text-scale-set 0))
+#+end_src
+
 *** Behavior
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
