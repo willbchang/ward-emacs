@@ -283,6 +283,10 @@ Delete trailing whitespace on saving a buffer.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
 
+Treat CamelCaseSubWords as separate words in programming mode.
+#+begin_src emacs-lisp
+(add-hook 'prog-mode-hook 'subword-mode)
+#+end_src
 ** Remap Shortcuts
 *** Rebind Shorcuts
 Cancel partially typed or accidental command.
