@@ -293,6 +293,13 @@ Treat CamelCaseSubWords as separate words in programming mode.
 #+begin_src emacs-lisp
 (add-hook 'prog-mode-hook 'subword-mode)
 #+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
 ** Remap Shortcuts
 *** Rebind Shorcuts
 Cancel partially typed or accidental command.
