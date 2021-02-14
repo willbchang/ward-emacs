@@ -67,6 +67,9 @@ Disable toolbar.
 
 *** Side Bar
 *** Scroll Bar
+#+begin_src emacs-lisp
+(scroll-bar-mode 0)
+#+end_src
 *** Status Bar
 #+begin_src emacs-lisp
 (use-package doom-modeline
