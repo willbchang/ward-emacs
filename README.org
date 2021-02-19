@@ -36,6 +36,14 @@ Always compile packages, and use the newest version available.
 
 ** UI
 *** Title Bar
+Show full path in title bar.
+#+begin_src emacs-lisp
+(setq frame-title-format
+    '(:eval
+       (if buffer-file-name
+           (abbreviate-file-name buffer-file-name)
+           "%b")))
+#+end_src
 *** Tool Bar
 Disable toolbar.
 #+begin_src emacs-lisp
