@@ -87,12 +87,7 @@ Disable toolbar.
   (set-face-attribute modeline-face nil :weight 'normal))
 #+end_src
 
-*** Color Theme
-#+begin_src emacs-lisp
-(use-package idea-darkula-theme
-    :config)
-#+end_src
-
+*** Cursor
 Set cursor color to pink.
 #+begin_src emacs-lisp
 (set-cursor-color "#e2416c")
