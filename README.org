@@ -364,6 +364,11 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (global-evil-surround-mode 1))
 #+end_src
 
+*** Org Mode
+Enable headline and subcontent in the indented view.
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+end_src
 *** Magit
 Use magit as git interface.
 #+begin_src emacs-lisp
