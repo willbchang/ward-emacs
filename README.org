@@ -106,7 +106,7 @@ Set cursor color to pink.
 *** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-                    :font "Inconsolata-18")
+                    :font "SF Mono-18")
 #+end_src
 
 #+begin_src emacs-lisp
