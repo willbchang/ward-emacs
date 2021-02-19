@@ -396,7 +396,8 @@ Prettify headings and plain lists in Org mode.
 #+begin_src emacs-lisp
 (use-package org-superstar
   :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  (setq org-hide-leading-stars t))
 #+end_src
 
 * Credit
