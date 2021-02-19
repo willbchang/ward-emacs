@@ -36,12 +36,6 @@ Always compile packages, and use the newest version available.
 
 ** UI
 *** Title Bar
-Set titlebar appearance to transparent and dark.
-#+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-#+end_src
-
 *** Tool Bar
 Disable toolbar.
 #+begin_src emacs-lisp
