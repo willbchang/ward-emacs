@@ -74,6 +74,16 @@ Disable toolbar.
   (set-face-attribute modeline-face nil :weight 'normal))
 #+end_src
 
+Hide file icon and file name.
+#+begin_src emacs-lisp
+(doom-modeline-def-segment buffer-info
+  "buffer info segment."
+  "")
+(doom-modeline-def-segment buffer-info-simple
+  "simple buffer info segment."
+  "")
+#+end_src
+
 *** Cursor
 Set cursor color to pink.
 #+begin_src emacs-lisp
