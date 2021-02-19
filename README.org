@@ -84,6 +84,10 @@ Hide file icon and file name.
   "")
 #+end_src
 
+Count column number from 1 instead of 0.
+#+begin_src emacs-lisp
+(setq column-number-indicator-zero-based nil)
+#+end_src
 *** Cursor
 Set cursor color to pink.
 #+begin_src emacs-lisp
