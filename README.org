@@ -402,6 +402,14 @@ Change org headline styles.
 (setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
 #+end_src
 
+Change org unordered list styles.
+#+begin_src emacs-lisp
+(setq org-superstar-prettify-item-bullets t)
+(setq org-superstar-item-bullet-alist '((?* . ?•)
+                                        (?+ . ?•)
+                                        (?- . ?•)))
+#+end_src
+
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
