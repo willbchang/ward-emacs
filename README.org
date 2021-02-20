@@ -15,8 +15,9 @@ So this is the ultimate Text Editor for lifetime, if it looks good to you, welco
 - You'd better learn Vim before trying this.
 
 * Installation
+Install to =XDG_CONFIG_HOME=.
 #+BEGIN_SRC bash
-cd ~; git clone https://github.com/willbchang/emacs.d.git .emacs.d
+git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 #+END_SRC
 * Configuration
 ** Pre-Configuration
