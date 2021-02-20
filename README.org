@@ -134,7 +134,7 @@ Highlight paired brackets, includes (), [], {} and so on...
 *** Resize Window
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
-(global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 #+end_src
 
 *** Create/Close Window/Buffer
