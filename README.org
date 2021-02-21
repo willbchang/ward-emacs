@@ -89,17 +89,6 @@ Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
 #+end_src
-*** Cursor
-Set cursor color to pink.
-#+begin_src emacs-lisp
-(set-cursor-color "#e2416c")
-(add-hook 'after-make-frame-functions 'set-cursor-hook)
-
-(defun set-cursor-hook (frame)
-(modify-frame-parameters
-  frame (list (cons 'cursor-color "#e2416c"))))
-#+end_src
-
 *** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
@@ -341,6 +330,16 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
   (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
+#+end_src
+
+Set Evil cursor color and styles in different situations.
+You can try these commands to test the effects: =Esc, i, v, d, r=
+#+begin_src emacs-lisp
+(setq evil-normal-state-cursor '(box "#e2416c")
+      evil-insert-state-cursor '(bar "#e2416c")
+      evil-visual-state-cursor '(hollow "#e2416c")
+      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
+      evil-replace-state-cursor '(hbar "#e2416c"))
 #+end_src
 
 Install evil-collection, which provides evil-friendly bindings for many modes.
