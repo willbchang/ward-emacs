@@ -362,6 +362,11 @@ Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+end_src
+
+Hide emphasis makers.
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
 *** Magit
 Use magit as git interface.
 #+begin_src emacs-lisp
