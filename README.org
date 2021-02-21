@@ -28,6 +28,20 @@ git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 # 8. [[https://github.com/akermu/emacs-libvterm][vterm]]
 # 9. reorder configuration
 # 10. markdown, json with formatter
+# 11. snails? ivy?
+# 12. company for elisp, especially for completion emacs functions/variables
+# 13. multiple cursor
+# 14. change input source smartly
+# 15. org render code block with hiding begin & end
+# 16. org valign
+# 17. org latex
+# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
+# 19. Smooth scrolling over images in Emacs
+# 20. Preview equations live in org-mode
+# 21. System-wide popup Emacs windows for quick edits
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
+# 23. org roam
+# 24. org shift selection, alt move up down
 ** Pre-Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
