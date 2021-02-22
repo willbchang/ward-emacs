@@ -436,6 +436,11 @@ Update all window when Emacs focus in.
 (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 #+end_src
 
+*** Vterm
+[[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
+#+begin_src emacs-lisp
+(use-package vterm)
+#+end_src
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
