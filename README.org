@@ -437,6 +437,13 @@ Update all window when Emacs focus in.
 #+end_src
 
 *** Vterm
+[[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
+#+begin_src emacs-lisp
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+#+end_src
+
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
