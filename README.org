@@ -387,6 +387,13 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (global-evil-surround-mode 1))
 #+end_src
 
+Unbind =return= key in for using it to open link in org mode.
+#+begin_src emacs-lisp
+(with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil)
+  )
+#+end_src
+
 *** Org Mode
 Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
@@ -397,6 +404,7 @@ Hide emphasis makers.
 #+begin_src emacs-lisp
 (setq org-hide-emphasis-markers t)
 #+end_src
+
 *** Org Superstar
 Prettify headings and plain lists in Org mode.
 #+begin_src emacs-lisp
