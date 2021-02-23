@@ -212,6 +212,11 @@ Save files automatically.
 (auto-save-visited-mode 1)
 #+end_src
 
+Ensure files end with newline.
+#+begin_src emacs-lisp
+(setq require-final-newline t)
+#+end_src
+
 Revert (update) buffers automatically when underlying files are changed externally.
 #+begin_src emacs-lisp
 (global-auto-revert-mode t)
