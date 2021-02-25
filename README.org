@@ -186,6 +186,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 #+begin_src emacs-lisp
 (setq ns-pop-up-frames nil)
 #+end_src
+
 ** File
 Disable startup screen.
 #+begin_src emacs-lisp
@@ -432,6 +433,15 @@ Change org unordered list styles.
                                         (?- . ?•)))
 #+end_src
 
+*** Markdown
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
 *** Magit
 Use magit as git interface.
 #+begin_src emacs-lisp
