@@ -466,6 +466,11 @@ Update all window when Emacs focus in.
 #+begin_src emacs-lisp
 (use-package vterm)
 #+end_src
+** Interaction
+Ask =y= or =n= instead of =yes= or =no=.
+#+begin_src sh
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
