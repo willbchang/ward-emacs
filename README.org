@@ -126,6 +126,10 @@ Count column number from 1 instead of 0.
   (text-scale-set 0))
 #+end_src
 
+Use macOS's default font for Chinese characters.
+#+begin_src emacs-lisp
+(set-fontset-font "fontset-default" 'han '("STHeiti"))
+#+end_src
 *** Behavior
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
