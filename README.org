@@ -18,16 +18,13 @@ git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 #+END_SRC
 * Configuration
 # Todo
-# 1. [[https://gitlab.com/ideasman42/emacs-undo-fu][undo-fu]], undo-fu-session
 # 2. Absolute line number in Insert mode
-# 3. Word wrap
 # 4. Better modeline
 # 5. y or n for yes or no
 # 6. default with org mode
 # 7. macos like shortcuts
-# 8. [[https://github.com/akermu/emacs-libvterm][vterm]]
 # 9. reorder configuration
-# 10. markdown, json with formatter
+# 10. json with formatter
 # 11. snails? ivy?
 # 12. company for elisp, especially for completion emacs functions/variables
 # 13. multiple cursor
