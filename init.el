@@ -1,3 +1,8 @@
+;; Set http(s) proxy for Emacs, for VPN users.
+(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                          ("http" . "127.0.0.1:1087")
+                          ("https" . "127.0.0.1:1087")))
+
 ;; Configure package.el to include MELPA.
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)

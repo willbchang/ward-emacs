@@ -351,13 +351,6 @@ Start server for opening file/folder from emacsclient.
 (server-start)
 #+end_src
 
-Set http(s) proxy for Emacs, for VPN users.
-#+begin_src emacs-lisp
-(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                          ("http" . "127.0.0.1:1087")
-                          ("https" . "127.0.0.1:1087")))
-#+end_src
-
 ** Extensions
 *** Evil Mode
 Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
