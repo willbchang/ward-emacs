@@ -473,6 +473,20 @@ Update all window when Emacs focus in.
 #+begin_src emacs-lisp
 (use-package vterm)
 #+end_src
+
+*** Undo Fu
+[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
+#+begin_src emacs-lisp
+(use-package undo-fu
+  :config
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
+
+(global-unset-key (kbd "s-z"))
+(global-set-key (kbd "s-z")   'undo-fu-only-undo)
+(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
+#+end_src
+
 ** Interaction
 Ask =y= or =n= instead of =yes= or =no=.
 #+begin_src sh
