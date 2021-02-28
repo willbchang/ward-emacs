@@ -64,6 +64,12 @@ Show full path in title bar.
            (abbreviate-file-name buffer-file-name)
            "%b")))
 #+end_src
+
+Make title bar transparent and focuses on dark mode.
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+#+end_src
 *** Tool Bar
 Disable toolbar.
 #+begin_src emacs-lisp
