@@ -277,11 +277,11 @@ Make =Command + ArrowKey= behaves like MacOS app.
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 #+end_src
 
-TODO: Enable shift selection
 TODO: Highlight FIXME/TODO/BUG
 TODO: Auto Save mode
+Enable shift selection.
 #+begin_src emacs-lisp
-  ;; (setg org-support-shift-select t)
+(setq org-support-shift-select t)
   ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
 #+end_src
 
