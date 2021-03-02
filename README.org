@@ -246,67 +246,14 @@ Display relative line numbers on text mode and code mode.
 
 ** Text Editing
 *** Moving Cursor
-Make =Command + ArrowKey= behaves like MacOS app.
-- =Command + ↑=: move to the top of the file.
-- =Command + ↓=: move to the bottom of the file.
-- =Command + ←=: move to the beginning of the line.
-- =Command + →=: move to the end of the line.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "s-<down>") 'end-of-buffer)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
-(global-set-key (kbd "s-<left>") 'move-beginning-of-line)
-#+end_src
-
 *** Selecting Text
 *** Editing Text
-=Command + Backspace=: Delete current line from cursor to the beginning
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
-#+end_src
-
-=Command + Shift + Backspace=: Delete whole line entirely.\\
-/This is not the default behavior of MacOS, but I found it's useful./
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-#+end_src
-
-
-=Command + /=: Comment/Uncomment line(s).
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
-#+end_src
-
 TODO: Highlight FIXME/TODO/BUG
 TODO: Auto Save mode
 Enable shift selection.
 #+begin_src emacs-lisp
 (setq org-support-shift-select t)
   ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
-#+end_src
-
-#+begin_src emacs-lisp
-(defun backward-kill-line (arg)
-  "Kill ARG lines backward."
-  (interactive "p")
- (kill-line (- 1 arg)))
-#+end_src
-
-TODO:
-1. Comment on empty line, it adds (e.g.) and put the cursor behind
-2. Comment one line, it adds before and forward one line
-3. Comment on region, it add and move to the next line of the region
-4. Cannot uncomment inside org mode code block
-#+begin_src emacs-lisp
-(defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if
-there's no active region."
-  (interactive)
-  (let (beg end)
-    (if (region-active-p)
-        (setq beg (region-beginning) end (region-end))
-      (setq beg (line-beginning-position) end (line-end-position)))
-    (comment-or-uncomment-region beg end)))
 #+end_src
 
 Auto pair brackets, quotes etc.
@@ -484,6 +431,33 @@ Update all window when Emacs focus in.
 #+end_src
 
 *** Undo Fu
+
+** Interaction
+Ask =y= or =n= instead of =yes= or =no=.
+#+begin_src sh
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+** Text Editing
+| MacOS Keybindings        | Evil Keybindings | Features                          | Built in Status     |
+|--------------------------+------------------+-----------------------------------+---------------------|
+| ~Command + C~              | =y=                | Copy selected text                | Emacs               |
+| ~Command + V~              | =p=                | Paste text from clipboard         | Emacs               |
+| ~Command + X~              | =x=                | Cut selected text                 | Emacs               |
+| ~Command + Z~              | =u=                | Undo text change                  | Undo Fu             |
+| ~Command + Shift + Z~      | =Ctrl + R=         | Redo text change                  | Undo Fu             |
+| ~Command + A~              | =ggVG=             | Select all text                   | Emacs               |
+| ~Command + F~              | =/=                | Search text                       | Emacs               |
+| ~Command + ↑~              | =gg=               | Move to the top of the file.      | Customize           |
+| ~Command + ↓~              | =G=                | Move to the bottom of the file    | Customize           |
+| ~Command + ←~              | =0=                | Move to the beginning of the line | Customize           |
+| ~Command + →~              | =$=                | Move to the end of the line       | Customize           |
+| ~Command + L~              | =NUMBER + G=       | Go to line                        | Emacs               |
+| ~Option  + Delete~         | =db=               | Delete a word                     | Emacs               |
+| ~Command + Delete~         | =d0=               | Delete to line start              | Customize           |
+| ~Command + Shift + Delete~ | =dd=               | Delete entire line                | Customize(Personal) |
+| ~Command + /~              | =Command + /=      | Comment or uncomment line(s)      | Customize           |
+
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
@@ -505,11 +479,55 @@ Update all window when Emacs focus in.
 (global-undo-fu-session-mode)
 #+end_src
 
-** Interaction
-Ask =y= or =n= instead of =yes= or =no=.
-#+begin_src sh
-(fset 'yes-or-no-p 'y-or-n-p)
+Make =Command + ArrowKey= behaves like MacOS app.
+- =Command + ↑=: move to the top of the file.
+- =Command + ↓=: move to the bottom of the file.
+- =Command + ←=: move to the beginning of the line.
+- =Command + →=: move to the end of the line.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
+(global-set-key (kbd "s-<down>") 'end-of-buffer)
+(global-set-key (kbd "s-<right>") 'move-end-of-line)
+(global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 #+end_src
+
+=Command + Backspace=: Delete current line from cursor to the beginning
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
+
+(defun backward-kill-line (arg)
+  "Kill ARG lines backward."
+  (interactive "p")
+ (kill-line (- 1 arg)))
+#+end_src
+
+=Command + Shift + Backspace=: Delete whole line entirely.\\
+/This is not the default behavior of MacOS, but I found it's useful./
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
+#+end_src
+
+
+# TODO:
+# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
+# 2. Comment one line, it adds before and forward one line
+# 3. Comment on region, it add and move to the next line of the region
+# 4. Cannot uncomment inside org mode code block
+=Command + /=: Comment/Uncomment line(s).
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if
+there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)))
+#+end_src
+
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
