@@ -17,37 +17,6 @@ Install to =XDG_CONFIG_HOME=.
 git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 #+END_SRC
 * Configuration
-- UI
-- Buffer
-- Frame
-- Text Editing
-- Evil
-- Org
-- Magit
-- Terminal
-
-# Todo
-# 2. Absolute line number in Insert mode
-# 4. Better modeline
-# 5. y or n for yes or no
-# 6. default with org mode
-# 7. macos like shortcuts
-# 9. reorder configuration
-# 10. json with formatter
-# 11. snails? ivy?
-# 12. company for elisp, especially for completion emacs functions/variables
-# 13. multiple cursor
-# 14. change input source smartly
-# 15. org render code block with hiding begin & end
-# 16. org valign
-# 17. org latex
-# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
-# 19. Smooth scrolling over images in Emacs
-# 20. Preview equations live in org-mode
-# 21. System-wide popup Emacs windows for quick edits
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
-# 23. org roam
-# 24. org shift selection, alt move up down
 ** Pre-Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
@@ -64,6 +33,10 @@ Always compile packages, and use the newest version available.
 #+end_src
 
 ** UI
+# 4. Better modeline
+- Tool bar, Scroll bar are disabled
+- Tab bar and Side bar is not needed.
+- Mode line is another word for Status bar.
 *** Title Bar
 Show full path in title bar.
 #+begin_src emacs-lisp
@@ -85,9 +58,6 @@ Disable toolbar.
 (tool-bar-mode 0)
 #+end_src
 
-*** Tab Bar
-
-*** Side Bar
 *** Scroll Bar
 #+begin_src emacs-lisp
 (scroll-bar-mode 0)
@@ -168,48 +138,12 @@ Enable word wrap globally.
 (global-visual-line-mode 1)
 #+end_src
 
-** Window Management
-*** Resize Window
-=Ctrl + Command + F=: Set window full screen.
-#+begin_src emacs-lisp
-(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
-#+end_src
-
-*** Create/Close Window/Buffer
-=Command + N=: Create new window, default with org-mode and evil-mode
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-n") 'new-empty-frame)
-#+end_src
-
-=Command + W=: Close current buffer.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-w") 'kill-this-buffer)
-#+end_src
-
-=Shift + Command + W=: Close current window.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-W") 'delete-frame)
-#+end_src
-
-TODO: Make the buffers independent in each frame.
-#+begin_src emacs-lisp
-(defun new-empty-frame ()
-  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
-  (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (set-buffer buffer)
-    (org-mode)
-    (evil-mode 1)
-    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-
-*** Behavior
-When you double-click on a file in the Mac Finder open it as a buffer in the existing Emacs frame, rather than creating a new frame just for that file.
-#+begin_src emacs-lisp
-(setq ns-pop-up-frames nil)
-#+end_src
-
-** File
+** UX
+# 2. Absolute line number in Insert mode
+# 5. y or n for yes or no
+# 11. snails? ivy?
+# 14. change input source smartly
+# 21. System-wide popup Emacs windows for quick edits
 Disable startup screen.
 #+begin_src emacs-lisp
 (setq inhibit-startup-screen t)
@@ -253,145 +187,102 @@ Display relative line numbers on text mode and code mode.
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 #+end_src
 
-** Text Editing
-*** Moving Cursor
-*** Selecting Text
-*** Editing Text
-TODO: Highlight FIXME/TODO/BUG
-TODO: Auto Save mode
-Enable shift selection.
-#+begin_src emacs-lisp
-(setq org-support-shift-select t)
-  ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
-#+end_src
-
-Auto pair brackets, quotes etc.
-#+begin_src emacs-lisp
-(electric-pair-mode 1)
-#+end_src
-*** Behavior
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
-Treat CamelCaseSubWords as separate words in programming mode.
-#+begin_src emacs-lisp
-(add-hook 'prog-mode-hook 'subword-mode)
-#+end_src
-
-Indent with 2 space.
-#+begin_src emacs-lisp
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq indent-line-function 'insert-tab)
-#+end_src
-** Remap Shortcuts
-*** Rebind Shorcuts
 Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 #+end_src
 
-*** Unset Shorctus
-Unset =Command + K== for kill buffer.
-#+begin_src emacs-lisp
-(global-unset-key (kbd "s-k"))
-#+end_src
-
-** Sounds
-Disable the ring bell when scroll beyond the document.
-#+begin_src emacs-lisp
-(setq ring-bell-function 'ignore)
-#+end_src
-
-** Server & Proxy
-Start server for opening file/folder from emacsclient.
-#+begin_src emacs-lisp
-(server-start)
-#+end_src
-
-** Extensions
-*** Magit
-Use magit as git interface.
-#+begin_src emacs-lisp
-(use-package magit
-  :config
-(setq magit-diff-refine-hunk t))
-#+end_src
-
-*** Git Gutter
-Show file changes in the left margin.
-#+begin_src emacs-lisp
-(use-package git-gutter
-  :config
-  (global-git-gutter-mode 't))
-#+end_src
-
-Update all window when Emacs focus in.
-/This fixes git gutter cannot update the file status after committing outside of Emacs./
-#+begin_src emacs-lisp
-(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
-#+end_src
-
-*** Vterm
-[[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
-#+begin_src emacs-lisp
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
-#+end_src
-
-[[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
-#+begin_src emacs-lisp
-(use-package vterm)
-#+end_src
-
-
-** Interaction
 Ask =y= or =n= instead of =yes= or =no=.
 #+begin_src sh
 (fset 'yes-or-no-p 'y-or-n-p)
 #+end_src
 
+Disable the ring bell when scroll beyond the document.
+#+begin_src emacs-lisp
+(setq ring-bell-function 'ignore)
+#+end_src
+
+When you double-click on a file in the Mac Finder open it as a buffer in the existing Emacs frame, rather than creating a new frame just for that file.
+#+begin_src emacs-lisp
+(setq ns-pop-up-frames nil)
+#+end_src
+
+** Frame
+=Ctrl + Command + F=: Set window full screen.
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
+#+end_src
+
+=Command + N=: Create new window, default with org-mode and evil-mode
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-n") 'new-empty-frame)
+#+end_src
+
+=Shift + Command + W=: Close current window.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-W") 'delete-frame)
+#+end_src
+
+TODO: Make the buffers independent in each frame.
+#+begin_src emacs-lisp
+(defun new-empty-frame ()
+  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer buffer)
+    (org-mode)
+    (evil-mode 1)
+    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
+#+end_src
+
+** Buffer
+Unset =Command + K== for kill buffer.
+#+begin_src emacs-lisp
+(global-unset-key (kbd "s-k"))
+#+end_src
+
+=Command + W=: Close current buffer.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+#+end_src
+
 ** Text Editing
+# TODO: Highlight FIXME/TODO/BUG
+# 12. company for elisp, especially for completion emacs functions/variables
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
+# 10. json with formatter
 *** Basic Keybindings
-| MacOS Keybindings        | Evil Keybindings | Features                          | Built in Status     |
-|--------------------------+------------------+-----------------------------------+---------------------|
-| ~Command + C~              | =y=                | Copy selected text                | Emacs               |
-| ~Command + V~              | =p=                | Paste text from clipboard         | Emacs               |
-| ~Command + X~              | =x=                | Cut selected text                 | Emacs               |
-| ~Command + Z~              | =u=                | Undo text change                  | Undo Fu             |
-| ~Command + Shift + Z~      | =Ctrl + R=         | Redo text change                  | Undo Fu             |
-| ~Command + A~              | =ggVG=             | Select all text                   | Emacs               |
-| ~Command + F~              | =/=                | Search text                       | Emacs               |
-| ~Command + ↑~              | =gg=               | Move to the top of the file.      | Customize           |
-| ~Command + ↓~              | =G=                | Move to the bottom of the file    | Customize           |
-| ~Command + ←~              | =0=                | Move to the beginning of the line | Customize           |
-| ~Command + →~              | =$=                | Move to the end of the line       | Customize           |
-| ~Command + L~              | =NUMBER + G=       | Go to line                        | Emacs               |
-| ~Option  + Delete~         | =db=               | Delete a word                     | Emacs               |
-| ~Command + Delete~         | =d0=               | Delete to line start              | Customize           |
-| ~Command + Shift + Delete~ | =dd=               | Delete entire line                | Customize(Personal) |
-| ~Command + /~              | =Command + /=      | Comment or uncomment line(s)      | Customize           |
-|--------------------------+------------------+-----------------------------------+---------------------|
-| ~Shift + ↑~                | ~vj~               |                                   |                     |
-| ~Shift + ↓~                | ~vk~               |                                   |                     |
-| ~Shift + ←~                | ~vh~               |                                   |                     |
-| ~Shift + →~                | ~vl~               |                                   |                     |
-| ~Shift + Command + ↑~      | ~vgg~              |                                   |                     |
-| ~Shift + Command + ↓~      | ~vG~               |                                   |                     |
-| ~Shift + Command + ←~      | ~v0~               |                                   |                     |
-| ~Shift + Command + →~      | ~v$~               |                                   |                     |
-| ~Shift + Alt + ↑~          |                  |                                   |                     |
-| ~Shift + Alt + ↓~          |                  |                                   |                     |
-| ~Shift + Alt + ←~          | ~vb~               |                                   |                     |
-| ~Shift + Alt + →~          | ~vw~               |                                   |                     |
+| MacOS Keybindings        | Features                          | Built in Status     |
+|--------------------------+-----------------------------------+---------------------|
+| ~Command + C~              | Copy selected text                | Emacs               |
+| ~Command + V~              | Paste text from clipboard         | Emacs               |
+| ~Command + X~              | Cut selected text                 | Emacs               |
+| ~Command + Z~              | Undo text change                  | Emacs               |
+| ~Command + Shift + Z~      | Redo text change                  | Emacs               |
+| ~Command + A~              | Select all text                   | Emacs               |
+| ~Command + F~              | Search text                       | Emacs               |
+| ~Command + ↑~              | Move to the top of the file.      | Customize           |
+| ~Command + ↓~              | Move to the bottom of the file    | Customize           |
+| ~Command + ←~              | Move to the beginning of the line | Customize           |
+| ~Command + →~              | Move to the end of the line       | Customize           |
+| ~Command + L~              | Go to line                        | Emacs               |
+| ~Option  + Delete~         | Delete a word                     | Emacs               |
+| ~Command + Delete~         | Delete to line start              | Customize           |
+| ~Command + Shift + Delete~ | Delete entire line                | Customize(Personal) |
+| ~Command + /~              | Comment or uncomment line(s)      | Customize           |
+|--------------------------+-----------------------------------+---------------------|
+| ~Shift + ↑~                |                                   |                     |
+| ~Shift + ↓~                |                                   |                     |
+| ~Shift + ←~                |                                   |                     |
+| ~Shift + →~                |                                   |                     |
+| ~Shift + Command + ↑~      |                                   |                     |
+| ~Shift + Command + ↓~      |                                   |                     |
+| ~Shift + Command + ←~      |                                   |                     |
+| ~Shift + Command + →~      |                                   |                     |
+| ~Shift + Alt + ↑~          |                                   |                     |
+| ~Shift + Alt + ↓~          |                                   |                     |
+| ~Shift + Alt + ←~          |                                   |                     |
+| ~Shift + Alt + →~          |                                   |                     |
 
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
@@ -414,27 +305,6 @@ Ask =y= or =n= instead of =yes= or =no=.
 - =(kbd "s-Z")=
 - "s-Z"
 - [s-Z]
-
-[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
-#+begin_src emacs-lisp
-(use-package undo-fu
-  :config
-  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
-  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
-
-(global-unset-key (kbd "s-z"))
-(global-set-key (kbd "s-z")   'undo-fu-only-undo)
-(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
-#+end_src
-
-[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
-#+begin_src emacs-lisp
-(use-package undo-fu-session
-  :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
-
-(global-undo-fu-session-mode)
-#+end_src
 
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
@@ -529,7 +399,36 @@ Unbind =return= key in for using it to open link in org mode.
   )
 #+end_src
 
+[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
+#+begin_src emacs-lisp
+(use-package undo-fu
+  :config
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
+
+(global-unset-key (kbd "s-z"))
+(global-set-key (kbd "s-z")   'undo-fu-only-undo)
+(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
+#+end_src
+
+[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
+#+begin_src emacs-lisp
+(use-package undo-fu-session
+  :config
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
+
+(global-undo-fu-session-mode)
+#+end_src
+
 *** Org Mode
+# 6. default with org mode
+# 15. org render code block with hiding begin & end
+# 16. org valign
+# 17. org latex
+# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
+# 19. Smooth scrolling over images in Emacs
+# 20. Preview equations live in org-mode
+# 23. org roam
 Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -540,6 +439,11 @@ Hide emphasis makers.
 (setq org-hide-emphasis-markers t)
 #+end_src
 
+Enable shift selection.
+#+begin_src emacs-lisp
+(setq org-support-shift-select t)
+  ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
+#+end_src
 **** Org Superstar
 Prettify headings and plain lists in Org mode.
 #+begin_src emacs-lisp
@@ -561,7 +465,6 @@ Change org unordered list styles.
                                         (?+ . ?•)
                                         (?- . ?•)))
 #+end_src
-
 *** Markdown Mode
 #+begin_src emacs-lisp
 (use-package markdown-mode
@@ -572,6 +475,69 @@ Change org unordered list styles.
   :init (setq markdown-command "multimarkdown"))
 #+end_src
 *** Multiple Cursor
+*** Behavior
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
+
+Treat CamelCaseSubWords as separate words in programming mode.
+#+begin_src emacs-lisp
+(add-hook 'prog-mode-hook 'subword-mode)
+#+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
+** Git
+*** Magit
+Use magit as git interface.
+#+begin_src emacs-lisp
+(use-package magit
+  :config
+(setq magit-diff-refine-hunk t))
+#+end_src
+
+*** Git Gutter
+Show file changes in the left margin.
+#+begin_src emacs-lisp
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode 't))
+#+end_src
+
+Update all window when Emacs focus in.
+/This fixes git gutter cannot update the file status after committing outside of Emacs./
+#+begin_src emacs-lisp
+(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
+#+end_src
+
+** Terminal
+*** Vterm
+[[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
+#+begin_src emacs-lisp
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+#+end_src
+
+[[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
+#+begin_src emacs-lisp
+(use-package vterm)
+#+end_src
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
