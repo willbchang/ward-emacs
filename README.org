@@ -483,6 +483,20 @@ TODO:
 | ~Command + Delete~         | =d0=               | Delete to line start              | Customize           |
 | ~Command + Shift + Delete~ | =dd=               | Delete entire line                | Customize(Personal) |
 | ~Command + /~              | =Command + /=      | Comment or uncomment line(s)      | Customize           |
+|--------------------------+------------------+-----------------------------------+---------------------|
+| ~Shift + ↑~                | ~vj~               |                                   |                     |
+| ~Shift + ↓~                | ~vk~               |                                   |                     |
+| ~Shift + ←~                | ~vh~               |                                   |                     |
+| ~Shift + →~                | ~vl~               |                                   |                     |
+| ~Shift + Command + ↑~      | ~vgg~              |                                   |                     |
+| ~Shift + Command + ↓~      | ~vG~               |                                   |                     |
+| ~Shift + Command + ←~      | ~v0~               |                                   |                     |
+| ~Shift + Command + →~      | ~v$~               |                                   |                     |
+| ~Shift + Alt + ↑~          |                  |                                   |                     |
+| ~Shift + Alt + ↓~          |                  |                                   |                     |
+| ~Shift + Alt + ←~          | ~vb~               |                                   |                     |
+| ~Shift + Alt + →~          | ~vw~               |                                   |                     |
+
 
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
