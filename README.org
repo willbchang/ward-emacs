@@ -317,93 +317,6 @@ Start server for opening file/folder from emacsclient.
 #+end_src
 
 ** Extensions
-*** Evil Mode
-Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
-#+begin_src emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-#+end_src
-
-Set Evil cursor color and styles in different situations.
-You can try these commands to test the effects: =Esc, i, v, d, r=
-#+begin_src emacs-lisp
-(setq evil-normal-state-cursor '(box "#e2416c")
-      evil-insert-state-cursor '(bar "#e2416c")
-      evil-visual-state-cursor '(hollow "#e2416c")
-      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
-      evil-replace-state-cursor '(hbar "#e2416c"))
-#+end_src
-
-Install evil-collection, which provides evil-friendly bindings for many modes.
-#+begin_src emacs-lisp
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list
-        '(dired magit))
-  (evil-collection-init))
-#+end_src
-
-=evil-surround= makes surround text with paired symbols easily.
-#+begin_src emacs-lisp
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-#+end_src
-
-Unbind =return= key in for using it to open link in org mode.
-#+begin_src emacs-lisp
-(with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil)
-  )
-#+end_src
-
-*** Org Mode
-Enable headline and subcontent in the indented view.
-#+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+end_src
-
-Hide emphasis makers.
-#+begin_src emacs-lisp
-(setq org-hide-emphasis-markers t)
-#+end_src
-
-*** Org Superstar
-Prettify headings and plain lists in Org mode.
-#+begin_src emacs-lisp
-(use-package org-superstar
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (setq org-hide-leading-stars t))
-#+end_src
-
-Change org headline styles.
-#+begin_src emacs-lisp
-(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
-#+end_src
-
-Change org unordered list styles.
-#+begin_src emacs-lisp
-(setq org-superstar-prettify-item-bullets t)
-(setq org-superstar-item-bullet-alist '((?* . ?•)
-                                        (?+ . ?•)
-                                        (?- . ?•)))
-#+end_src
-
-*** Markdown
-#+begin_src emacs-lisp
-(use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-#+end_src
 *** Magit
 Use magit as git interface.
 #+begin_src emacs-lisp
@@ -439,7 +352,6 @@ Update all window when Emacs focus in.
 (use-package vterm)
 #+end_src
 
-*** Undo Fu
 
 ** Interaction
 Ask =y= or =n= instead of =yes= or =no=.
@@ -573,7 +485,92 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 *** Evil Mode
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
+
+Set Evil cursor color and styles in different situations.
+You can try these commands to test the effects: =Esc, i, v, d, r=
+#+begin_src emacs-lisp
+(setq evil-normal-state-cursor '(box "#e2416c")
+      evil-insert-state-cursor '(bar "#e2416c")
+      evil-visual-state-cursor '(hollow "#e2416c")
+      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
+      evil-replace-state-cursor '(hbar "#e2416c"))
+#+end_src
+
+Install evil-collection, which provides evil-friendly bindings for many modes.
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list
+        '(dired magit))
+  (evil-collection-init))
+#+end_src
+
+=evil-surround= makes surround text with paired symbols easily.
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+
+Unbind =return= key in for using it to open link in org mode.
+#+begin_src emacs-lisp
+(with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil)
+  )
+#+end_src
+
 *** Org Mode
+Enable headline and subcontent in the indented view.
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+end_src
+
+Hide emphasis makers.
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
+
+**** Org Superstar
+Prettify headings and plain lists in Org mode.
+#+begin_src emacs-lisp
+(use-package org-superstar
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  (setq org-hide-leading-stars t))
+#+end_src
+
+Change org headline styles.
+#+begin_src emacs-lisp
+(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
+#+end_src
+
+Change org unordered list styles.
+#+begin_src emacs-lisp
+(setq org-superstar-prettify-item-bullets t)
+(setq org-superstar-item-bullet-alist '((?* . ?•)
+                                        (?+ . ?•)
+                                        (?- . ?•)))
+#+end_src
+
+*** Markdown Mode
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
 *** Multiple Cursor
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
