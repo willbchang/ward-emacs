@@ -1,21 +1,24 @@
-*This repo is on building, use it at your own risk.*
+#+title: Teem Emacs
+*T*ext *E*diting within *E*macs for *M*acOS.
+
 
 * Introduction
-- Default with shortcuts and features that you already learned on text editing.
-- Has an expected vim emulator: [[https://github.com/emacs-evil/evil][evil-mode]]. You'd better learn [[https://www.vim.org][Vim]] before trying this.
+- Defaults with shortcuts and features that you already learned with editing text in MacOS.
+- Has an expected vim emulator: [[https://github.com/emacs-evil/evil][evil-mode]]. You'd better learn [[https://www.vim.org][Vim]] before trying this, of course you can also disable it.
 - Provides great tools like [[https://orgmode.org/][org-mode]] and [[https://magit.vc/][magit]] with smooth configrations.
-- Highly customizable.
+- Emacs is highly customizable.
 
 *Notes*:
 - It's just an Text Editor, not an IDE(I use [[https://www.jetbrains.com/ruby/nextversion/][RubyMine EAP]]).
-- Only supports the lastest release version(current is Emacs 27).
+- Only supports the version I'm using(currently is Emacs 28).
 - Do not expect too much, and you'll be happy.
 
 * Installation
-Install to =XDG_CONFIG_HOME=.
+Install to =XDG_CONFIG_HOME= (default to ~~/.config~).
 #+BEGIN_SRC bash
-git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
+git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
 #+END_SRC
+
 * Configuration
 ** Pre-Configuration
 Always ensure the package is installed.
@@ -546,7 +549,10 @@ Update all window when Emacs focus in.
 (use-package vterm)
 #+end_src
 * Credit
-It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
+It learns from:
+- [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]]
+- [[https://github.com/hrs/dotfiles][hrs/dotfiles]]
+- [[https://github.com/hlissner/doom-emacs][hlissner/doom-emacs]]
 
 * LICENSE
-GPL-3.0 License
+[[./LICENSE][GPL-3.0 License]]
