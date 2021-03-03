@@ -17,28 +17,14 @@ Install to =XDG_CONFIG_HOME=.
 git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 #+END_SRC
 * Configuration
-
-*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
-- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
-- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
-- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
-- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
-- =(global-unset-key KEY)=: Removes KEY from the global keymap
-
-*Keybinding Values*:
-| Meaning | Emacs Key Value | MacOS Key           |
-|---------+-----------------+---------------------|
-| Control | =C=               | =Control(Ctrl)=       |
-| Meta    | =M=               | =Option(Alt)=         |
-| Super   | =s=               | =Command=             |
-| Shift   | =S=               | =Shift=               |
-| -       | =s-z=             | =Command + Z=         |
-| -       | =s-Z=             | =Command + Shift + Z= |
-
-*Keybinding Value Styles*:
-- =(kbd "s-Z")=
-- "s-Z"
-- [s-Z]
+- UI
+- Buffer
+- Frame
+- Text Editing
+- Evil
+- Org
+- Magit
+- Terminal
 
 # Todo
 # 2. Absolute line number in Insert mode
@@ -462,9 +448,7 @@ Ask =y= or =n= instead of =yes= or =no=.
 #+end_src
 
 ** Text Editing
-TODO:
-1. Shift Selection
-2. kdb map to macos table
+*** Basic Keybindings
 | MacOS Keybindings        | Evil Keybindings | Features                          | Built in Status     |
 |--------------------------+------------------+-----------------------------------+---------------------|
 | ~Command + C~              | =y=                | Copy selected text                | Emacs               |
@@ -497,6 +481,27 @@ TODO:
 | ~Shift + Alt + ←~          | ~vb~               |                                   |                     |
 | ~Shift + Alt + →~          | ~vw~               |                                   |                     |
 
+*Keybinding Values*:
+| Meaning | Emacs Key Value | MacOS Key           |
+|---------+-----------------+---------------------|
+| Control | =C=               | =Control(Ctrl)=       |
+| Meta    | =M=               | =Option(Alt)=         |
+| Super   | =s=               | =Command=             |
+| Shift   | =S=               | =Shift=               |
+| -       | =s-z=             | =Command + Z=         |
+| -       | =s-Z=             | =Command + Shift + Z= |
+
+*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
+- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
+- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
+- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
+- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
+- =(global-unset-key KEY)=: Removes KEY from the global keymap
+
+*Keybinding Value Styles*:
+- =(kbd "s-Z")=
+- "s-Z"
+- [s-Z]
 
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
@@ -567,7 +572,9 @@ there's no active region."
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 #+end_src
-
+*** Evil Mode
+*** Org Mode
+*** Multiple Cursor
 * Credit
 It started with [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]] and learned from [[https://github.com/hrs/dotfiles][hrs/dotfiles]] and [[https://github.com/hrs/sensible-defaults.el][hrs/sensible-defaults.el]].
 
