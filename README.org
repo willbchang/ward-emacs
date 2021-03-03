@@ -34,11 +34,21 @@ Always compile packages, and use the newest version available.
 
 ** UI
 # 4. Better modeline
-- Tool bar, Scroll bar are disabled
-- Tab bar and Side bar is not needed.
-- Mode line is another word for Status bar.
+- Tab bar and Side bar are not needed.
+- Mode line means Status bar.
+
+Disable tool bar.
+#+begin_src emacs-lisp
+(tool-bar-mode 0)
+#+end_src
+
+Disable scroll bar.
+#+begin_src emacs-lisp
+(scroll-bar-mode 0)
+#+end_src
+
 *** Title Bar
-Show full path in title bar.
+Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
     '(:eval
@@ -52,17 +62,7 @@ Make title bar transparent and focuses on dark mode.
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+end_src
-*** Tool Bar
-Disable toolbar.
-#+begin_src emacs-lisp
-(tool-bar-mode 0)
-#+end_src
-
-*** Scroll Bar
-#+begin_src emacs-lisp
-(scroll-bar-mode 0)
-#+end_src
-*** Status Bar
+*** Mode Line
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
@@ -79,7 +79,7 @@ Disable toolbar.
   (set-face-attribute modeline-face nil :weight 'normal))
 #+end_src
 
-Hide file icon and file name.
+Hide file icon and file name in mode line.
 #+begin_src emacs-lisp
 (doom-modeline-def-segment buffer-info
   "buffer info segment."
@@ -303,8 +303,8 @@ Unset =Command + K== for kill buffer.
 
 *Keybinding Value Styles*:
 - =(kbd "s-Z")=
-- "s-Z"
-- [s-Z]
+- ~"s-Z"~
+- ~[s-Z]~
 
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
@@ -355,6 +355,7 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 *** Evil Mode
+# TODO: Evil Snip https://github.com/hlissner/evil-snipe
 Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
@@ -364,8 +365,16 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
   (evil-mode 1))
 #+end_src
 
+# TODO: Not working
+Unbind =return= key in for using it to open link in org mode.
+#+begin_src emacs-lisp
+(with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil)
+  )
+#+end_src
+
 Set Evil cursor color and styles in different situations.
-You can try these commands to test the effects: =Esc, i, v, d, r=
+You can try these commands independently to test the effects: =Esc, i, v, d, r=
 #+begin_src emacs-lisp
 (setq evil-normal-state-cursor '(box "#e2416c")
       evil-insert-state-cursor '(bar "#e2416c")
@@ -373,7 +382,7 @@ You can try these commands to test the effects: =Esc, i, v, d, r=
       evil-operator-state-cursor '(evil-half-cursor "#e2416c")
       evil-replace-state-cursor '(hbar "#e2416c"))
 #+end_src
-
+**** Evil Collection
 Install evil-collection, which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-collection
@@ -384,6 +393,7 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (evil-collection-init))
 #+end_src
 
+**** Evil Surround
 =evil-surround= makes surround text with paired symbols easily.
 #+begin_src emacs-lisp
 (use-package evil-surround
@@ -392,13 +402,7 @@ Install evil-collection, which provides evil-friendly bindings for many modes.
   (global-evil-surround-mode 1))
 #+end_src
 
-Unbind =return= key in for using it to open link in org mode.
-#+begin_src emacs-lisp
-(with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil)
-  )
-#+end_src
-
+**** Undo Fu
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
@@ -526,7 +530,7 @@ Update all window when Emacs focus in.
 #+end_src
 
 ** Terminal
-*** Vterm
+*** Exec Path From Shell
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
@@ -534,6 +538,7 @@ Update all window when Emacs focus in.
   (exec-path-from-shell-initialize))
 #+end_src
 
+*** Vterm
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
