@@ -17,6 +17,29 @@ Install to =XDG_CONFIG_HOME=.
 git clone https://github.com/willbchang/emacs.d.git ~/.config/emacs
 #+END_SRC
 * Configuration
+
+*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
+- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
+- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
+- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
+- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
+- =(global-unset-key KEY)=: Removes KEY from the global keymap
+
+*Keybinding Values*:
+| Meaning | Emacs Key Value | MacOS Key           |
+|---------+-----------------+---------------------|
+| Control | =C=               | =Control(Ctrl)=       |
+| Meta    | =M=               | =Option(Alt)=         |
+| Super   | =s=               | =Command=             |
+| Shift   | =S=               | =Shift=               |
+| -       | =s-z=             | =Command + Z=         |
+| -       | =s-Z=             | =Command + Shift + Z= |
+
+*Keybinding Value Styles*:
+- =(kbd "s-Z")=
+- "s-Z"
+- [s-Z]
+
 # Todo
 # 2. Absolute line number in Insert mode
 # 4. Better modeline
@@ -439,6 +462,9 @@ Ask =y= or =n= instead of =yes= or =no=.
 #+end_src
 
 ** Text Editing
+TODO:
+1. Shift Selection
+2. kdb map to macos table
 | MacOS Keybindings        | Evil Keybindings | Features                          | Built in Status     |
 |--------------------------+------------------+-----------------------------------+---------------------|
 | ~Command + C~              | =y=                | Copy selected text                | Emacs               |
