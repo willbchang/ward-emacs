@@ -1,4 +1,6 @@
 #+title: Teem Emacs
+# Change README to markdown with an image.
+# Move README.org to Config.org
 *T*ext *E*diting within *E*macs for *M*acOS.
 
 
@@ -20,6 +22,7 @@ git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
 #+END_SRC
 
 * Configuration
+# Save with tangle to config.el
 ** Pre-Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
@@ -223,6 +226,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
 # 19. Smooth scrolling over images in Emacs
 # 20. Preview equations live in org-mode
 # 23. org roam
+# Make not*Bold*AtAll work!
 Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -299,6 +303,7 @@ Indent with 2 space.
 #+end_src
 ** UI
 # 4. Better modeline
+# Line Number Width default with hundred
 - Tab bar and Side bar are not needed.
 - Mode line means Status bar.
 
@@ -365,6 +370,7 @@ Count column number from 1 instead of 0.
   (load-theme 'jetbrains-darcula t))
 #+end_src
 *** Font
+# Line Spacing default with Chinese Characters like 。
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "SF Mono-18")
@@ -380,6 +386,7 @@ Count column number from 1 instead of 0.
 #+end_src
 
 Use macOS's default font for Chinese characters.
+# Cannot soft wrap line for Chinese characters.
 #+begin_src emacs-lisp
 (set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
@@ -544,6 +551,8 @@ Update all window when Emacs focus in.
 #+end_src
 
 *** Vterm
+# Open as a mini buffer
+#
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)

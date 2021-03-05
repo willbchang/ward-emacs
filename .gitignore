@@ -25,6 +25,9 @@ places
 tramp
 .\#*
 
+# Native Comp
+eln-cache/
+
 # Org-mode
 .org-id-locations
 *_archive
