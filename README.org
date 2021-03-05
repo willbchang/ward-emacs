@@ -332,6 +332,12 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
+*** Line Number
+Default line number width with 3 characters.
+#+begin_src emacs-lisp
+(setq-default display-line-numbers-width 3)
+#+end_src
+
 *** Mode Line
 #+begin_src emacs-lisp
 (use-package doom-modeline
