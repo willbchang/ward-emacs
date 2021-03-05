@@ -1,29 +1,4 @@
-#+title: Teem Emacs
-# Change README to markdown with an image.
-# Move README.org to Config.org
-*T*ext *E*diting within *E*macs for *M*acOS.
-
-
-* Introduction
-- Defaults with shortcuts and features that you already learned with editing text in MacOS.
-- Has an expected vim emulator: [[https://github.com/emacs-evil/evil][evil-mode]]. You'd better learn [[https://www.vim.org][Vim]] before trying this, of course you can also disable it.
-- Provides great tools like [[https://orgmode.org/][org-mode]] and [[https://magit.vc/][magit]] with smooth configrations.
-- Emacs is highly customizable.
-
-*Notes*:
-- It's just an Text Editor, not an IDE(I use [[https://www.jetbrains.com/ruby/nextversion/][RubyMine EAP]]).
-- Only supports the version I'm using(currently is Emacs 28).
-- Do not expect too much, and you'll be happy.
-
-* Installation
-Install to =XDG_CONFIG_HOME= (default to ~~/.config~).
-#+BEGIN_SRC bash
-git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
-#+END_SRC
-
-* Configuration
-# Save with tangle to config.el
-** Pre-Configuration
+* Pre-Configuration
 Always ensure the package is installed.
 #+begin_src emacs-lisp
 (require 'use-package-ensure)
@@ -38,44 +13,12 @@ Always compile packages, and use the newest version available.
 (setq load-prefer-newer t)
 #+end_src
 
-** Text Editing
+* Text Editing
 # TODO: Highlight FIXME/TODO/BUG
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
 # 10. json with formatter
-*** Basic Keybindings
-| MacOS Keybindings        | Features                          | Built in Status     |
-|--------------------------+-----------------------------------+---------------------|
-| ~Command + C~              | Copy selected text                | Emacs               |
-| ~Command + V~              | Paste text from clipboard         | Emacs               |
-| ~Command + X~              | Cut selected text                 | Emacs               |
-| ~Command + Z~              | Undo text change                  | Emacs               |
-| ~Command + Shift + Z~      | Redo text change                  | Emacs               |
-| ~Command + A~              | Select all text                   | Emacs               |
-| ~Command + F~              | Search text                       | Emacs               |
-| ~Command + ↑~              | Move to the top of the file.      | Customize           |
-| ~Command + ↓~              | Move to the bottom of the file    | Customize           |
-| ~Command + ←~              | Move to the beginning of the line | Customize           |
-| ~Command + →~              | Move to the end of the line       | Customize           |
-| ~Command + L~              | Go to line                        | Emacs               |
-| ~Option  + Delete~         | Delete a word                     | Emacs               |
-| ~Command + Delete~         | Delete to line start              | Customize           |
-| ~Command + Shift + Delete~ | Delete entire line                | Customize(Personal) |
-| ~Command + /~              | Comment or uncomment line(s)      | Customize           |
-|--------------------------+-----------------------------------+---------------------|
-| ~Shift + ↑~                |                                   |                     |
-| ~Shift + ↓~                |                                   |                     |
-| ~Shift + ←~                |                                   |                     |
-| ~Shift + →~                |                                   |                     |
-| ~Shift + Command + ↑~      |                                   |                     |
-| ~Shift + Command + ↓~      |                                   |                     |
-| ~Shift + Command + ←~      |                                   |                     |
-| ~Shift + Command + →~      |                                   |                     |
-| ~Shift + Alt + ↑~          |                                   |                     |
-| ~Shift + Alt + ↓~          |                                   |                     |
-| ~Shift + Alt + ←~          |                                   |                     |
-| ~Shift + Alt + →~          |                                   |                     |
-
+** Basic Keybindings
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
 |---------+-----------------+---------------------|
@@ -146,7 +89,7 @@ there's no active region."
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 #+end_src
-*** Evil Mode
+** Evil Mode
 # TODO: Evil Snip https://github.com/hlissner/evil-snipe
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
@@ -174,7 +117,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
       evil-operator-state-cursor '(evil-half-cursor "#e2416c")
       evil-replace-state-cursor '(hbar "#e2416c"))
 #+end_src
-**** Evil Collection
+*** Evil Collection
 [[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-collection
@@ -185,7 +128,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
   (evil-collection-init))
 #+end_src
 
-**** Evil Surround
+*** Evil Surround
 [[https://github.com/emacs-evil/evil-surround][evil-surround]] makes surround text with paired symbols easily.
 #+begin_src emacs-lisp
 (use-package evil-surround
@@ -194,7 +137,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
   (global-evil-surround-mode 1))
 #+end_src
 
-**** Undo Fu
+*** Undo Fu
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
@@ -216,7 +159,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
 (global-undo-fu-session-mode)
 #+end_src
 
-*** Org Mode
+** Org Mode
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 # 6. default with org mode
 # 15. org render code block with hiding begin & end
@@ -242,7 +185,7 @@ Enable shift selection.
 (setq org-support-shift-select t)
   ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
 #+end_src
-**** Org Superstar
+*** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
 (use-package org-superstar
@@ -263,7 +206,7 @@ Change org unordered list styles.
                                         (?+ . ?•)
                                         (?- . ?•)))
 #+end_src
-*** Markdown Mode
+** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
 (use-package markdown-mode
@@ -273,8 +216,8 @@ Change org unordered list styles.
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 #+end_src
-*** Multiple Cursor
-*** Behavior
+** Multiple Cursor
+** Behavior
 Break lines normally for Chinese characters.
 #+begin_src emacs-lisp
 (setq word-wrap-by-category t)
@@ -306,7 +249,7 @@ Indent with 2 space.
 (setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
 #+end_src
-** UI
+* UI
 # 4. Better modeline
 # Line Number Width default with hundred
 - Tab bar and Side bar are not needed.
@@ -322,7 +265,7 @@ Disable scroll bar.
 (scroll-bar-mode 0)
 #+end_src
 
-*** Title Bar
+** Title Bar
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
@@ -332,13 +275,13 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
-*** Line Number
+** Line Number
 Default line number width with 3 characters.
 #+begin_src emacs-lisp
 (setq-default display-line-numbers-width 3)
 #+end_src
 
-*** Mode Line
+** Mode Line
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
@@ -369,7 +312,7 @@ Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
 #+end_src
-*** Font
+** Font
 # Line Spacing default with Chinese Characters like 。
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
@@ -390,7 +333,7 @@ Use macOS's default font for Chinese characters.
 #+begin_src emacs-lisp
 (set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
-*** Behavior
+** Behavior
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
 (goto-address-mode 1)
@@ -410,7 +353,7 @@ Enable word wrap globally.
 (global-visual-line-mode 1)
 #+end_src
 
-** UX
+* UX
 # 2. Absolute line number in Insert mode
 # 5. y or n for yes or no
 # 11. snails? ivy?
@@ -479,7 +422,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 (setq ns-pop-up-frames nil)
 #+end_src
 
-** Frame
+* Frame
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
@@ -507,7 +450,7 @@ TODO: Make the buffers independent in each frame.
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
 #+end_src
 
-** Buffer
+* Buffer
 Unset =Command + K== for kill buffer.
 #+begin_src emacs-lisp
 (global-unset-key (kbd "s-k"))
@@ -518,8 +461,8 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 #+end_src
 
-** Git
-*** Magit
+* Git
+** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
@@ -527,7 +470,7 @@ Unset =Command + K== for kill buffer.
 (setq magit-diff-refine-hunk t))
 #+end_src
 
-*** Git Gutter
+** Git Gutter
 [[https://github.com/emacsorphanage/git-gutter][Git Gutter]] shows file changes in the left margin.
 #+begin_src emacs-lisp
 (use-package git-gutter
@@ -541,8 +484,8 @@ Update all window when Emacs focus in.
 (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 #+end_src
 
-** Terminal
-*** Exec Path From Shell
+* Terminal
+** Exec Path From Shell
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
@@ -550,18 +493,10 @@ Update all window when Emacs focus in.
   (exec-path-from-shell-initialize))
 #+end_src
 
-*** Vterm
+** Vterm
 # Open as a mini buffer
 #
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
 #+end_src
-* Credit
-It learns from:
-- [[https://github.com/redguardtoo/emacs.d][redguardtoo/emacs.d]]
-- [[https://github.com/hrs/dotfiles][hrs/dotfiles]]
-- [[https://github.com/hlissner/doom-emacs][hlissner/doom-emacs]]
-
-* LICENSE
-[[./LICENSE][GPL-3.0 License]]
