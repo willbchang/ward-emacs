@@ -20,7 +20,7 @@
 /.emacs.desktop
 /.emacs.desktop.lock
 auto-save-list
-README.el
+config.el
 places
 tramp
 .\#*
