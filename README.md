@@ -11,7 +11,7 @@
 - **Markup Language**: Providing a WYSIWYG like experience for [org-mode](https://orgmode.org/)(Building). Synatx highlight for [Markdown](https://daringfireball.net/projects/markdown/) and [Latex](https://www.latex-project.org/).
 - **Git Interface**: [magit](https://magit.vc/) is a complete text-based user interface to Git.
 - **Self Documentation**: Press <kbd>alt + x</kbd> and type `describe-` then press <kbd>TAB</kbd>, you can find almost anything in Emacs by yourself.
-- **Emacs is highly customizable.**
+- **Emacs is more highly customizable than you think.**
 - The configuration is in [config.org](config.org).
 
 
@@ -40,8 +40,8 @@ git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
 | <kbd>Command + Delete</kbd>         | Delete to line start                | MacOS    |
 | <kbd>Command + Shift + Delete</kbd> | Delete entire line                  | Personal |
 | <kbd>Command + /</kbd>              | Comment or uncomment line(s)        | MacOS    |
-| <kbd>Shift + Alt + ↑</kbd>          | Swap current line and previous line | Emacs    |
-| <kbd>Shift + Alt + ↓</kbd>          | Swap current line and next line     | Emacs    |
+| <kbd>Shift + Option + ↑</kbd>       | Swap current line and previous line | Emacs    |
+| <kbd>Shift + Option + ↓</kbd>       | Swap current line and next line     | Emacs    |
 
 
 | Moving Cursor          | Features                          | Status |
@@ -52,14 +52,15 @@ git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
 | <kbd>Command + →</kbd> | Move to the end of the line       | MacOS  |
 | <kbd>Command + L</kbd> | Go to line                        | MacOS  |
 
+
 | Selecting Text                 | Features                            | Status |
 |:-------------------------------|:------------------------------------|:-------|
 | <kbd>Shift + ↑</kbd>           | Select one line up                  | MacOS  |
 | <kbd>Shift + ↓</kbd>           | Select one line down                | MacOS  |
 | <kbd>Shift + ←</kbd>           | Select one character left           | MacOS  |
 | <kbd>Shift + →</kbd>           | Select one character right          | MacOS  |
-| <kbd>Shift + Alt + ←</kbd>     | Select one word left                | MacOS  |
-| <kbd>Shift + Alt + →</kbd>     | Select one word right               | MacOS  |
+| <kbd>Shift + Option + ←</kbd>  | Select one word left                | MacOS  |
+| <kbd>Shift + Option + →</kbd>  | Select one word right               | MacOS  |
 | <kbd>Shift + Command + ↑</kbd> | Select to ttop of the file          | MacOS  |
 | <kbd>Shift + Command + ↓</kbd> | Select to bottom of the file        | MacOS  |
 | <kbd>Shift + Command + ←</kbd> | Select to the beginning of the line | MacOS  |
