@@ -363,12 +363,6 @@ Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
 #+end_src
-*** Color Theme
-#+begin_src emacs-lisp
-(use-package jetbrains-darcula-theme
-  :config
-  (load-theme 'jetbrains-darcula t))
-#+end_src
 *** Font
 # Line Spacing default with Chinese Characters like 。
 #+begin_src emacs-lisp
