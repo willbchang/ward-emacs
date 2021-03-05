@@ -275,6 +275,11 @@ Change org unordered list styles.
 #+end_src
 *** Multiple Cursor
 *** Behavior
+Break lines normally for Chinese characters.
+#+begin_src emacs-lisp
+(setq word-wrap-by-category t)
+#+end_src
+
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
 (electric-pair-mode 1)
