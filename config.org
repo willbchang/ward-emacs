@@ -220,6 +220,7 @@ Enable shift selection.
 (setq org-support-shift-select t)
   ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
 #+end_src
+
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
@@ -241,6 +242,7 @@ Change org unordered list styles.
                                         (?+ . ?•)
                                         (?- . ?•)))
 #+end_src
+
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
@@ -251,6 +253,7 @@ Change org unordered list styles.
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 #+end_src
+
 * UI
 # 4. Better modeline
 - Tab bar and Side bar are not needed.
@@ -333,6 +336,7 @@ Use macOS's default font for Chinese characters.
 #+begin_src emacs-lisp
 (set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
+
 ** Behavior
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
