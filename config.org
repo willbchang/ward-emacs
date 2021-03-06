@@ -90,13 +90,6 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 ** Evil Mode
-# FIX: dj and dk doesn't work well, use dgj or dgk right now.
-Motions such as ~j~ and ~k~ navigate by visual lines (on the screen) rather than "physical" lines (defined by newline characters).
-#+begin_src emacs-lisp
-(setq evil-respect-visual-line-mode t)
-#+end_src
-
-# TODO: Evil Snip https://github.com/hlissner/evil-snipe
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
