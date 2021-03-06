@@ -1,13 +1,12 @@
-;; switch to english input method when switching to normal mode
-;; and switch back when entering insert/replace modes
-;; need external script support, currently mac-only
+;; Switch to English input method when switching to normal mode and switch back when entering insert/replace modes.
+;; im-select is needed https://github.com/daipeihust/im-select
 (defvar default-input-method "com.apple.keylayout.ABC" "Default ascii-only input method")
 (defvar previous-input-method (substring (shell-command-to-string "/usr/local/bin/im-select") 0 -1)
   "INPUT-METHOD that I use when starting Emacs and exiting insert mode")
 
 (defun input-method-use-english ()
-  "Switch to english input method on a Mac. im-select is a tool
-provided at https://github.com/daipeihust/im-select"
+  "Switch to English input method.
+im-select is needed https://github.com/daipeihust/im-select"
   (interactive)
   (cond ((eq system-type 'darwin)
          (call-process-shell-command (concat "/usr/local/bin/im-select " default-input-method)))))
@@ -36,4 +35,4 @@ If previous input method is not defined, use default method"
 (add-hook 'evil-emacs-state-entry-hook 'input-method-use-english)
 
 (provide 'evil-switch-input-method)
-;;;self-input-methode.el ends here
+;;;evil-switch-input-method.el ends here
