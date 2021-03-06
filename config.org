@@ -503,6 +503,20 @@ Auto switch to English input method and save the previous input method when ente
   :load-path "~/.config/emacs/elisp/")
 #+end_src
 
+[[https://github.com/laishulu/evil-pinyin][evil-pinyin]]: Search Chinese characters with the first letter of Pinyin.
+#+begin_src emacs-lisp
+(use-package evil-pinyin
+  :init
+  ;;(setq-default evil-pinyin-scheme 'simplified-xiaohe-all)
+  ;;(setq-default evil-pinyin-with-search-rule 'always)
+
+  :config
+  ;;(evil-select-search-module 'evil-search-module 'evil-search)
+  (global-evil-pinyin-mode))
+
+(evil-select-search-module 'evil-search-module 'evil-search)
+#+end_src
+
 Break lines normally for Chinese characters in visual line mode.
 #+begin_src emacs-lisp
 (setq word-wrap-by-category t)
