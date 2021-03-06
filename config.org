@@ -99,18 +99,6 @@ there's no active region."
   (evil-mode 1))
 #+end_src
 
-Relative line number for normal mode, absolute line number for insert mode.
-#+begin_src emacs-lisp
-(defun my/display-set-relative ()
-  (setq display-line-numbers 'relative))
-
-(defun my/display-set-absolute ()
-  (setq display-line-numbers t))
-
-(add-hook 'evil-insert-state-entry-hook #'my/display-set-absolute)
-(add-hook 'evil-insert-state-exit-hook #'my/display-set-relative)
-#+end_src
-
 # FIX: Not working
 Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
