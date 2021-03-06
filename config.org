@@ -399,7 +399,7 @@ Revert (update) buffers automatically when underlying files are changed external
 
 Display relative line numbers on text mode and code mode.
 #+begin_src emacs-lisp
-(setq-default display-line-numbers-type 'visual
+(setq-default display-line-numbers-type 'relative
               display-line-numbers-current-absolute t)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
