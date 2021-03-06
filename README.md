@@ -6,12 +6,13 @@
 
 ## Introduction
 
-- **Shortcuts**: MacOS Native keybindings for **Text Editing** and **Window Management** that you already learned, or you can learn now.
+- **MacOS Shortcuts**: Native keybindings for **Text Editing** and **Window Management** that you already learned in MacOS, or you can quickly learn it now.
 - **Vim Emulator**: [evil-mode](https://github.com/emacs-evil/evil) is an expected vim emulator, with a bunch of useful vim plugins.
-- **Markup Language**: Providing a WYSIWYG like experience for [org-mode](https://orgmode.org/)(Building). Synatx highlight for [Markdown](https://daringfireball.net/projects/markdown/) and [Latex](https://www.latex-project.org/).
+- **Markup Language**: Providing a WYSIWYG like experience for [org-mode](https://orgmode.org/)(Building). Synatx highlight for [Markdown](https://daringfireball.net/projects/markdown/).
 - **Git Interface**: [magit](https://magit.vc/) is a complete text-based user interface to Git.
 - **Self Documentation**: Press <kbd>alt + x</kbd> and type `describe-` then press <kbd>TAB</kbd>, you can find almost anything in Emacs by yourself.
 - **Emacs is more highly customizable than you think.**
+- **Chinese**: Auto line break in visual line mode, auto switch input method for Evil mode.
 - The configuration is in [config.org](config.org).
 
 
