@@ -14,7 +14,7 @@ Always compile packages, and use the newest version available.
 #+end_src
 
 * Text Editing
-# TODO: Highlight FIXME/TODO/BUG
+# TODO: Highlight FIX/TODO/BUG
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
 # 10. json with formatter
@@ -90,6 +90,7 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 ** Evil Mode
+# FIX: dj and dk doesn't work well, use dgj or dgk right now.
 Motions such as ~j~ and ~k~ navigate by visual lines (on the screen) rather than "physical" lines (defined by newline characters).
 #+begin_src emacs-lisp
 (setq evil-respect-visual-line-mode t)
@@ -105,12 +106,11 @@ Motions such as ~j~ and ~k~ navigate by visual lines (on the screen) rather than
   (evil-mode 1))
 #+end_src
 
-# TODO: Not working
+# FIX: Not working
 Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
 (with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil)
-  )
+    (define-key evil-motion-state-map (kbd "RET") nil))
 #+end_src
 
 Set Evil cursor color and styles in different situations.
@@ -252,7 +252,6 @@ Change org unordered list styles.
 #+end_src
 * UI
 # 4. Better modeline
-# Line Number Width default with hundred
 - Tab bar and Side bar are not needed.
 - Mode line means Status bar.
 
@@ -314,7 +313,6 @@ Count column number from 1 instead of 0.
 (setq column-number-indicator-zero-based nil)
 #+end_src
 ** Font
-# Line Spacing default with Chinese Characters like 。
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "SF Mono-18")
@@ -356,9 +354,8 @@ Enable word wrap globally.
 
 * UX
 # 2. Absolute line number in Insert mode
-# 5. y or n for yes or no
+# 5. y or n for yes or no, not work for now
 # 11. snails? ivy?
-# 14. change input source smartly
 # 21. System-wide popup Emacs windows for quick edits
 Disable startup screen.
 #+begin_src emacs-lisp
@@ -462,6 +459,7 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 #+end_src
 
+# TODO: Command + T for a new buffer.
 * Git
 ** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
@@ -479,6 +477,7 @@ Unset =Command + K== for kill buffer.
   (global-git-gutter-mode 't))
 #+end_src
 
+# FIX: Update provide more intelligent solution
 Update all window when Emacs focus in.
 /This fixes git gutter cannot update the file status after committing outside of Emacs./
 #+begin_src emacs-lisp
@@ -496,7 +495,7 @@ Update all window when Emacs focus in.
 
 ** Vterm
 # Open as a mini buffer
-#
+# Disable evil in vterm
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
@@ -517,3 +516,5 @@ Break lines normally for Chinese characters in visual line mode.
 #+begin_src emacs-lisp
 (setq word-wrap-by-category t)
 #+end_src
+
+# FIX: Line Spacing default with Chinese Characters like 。
