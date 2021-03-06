@@ -505,3 +505,14 @@ Update all window when Emacs focus in.
 #+begin_src emacs-lisp
 (use-package vterm)
 #+end_src
+
+* Chinese
+This requires [[https://github.com/daipeihust/im-select][im-select]] to be installed.
+
+Auto switch to English input method and save the previous input
+method when entering Evil normal mode, restore the saved input method
+when switching back to Evil insert mode.
+#+begin_src emacs-lisp
+(use-package evil-switch-input-method
+  :load-path "~/.config/emacs/elisp/")
+#+end_src
