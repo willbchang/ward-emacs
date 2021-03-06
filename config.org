@@ -164,6 +164,35 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
 (global-undo-fu-session-mode)
 #+end_src
 
+** Multiple Cursor
+** Behavior
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
+
+Treat CamelCaseSubWords as separate words in programming mode.
+#+begin_src emacs-lisp
+(add-hook 'prog-mode-hook 'subword-mode)
+#+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
+* Markup Language
 ** Org Mode
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 # 6. default with org mode
@@ -220,39 +249,6 @@ Change org unordered list styles.
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-#+end_src
-** Multiple Cursor
-** Behavior
-Break lines normally for Chinese characters.
-#+begin_src emacs-lisp
-(setq word-wrap-by-category t)
-#+end_src
-
-Auto pair brackets, quotes etc.
-#+begin_src emacs-lisp
-(electric-pair-mode 1)
-#+end_src
-
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
-Treat CamelCaseSubWords as separate words in programming mode.
-#+begin_src emacs-lisp
-(add-hook 'prog-mode-hook 'subword-mode)
-#+end_src
-
-Indent with 2 space.
-#+begin_src emacs-lisp
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq indent-line-function 'insert-tab)
 #+end_src
 * UI
 # 4. Better modeline
@@ -515,4 +511,9 @@ when switching back to Evil insert mode.
 #+begin_src emacs-lisp
 (use-package evil-switch-input-method
   :load-path "~/.config/emacs/elisp/")
+#+end_src
+
+Break lines normally for Chinese characters in visual line mode.
+#+begin_src emacs-lisp
+(setq word-wrap-by-category t)
 #+end_src
