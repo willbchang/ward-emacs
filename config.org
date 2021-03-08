@@ -247,7 +247,6 @@ Hide emphasis makers.
 Enable shift selection.
 #+begin_src emacs-lisp
 (setq org-support-shift-select t)
-  ;; (font-lock-add-keywords nil '(("\\b\\(FIXME\\|TODO\\|BUG\\)\\b" 1 font-lock-warning-face t)))
 #+end_src
 
 *** Org Superstar
@@ -283,21 +282,7 @@ Change org unordered list styles.
   :init (setq markdown-command "multimarkdown"))
 #+end_src
 
-* UI
-# 4. Better modeline
-- Tab bar and Side bar are not needed.
-- Mode line means Status bar.
-
-Disable tool bar.
-#+begin_src emacs-lisp
-(tool-bar-mode 0)
-#+end_src
-
-Disable scroll bar.
-#+begin_src emacs-lisp
-(scroll-bar-mode 0)
-#+end_src
-
+* Design
 ** Title Bar
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
@@ -308,13 +293,28 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
+** Tool Bar
+Disable tool bar.
+#+begin_src emacs-lisp
+(tool-bar-mode 0)
+#+end_src
+
+** Scroll Bar
+Disable scroll bar.
+#+begin_src emacs-lisp
+(scroll-bar-mode 0)
+#+end_src
+
 ** Line Number
 Default line number width with 3 characters.
 #+begin_src emacs-lisp
 (setq-default display-line-numbers-width 3)
 #+end_src
 
+** Color Theme
+Use default color theme.
 ** Mode Line
+# 4. Better modeline
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
@@ -345,6 +345,7 @@ Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
 #+end_src
+
 ** Font
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
@@ -386,7 +387,6 @@ Enable word wrap globally.
 (global-visual-line-mode 1)
 #+end_src
 
-* UX
 # 2. Absolute line number in Insert mode
 # 5. y or n for yes or no, not work for now
 # 11. snails? ivy?
@@ -454,7 +454,8 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 (setq ns-pop-up-frames nil)
 #+end_src
 
-* Frame
+* Window Management
+** Frame
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
@@ -482,7 +483,7 @@ TODO: Make the buffers independent in each frame.
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
 #+end_src
 
-* Buffer
+** Buffer
 Unset =Command + K== for kill buffer.
 #+begin_src emacs-lisp
 (global-unset-key (kbd "s-k"))
