@@ -331,31 +331,8 @@ Change org unordered list styles.
 #+end_src
 
 * Text Editing
-# 12. company for elisp, especially for completion emacs functions/variables
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
-*Keybinding Values*:
-| Meaning | Emacs Key Value | MacOS Key           |
-|---------+-----------------+---------------------|
-| Control | =C=               | =Control(Ctrl)=       |
-| Meta    | =M=               | =Option(Alt)=         |
-| Super   | =s=               | =Command=             |
-| Shift   | =S=               | =Shift=               |
-| -       | =s-z=             | =Command + Z=         |
-| -       | =s-Z=             | =Command + Shift + Z= |
-
-*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
-- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
-- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
-- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
-- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
-- =(global-unset-key KEY)=: Removes KEY from the global keymap
-
-*Keybinding Value Styles*:
-- =(kbd "s-Z")=
-- ~"s-Z"~
-- ~[s-Z]~
-
-** Moving Cursor
+** MacOS Preferred
+*** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
 - =Command + ↓=: move to the bottom of the file.
@@ -368,7 +345,11 @@ Make =Command + ArrowKey= behaves like MacOS app.
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
 #+end_src
 
-** Editing Text
+*** Searching Text
+
+*** Selecting Text
+
+*** Editing Text
 =Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
@@ -405,8 +386,6 @@ there's no active region."
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 #+end_src
-
-** Selecting Text
 
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
@@ -501,6 +480,31 @@ Indent with 2 space.
 (setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
 #+end_src
+
+** Keybinding References
+# 12. company for elisp, especially for completion emacs functions/variables
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
+*Keybinding Values*:
+| Meaning | Emacs Key Value | MacOS Key           |
+|---------+-----------------+---------------------|
+| Control | =C=               | =Control(Ctrl)=       |
+| Meta    | =M=               | =Option(Alt)=         |
+| Super   | =s=               | =Command=             |
+| Shift   | =S=               | =Shift=               |
+| -       | =s-z=             | =Command + Z=         |
+| -       | =s-Z=             | =Command + Shift + Z= |
+
+*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
+- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
+- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
+- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
+- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
+- =(global-unset-key KEY)=: Removes KEY from the global keymap
+
+*Keybinding Value Styles*:
+- =(kbd "s-Z")=
+- ~"s-Z"~
+- ~[s-Z]~
 
 * Git
 ** Magit
