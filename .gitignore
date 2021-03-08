@@ -30,6 +30,7 @@ eln-cache/
 
 # Use Package
 .last-package-update-day
+url
 
 # Org-mode
 .org-id-locations
