@@ -56,232 +56,6 @@ Keep the packages up to date.
   (auto-package-update-maybe))
 #+end_src
 
-* Text Editing
-# 12. company for elisp, especially for completion emacs functions/variables
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
-** Basic Keybindings
-*Keybinding Values*:
-| Meaning | Emacs Key Value | MacOS Key           |
-|---------+-----------------+---------------------|
-| Control | =C=               | =Control(Ctrl)=       |
-| Meta    | =M=               | =Option(Alt)=         |
-| Super   | =s=               | =Command=             |
-| Shift   | =S=               | =Shift=               |
-| -       | =s-z=             | =Command + Z=         |
-| -       | =s-Z=             | =Command + Shift + Z= |
-
-*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
-- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
-- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
-- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
-- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
-- =(global-unset-key KEY)=: Removes KEY from the global keymap
-
-*Keybinding Value Styles*:
-- =(kbd "s-Z")=
-- ~"s-Z"~
-- ~[s-Z]~
-
-Make =Command + ArrowKey= behaves like MacOS app.
-- =Command + ↑=: move to the top of the file.
-- =Command + ↓=: move to the bottom of the file.
-- =Command + ←=: move to the beginning of the line.
-- =Command + →=: move to the end of the line.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "s-<down>") 'end-of-buffer)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
-(global-set-key (kbd "s-<left>") 'move-beginning-of-line)
-#+end_src
-
-=Command + Backspace=: Delete current line from cursor to the beginning
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
-
-(defun backward-kill-line (arg)
-  "Kill ARG lines backward."
-  (interactive "p")
- (kill-line (- 1 arg)))
-#+end_src
-
-=Command + Shift + Backspace=: Delete whole line entirely.\\
-/This is not the default behavior of MacOS, but I found it's useful./
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-#+end_src
-
-
-# TODO:
-# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
-# 2. Comment one line, it adds before and forward one line
-# 3. Comment on region, it add and move to the next line of the region
-# 4. Cannot uncomment inside org mode code block
-=Command + /=: Comment/Uncomment line(s).
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
-
-(defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if
-there's no active region."
-  (interactive)
-  (let (beg end)
-    (if (region-active-p)
-        (setq beg (region-beginning) end (region-end))
-      (setq beg (line-beginning-position) end (line-end-position)))
-    (comment-or-uncomment-region beg end)))
-#+end_src
-** Evil Mode
-[[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
-#+begin_src emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
-#+end_src
-
-# FIX: Not working
-Unbind =return= key in for using it to open link in org mode.
-#+begin_src emacs-lisp
-(with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil))
-#+end_src
-
-Set Evil cursor color and styles in different situations.
-You can try these commands independently to test the effects: =Esc, i, v, d, r=
-#+begin_src emacs-lisp
-(setq evil-normal-state-cursor '(box "#e2416c")
-      evil-insert-state-cursor '(bar "#e2416c")
-      evil-visual-state-cursor '(hollow "#e2416c")
-      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
-      evil-replace-state-cursor '(hbar "#e2416c"))
-#+end_src
-*** Evil Collection
-[[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
-#+begin_src emacs-lisp
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list
-        '(dired magit))
-  (evil-collection-init))
-#+end_src
-
-*** Evil Surround
-[[https://github.com/emacs-evil/evil-surround][evil-surround]] makes surround text with paired symbols easily.
-#+begin_src emacs-lisp
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-#+end_src
-
-*** Undo Fu
-[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
-#+begin_src emacs-lisp
-(use-package undo-fu
-  :config
-  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
-  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
-
-(global-unset-key (kbd "s-z"))
-(global-set-key (kbd "s-z")   'undo-fu-only-undo)
-(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
-#+end_src
-
-[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
-#+begin_src emacs-lisp
-(use-package undo-fu-session
-  :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
-
-(global-undo-fu-session-mode)
-#+end_src
-
-** Multiple Cursor
-** Behavior
-Auto pair brackets, quotes etc.
-#+begin_src emacs-lisp
-(electric-pair-mode 1)
-#+end_src
-
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
-Indent with 2 space.
-#+begin_src emacs-lisp
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq indent-line-function 'insert-tab)
-#+end_src
-
-* Markup Language
-** Org Mode
-[[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
-# 6. default with org mode
-# 15. org render code block with hiding begin & end
-# 16. org valign
-# 17. org latex
-# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
-# 19. Smooth scrolling over images in Emacs
-# 20. Preview equations live in org-mode
-# 23. org roam
-# Make not*Bold*AtAll work!
-Enable headline and subcontent in the indented view.
-#+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+end_src
-
-Hide emphasis makers.
-#+begin_src emacs-lisp
-(setq org-hide-emphasis-markers t)
-#+end_src
-
-Enable shift selection.
-#+begin_src emacs-lisp
-(setq org-support-shift-select t)
-#+end_src
-
-*** Org Superstar
-[[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
-#+begin_src emacs-lisp
-(use-package org-superstar
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (setq org-hide-leading-stars t))
-#+end_src
-
-Change org headline styles.
-#+begin_src emacs-lisp
-(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
-#+end_src
-
-Change org unordered list styles.
-#+begin_src emacs-lisp
-(setq org-superstar-prettify-item-bullets t)
-(setq org-superstar-item-bullet-alist '((?* . ?•)
-                                        (?+ . ?•)
-                                        (?- . ?•)))
-#+end_src
-
-** Markdown Mode
-[[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
-#+begin_src emacs-lisp
-(use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-#+end_src
-
 * Design
 ** Title Bar
 Show icon and full path in title bar.
@@ -299,6 +73,9 @@ Disable tool bar.
 (tool-bar-mode 0)
 #+end_src
 
+** Tab Bar
+https://www.emacswiki.org/emacs/TabBarMode
+
 ** Scroll Bar
 Disable scroll bar.
 #+begin_src emacs-lisp
@@ -313,6 +90,7 @@ Default line number width with 3 characters.
 
 ** Color Theme
 Use default color theme.
+
 ** Mode Line
 # 4. Better modeline
 #+begin_src emacs-lisp
@@ -347,6 +125,7 @@ Count column number from 1 instead of 0.
 #+end_src
 
 ** Font
+Use default font SF Mono for MacOS.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "SF Mono-18")
@@ -356,15 +135,10 @@ Count column number from 1 instead of 0.
 (global-set-key (kbd "s-0") 'reset-font-size)
 (global-set-key (kbd "s-=") 'text-scale-increase)
 (global-set-key (kbd "s--") 'text-scale-decrease)
+
 (defun reset-font-size ()
   (interactive)
   (text-scale-set 0))
-#+end_src
-
-Use macOS's default font for Chinese characters.
-# Cannot soft wrap line for Chinese characters.
-#+begin_src emacs-lisp
-(set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
 
 ** Behavior
@@ -495,6 +269,239 @@ Unset =Command + K== for kill buffer.
 #+end_src
 
 # TODO: Command + T for a new buffer.
+
+* Markup Language
+** Org Mode
+[[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
+# 6. default with org mode
+# 15. org render code block with hiding begin & end
+# 16. org valign
+# 17. org latex
+# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
+# 19. Smooth scrolling over images in Emacs
+# 20. Preview equations live in org-mode
+# 23. org roam
+# Make not*Bold*AtAll work!
+Enable headline and subcontent in the indented view.
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+end_src
+
+Hide emphasis makers.
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
+
+Enable shift selection.
+#+begin_src emacs-lisp
+(setq org-support-shift-select t)
+#+end_src
+
+*** Org Superstar
+[[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
+#+begin_src emacs-lisp
+(use-package org-superstar
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  (setq org-hide-leading-stars t))
+#+end_src
+
+Change org headline styles.
+#+begin_src emacs-lisp
+(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
+#+end_src
+
+Change org unordered list styles.
+#+begin_src emacs-lisp
+(setq org-superstar-prettify-item-bullets t)
+(setq org-superstar-item-bullet-alist '((?* . ?•)
+                                        (?+ . ?•)
+                                        (?- . ?•)))
+#+end_src
+
+** Markdown Mode
+[[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
+
+* Text Editing
+# 12. company for elisp, especially for completion emacs functions/variables
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
+*Keybinding Values*:
+| Meaning | Emacs Key Value | MacOS Key           |
+|---------+-----------------+---------------------|
+| Control | =C=               | =Control(Ctrl)=       |
+| Meta    | =M=               | =Option(Alt)=         |
+| Super   | =s=               | =Command=             |
+| Shift   | =S=               | =Shift=               |
+| -       | =s-z=             | =Command + Z=         |
+| -       | =s-Z=             | =Command + Shift + Z= |
+
+*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
+- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
+- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
+- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
+- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
+- =(global-unset-key KEY)=: Removes KEY from the global keymap
+
+*Keybinding Value Styles*:
+- =(kbd "s-Z")=
+- ~"s-Z"~
+- ~[s-Z]~
+
+** Moving Cursor
+Make =Command + ArrowKey= behaves like MacOS app.
+- =Command + ↑=: move to the top of the file.
+- =Command + ↓=: move to the bottom of the file.
+- =Command + ←=: move to the beginning of the line.
+- =Command + →=: move to the end of the line.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
+(global-set-key (kbd "s-<down>") 'end-of-buffer)
+(global-set-key (kbd "s-<right>") 'move-end-of-line)
+(global-set-key (kbd "s-<left>") 'move-beginning-of-line)
+#+end_src
+
+** Editing Text
+=Command + Backspace=: Delete current line from cursor to the beginning
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
+
+(defun backward-kill-line (arg)
+  "Kill ARG lines backward."
+  (interactive "p")
+ (kill-line (- 1 arg)))
+#+end_src
+
+=Command + Shift + Backspace=: Delete whole line entirely.\\
+/This is not the default behavior of MacOS, but I found it's useful./
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
+#+end_src
+
+
+# TODO:
+# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
+# 2. Comment one line, it adds before and forward one line
+# 3. Comment on region, it add and move to the next line of the region
+# 4. Cannot uncomment inside org mode code block
+=Command + /=: Comment/Uncomment line(s).
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if
+there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)))
+#+end_src
+
+** Selecting Text
+
+** Evil Mode
+[[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
+
+# FIX: Not working
+Unbind =return= key in for using it to open link in org mode.
+#+begin_src emacs-lisp
+(with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil))
+#+end_src
+
+Set Evil cursor color and styles in different situations.
+You can try these commands independently to test the effects: =Esc, i, v, d, r=
+#+begin_src emacs-lisp
+(setq evil-normal-state-cursor '(box "#e2416c")
+      evil-insert-state-cursor '(bar "#e2416c")
+      evil-visual-state-cursor '(hollow "#e2416c")
+      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
+      evil-replace-state-cursor '(hbar "#e2416c"))
+#+end_src
+*** Evil Collection
+[[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list
+        '(dired magit))
+  (evil-collection-init))
+#+end_src
+
+*** Evil Surround
+[[https://github.com/emacs-evil/evil-surround][evil-surround]] makes surround text with paired symbols easily.
+#+begin_src emacs-lisp
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+
+*** Undo Fu
+# Split and move to editing text
+[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
+#+begin_src emacs-lisp
+(use-package undo-fu
+  :config
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
+
+(global-unset-key (kbd "s-z"))
+(global-set-key (kbd "s-z")   'undo-fu-only-undo)
+(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
+#+end_src
+
+[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
+#+begin_src emacs-lisp
+(use-package undo-fu-session
+  :config
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
+
+(global-undo-fu-session-mode)
+#+end_src
+
+** Multiple Cursor
+
+** Behavior
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
+
 * Git
 ** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
@@ -537,14 +544,22 @@ Update all window when Emacs focus in.
 #+end_src
 
 * Chinese
-This requires [[https://github.com/daipeihust/im-select][im-select]] to be installed.
-
-Auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
+** Font
+Use macOS's default Chinese font for Chinese characters in Emacs.
+# Cannot soft wrap line for Chinese characters.
 #+begin_src emacs-lisp
-(use-package evil-switch-input-method
-  :load-path "~/.config/emacs/elisp/")
+(set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
 
+** Display
+Break lines normally for Chinese characters in visual line mode.
+#+begin_src emacs-lisp
+(setq word-wrap-by-category t)
+#+end_src
+
+# FIX: Line Spacing default with Chinese Characters like 。
+
+** Search
 [[https://github.com/laishulu/evil-pinyin][evil-pinyin]]: Search Chinese characters with the first letter of Pinyin.
 #+begin_src emacs-lisp
 (use-package evil-pinyin
@@ -556,12 +571,14 @@ Auto switch to English input method and save the previous input method when ente
   ;;(evil-select-search-module 'evil-search-module 'evil-search)
   (global-evil-pinyin-mode))
 
+
 (evil-select-search-module 'evil-search-module 'evil-search)
 #+end_src
 
-Break lines normally for Chinese characters in visual line mode.
+** Input Method
+This requires [[https://github.com/daipeihust/im-select][im-select]] to be installed.
+Auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 #+begin_src emacs-lisp
-(setq word-wrap-by-category t)
+(use-package evil-switch-input-method
+  :load-path "~/.config/emacs/elisp/")
 #+end_src
-
-# FIX: Line Spacing default with Chinese Characters like 。
