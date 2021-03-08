@@ -47,6 +47,15 @@ Always compile packages, and use the newest version available.
 (setq load-prefer-newer t)
 #+end_src
 
+Keep the packages up to date.
+#+begin_src emacs-lisp
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+#+end_src
+
 * Text Editing
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode

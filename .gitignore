@@ -28,6 +28,9 @@ tramp
 # Native Comp
 eln-cache/
 
+# Use Package
+.last-package-update-day
+
 # Org-mode
 .org-id-locations
 *_archive
