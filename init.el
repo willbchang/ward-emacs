@@ -1,27 +1,3 @@
-;; Set http(s) proxy for Emacs, for VPN users.
-(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                          ("http" . "127.0.0.1:1087")
-                          ("https" . "127.0.0.1:1087")))
-
-;; https://www.emacswiki.org/emacs/GccEmacs
-;; Complie extrnal packages
-(setq package-native-compile t)
-
-;; Configure package.el to include MELPA.
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(package-initialize)
-
-;; Ensure that use-package is installed.
-;;
-;; If use-package isn't already installed, it's extremely likely that this is a
-;; fresh installation! So we'll want to update the package repository and
-;; install use-package before loading the literate configuration.
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
 
 (org-babel-load-file "~/.config/emacs/config.org")
 
@@ -31,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil-pinyin jetbrains-darcula-theme valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package)))
+   '(auto-package-update evil-pinyin jetbrains-darcula-theme valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,6 +1,39 @@
 * Package Manager
+** Proxy
+Set http(s) proxy for Emacs. /You might not need it, or need to change it./
+#+begin_src emacs-lisp
+(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                          ("http" . "127.0.0.1:1087")
+                          ("https" . "127.0.0.1:1087")))
+#+end_src#
+
+** Package
+Complie external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
+#+begin_src emacs-lisp
+(setq package-native-compile t)
+#+end_src
+
+Configure package.el to include MELPA.
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
+#+end_src
+
+** Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
+
 Always ensure the package is installed.
+Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
+#+begin_src emacs-lisp
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
+#+end_src
+
+The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system, it won't affect local packages. Enable ~:ensure t~ to be global for all packages.
 #+begin_src emacs-lisp
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
