@@ -377,6 +377,7 @@ Indent with 2 space.
   (evil-mode 1))
 #+end_src
 
+*** Behaviors
 # FIX: Not working
 Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
@@ -392,6 +393,11 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
       evil-visual-state-cursor '(hollow "#e2416c")
       evil-operator-state-cursor '(evil-half-cursor "#e2416c")
       evil-replace-state-cursor '(hbar "#e2416c"))
+#+end_src
+
+Set default cursor style to bar when evil use emacs state.
+#+begin_src emacs-lisp
+(setq-default evil-emacs-state-cursor 'bar)
 #+end_src
 
 *** Evil Collection
