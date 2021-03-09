@@ -56,6 +56,9 @@ Keep the packages up to date.
   (auto-package-update-maybe))
 #+end_src
 
+** Straight
+[[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
+
 * Design
 ** Title Bar
 Show icon and full path in title bar.
@@ -75,12 +78,17 @@ Disable tool bar.
 
 ** Tab Bar
 https://www.emacswiki.org/emacs/TabBarMode
+https://github.com/manateelazycat/awesome-tab
+https://github.com/ema2159/centaur-tabs
 
 ** Scroll Bar
 Disable scroll bar.
 #+begin_src emacs-lisp
 (scroll-bar-mode 0)
 #+end_src
+
+** Side Bar
+https://github.com/Alexander-Miller/treemacs
 
 ** Line Number
 Default line number width with 3 characters.
@@ -331,6 +339,8 @@ Change org unordered list styles.
 #+end_src
 
 * Text Editing
+# 12. company for elisp, especially for completion emacs functions/variables
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
 ** MacOS Preferred
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
@@ -413,6 +423,7 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
       evil-operator-state-cursor '(evil-half-cursor "#e2416c")
       evil-replace-state-cursor '(hbar "#e2416c"))
 #+end_src
+
 *** Evil Collection
 [[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
@@ -457,6 +468,10 @@ You can try these commands independently to test the effects: =Esc, i, v, d, r=
 #+end_src
 
 ** Multiple Cursor
+https://github.com/hlissner/evil-multiedit
+https://github.com/gabesoft/evil-mc
+https://github.com/syl20bnr/evil-iedit-state
+https://github.com/magnars/multiple-cursors.el
 
 ** Behavior
 Auto pair brackets, quotes etc.
@@ -482,8 +497,6 @@ Indent with 2 space.
 #+end_src
 
 ** Keybinding References
-# 12. company for elisp, especially for completion emacs functions/variables
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
 |---------+-----------------+---------------------|
@@ -542,6 +555,8 @@ Update all window when Emacs focus in.
 ** Vterm
 # Open as a mini buffer
 # Disable evil in vterm
+# Word wrap is not normal
+# Text Editing keybindings are not supported
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
@@ -550,7 +565,6 @@ Update all window when Emacs focus in.
 * Chinese
 ** Font
 Use macOS's default Chinese font for Chinese characters in Emacs.
-# Cannot soft wrap line for Chinese characters.
 #+begin_src emacs-lisp
 (set-fontset-font "fontset-default" 'han '("STHeiti"))
 #+end_src
@@ -580,7 +594,9 @@ Break lines normally for Chinese characters in visual line mode.
 #+end_src
 
 ** Input Method
-This requires [[https://github.com/daipeihust/im-select][im-select]] to be installed.
+# Not work well by now. Exit from Chinese will not change to English
+*This requires [[https://github.com/daipeihust/im-select][im-select]] to be installed.*
+
 Auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 #+begin_src emacs-lisp
 (use-package evil-switch-input-method
