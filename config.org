@@ -262,6 +262,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 * Markup Language
 ** Org Mode
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
+*** Behaviors
 # 6. default with org mode
 # 15. org render code block with hiding begin & end
 # 16. org valign
@@ -284,6 +285,11 @@ Hide emphasis makers.
 Enable shift selection.
 #+begin_src emacs-lisp
 (setq org-support-shift-select t)
+#+end_src
+
+Disable reindent on every time editing code block.
+#+begin_src emacs-lisp
+(setq org-edit-src-content-indentation 0)
 #+end_src
 
 *** Org Superstar
@@ -376,6 +382,7 @@ Make =Command + ArrowKey= behaves like MacOS app.
 /This is not the default behavior of MacOS, but I found it's useful./
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
+
 #+end_src
 
 
@@ -397,6 +404,10 @@ there's no active region."
         (setq beg (region-beginning) end (region-end))
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
+
+
+
+
 #+end_src
 
 **** Behaviors
