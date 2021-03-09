@@ -259,72 +259,6 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 (setq ns-pop-up-frames nil)
 #+end_src
 
-* Markup Language
-** Org Mode
-[[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
-*** Behaviors
-# 6. default with org mode
-# 15. org render code block with hiding begin & end
-# 16. org valign
-# 17. org latex
-# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
-# 19. Smooth scrolling over images in Emacs
-# 20. Preview equations live in org-mode
-# 23. org roam
-# Make not*Bold*AtAll work!
-Enable headline and subcontent in the indented view.
-#+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+end_src
-
-Hide emphasis makers.
-#+begin_src emacs-lisp
-(setq org-hide-emphasis-markers t)
-#+end_src
-
-Enable shift selection.
-#+begin_src emacs-lisp
-(setq org-support-shift-select t)
-#+end_src
-
-Disable reindent on every time editing code block.
-#+begin_src emacs-lisp
-(setq org-edit-src-content-indentation 0)
-#+end_src
-
-*** Org Superstar
-[[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
-#+begin_src emacs-lisp
-(use-package org-superstar
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (setq org-hide-leading-stars t))
-#+end_src
-
-Change org headline styles.
-#+begin_src emacs-lisp
-(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
-#+end_src
-
-Change org unordered list styles.
-#+begin_src emacs-lisp
-(setq org-superstar-prettify-item-bullets t)
-(setq org-superstar-item-bullet-alist '((?* . ?•)
-                                        (?+ . ?•)
-                                        (?- . ?•)))
-#+end_src
-
-** Markdown Mode
-[[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
-#+begin_src emacs-lisp
-(use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-#+end_src
-
 * Text Editing
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
@@ -532,6 +466,72 @@ https://github.com/magnars/multiple-cursors.el
 - ~"s-Z"~
 - ~[s-Z]~
 
+* Markup Language
+** Org Mode
+[[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
+*** Behaviors
+# 6. default with org mode
+# 15. org render code block with hiding begin & end
+# 16. org valign
+# 17. org latex
+# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
+# 19. Smooth scrolling over images in Emacs
+# 20. Preview equations live in org-mode
+# 23. org roam
+# Make not*Bold*AtAll work!
+Enable headline and subcontent in the indented view.
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+end_src
+
+Hide emphasis makers.
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
+
+Enable shift selection.
+#+begin_src emacs-lisp
+(setq org-support-shift-select t)
+#+end_src
+
+Disable reindent on every time editing code block.
+#+begin_src emacs-lisp
+(setq org-edit-src-content-indentation 0)
+#+end_src
+
+*** Org Superstar
+[[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
+#+begin_src emacs-lisp
+(use-package org-superstar
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  (setq org-hide-leading-stars t))
+#+end_src
+
+Change org headline styles.
+#+begin_src emacs-lisp
+(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
+#+end_src
+
+Change org unordered list styles.
+#+begin_src emacs-lisp
+(setq org-superstar-prettify-item-bullets t)
+(setq org-superstar-item-bullet-alist '((?* . ?•)
+                                        (?+ . ?•)
+                                        (?- . ?•)))
+#+end_src
+
+** Markdown Mode
+[[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
+
 * Terminal Emulator
 ** Exec Path From Shell
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
@@ -575,7 +575,7 @@ Update all window when Emacs focus in.
 (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 #+end_src
 
-* Chinese
+* Chinese Configuration
 ** Font
 Use macOS's default Chinese font for Chinese characters in Emacs.
 #+begin_src emacs-lisp
