@@ -543,12 +543,16 @@ Change org unordered list styles.
 
 ** Vterm
 # Open as a mini buffer
-# Disable evil in vterm
 # Word wrap is not normal
 # Text Editing keybindings are not supported
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
+#+end_src
+
+Disable evil mode for vterm.
+#+begin_src emacs-lisp
+(add-hook 'vterm-mode-hook 'evil-emacs-state)
 #+end_src
 
 * Version Control
