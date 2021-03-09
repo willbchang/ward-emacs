@@ -59,7 +59,7 @@ Keep the packages up to date.
 ** Straight
 [[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
 
-* Design
+* Appearance
 ** Title Bar
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
@@ -94,6 +94,14 @@ https://github.com/Alexander-Miller/treemacs
 Default line number width with 3 characters.
 #+begin_src emacs-lisp
 (setq-default display-line-numbers-width 3)
+#+end_src
+
+Display relative line numbers on text mode and code mode.
+#+begin_src emacs-lisp
+(setq-default display-line-numbers-type 'relative
+              display-line-numbers-current-absolute t)
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 #+end_src
 
 ** Color Theme
@@ -149,30 +157,68 @@ Use default font SF Mono for MacOS.
   (text-scale-set 0))
 #+end_src
 
-** Behavior
-Highlight urls and make them clickable.
-#+begin_src emacs-lisp
-(goto-address-mode 1)
-#+end_src
-
-Highlight paired brackets, includes (), [], {} and so on...
-#+begin_src emacs-lisp
-(show-paren-mode 1)
-(require 'paren)
-(set-face-background 'show-paren-match (face-background 'default))
-(set-face-foreground 'show-paren-match "#f7d451")
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-#+end_src
-
-Enable word wrap globally.
-#+begin_src emacs-lisp
-(global-visual-line-mode 1)
-#+end_src
-
-# 2. Absolute line number in Insert mode
-# 5. y or n for yes or no, not work for now
-# 11. snails? ivy?
+* Window Management
+** Frame
+# TODO: Make the buffers independent in each frame.
 # 21. System-wide popup Emacs windows for quick edits
+# 11. snails? ivy?
+=Ctrl + Command + F=: Set window full screen.
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
+#+end_src
+
+=Command + N=: Create new window, default with org-mode and evil-mode
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-n") 'new-empty-frame)
+#+end_src
+
+=Shift + Command + W=: Close current window.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-W") 'delete-frame)
+#+end_src
+
+#+begin_src emacs-lisp
+(defun new-empty-frame ()
+  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer buffer)
+    (org-mode)
+    (evil-mode 1)
+    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
+#+end_src
+
+** Buffer
+*** Keybindings
+# TODO: Command + T for a new buffer.
+
+Unset =Command + K== for kill buffer.
+#+begin_src emacs-lisp
+(global-unset-key (kbd "s-k"))
+#+end_src
+
+=Command + W=: Close current buffer.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-w") 'kill-this-buffer)
+#+end_src
+
+*** Behaviors
+# 5. y or n for yes or no, not work for now
+Save files automatically.
+#+begin_src emacs-lisp
+(auto-save-visited-mode 1)
+#+end_src
+
+Ensure files end with newline.
+#+begin_src emacs-lisp
+(setq require-final-newline t)
+#+end_src
+
+Revert (update) buffers automatically when underlying files are changed externally.
+#+begin_src emacs-lisp
+(global-auto-revert-mode t)
+#+end_src
+
 Disable startup screen.
 #+begin_src emacs-lisp
 (setq inhibit-startup-screen t)
@@ -191,29 +237,6 @@ Save cursor position for each file.
 Save/Restore opened files and windows configuration.
 #+begin_src emacs-lisp
 (desktop-save-mode 1)
-#+end_src
-
-Save files automatically.
-#+begin_src emacs-lisp
-(auto-save-visited-mode 1)
-#+end_src
-
-Ensure files end with newline.
-#+begin_src emacs-lisp
-(setq require-final-newline t)
-#+end_src
-
-Revert (update) buffers automatically when underlying files are changed externally.
-#+begin_src emacs-lisp
-(global-auto-revert-mode t)
-#+end_src
-
-Display relative line numbers on text mode and code mode.
-#+begin_src emacs-lisp
-(setq-default display-line-numbers-type 'relative
-              display-line-numbers-current-absolute t)
-(add-hook 'text-mode-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 #+end_src
 
 Cancel partially typed or accidental command.
@@ -235,48 +258,6 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 #+begin_src emacs-lisp
 (setq ns-pop-up-frames nil)
 #+end_src
-
-* Window Management
-** Frame
-=Ctrl + Command + F=: Set window full screen.
-#+begin_src emacs-lisp
-(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
-#+end_src
-
-=Command + N=: Create new window, default with org-mode and evil-mode
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-n") 'new-empty-frame)
-#+end_src
-
-=Shift + Command + W=: Close current window.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-W") 'delete-frame)
-#+end_src
-
-TODO: Make the buffers independent in each frame.
-#+begin_src emacs-lisp
-(defun new-empty-frame ()
-  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
-  (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (set-buffer buffer)
-    (org-mode)
-    (evil-mode 1)
-    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-
-** Buffer
-Unset =Command + K== for kill buffer.
-#+begin_src emacs-lisp
-(global-unset-key (kbd "s-k"))
-#+end_src
-
-=Command + W=: Close current buffer.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-w") 'kill-this-buffer)
-#+end_src
-
-# TODO: Command + T for a new buffer.
 
 * Markup Language
 ** Org Mode
@@ -341,7 +322,27 @@ Change org unordered list styles.
 * Text Editing
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
-** MacOS Preferred
+** Basic Behaviors
+*** Displaying Text
+Highlight urls and make them clickable.
+#+begin_src emacs-lisp
+(goto-address-mode 1)
+#+end_src
+
+Highlight paired brackets, includes (), [], {} and so on...
+#+begin_src emacs-lisp
+(show-paren-mode 1)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#f7d451")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+#+end_src
+
+Enable word wrap globally.
+#+begin_src emacs-lisp
+(global-visual-line-mode 1)
+#+end_src
+
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↑=: move to the top of the file.
@@ -360,6 +361,7 @@ Make =Command + ArrowKey= behaves like MacOS app.
 *** Selecting Text
 
 *** Editing Text
+**** Keybindings
 =Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
@@ -397,7 +399,30 @@ there's no active region."
     (comment-or-uncomment-region beg end)))
 #+end_src
 
-** Evil Mode
+**** Behaviors
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Delete trailing whitespace on saving a buffer.
+#+begin_src emacs-lisp
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
+
+** Vim Emulator
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
@@ -473,29 +498,6 @@ https://github.com/gabesoft/evil-mc
 https://github.com/syl20bnr/evil-iedit-state
 https://github.com/magnars/multiple-cursors.el
 
-** Behavior
-Auto pair brackets, quotes etc.
-#+begin_src emacs-lisp
-(electric-pair-mode 1)
-#+end_src
-
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
-Indent with 2 space.
-#+begin_src emacs-lisp
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq indent-line-function 'insert-tab)
-#+end_src
-
 ** Keybinding References
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
@@ -519,7 +521,26 @@ Indent with 2 space.
 - ~"s-Z"~
 - ~[s-Z]~
 
-* Git
+* Terminal Emulator
+** Exec Path From Shell
+[[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
+#+begin_src emacs-lisp
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+#+end_src
+
+** Vterm
+# Open as a mini buffer
+# Disable evil in vterm
+# Word wrap is not normal
+# Text Editing keybindings are not supported
+[[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
+#+begin_src emacs-lisp
+(use-package vterm)
+#+end_src
+
+* Version Controll
 ** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
@@ -541,25 +562,6 @@ Update all window when Emacs focus in.
 /This fixes git gutter cannot update the file status after committing outside of Emacs./
 #+begin_src emacs-lisp
 (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
-#+end_src
-
-* Terminal
-** Exec Path From Shell
-[[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
-#+begin_src emacs-lisp
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
-#+end_src
-
-** Vterm
-# Open as a mini buffer
-# Disable evil in vterm
-# Word wrap is not normal
-# Text Editing keybindings are not supported
-[[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
-#+begin_src emacs-lisp
-(use-package vterm)
 #+end_src
 
 * Chinese
