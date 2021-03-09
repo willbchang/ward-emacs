@@ -334,7 +334,7 @@ Highlight paired brackets, includes (), [], {} and so on...
 (show-paren-mode 1)
 (require 'paren)
 (set-face-background 'show-paren-match (face-background 'default))
-(set-face-foreground 'show-paren-match "#f7d451")
+(set-face-foreground 'show-paren-match "#e2416c")
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+end_src
 
@@ -540,7 +540,7 @@ https://github.com/magnars/multiple-cursors.el
 (use-package vterm)
 #+end_src
 
-* Version Controll
+* Version Control
 ** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
