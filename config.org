@@ -589,11 +589,9 @@ Disable evil mode for vterm.
   (global-git-gutter-mode 't))
 #+end_src
 
-# FIX: Update provide more intelligent solution
-Update all window when Emacs focus in.
-/This fixes git gutter cannot update the file status after committing outside of Emacs./
+If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter updates diff information in real-time by idle timer.
 #+begin_src emacs-lisp
-(add-hook 'focus-in-hook 'git-gutter:update-all-windows)
+(custom-set-variables '(git-gutter:update-interval 2))
 #+end_src
 
 * Chinese Configuration
