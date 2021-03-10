@@ -90,6 +90,8 @@ Disable scroll bar.
 ** Side Bar
 https://github.com/Alexander-Miller/treemacs
 
+** Fringe
+
 ** Line Number
 Default line number width with 3 characters.
 #+begin_src emacs-lisp
@@ -108,7 +110,8 @@ Display relative line numbers on text mode and code mode.
 Use default color theme.
 
 ** Mode Line
-# 4. Better modeline
+# Simple Modeline
+#  Row: Column, Scroll Position, Git
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
@@ -141,7 +144,7 @@ Count column number from 1 instead of 0.
 #+end_src
 
 ** Font
-Use default font SF Mono for MacOS.
+Use MacOS default font SF Mono.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "SF Mono-18")
@@ -162,6 +165,7 @@ Use default font SF Mono for MacOS.
 # TODO: Make the buffers independent in each frame.
 # 21. System-wide popup Emacs windows for quick edits
 # 11. snails? ivy?
+*** Keybindings
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
@@ -191,6 +195,8 @@ Use default font SF Mono for MacOS.
 ** Buffer
 *** Keybindings
 # TODO: Command + T for a new buffer.
+# TODO: Command + [ goto previous buffer.
+# TODO: Command + ] goto next buffer.
 
 Unset =Command + K== for kill buffer.
 #+begin_src emacs-lisp
@@ -203,7 +209,6 @@ Unset =Command + K== for kill buffer.
 #+end_src
 
 *** Behaviors
-# 5. y or n for yes or no, not work for now
 Save files automatically.
 #+begin_src emacs-lisp
 (auto-save-visited-mode 1)
@@ -244,6 +249,7 @@ Cancel partially typed or accidental command.
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 #+end_src
 
+# FIX: not work for vterm
 Ask =y= or =n= instead of =yes= or =no=.
 #+begin_src sh
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -261,8 +267,8 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 
 * Text Editing
 # 12. company for elisp, especially for completion emacs functions/variables
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode
-** Basic Behaviors
+# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
+** Basic Text Editing
 *** Displaying Text
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
@@ -379,6 +385,7 @@ Indent with 2 space.
 
 *** Behaviors
 # FIX: Not working
+# TODO: Remove evil search highlight with ESC
 Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
 (with-eval-after-load 'evil-maps
@@ -556,10 +563,14 @@ Change org unordered list styles.
 (use-package vterm)
 #+end_src
 
+*** Behaviors
 Disable evil mode for vterm.
 #+begin_src emacs-lisp
 (add-hook 'vterm-mode-hook 'evil-emacs-state)
 #+end_src
+
+*** Keybindings
+# TODO: Open, focus and hide vterm instance, create new instance.
 
 * Version Control
 ** Magit
