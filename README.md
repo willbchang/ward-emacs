@@ -1,6 +1,11 @@
-# Teem Emacs
+<div align="center">
+    <img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
+</div>
 
-**T**ext **E**diting within **E**macs for **M**acOS.
+
+# Ward Emacs
+
+Text Editing within Emacs for MacOS.
 
 
 
