@@ -10,25 +10,29 @@ Make Emacs the Plain Text Editor as a great Word Processor in MacOS.
 
 
 ## Introduction
+| Features                 |                                                            |                                                    |                       |
+|--------------------------|------------------------------------------------------------|----------------------------------------------------|-----------------------|
+| **Package Management**   |                                                            |                                                    |                       |
+| **User Interface**       | Distraction Free(Improve)                                  |                                                    |                       |
+| **Window Management**    | [MacOS keybindings](#window-management)(Improve)           |                                                    |                       |
+| **Text Editing**         | [MacOS keybindings](#text-editing)                         | [Vim emulator](https://github.com/emacs-evil/evil) | Multiple Cursor(TODO) |
+| **Markup Language**      | WYSIWYG like for [org-mode](https://orgmode.org/)(Improve) | Markdown syntax highlight                          | LaTex(TODO)           |
+| **Terminal Emulator**    | Same environment variables                                 | A native Terminal experience(Improve)              |                       |
+| **Version Control**      | [magit](https://magit.vc/) is a text-based git interface   | Git diff in gutter                                 |                       |
+| **Chinese Optimization** | Line wrap                                                  | Auto switch input method(Improve)                  | Search with Pinyin    |
 
-- **Package Management**
-- **User Interface**: Distraction Free.
-- **Window Management**: MacOS keybindings.
-- **Text Editing**: MacOS keybindings, Vim emulator([evil-mode](https://github.com/emacs-evil/evil)), multiple cursor,
-- **Markup Language**: WYSIWYG like for [org-mode](https://orgmode.org/), gold experience with plain text table. Synatx highlight for [Markdown](https://daringfireball.net/projects/markdown/).
-- **Terminal Emulator**: Like a native Terminal.
-- **Version Control**: [magit](https://magit.vc/) is a complete text-based user interface to Git.
-- **Chinese Optimization**: Correctly word wrap for long lines, auto switch input method for Evil mode, search text with first letter of Pinyin.
 
 The configuration is in [config.org](config.org).
 
-**Notes**:
-- **Self Documentation**: Press <kbd>alt + x</kbd> and type `describe-` then press <kbd>TAB</kbd>, you can find almost anything in Emacs by yourself.
-- **Emacs is more highly customizable than you think.**
+<details>
+<summary>Notes</summary>
+
+- Press <kbd>alt + x</kbd> and type `describe-` then press <kbd>TAB</kbd>, you can find almost anything in Emacs by yourself.
+- Emacs is more highly customizable than you think.
 - I only use Emacs as a Text Editor, no coding features will be added expect elisp. [JetBrains](https://www.jetbrains.com/products/) provides the best IDE for most programming languages, [EAP](https://www.jetbrains.com/resources/eap/) versions are free to use.
 - I mainly support the version that I'm using(currently is [emacs-plus@28 native comp](https://github.com/d12frosted/homebrew-emacs-plus)), most of the code should work for other versions, but I don't have time to make them compatible. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
-
+</details>
 
 ## Installation
 
