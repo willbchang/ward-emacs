@@ -260,6 +260,11 @@ Empty scratch file on init.
 (setq initial-scratch-message nil)
 #+end_src
 
+Set initial buffer mode to org-mode.
+#+begin_src emacs-lisp
+(setq-default initial-major-mode 'org-mode)
+#+end_src
+
 Save cursor position for each file.
 #+begin_src emacs-lisp
 (save-place-mode t)
