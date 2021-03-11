@@ -214,10 +214,24 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
+(global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer)
 (global-set-key (kbd "s-'") 'next-window-any-frame)
 (global-set-key (kbd "s-,") 'customize)
+#+end_src
+
+# http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
+#+begin_src emacs-lisp
+(defun new-empty-buffer ()
+  "Create a new empty buffer.
+New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc."
+  (interactive)
+  (let (($buffer (generate-new-buffer "untitled")))
+    (switch-to-buffer $buffer)
+    (funcall initial-major-mode)
+    (setq buffer-offer-save t)
+    $buffer))
 #+end_src
 
 *** Behaviors
