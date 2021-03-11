@@ -208,6 +208,13 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 #+end_src
 
+- =Command + [=: Go to previous buffer.
+- =Command + ]=: Go to next buffer.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-[") 'previous-buffer)
+(global-set-key (kbd "s-]") 'next-buffer)
+#+end_src
+
 *** Behaviors
 Save files automatically.
 #+begin_src emacs-lisp
