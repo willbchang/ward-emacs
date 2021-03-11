@@ -194,25 +194,30 @@ Use MacOS default font SF Mono.
 
 ** Buffer
 *** Keybindings
-# TODO: Command + T for a new buffer.
-# TODO: Command + [ goto previous buffer.
-# TODO: Command + ] goto next buffer.
+| Keybindings | Features              |
+|-------------+-----------------------|
+| ~Command + W~ | Close Current Buffer  |
+| ~Command + [~ | Go to previous Buffer |
+| ~Command + ]~ | Go to next Buffer     |
+| ~Command + T~ | Create New Buffer     |
+| ~Command + S~ | Save Buffer           |
+| ~Command + R~ | Revert Buffer         |
+| ~Command + '~ | Move to next Buffer   |
+| ~Command + ,~ | Open Preferences      |
 
 Unset =Command + K== for kill buffer.
 #+begin_src emacs-lisp
 (global-unset-key (kbd "s-k"))
 #+end_src
 
-=Command + W=: Close current buffer.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-w") 'kill-this-buffer)
-#+end_src
-
-- =Command + [=: Go to previous buffer.
-- =Command + ]=: Go to next buffer.
-#+begin_src emacs-lisp
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
+(global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "s-r") 'revert-buffer)
+(global-set-key (kbd "s-'") 'next-window-any-frame)
+(global-set-key (kbd "s-,") 'customize)
 #+end_src
 
 *** Behaviors
