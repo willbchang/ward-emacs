@@ -36,10 +36,10 @@ The configuration is in [config.org](config.org).
 
 ## Installation
 
-Install to `XDG_CONFIG_HOME` (default to `~/.config`).
+Install to `XDG_CONFIG_HOME` (default to `<kbd>/.config`).
 
 ```bash
-git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
+git clone --depth=1 https://github.com/willbchang/teem-emacs.git <kbd>/.config/emacs
 ```
 
 
@@ -92,31 +92,31 @@ git clone --depth=1 https://github.com/willbchang/teem-emacs.git ~/.config/emacs
 
 
 ### Window Management
-| Window                | Features             | Convention |
-|-----------------------|----------------------|------------|
-| ~Command + Shift + W~ | Close Current Window | macOS      |
-| ~Command + Shift + =~ | Zoom in Window       | Personal   |
-| ~Command + Shit + -~  | Zoom out Window      | Personal   |
-| ~Command + Shit + 0~  | Reset Zoom Window    | Personal   |
-| ~Command + N~         | Create New Window    | macOS      |
-| ~Command + `~         | Move to next Window  | macOS      |
-| ~Command + Q~         | Quit Emacs           | macOS      |
+| Window                         | Features             | Convention |
+|--------------------------------|----------------------|------------|
+| <kbd>Command + Shift + W</kbd> | Close Current Window | macOS      |
+| <kbd>Command + Shift + =</kbd> | Zoom in Window       | Personal   |
+| <kbd>Command + Shit + -</kbd>  | Zoom out Window      | Personal   |
+| <kbd>Command + Shit + 0</kbd>  | Reset Zoom Window    | Personal   |
+| <kbd>Command + N</kbd>         | Create New Window    | macOS      |
+| <kbd>Command + `</kbd>         | Move to next Window  | macOS      |
+| <kbd>Command + Q</kbd>         | Quit Emacs           | macOS      |
 
 
 
-| Buffer        | Features              | Convention |
-|---------------|-----------------------|------------|
-| ~Command + W~ | Close Current Buffer  | macOS      |
-| ~Command + [~ | Go to previous Buffer | macOS      |
-| ~Command + ]~ | Go to next Buffer     | macOS      |
-| ~Command + =~ | Zoom in Buffer        | macOS      |
-| ~Command + -~ | Zoom out Buffer       | macOS      |
-| ~Command + 0~ | Reset Zoom Buffer     | macOS      |
-| ~Command + T~ | Create New Buffer     | macOS      |
-| ~Command + S~ | Save Buffer           | macOS      |
-| ~Command + R~ | Revert Buffer         | macOS      |
-| ~Command + '~ | Move to next Buffer   | Emacs      |
-| ~Command + ,~ | Open Preferences      | macOS      |
+| Buffer                 | Features              | Convention |
+|------------------------|-----------------------|------------|
+| <kbd>Command + W</kbd> | Close Current Buffer  | macOS      |
+| <kbd>Command + [</kbd> | Go to previous Buffer | macOS      |
+| <kbd>Command + ]</kbd> | Go to next Buffer     | macOS      |
+| <kbd>Command + =</kbd> | Zoom in Buffer        | macOS      |
+| <kbd>Command + -</kbd> | Zoom out Buffer       | macOS      |
+| <kbd>Command + 0</kbd> | Reset Zoom Buffer     | macOS      |
+| <kbd>Command + T</kbd> | Create New Buffer     | macOS      |
+| <kbd>Command + S</kbd> | Save Buffer           | macOS      |
+| <kbd>Command + R</kbd> | Revert Buffer         | macOS      |
+| <kbd>Command + '</kbd> | Move to next Buffer   | Emacs      |
+| <kbd>Command + ,</kbd> | Open Preferences      | macOS      |
 
 
 
