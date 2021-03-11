@@ -35,11 +35,12 @@ The configuration is in [config.org](config.org).
 </details>
 
 ## Installation
+Requires Emacs 28.
 
 Install to `XDG_CONFIG_HOME` (default to `<kbd>/.config`).
 
 ```bash
-git clone --depth=1 https://github.com/willbchang/teem-emacs.git <kbd>/.config/emacs
+git clone --depth=1 https://github.com/willbchang/ward-emacs.git <kbd>/.config/emacs
 ```
 
 
