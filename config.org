@@ -59,7 +59,7 @@ Keep the packages up to date.
 ** Straight
 [[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
 
-* Appearance
+* User Interface
 ** Title Bar
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
@@ -141,28 +141,6 @@ Hide file icon and file name in mode line.
 Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
-#+end_src
-
-** Font
-Use MacOS default font SF Mono.
-#+begin_src emacs-lisp
-(set-face-attribute 'default nil
-                    :font "SF Mono-18")
-#+end_src
-
-Use MacOS default emoji font 😃.
-#+begin_src emacs-lisp
-(set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)
-#+end_src
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-0") 'reset-font-size)
-(global-set-key (kbd "s-=") 'text-scale-increase)
-(global-set-key (kbd "s--") 'text-scale-decrease)
-
-(defun reset-font-size ()
-  (interactive)
-  (text-scale-set 0))
 #+end_src
 
 * Window Management
@@ -301,11 +279,34 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 (setq ns-pop-up-frames nil)
 #+end_src
 
-* Text Editing
+* Word Processing
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
-** Basic Text Editing
+** Basic Features
 *** Displaying Text
+**** Font
+Use MacOS default font SF Mono.
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil
+                    :font "SF Mono-18")
+#+end_src
+
+Use MacOS default emoji font 😃.
+#+begin_src emacs-lisp
+(set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)
+#+end_src
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-0") 'reset-font-size)
+(global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "s--") 'text-scale-decrease)
+
+(defun reset-font-size ()
+  (interactive)
+  (text-scale-set 0))
+#+end_src
+
+**** Behaviors
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
 (goto-address-mode 1)
@@ -630,7 +631,7 @@ If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter update
 (custom-set-variables '(git-gutter:update-interval 2))
 #+end_src
 
-* Chinese Configuration
+* Chinese Optimization
 ** Font
 Use macOS's default Chinese font for Chinese characters in Emacs.
 #+begin_src emacs-lisp
