@@ -150,6 +150,11 @@ Use MacOS default font SF Mono.
                     :font "SF Mono-18")
 #+end_src
 
+Use MacOS default emoji font 😃.
+#+begin_src emacs-lisp
+(set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)
+#+end_src
+
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-0") 'reset-font-size)
 (global-set-key (kbd "s-=") 'text-scale-increase)
