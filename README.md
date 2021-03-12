@@ -1,9 +1,12 @@
 <h1 align="center">
-  Ward Emacs<br>
-  <img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
+    Ward Emacs
+    <br>
+    <img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
 </h1>
 
-<h6 align="center">Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</h6>
+<div align="center">
+    <sub>Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</sub>
+</div>
 
 
 ## Introduction
