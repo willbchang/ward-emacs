@@ -3,7 +3,7 @@
   <img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
 </h1>
 
-<sub align="center">Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</sub>
+<h6 align="center">Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</h6>
 
 
 ## Introduction
