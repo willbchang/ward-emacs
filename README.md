@@ -5,7 +5,7 @@
 </h1>
 
 <div align="center">
-    <sub>Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</sub>
+    <sub>Make <a href="https://www.gnu.org/software/emacs/">Emacs</a> the Plain Text Editor as a great Word Processor in MacOS.</sub>
 </div>
 
 
@@ -37,10 +37,10 @@ The configuration is in [config.org](config.org).
 ## Installation
 Requires Emacs 28.
 
-Install to `XDG_CONFIG_HOME` (default to `<kbd>/.config`).
+Install to `XDG_CONFIG_HOME` (default to `~/.config`).
 
 ```bash
-git clone --depth=1 https://github.com/willbchang/ward-emacs.git <kbd>/.config/emacs
+git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ```
 
 

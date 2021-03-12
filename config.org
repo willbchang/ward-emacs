@@ -280,6 +280,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 #+end_src
 
 * Word Processing
+# Diff text
 # 12. company for elisp, especially for completion emacs functions/variables
 # 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
