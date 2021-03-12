@@ -1,30 +1,22 @@
-<div align="center">
+<h1 align="center">
+  Ward Emacs<br>
+  <img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
+</h1>
 
-# Ward Emacs
-</div>
-
-<div align="center">
-<img width="200" alt="Star Guardian Ward" src="https://user-images.githubusercontent.com/14329786/110733831-9cdb7a00-8261-11eb-9f15-041b70be54b1.png">
-</div>
-
-<div align="center">
-<sub>Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</sub>   
-</div>
-
-
+<sub align="center">Make Emacs the Plain Text Editor as a great Word Processor in MacOS.</sub>
 
 
 ## Introduction
-| Features                 |                                                            |                                                    |                       |
-|--------------------------|------------------------------------------------------------|----------------------------------------------------|-----------------------|
-| **Package Management**   |                                                            |                                                    |                       |
-| **User Interface**       | Distraction Free(Improve)                                  |                                                    |                       |
-| **Window Management**    | [MacOS keybindings](#window-management)(Improve)           |                                                    |                       |
-| **Text Editing**         | [MacOS keybindings](#text-editing)                         | [Vim emulator](https://github.com/emacs-evil/evil) | Multiple Cursor(TODO) |
-| **Markup Language**      | WYSIWYG like for [org-mode](https://orgmode.org/)(Improve) | Markdown syntax highlight                          | LaTex(TODO)           |
-| **Terminal Emulator**    | Same environment variables                                 | A native Terminal experience(Improve)              |                       |
-| **Version Control**      | [magit](https://magit.vc/) is a text-based git interface   | Git diff in gutter                                 |                       |
-| **Chinese Optimization** | Line wrap                                                  | Auto switch input method(Improve)                  | Search with Pinyin    |
+| Features                 |                                                            |                                                          |                       |
+|--------------------------|------------------------------------------------------------|----------------------------------------------------------|-----------------------|
+| **Package Management**   |                                                            |                                                          |                       |
+| **User Interface**       | Distraction Free(Improve)                                  |                                                          |                       |
+| **Window Management**    | [MacOS keybindings](#window-management)(Improve)           |                                                          |                       |
+| **Word Processing**      | [MacOS keybindings](#word-processing)                      | [Evil: Vim emulator](https://github.com/emacs-evil/evil) | Multiple Cursor(TODO) |
+| **Markup Language**      | WYSIWYG like for [org-mode](https://orgmode.org/)(Improve) | Markdown syntax highlight                                | LaTex(TODO)           |
+| **Terminal Emulator**    | Same environment variables                                 | A native Terminal experience(Improve)                    |                       |
+| **Version Control**      | [magit](https://magit.vc/) is a text-based git interface   | Git diff in gutter                                       |                       |
+| **Chinese Optimization** | Search with Pinyin & GBK keybindings                       | Auto switch input method(Improve)                        | Line wrap             |
 
 
 The configuration is in [config.org](config.org).
@@ -50,7 +42,7 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git <kbd>/.config/e
 
 
 ## Shortcuts
-### Text Editing
+### Word Processing
 
 | Moving Cursor          | Features                          | Convention |
 |:-----------------------|:----------------------------------|:-----------|
