@@ -265,7 +265,7 @@ Cancel partially typed or accidental command.
 
 # FIX: not work for vterm
 Ask =y= or =n= instead of =yes= or =no=.
-#+begin_src sh
+#+begin_src emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
 #+end_src
 
