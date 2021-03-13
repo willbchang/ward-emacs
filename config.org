@@ -176,7 +176,7 @@ Count column number from 1 instead of 0.
 #+end_src
 
 *** Behavior
-Open folder in a new frame by ~emacsclient~.
+Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-editor]] to open folder in a new frame by ~emacsclient~.
 #+begin_src emacs-lisp
 (server-start)
 #+end_src
