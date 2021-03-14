@@ -5,7 +5,7 @@
 </h1>
 
 <div align="center">
-    <sub>Make <a href="https://www.gnu.org/software/emacs/">Emacs</a> the Plain Text Editor as a great Word Processor in MacOS.</sub>
+    <sub>Make <a href="https://www.gnu.org/software/emacs/">Emacs</a> as a great Word Processor in MacOS.</sub>
 </div>
 
 
@@ -13,7 +13,7 @@
 | MacOS Preferred Keybindings             | Powerful Features                               | Suitable Features | Chinese Optimization     |
 |-----------------------------------------|-------------------------------------------------|-------------------|--------------------------|
 | [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                | Markdown          | Improved  Display        |
-| [Window Management](#window-management) | [Evil Mode](https://github.com/emacs-evil/evil) | Multiple Cursor   | Search with Pinyin       |
+| [Window Management](#window-management) | [Evil Mode](https://github.com/emacs-evil/evil#readme) | Multiple Cursor   | Search with Pinyin       |
 |                                         | [Magit](https://magit.vc/)                      | Terminal Emulator | Auto switch input method |
 |                                         |                                                 |                   | Compatible Keybindings   |
 
