@@ -10,16 +10,12 @@
 
 
 ## Introduction
-| Features                 |                                                            |                                                          |                       |
-|--------------------------|------------------------------------------------------------|----------------------------------------------------------|-----------------------|
-| **Package Management**   |                                                            |                                                          |                       |
-| **User Interface**       | Distraction Free(Improve)                                  |                                                          |                       |
-| **Window Management**    | [MacOS keybindings](#window-management)(Improve)           |                                                          |                       |
-| **Word Processing**      | [MacOS keybindings](#word-processing)                      | [Evil: Vim emulator](https://github.com/emacs-evil/evil) | Multiple Cursor(TODO) |
-| **Markup Language**      | WYSIWYG like for [org-mode](https://orgmode.org/)(Improve) | Markdown syntax highlight                                | LaTex(TODO)           |
-| **Terminal Emulator**    | Same environment variables                                 | A native Terminal experience(Improve)                    |                       |
-| **Version Control**      | [magit](https://magit.vc/) is a text-based git interface   | Git diff in gutter                                       |                       |
-| **Chinese Optimization** | Search with Pinyin & GBK keybindings                       | Auto switch input method(Improve)                        | Line wrap             |
+| MacOS Preferred Keybindings             | Powerful Features                               | Suitable Features | Chinese Optimization     |
+|-----------------------------------------|-------------------------------------------------|-------------------|--------------------------|
+| [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                | Markdown          | Improved  Display        |
+| [Window Management](#window-management) | [Evil Mode](https://github.com/emacs-evil/evil) | Multiple Cursor   | Search with Pinyin       |
+|                                         | [Magit](https://magit.vc/)                      | Terminal Emulator | Auto switch input method |
+|                                         |                                                 |                   | Compatible Keybindings   |
 
 
 The configuration is in [config.org](config.org).
