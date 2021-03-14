@@ -616,8 +616,9 @@ Disable evil mode for vterm.
 Close vterm buffer without confriming.
 #+begin_src emacs-lisp
 (add-hook 'vterm-mode-hook
-          (lambda () (setq kill-buffer-query-functions nil))
+          (lambda () (setq kill-buffer-query-functions nil)))
 #+end_src
+
 *** Keybindings
 # TODO: Open, focus and hide vterm instance, create new instance.
 
