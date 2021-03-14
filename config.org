@@ -621,6 +621,9 @@ Close vterm buffer without confriming.
 
 *** Keybindings
 # TODO: Open, focus and hide vterm instance, create new instance.
+#+begin_src emacs-lisp
+(define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
+#+end_src
 
 * Version Control
 ** Magit
