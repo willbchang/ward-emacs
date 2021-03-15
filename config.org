@@ -675,20 +675,13 @@ Break lines normally for Chinese characters in visual line mode.
 [[https://github.com/laishulu/evil-pinyin][evil-pinyin]]: Search Chinese characters with the first letter of Pinyin.
 #+begin_src emacs-lisp
 (use-package evil-pinyin
-  :init
-  ;;(setq-default evil-pinyin-scheme 'simplified-xiaohe-all)
-  ;;(setq-default evil-pinyin-with-search-rule 'always)
-
   :config
-  ;;(evil-select-search-module 'evil-search-module 'evil-search)
+  (evil-select-search-module 'evil-search-module 'evil-search)
   (global-evil-pinyin-mode))
-
-
-(evil-select-search-module 'evil-search-module 'evil-search)
 #+end_src
 
 ** Input Method
-Auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
+[[https://github.com/laishulu/emacs-smart-input-source][sis]] can auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 #+begin_src emacs-lisp
 (use-package sis
   :config
