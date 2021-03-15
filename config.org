@@ -405,11 +405,6 @@ Overwrite selection on pasting.
 (delete-selection-mode 1)
 #+end_src
 
-Delete trailing whitespace on saving a buffer.
-#+begin_src emacs-lisp
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-#+end_src
-
 Indent with 2 space.
 #+begin_src emacs-lisp
 (setq-default indent-tabs-mode nil)
