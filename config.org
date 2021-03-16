@@ -498,6 +498,7 @@ https://github.com/gabesoft/evil-mc
 https://github.com/syl20bnr/evil-iedit-state
 https://github.com/magnars/multiple-cursors.el
 
+** Spell and Grammar
 ** Keybinding References
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
@@ -546,7 +547,7 @@ Hide emphasis makers.
 
 Enable shift selection.
 #+begin_src emacs-lisp
-(setq org-support-shift-select t)
+(setq org-support-shift-select 'always)
 #+end_src
 
 Disable reindent on every time editing code block.
