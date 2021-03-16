@@ -94,6 +94,10 @@ https://github.com/Alexander-Miller/treemacs
 ** Gutter
 
 ** Fringe
+Disable fringe.
+#+begin_src emacs-lisp
+(set-fringe-mode 0)
+#+end_src
 
 ** Line Number
 Default line number width with 3 characters.
