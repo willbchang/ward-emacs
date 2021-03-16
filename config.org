@@ -61,7 +61,8 @@ Keep the packages up to date.
 
 * User Interface
 ** Title Bar
-# FIX: Show folder path in dired.
+# FIX: Doesn't show folder path in dired.
+# FIX: Doesn't show file icon when file is in iCloud.
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
@@ -92,6 +93,7 @@ Disable scroll bar.
 https://github.com/Alexander-Miller/treemacs
 
 ** Gutter
+https://github.com/emacsorphanage/git-gutter
 
 ** Fringe
 Disable fringe.
@@ -530,9 +532,7 @@ https://github.com/magnars/multiple-cursors.el
 ** Org Mode
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 *** Behaviors
-# 6. default with org mode
 # 15. org render code block with hiding begin & end
-# 16. org valign
 # 17. org latex
 # 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
 # 19. Smooth scrolling over images in Emacs
