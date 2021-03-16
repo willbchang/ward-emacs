@@ -61,6 +61,7 @@ Keep the packages up to date.
 
 * User Interface
 ** Title Bar
+# FIX: Show folder path in dired.
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
@@ -89,6 +90,8 @@ Disable scroll bar.
 
 ** Side Bar
 https://github.com/Alexander-Miller/treemacs
+
+** Gutter
 
 ** Fringe
 
@@ -157,14 +160,7 @@ Count column number from 1 instead of 0.
 =Command + N=: Create new window, default with org-mode and evil-mode
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
-#+end_src
 
-=Shift + Command + W=: Close current window.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-W") 'delete-frame)
-#+end_src
-
-#+begin_src emacs-lisp
 (defun new-empty-frame ()
   "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
   (interactive)
@@ -173,6 +169,11 @@ Count column number from 1 instead of 0.
     (org-mode)
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
+#+end_src
+
+=Shift + Command + W=: Close current window.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-W") 'delete-frame)
 #+end_src
 
 *** Behavior
@@ -366,7 +367,6 @@ Make =Command + ArrowKey= behaves like MacOS app.
 /This is not the default behavior of MacOS, but I found it's useful./
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-
 #+end_src
 
 
@@ -388,10 +388,6 @@ there's no active region."
         (setq beg (region-beginning) end (region-end))
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
-
-
-
-
 #+end_src
 
 **** Behaviors
