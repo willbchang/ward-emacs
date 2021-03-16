@@ -431,6 +431,13 @@ Unbind =return= key in for using it to open link in org mode.
     (define-key evil-motion-state-map (kbd "RET") nil))
 #+end_src
 
+Unbind ~Ctrl + P~ and ~Ctrl + N~ for previous line and next line in insert mode.
+#+begin_src emacs-lisp
+(with-eval-after-load 'evil-maps
+    (define-key evil-insert-state-map (kbd "C-p") nil)
+    (define-key evil-insert-state-map (kbd "C-n") nil))
+#+end_src
+
 Set Evil cursor color and styles in different situations.
 You can try these commands independently to test the effects: =Esc, i, v, d, r=
 #+begin_src emacs-lisp
