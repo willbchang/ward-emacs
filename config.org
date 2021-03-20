@@ -421,7 +421,10 @@ Indent with 2 space.
   :init
   (setq evil-want-keybinding nil)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  :custom
+  ; Use native keybindings on insert state.
+  (evil-disable-insert-state-bindings t))
 #+end_src
 
 *** Behaviors
@@ -431,13 +434,6 @@ Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
 (with-eval-after-load 'evil-maps
     (define-key evil-motion-state-map (kbd "RET") nil))
-#+end_src
-
-Unbind ~Ctrl + P~ and ~Ctrl + N~ for previous line and next line in insert mode.
-#+begin_src emacs-lisp
-(with-eval-after-load 'evil-maps
-    (define-key evil-insert-state-map (kbd "C-p") nil)
-    (define-key evil-insert-state-map (kbd "C-n") nil))
 #+end_src
 
 Set Evil cursor color and styles in different situations.
