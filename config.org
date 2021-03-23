@@ -276,10 +276,10 @@ Cancel partially typed or accidental command.
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 #+end_src
 
-# FIX: not work for vterm
-Ask =y= or =n= instead of =yes= or =no=.
+Ask =y= or =n= instead of =yes= or =no=. Use ~return~ to act ~y~.
 #+begin_src emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
+(define-key y-or-n-p-map (kbd "RET") 'act)
 #+end_src
 
 Disable the ring bell when scroll beyond the document.
