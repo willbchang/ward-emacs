@@ -451,6 +451,11 @@ Set default cursor style to bar when evil use emacs state.
 (setq-default evil-emacs-state-cursor 'bar)
 #+end_src
 
+Records changes to separate undo instead of a big one in insert state.
+#+begin_src emacs-lisp
+(setq evil-want-fine-undo t)
+#+end_src
+
 *** Evil Collection
 [[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
