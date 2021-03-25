@@ -569,9 +569,9 @@ Disable reindent on every time editing code block.
   (setq org-hide-leading-stars t))
 #+end_src
 
-Change org headline styles.
+Change org headline styles to empty.
 #+begin_src emacs-lisp
-(setq org-superstar-headline-bullets-list '("◉" "○" "◈" "◇" "▣" "□"))
+(setq org-superstar-headline-bullets-list '(""))
 #+end_src
 
 Change org unordered list styles.
