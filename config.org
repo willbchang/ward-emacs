@@ -569,19 +569,10 @@ Disable reindent on every time editing code block.
   (setq org-hide-leading-stars t))
 #+end_src
 
-Hide org headline stars and space completely.
-# https://www.reddit.com/r/emacs/comments/9wukv8/hide_all_stars_in_org_mode/e9pkggv?utm_source=share&utm_medium=web2x&context=3
+Change org headlines' style to ~›~.
+# TODO: 
 #+begin_src emacs-lisp
-(defun org-remove-stars ()
-  (font-lock-add-keywords
-   nil
-   '(("^\\*+ "
-      (0
-       (prog1 nil
-         (put-text-property (match-beginning 0) (match-end 0)
-                            'invisible t)))))))
-
-(add-hook 'org-mode-hook #'org-remove-stars)
+(setq org-superstar-headline-bullets-list '("›"))
 #+end_src
 
 Change org unordered list styles.
