@@ -428,12 +428,13 @@ Indent with 2 space.
 #+end_src
 
 *** Behaviors
-# FIX: Not working
 # TODO: Remove evil search highlight with ESC
 Unbind =return= key in for using it to open link in org mode.
 #+begin_src emacs-lisp
 (with-eval-after-load 'evil-maps
     (define-key evil-motion-state-map (kbd "RET") nil))
+
+(setq org-return-follows-link t)
 #+end_src
 
 Set Evil cursor color and styles in different situations.
