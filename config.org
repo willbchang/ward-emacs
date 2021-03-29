@@ -72,6 +72,12 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
+Make title bar transparent.
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . light))
+#+end_src
+
 ** Tool Bar
 Disable tool bar.
 #+begin_src emacs-lisp
