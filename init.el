@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Increase GC to 100MB to speed up start time.
 (setq gc-cons-threshold (* 100 1024 1024))
 (org-babel-load-file "~/.config/emacs/config.org")
