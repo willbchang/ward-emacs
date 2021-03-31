@@ -567,6 +567,11 @@ Disable reindent on every time editing code block.
 (setq org-edit-src-content-indentation 0)
 #+end_src
 
+Always display images.
+#+begin_src emacs-lisp
+(setq org-startup-with-inline-images t)
+#+end_src
+
 Do not display image actual width.
 #+begin_src emacs-lisp
 (setq org-image-actual-width nil)
