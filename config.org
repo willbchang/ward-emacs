@@ -567,6 +567,12 @@ Disable reindent on every time editing code block.
 (setq org-edit-src-content-indentation 0)
 #+end_src
 
+Do not display image actual width.
+#+begin_src emacs-lisp
+(setq org-image-actual-width nil)
+#+end_src
+
+
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
