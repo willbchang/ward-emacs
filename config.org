@@ -552,6 +552,11 @@ Enable headline and subcontent in the indented view.
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+end_src
 
+Fold all contents on opening a org file.
+#+begin_src emacs-lisp
+(setq org-startup-folded t)
+#+end_src
+
 Hide emphasis makers.
 #+begin_src emacs-lisp
 (setq org-hide-emphasis-markers t)
@@ -576,7 +581,6 @@ Do not display image actual width.
 #+begin_src emacs-lisp
 (setq org-image-actual-width nil)
 #+end_src
-
 
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
