@@ -605,6 +605,15 @@ Change org unordered list styles.
                                         (?- . ?•)))
 #+end_src
 
+*** Org Appear
+[[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
+#+begin_src emacs-lisp
+(use-package org-appear)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autolinks t)
+#+end_src
+
+
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
