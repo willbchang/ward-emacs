@@ -219,7 +219,7 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer)
-(global-set-key (kbd "s-'") 'next-window-any-frame)
+(global-set-key (kbd "s-'") 'other-window)
 (global-set-key (kbd "s-,") 'customize)
 #+end_src
 
