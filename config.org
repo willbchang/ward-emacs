@@ -362,6 +362,12 @@ Make =Command + ArrowKey= behaves like MacOS app.
 
 *** Searching Text
 
+- =Command + F=: Search text forward.
+- =Shift + Command + F=: Search text forward.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-f") 'isearch-forward)
+(global-set-key (kbd "s-F") 'isearch-backward)
+#+end_src
 *** Selecting Text
 =Command + A=: Select all the content in current file.
 #+begin_src emacs-lisp
