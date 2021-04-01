@@ -365,6 +365,15 @@ Make =Command + ArrowKey= behaves like MacOS app.
 
 *** Editing Text
 **** Keybindings
+- =Command + C=: Copy text.
+- =Command + X=: Cut text.
+- =Command + V=: Paste text.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-x") 'kill-region)
+(global-set-key (kbd "s-v") 'yank)
+#+end_src
+
 =Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
@@ -372,7 +381,7 @@ Make =Command + ArrowKey= behaves like MacOS app.
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
- (kill-line (- 1 arg)))
+  (kill-line (- 1 arg)))
 #+end_src
 
 =Command + Shift + Backspace=: Delete whole line entirely.\\
