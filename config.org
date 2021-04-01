@@ -751,15 +751,3 @@ Break lines normally for Chinese characters in visual line mode.
   (sis-global-inline-mode t))
 #+end_src
 
-** Keybindings
-Make keybindings work under Chinese input method.
-
-| Keybindings | Chinese Keybindings | Features              |
-|-------------+---------------------+-----------------------|
-| ~Command + [~ | ~Command + 】~        | Go to previous Buffer |
-| ~Command + ]~ | ~Command + 【~        | Go to next Buffer     |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-【") 'previous-buffer)
-(global-set-key (kbd "s-】") 'next-buffer)
-#+end_src
