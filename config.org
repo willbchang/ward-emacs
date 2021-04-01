@@ -367,7 +367,10 @@ Make =Command + ArrowKey= behaves like MacOS app.
 *** Searching Text
 
 *** Selecting Text
-
+=Command + A=: Select all the content in current file.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
+#+end_src
 *** Editing Text
 **** Keybindings
 - =Command + C=: Copy text.
