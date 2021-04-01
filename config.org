@@ -169,6 +169,11 @@ Count column number from 1 instead of 0.
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 #+end_src
 
+=Command + Q=: Quit Emacs.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
+#+end_src
+
 =Command + N=: Create new window, default with org-mode and evil-mode
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
