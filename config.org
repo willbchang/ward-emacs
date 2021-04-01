@@ -72,12 +72,6 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
-Make title bar transparent.
-#+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . light))
-#+end_src
-
 ** Tool Bar
 Disable tool bar.
 #+begin_src emacs-lisp
@@ -357,11 +351,13 @@ Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↓=: move to the bottom of the file.
 - =Command + ←=: move to the beginning of the line.
 - =Command + →=: move to the end of the line.
+- =Command + L=: go to line.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "s-<down>") 'end-of-buffer)
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
+(global-set-key (kbd "s-l") 'goto-line)
 #+end_src
 
 *** Searching Text
