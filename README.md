@@ -127,4 +127,4 @@ It learns from:
 
 ## LICENSE
 
-[GPL-3.0 License](./LICENSE)
+[AGPL-3.0](./LICENSE)
