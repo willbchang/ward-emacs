@@ -331,7 +331,9 @@ Use MacOS default font SF Mono.
 **** Behaviors
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
-(global-goto-address-mode 1)
+;; This will work until emacs 28.1
+;; (global-goto-address-mode 1)
+(add-hook 'text-mode-hook 'goto-address-mode)
 #+end_src
 
 Highlight paired brackets, includes (), [], {} and so on...
@@ -737,7 +739,8 @@ Use macOS's default Chinese font for Chinese characters in Emacs.
 ** Display
 Break lines normally for Chinese characters in visual line mode.
 #+begin_src emacs-lisp
-(setq word-wrap-by-category t)
+;; This will work until emacs 28.1
+;; (setq word-wrap-by-category t)
 #+end_src
 
 # FIX: Line Spacing default with Chinese Characters like 。
