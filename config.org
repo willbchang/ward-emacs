@@ -748,8 +748,10 @@ Make keybindings work under Chinese input method.
 |-------------+---------------------+-----------------------|
 | ~Command + [~ | ~Command + 】~        | Go to previous Buffer |
 | ~Command + ]~ | ~Command + 【~        | Go to next Buffer     |
+| ~Command + ,~ | ~Command + ，~        | Open config file      |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-【") 'previous-buffer)
 (global-set-key (kbd "s-】") 'next-buffer)
+(global-set-key (kbd "s-，") 'open-config-file)
 #+end_src
