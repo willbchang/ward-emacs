@@ -124,12 +124,6 @@ Display relative line numbers on text mode and code mode.
 ** Color Theme
 Use default color theme.
 
-Change comments color to dark gray.\\
-/It affects org-level-4, so changea the affected color back./
-#+begin_src emacs-lisp
-(set-face-foreground 'font-lock-comment-face "DarkGray")
-(set-face-foreground 'org-level-4 "Firebrick")
-#+end_src 
 ** Mode Line
 # Simple Modeline
 #  Row: Column, Scroll Position, Git
@@ -594,6 +588,23 @@ Always display images.
 Do not display image actual width.
 #+begin_src emacs-lisp
 (setq org-image-actual-width nil)
+#+end_src
+*** Color Theme
+Change comments color to dark gray.\\
+/It affects org-level-4, so changea the affected color back./
+#+begin_src emacs-lisp
+(set-face-foreground 'font-lock-comment-face "DarkGray")
+(set-face-foreground 'org-level-4 "Firebrick")
+#+end_src 
+
+Change unnecessary content's color to gray.
+- =org-meta-line=: Face for meta lines starting with "#+".
+- =org-drawer:= Face for LOGBOOK.
+- =org-document-info-keyword=: Face for #+TITLE:, #+AUTHOR:, #+EMAIL: and #+DATE: keywords.
+#+begin_src emacs-lisp
+(set-face-foreground 'org-meta-line "Gray")
+(set-face-foreground 'org-drawer "Gray")
+(set-face-foreground 'org-document-info-keyword "Gray")
 #+end_src
 
 *** Org Superstar
