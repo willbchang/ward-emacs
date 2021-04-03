@@ -2,6 +2,11 @@
 
 ;; Increase GC to 100MB to speed up start time.
 (setq gc-cons-threshold (* 100 1024 1024))
+;; Make Option and Command work normal in Emacs Mac Port.
+(setq mac-option-key-is-meta t
+      x-select-enable-clipboard 't
+      mac-command-modifier 'super
+      mac-option-modifier 'meta)
 (org-babel-load-file "~/.config/emacs/config.org")
 (set 'ad-redefinition-action 'accept)
 

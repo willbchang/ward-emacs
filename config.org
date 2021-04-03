@@ -72,12 +72,6 @@ Show icon and full path in title bar.
            "%b")))
 #+end_src
 
-Make title bar transparent.
-#+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . light))
-#+end_src
-
 ** Tool Bar
 Disable tool bar.
 #+begin_src emacs-lisp
@@ -167,6 +161,11 @@ Count column number from 1 instead of 0.
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
+#+end_src
+
+=Command + Q=: Quit Emacs.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 #+end_src
 
 =Command + N=: Create new window, default with org-mode and evil-mode
@@ -319,11 +318,6 @@ Use MacOS default font SF Mono.
                     :font "SF Mono 18")
 #+end_src
 
-Use MacOS default emoji font 😃.
-#+begin_src emacs-lisp
-(set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)
-#+end_src
-
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-0") 'reset-font-size)
 (global-set-key (kbd "s-=") 'text-scale-increase)
@@ -360,19 +354,45 @@ Make =Command + ArrowKey= behaves like MacOS app.
 - =Command + ↓=: move to the bottom of the file.
 - =Command + ←=: move to the beginning of the line.
 - =Command + →=: move to the end of the line.
+- =Command + L=: go to line.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "s-<down>") 'end-of-buffer)
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
+(global-set-key (kbd "s-l") 'goto-line)
 #+end_src
 
 *** Searching Text
 
+- =Command + F=: Search text forward.
+- =Shift + Command + F=: Search text forward.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-f") 'isearch-forward)
+(global-set-key (kbd "s-F") 'isearch-backward)
+#+end_src
 *** Selecting Text
+=Command + A=: Select all the content in current file.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
+#+end_src
 
+**** Behaviors
+Highlight region with pink color.
+#+begin_src emacs-lisp
+(set-face-attribute 'region nil :background "#f5cce1")
+#+end_src
 *** Editing Text
 **** Keybindings
+- =Command + C=: Copy text.
+- =Command + X=: Cut text.
+- =Command + V=: Paste text.
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-x") 'kill-region)
+(global-set-key (kbd "s-v") 'yank)
+#+end_src
+
 =Command + Backspace=: Delete current line from cursor to the beginning
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
@@ -380,7 +400,7 @@ Make =Command + ArrowKey= behaves like MacOS app.
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
- (kill-line (- 1 arg)))
+  (kill-line (- 1 arg)))
 #+end_src
 
 =Command + Shift + Backspace=: Delete whole line entirely.\\
@@ -752,17 +772,3 @@ Break lines normally for Chinese characters in visual line mode.
   (sis-global-inline-mode t))
 #+end_src
 
-** Keybindings
-Make keybindings work under Chinese input method.
-
-| Keybindings | Chinese Keybindings | Features              |
-|-------------+---------------------+-----------------------|
-| ~Command + [~ | ~Command + 】~        | Go to previous Buffer |
-| ~Command + ]~ | ~Command + 【~        | Go to next Buffer     |
-| ~Command + ,~ | ~Command + ，~        | Open config file      |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-【") 'previous-buffer)
-(global-set-key (kbd "s-】") 'next-buffer)
-(global-set-key (kbd "s-，") 'open-config-file)
-#+end_src
