@@ -144,7 +144,7 @@ Change comments color to dark gray.
       doom-modeline-buffer-modified
       doom-modeline-buffer-major-mode
       doom-modeline-info))
-  (set-face-attribute modeline-face nil :weight 'normal))
+  (set-face-attribute modeline-face nil :weight 'light))
 #+end_src
 
 Hide file icon and file name in mode line.
