@@ -134,7 +134,7 @@ Use default color theme.
       doom-modeline-buffer-modified
       doom-modeline-buffer-major-mode
       doom-modeline-info))
-  (set-face-attribute modeline-face nil :weight 'normal))
+  (set-face-attribute modeline-face nil :weight 'light))
 #+end_src
 
 Hide file icon and file name in mode line.
@@ -218,8 +218,8 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer)
-(global-set-key (kbd "s-'") 'next-window-any-frame)
-(global-set-key (kbd "s-,") 'customize)
+(global-set-key (kbd "s-'") 'other-window)
+(global-set-key (kbd "s-,") 'open-config-file)
 #+end_src
 
 # http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
@@ -233,6 +233,14 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
     (funcall initial-major-mode)
     (setq buffer-offer-save t)
     $buffer))
+
+(defun open-config-file ()
+  (interactive)
+  (find-file "~/.config/emacs/config.org"))
+
+(defun reload-init-file ()
+  (interactive)
+  (load-file user-init-file))
 #+end_src
 
 *** Behaviors
@@ -307,7 +315,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 Use MacOS default font SF Mono.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-                    :font "SF Mono-18")
+                    :font "SF Mono 18")
 #+end_src
 
 #+begin_src emacs-lisp
@@ -323,7 +331,7 @@ Use MacOS default font SF Mono.
 **** Behaviors
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
-(goto-address-mode 1)
+(global-goto-address-mode 1)
 #+end_src
 
 Highlight paired brackets, includes (), [], {} and so on...
@@ -601,6 +609,23 @@ Do not display image actual width.
 #+begin_src emacs-lisp
 (setq org-image-actual-width nil)
 #+end_src
+*** Color Theme
+Change comments color to dark gray.\\
+/It affects org-level-4, so changea the affected color back./
+#+begin_src emacs-lisp
+(set-face-foreground 'font-lock-comment-face "DarkGray")
+(set-face-foreground 'org-level-4 "Firebrick")
+#+end_src 
+
+Change unnecessary content's color to gray.
+- =org-meta-line=: Face for meta lines starting with "#+".
+- =org-drawer:= Face for LOGBOOK.
+- =org-document-info-keyword=: Face for #+TITLE:, #+AUTHOR:, #+EMAIL: and #+DATE: keywords.
+#+begin_src emacs-lisp
+(set-face-foreground 'org-meta-line "Gray")
+(set-face-foreground 'org-drawer "Gray")
+(set-face-foreground 'org-document-info-keyword "Gray")
+#+end_src
 
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
@@ -632,7 +657,6 @@ Change org unordered list styles.
 (add-hook 'org-mode-hook 'org-appear-mode)
 (setq org-appear-autolinks t)
 #+end_src
-
 
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.

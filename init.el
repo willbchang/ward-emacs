@@ -8,6 +8,7 @@
       mac-command-modifier 'super
       mac-option-modifier 'meta)
 (org-babel-load-file "~/.config/emacs/config.org")
+(set 'ad-redefinition-action 'accept)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -18,7 +19,7 @@
  '(display-line-numbers-type 'relative)
  '(git-gutter:update-interval 2)
  '(package-selected-packages
-   '(org-appear sis auto-package-update evil-pinyin jetbrains-darcula-theme valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
+   '(org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -26,4 +27,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(mode-line ((t (:weight normal)))))
+ '(mode-line ((t (:weight light)))))
