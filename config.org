@@ -124,6 +124,10 @@ Display relative line numbers on text mode and code mode.
 ** Color Theme
 Use default color theme.
 
+Change comments color to dark gray.
+#+begin_src emacs-lisp
+(set-face-foreground 'font-lock-comment-face "dark gray")
+#+end_src 
 ** Mode Line
 # Simple Modeline
 #  Row: Column, Scroll Position, Git
