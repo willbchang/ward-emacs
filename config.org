@@ -337,7 +337,7 @@ Use MacOS default emoji font 😃.
 **** Behaviors
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
-(goto-address-mode 1)
+(global-goto-address-mode 1)
 #+end_src
 
 Highlight paired brackets, includes (), [], {} and so on...
@@ -620,7 +620,6 @@ Change org unordered list styles.
 (add-hook 'org-mode-hook 'org-appear-mode)
 (setq org-appear-autolinks t)
 #+end_src
-
 
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
