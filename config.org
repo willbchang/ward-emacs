@@ -242,6 +242,10 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (defun open-config-file ()
   (interactive)
   (find-file "~/.config/emacs/config.org"))
+
+(defun reload-init-file ()
+  (interactive)
+  (load-file user-init-file))
 #+end_src
 
 *** Behaviors
