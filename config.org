@@ -320,7 +320,7 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 Use MacOS default font SF Mono.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-                    :font "SF Mono Light 18")
+                    :font "SF Mono 18")
 #+end_src
 
 Use MacOS default emoji font 😃.
