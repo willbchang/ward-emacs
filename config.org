@@ -238,7 +238,7 @@ Unset =Command + K== for kill buffer.
 (global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
-(global-set-key (kbd "s-r") 'revert-buffer)
+(global-set-key (kbd "s-r") 'revert-buffer-no-confirm)
 (global-set-key (kbd "s-'") 'other-window)
 (global-set-key (kbd "s-,") 'open-config-file)
 #+end_src
@@ -254,6 +254,12 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
     (funcall initial-major-mode)
     (setq buffer-offer-save t)
     $buffer))
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer t t)
+  (message "Reverted `%s'" (buffer-name)))
 
 (defun open-config-file ()
   (interactive)
