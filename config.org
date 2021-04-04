@@ -173,6 +173,13 @@ Count column number from 1 instead of 0.
 (setq column-number-indicator-zero-based nil)
 #+end_src
 
+* User Experience
+** Which Key
+[[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
+#+begin_src emacs-lisp
+(use-package which-key)
+(which-key-mode)
+#+end_src
 * Window Management
 ** Frame
 # TODO: Make the buffers independent in each frame.
