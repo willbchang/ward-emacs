@@ -186,6 +186,12 @@ Count column number from 1 instead of 0.
 (use-package ivy)
 (ivy-mode)
 #+end_src
+*** Ivy Prescient
+[[https://github.com/raxod502/prescient.el][Ivy Prescient]] sorts candidates by most recently used.
+#+begin_src emacs-lisp
+(use-package ivy-prescient)
+(ivy-prescient-mode)
+#+end_src
 
 * Window Management
 ** Frame
