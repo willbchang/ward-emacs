@@ -459,7 +459,16 @@ there's no active region."
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 #+end_src
-
+**** Undo
+Increase undo limit.
+#+begin_src emacs-lisp
+;; default is 160000
+(setq undo-limit 800000)
+;; default is 240000
+(setq undo-strong-limit 12000000)
+;; default is 24000000
+(setq undo-outer-limit 120000000)
+#+end_src
 **** Behaviors
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
