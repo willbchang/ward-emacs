@@ -443,9 +443,9 @@ Highlight region with pink color.
 (global-set-key (kbd "s-v") 'yank)
 #+end_src
 
-=Command + Return=: Force newline and indent.
+=Command + Return=: Force newline.
 #+begin_src emacs-lisp
-(global-set-key (kbd "<s-return>") 'newline-and-indent)
+(global-set-key (kbd "<s-return>") 'newline)
 #+end_src
 
 =Command + Backspace=: Delete current line from cursor to the beginning
