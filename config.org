@@ -180,6 +180,13 @@ Count column number from 1 instead of 0.
 (use-package which-key)
 (which-key-mode)
 #+end_src
+** Ivy
+[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion frontend.
+#+begin_src emacs-lisp
+(use-package ivy)
+(ivy-mode)
+#+end_src
+
 * Window Management
 ** Frame
 # TODO: Make the buffers independent in each frame.
