@@ -650,7 +650,8 @@ Enable shift selection.
 
 Disable reindent on every time editing code block.
 #+begin_src emacs-lisp
-(setq org-edit-src-content-indentation 0)
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
 #+end_src
 
 Always display images.
