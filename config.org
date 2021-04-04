@@ -160,6 +160,12 @@ Hide Evil state in modeline.
       evil-motion-state-tag "")
 #+end_src
 
+Set modeline height to font size 18 * 2 = 36.\\
+It won't hide part of the line while scrolling.
+#+begin_src emacs-lisp
+(setq doom-modeline-height 36)
+#+end_src
+
 Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
