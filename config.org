@@ -732,8 +732,9 @@ If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter update
 * Chinese Optimization
 ** Font
 Use macOS's default Chinese font for Chinese characters in Emacs.
+According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
-(set-fontset-font "fontset-default" 'han '("STHeiti"))
+(set-fontset-font "fontset-default" 'han '("PingFang SC"))
 #+end_src
 
 ** Display
