@@ -157,7 +157,9 @@ Hide Evil state in modeline.
 (setq evil-normal-state-tag ""
       evil-insert-state-tag ""
       evil-visual-state-tag ""
-      evil-motion-state-tag "")
+      evil-motion-state-tag ""
+      evil-emacs-state-tag ""
+      evil-operator-state-tag "")
 #+end_src
 
 Set modeline height to font size 18 * 2 = 36.\\
