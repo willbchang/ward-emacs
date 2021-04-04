@@ -258,6 +258,7 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive)
+  (save-buffer t)
   (revert-buffer t t)
   (message "Reverted `%s'" (buffer-name)))
 
