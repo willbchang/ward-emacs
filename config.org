@@ -772,7 +772,7 @@ Break lines normally for Chinese characters in visual line mode.
    "com.apple.keylayout.ABC"
    "com.apple.inputmethod.SCIM.ITABC")
   (sis-global-respect-mode t)
-  (sis-global-context-mode t)
+  (sis-global-context-mode t))
 #+end_src
 
 ** Keybindings
