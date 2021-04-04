@@ -147,6 +147,15 @@ Hide file icon and file name in mode line.
   "")
 #+end_src
 
+Hide Evil state in modeline.
+#+begin_src emacs-lisp
+(setq doom-modeline-modal-icon nil)
+(setq evil-normal-state-tag ""
+      evil-insert-state-tag ""
+      evil-visual-state-tag ""
+      evil-motion-state-tag "")
+#+end_src
+
 Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
