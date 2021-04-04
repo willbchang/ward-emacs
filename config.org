@@ -147,9 +147,13 @@ Hide file icon and file name in mode line.
   "")
 #+end_src
 
+Hide all icons in mode line.
+#+begin_src emacs-lisp
+(setq doom-modeline-icon nil)
+#+end_src
+
 Hide Evil state in modeline.
 #+begin_src emacs-lisp
-(setq doom-modeline-modal-icon nil)
 (setq evil-normal-state-tag ""
       evil-insert-state-tag ""
       evil-visual-state-tag ""
