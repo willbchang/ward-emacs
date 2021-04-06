@@ -575,6 +575,14 @@ Records changes to separate undo instead of a big one in insert state.
   (global-evil-surround-mode 1))
 #+end_src
 
+*** Evil Snip
+[[https://github.com/hlissner/evil-snipe][Evil Snip]] enables 2-char searching, incremental highlighting, repeat searches with =f=, =F=, =t= and =T=.
+#+begin_src emacs-lisp
+(use-package evil-snipe)
+(evil-snipe-mode +1)
+(evil-snipe-override-mode +1)
+#+end_src
+
 *** Undo Fu
 # Split and move to editing text
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
