@@ -116,11 +116,10 @@ Display relative line numbers on text mode and code mode.
 #+end_src
 
 ** Color Theme
+# TODO: A modified default theme.
 Use default color theme.
-
 ** Mode Line
-# Simple Modeline
-#  Row: Column, Scroll Position, Git
+# TODO: Simple Modeline Row: Column, Scroll Position, Git
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
@@ -181,6 +180,7 @@ Count column number from 1 instead of 0.
 (which-key-mode)
 #+end_src
 ** Ivy
+# TODO: remember command history.
 [[https://github.com/abo-abo/swiper][Ivy]] is a generic completion frontend.
 #+begin_src emacs-lisp
 (use-package ivy)
@@ -196,8 +196,7 @@ Count column number from 1 instead of 0.
 * Window Management
 ** Frame
 # TODO: Make the buffers independent in each frame.
-# 21. System-wide popup Emacs windows for quick edits
-# 11. snails? ivy?
+# TODO: System-wide popup Emacs windows for quick edits
 *** Keybindings
 =Ctrl + Command + F=: Set window full screen.
 #+begin_src emacs-lisp
@@ -235,6 +234,7 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+end_src
 
 ** Buffer
+# TODO: Do not switch to Message, Completion etc.
 *** Keybindings
 | Keybindings | Features              |
 |-------------+-----------------------|
@@ -354,10 +354,11 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 #+end_src
 
 * Word Processing
-# Diff text
-# 12. company for elisp, especially for completion emacs functions/variables
-# 22. Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
+# TODO: Diff text
+# TODO: company for elisp, especially for completion emacs functions/variables
+# TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
+# TODO: Better comment
 *** Displaying Text
 **** Font
 Use MacOS default font SF Mono.
@@ -613,6 +614,9 @@ https://github.com/syl20bnr/evil-iedit-state
 https://github.com/magnars/multiple-cursors.el
 
 ** Spell and Grammar
+# TODO: Check spell
+# TODO: Check grammar
+
 ** Keybinding References
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
@@ -637,16 +641,18 @@ https://github.com/magnars/multiple-cursors.el
 - ~[s-Z]~
 
 * Markup Language
+# TODO: LaTex Support
 ** Org Mode
+# TODO: org render code block with hiding begin & end
+# TODO: org latex
+# TODO: Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
+# TODO: Smooth scrolling over images in Emacs
+# TODO: Preview equations live in org-mode
+# TODO: org roam
+# FIX: Make not*Bold*AtAll work!
+# FIX: new line with unexpected 2 space indent.
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 *** Behaviors
-# 15. org render code block with hiding begin & end
-# 17. org latex
-# 18. Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
-# 19. Smooth scrolling over images in Emacs
-# 20. Preview equations live in org-mode
-# 23. org roam
-# Make not*Bold*AtAll work!
 Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -732,6 +738,7 @@ Change org unordered list styles.
 #+end_src
 
 ** Markdown Mode
+# TODO: Markdown hide emphasis in Emacs
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
 (use-package markdown-mode
@@ -744,6 +751,7 @@ Change org unordered list styles.
 
 * Terminal Emulator
 ** Exec Path From Shell
+# FIX: git XDG path not working.
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
@@ -752,9 +760,13 @@ Change org unordered list styles.
 #+end_src
 
 ** Vterm
-# Open as a mini buffer
-# Word wrap is not normal
-# Text Editing keybindings are not supported
+# TODO: Open as a mini buffer
+# TODO: Left marign
+# TODO: No modeline
+# TODO: Text Editing keybindings are not supported
+# TODO: New term when calling vterm
+# TODO: Native keybindings, no evil mode  
+# FIX: Word wrap is not normal
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm)
@@ -784,10 +796,11 @@ Close vterm buffer without confriming.
 #+begin_src emacs-lisp
 (use-package magit
   :config
-(setq magit-diff-refine-hunk t))
+  (setq magit-diff-refine-hunk t))
 #+end_src
 
 ** Git Gutter
+# Leave the left margin by default.
 [[https://github.com/emacsorphanage/git-gutter][Git Gutter]] shows file changes in the left margin.
 #+begin_src emacs-lisp
 (use-package git-gutter
@@ -801,7 +814,9 @@ If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter update
 #+end_src
 
 * Chinese Optimization
+  # TODO: Slipt word https://github.com/cireu/jieba.el
 ** Font
+# FIX: Bold is too Bold.
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
@@ -815,8 +830,7 @@ Break lines normally for Chinese characters in visual line mode.
 ;; (setq word-wrap-by-category t)
 #+end_src
 
-# FIX: Line Spacing default with Chinese Characters like 。
-
+# FIX: Performance is lack.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
