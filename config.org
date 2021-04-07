@@ -234,7 +234,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+end_src
 
 ** Buffer
-# TODO: Do not switch to Message, Completion etc.
 *** Keybindings
 | Keybindings | Features              |
 |-------------+-----------------------|
@@ -353,6 +352,12 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 (setq ns-pop-up-frames nil)
 #+end_src
 
+Ignore buffers start with * while moving to previous or next buffer.
+# https://emacs.stackexchange.com/a/27770/29493
+#+begin_src emacs-lisp
+(set-frame-parameter (selected-frame) 'buffer-predicate
+  (lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))
+#+end_src
 * Word Processing
 # TODO: Diff text
 # TODO: company for elisp, especially for completion emacs functions/variables
