@@ -59,7 +59,7 @@ Keep the packages up to date.
 ** Straight
 [[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
 
-* User Iterface
+* Basic UI
 ** Title Bar
 # FIX: Doesn't show folder path in dired.
 # FIX: Doesn't show file icon when file is in iCloud.
@@ -172,7 +172,7 @@ Count column number from 1 instead of 0.
 (setq column-number-indicator-zero-based nil)
 #+end_src
 
-* User Experience
+* Basic UX
 ** Which Key
 [[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
 #+begin_src emacs-lisp
