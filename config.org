@@ -804,18 +804,15 @@ Close vterm buffer without confriming.
   (setq magit-diff-refine-hunk t))
 #+end_src
 
-** Git Gutter
-# Leave the left margin by default.
-[[https://github.com/emacsorphanage/git-gutter][Git Gutter]] shows file changes in the left margin.
+** Diff HL
+[[https://github.com/dgutov/diff-hl][diif-hl]] highlights uncommitted changes in the left fringe.
 #+begin_src emacs-lisp
-(use-package git-gutter
+(use-package diff-hl
   :config
-  (global-git-gutter-mode 't))
-#+end_src
+  (global-diff-hl-mode))
 
-If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter updates diff information in real-time by idle timer.
-#+begin_src emacs-lisp
-(custom-set-variables '(git-gutter:update-interval 2))
+(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 #+end_src
 
 * Chinese Optimization
