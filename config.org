@@ -96,9 +96,9 @@ https://github.com/Alexander-Miller/treemacs
 https://github.com/emacsorphanage/git-gutter
 
 ** Fringe
-Disable fringe.
+Enable left fringe.
 #+begin_src emacs-lisp
-(set-fringe-mode 0)
+(fringe-mode '(10 . 0))
 #+end_src
 
 ** Line Number
