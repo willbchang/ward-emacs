@@ -59,7 +59,7 @@ Keep the packages up to date.
 ** Straight
 [[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
 
-* User Interface
+* User Iterface
 ** Title Bar
 # FIX: Doesn't show folder path in dired.
 # FIX: Doesn't show file icon when file is in iCloud.
@@ -820,7 +820,9 @@ If you set ~git-gutter:update-interval~ seconds larger than 0, git-gutter update
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
-(set-fontset-font "fontset-default" 'han '("PingFang SC"))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset (font-spec :family "PingFang SC")))
 #+end_src
 
 ** Display
