@@ -589,6 +589,22 @@ Records changes to separate undo instead of a big one in insert state.
 (evil-snipe-override-mode +1)
 #+end_src
 
+*** Evil Goggles
+[[https://github.com/edkolev/evil-goggles][Evil Goggles]] displays visual hint on evil edit operations.
+#+begin_src emacs-lisp
+(use-package evil-goggles
+  :ensure t
+  :config
+  (evil-goggles-mode)
+
+  ;; optionally use diff-mode's faces; as a result, deleted text
+  ;; optionally use diff-mode's faces; as a result, deleted text
+  ;; will be highlighed with `diff-removed` face which is typically
+  ;; some red color (as defined by the color theme)
+  ;; other faces such as `diff-added` will be used for other actions
+  (evil-goggles-use-diff-faces))
+#+end_src
+
 *** Undo Fu
 # Split and move to editing text
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
