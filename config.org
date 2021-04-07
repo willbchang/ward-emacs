@@ -500,6 +500,26 @@ Increase undo limit.
 ;; default is 24000000
 (setq undo-outer-limit 120000000)
 #+end_src
+
+***** Undo Fu
+# Split and move to editing text
+[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
+#+begin_src emacs-lisp
+(use-package undo-fu)
+
+(global-set-key (kbd "s-z")   'undo-fu-only-undo)
+(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
+#+end_src
+
+[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
+#+begin_src emacs-lisp
+(use-package undo-fu-session
+  :config
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
+
+(global-undo-fu-session-mode)
+#+end_src
+ 
 **** Behaviors
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
@@ -606,26 +626,10 @@ Records changes to separate undo instead of a big one in insert state.
 #+end_src
 
 *** Undo Fu
-# Split and move to editing text
-[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
+Setup undo fu for evil.
 #+begin_src emacs-lisp
-(use-package undo-fu
-  :config
-  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
-  (define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo))
-
-(global-unset-key (kbd "s-z"))
-(global-set-key (kbd "s-z")   'undo-fu-only-undo)
-(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
-#+end_src
-
-[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
-#+begin_src emacs-lisp
-(use-package undo-fu-session
-  :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
-
-(global-undo-fu-session-mode)
+(define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+(define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo)
 #+end_src
 
 ** Multiple Cursor
