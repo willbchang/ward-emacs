@@ -787,6 +787,11 @@ Change org unordered list styles.
   :init (setq markdown-command "multimarkdown"))
 #+end_src
 
+Hide markup and urls.
+#+begin_src emacs-lisp
+(setq markdown-hide-markup t)
+(setq markdown-hide-urls t)
+#+end_src
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
