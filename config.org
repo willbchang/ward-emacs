@@ -183,15 +183,22 @@ Count column number from 1 instead of 0.
 # TODO: remember command history.
 [[https://github.com/abo-abo/swiper][Ivy]] is a generic completion frontend.
 #+begin_src emacs-lisp
-(use-package ivy)
-(ivy-mode)
+(use-package ivy
+  :config
+  (ivy-mode 1))
+(use-package swiper)
+(use-package counsel
+  :config
+  (counsel-mode 1))
 #+end_src
+
 *** Ivy Prescient
 [[https://github.com/raxod502/prescient.el][Ivy Prescient]] sorts candidates by most recently used.
 #+begin_src emacs-lisp
 (use-package ivy-prescient)
 (ivy-prescient-mode)
 #+end_src
+
 *** Ivy Rich
 [[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
 #+begin_src emacs-lisp
