@@ -192,6 +192,12 @@ Count column number from 1 instead of 0.
 (use-package ivy-prescient)
 (ivy-prescient-mode)
 #+end_src
+*** Ivy Rich
+[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
+#+begin_src emacs-lisp
+(use-package ivy-rich)
+(ivy-rich-mode 1)
+#+end_src
 
 * Window Management
 ** Frame
@@ -825,7 +831,7 @@ Close vterm buffer without confriming.
 #+end_src
 
 ** Diff HL
-[[https://github.com/dgutov/diff-hl][diif-hl]] highlights uncommitted changes in the left fringe.
+[[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
 #+begin_src emacs-lisp
 (use-package diff-hl
   :config

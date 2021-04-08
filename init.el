@@ -19,7 +19,7 @@
  '(display-line-numbers-type 'relative)
  '(git-gutter:update-interval 2)
  '(package-selected-packages
-   '(evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
+   '(ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -27,4 +27,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed))))
  '(mode-line ((t (:weight light)))))
