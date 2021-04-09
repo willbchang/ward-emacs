@@ -179,6 +179,7 @@ Count column number from 1 instead of 0.
 (use-package which-key)
 (which-key-mode)
 #+end_src
+
 ** Ivy
 # TODO: remember command history.
 [[https://github.com/abo-abo/swiper][Ivy]] is a generic completion frontend.
@@ -792,6 +793,7 @@ Hide markup and urls.
 (setq markdown-hide-markup t)
 (setq markdown-hide-urls t)
 #+end_src
+
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
@@ -852,6 +854,12 @@ Close vterm buffer without confriming.
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 #+end_src
+
+Disable border.
+#+begin_src emacs-lisp
+(setq diff-hl-draw-borders nil)
+#+end_src
+
 
 * Chinese Optimization
   # TODO: Slipt word https://github.com/cireu/jieba.el
