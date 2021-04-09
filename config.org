@@ -860,6 +860,13 @@ Disable border.
 (setq diff-hl-draw-borders nil)
 #+end_src
 
+Change colors.
+#+begin_src emacs-lisp
+(custom-set-faces
+'(diff-hl-change ((t (:background "#8fe9e3"))))
+'(diff-hl-insert ((t (:background "#80f1a4"))))
+'(diff-hl-delete ((t (:background "#f5cce1")))))
+#+end_src
 
 * Chinese Optimization
   # TODO: Slipt word https://github.com/cireu/jieba.el
