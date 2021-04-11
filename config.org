@@ -2,9 +2,8 @@
 ** Proxy
 Set http(s) proxy for Emacs. /You might not need it, or need to change it./
 #+begin_src emacs-lisp
-(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                          ("http" . "127.0.0.1:7890")
-                          ("https" . "127.0.0.1:7890")))
+(setenv "https_proxy" "http://127.0.0.1:7890")
+(setenv "http_proxy" "http://127.0.0.1:7890") 
 #+end_src
 
 ** Package
