@@ -631,7 +631,7 @@ Records changes to separate undo instead of a big one in insert state.
   :after evil
   :config
   (setq evil-collection-mode-list
-        '(dired magit))
+        '(dired magit which-key))
   (evil-collection-init))
 #+end_src
 
