@@ -229,13 +229,6 @@ Count column number from 1 instead of 0.
           (t . ivy--regex-fuzzy))))
 #+end_src
 
-*** Ivy Prescient
-[[https://github.com/raxod502/prescient.el][Ivy Prescient]] sorts candidates by most recently used.
-#+begin_src emacs-lisp
-(use-package ivy-prescient)
-(ivy-prescient-mode)
-#+end_src
-
 *** Ivy Rich
 [[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
 #+begin_src emacs-lisp
