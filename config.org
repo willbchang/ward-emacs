@@ -212,13 +212,21 @@ Count column number from 1 instead of 0.
 # TODO: remember command history.
 [[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
 #+begin_src emacs-lisp
-(use-package ivy
-  :config
-  (ivy-mode 1))
-(use-package swiper)
 (use-package counsel
+  :bind
+  ("M-x" . 'counsel-M-x)
+
   :config
-  (counsel-mode 1))
+  (use-package flx)
+  (use-package smex)
+
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+        '((swiper . ivy--regex-plus)
+          (t . ivy--regex-fuzzy))))
 #+end_src
 
 *** Ivy Prescient

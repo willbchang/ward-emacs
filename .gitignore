@@ -40,6 +40,9 @@ ltximg/**
 # Magit
 transient/
 
+# Smex
+smex-items
+
 # Undo Fu
 undo-fu-session/
 
