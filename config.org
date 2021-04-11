@@ -289,11 +289,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Command + '~ | Move to next Buffer   |
 | ~Command + ,~ | Open Preferences      |
 
-Unset =Command + K== for kill buffer.
-#+begin_src emacs-lisp
-(global-unset-key (kbd "s-k"))
-#+end_src
-
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 (global-set-key (kbd "s-[") 'previous-buffer)
@@ -857,6 +852,8 @@ Close vterm buffer without confriming.
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
+  :bind
+  ("s-k" . magit)
   :config
   (setq magit-diff-refine-hunk t))
 #+end_src
