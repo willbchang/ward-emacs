@@ -8,7 +8,7 @@ Set http(s) proxy for Emacs. /You might not need it, or need to change it./
 #+end_src
 
 ** Package
-Complie external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
+Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
 #+begin_src emacs-lisp
 (setq package-native-compile t)
 #+end_src
@@ -211,7 +211,7 @@ Count column number from 1 instead of 0.
 
 ** Ivy
 # TODO: remember command history.
-[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion frontend.
+[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
 #+begin_src emacs-lisp
 (use-package ivy
   :config
