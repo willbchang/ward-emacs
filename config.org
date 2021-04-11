@@ -120,7 +120,14 @@ Use default color theme.
 
 *** Programming face
 #+begin_src emacs-lisp
+(set-face-foreground 'font-lock-function-name-face "DodgerBlue")
+;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
+;; (set-face-foreground 'font-lock-keyword-face "#1E90FF")
 (set-face-foreground 'font-lock-comment-face "DarkGray")
+;; (set-face-foreground 'font-lock-type-face "#1E90FF")
+;; (set-face-foreground 'font-lock-constant-face "#1E90FF")
+;; (set-face-foreground 'font-lock-builtin-face "#1E90FF")
+;; (set-face-foreground 'font-lock-string-face "#1E90FF")
 #+end_src
 
 *** Markup face
