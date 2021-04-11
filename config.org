@@ -682,8 +682,13 @@ https://github.com/syl20bnr/evil-iedit-state
 https://github.com/magnars/multiple-cursors.el
 
 ** Spell and Grammar
-# TODO: Check spell
 # TODO: Check grammar
+Check spelling of words in text mode, required =ispell=.
+#+begin_src emacs-lisp
+(use-package flyspell
+  :config
+  (add-hook 'text-mode-hook 'flyspell-mode))
+#+end_src
 
 ** Keybinding References
 *Keybinding Values*:
