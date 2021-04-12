@@ -139,6 +139,7 @@ Use default color theme.
 (set-face-foreground 'org-meta-line "Gray")
 (set-face-foreground 'org-drawer "Gray")
 (set-face-foreground 'org-document-info-keyword "Gray")
+(set-face-foreground 'org-date "Gray")
 #+end_src
 
 **** Markdown
