@@ -883,6 +883,14 @@ Change colors.
 '(diff-hl-delete ((t (:background "#f5cce1")))))
 #+end_src
 
+** Git Modes
+[[https://github.com/magit/git-modes][Git Modes]] are major modes for Git configuration files.
+#+begin_src emacs-lisp
+(use-package gitattributes-mode)
+(use-package gitconfig-mode)
+(use-package gitignore-mode)
+#+end_src
+
 * Chinese Optimization
   # TODO: Slipt word https://github.com/cireu/jieba.el
 ** Font
