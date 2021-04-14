@@ -728,6 +728,23 @@ Check spelling of words in text mode, required =ispell=.
 # FIX: Make not*Bold*AtAll work!
 # FIX: new line with unexpected 2 space indent.
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
+
+*** Keybindings
+Set option key to default behavior, use ctrl key for org features.
+# https://stackoverflow.com/a/19874563/5520270
+#+begin_src emacs-lisp
+(eval-after-load "org"
+  '(progn
+   (define-key org-mode-map (kbd "<M-S-left>") nil)
+   (define-key org-mode-map (kbd "<M-S-right>") nil)
+   (define-key org-mode-map (kbd "<M-left>") nil)
+   (define-key org-mode-map (kbd "<M-right>") nil)
+   (define-key org-mode-map [C-S-right] 'org-shiftmetaright)
+   (define-key org-mode-map [C-S-left] 'org-shiftmetaleft)
+   (define-key org-mode-map [C-right] 'org-metaright)
+   (define-key org-mode-map [C-left] 'org-metaleft)))
+#+end_src
+
 *** Behaviors
 Enable headline and subcontent in the indented view.
 #+begin_src emacs-lisp
