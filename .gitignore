@@ -42,6 +42,7 @@ transient/
 
 # Smex
 smex-items
+recentf
 
 # Undo Fu
 undo-fu-session/
