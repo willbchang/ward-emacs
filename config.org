@@ -689,7 +689,7 @@ Check spelling of words in text mode, required =ispell=.
 #+begin_src emacs-lisp
 (use-package flyspell
   :config
-  (setq ispell-program-name "/usr/local/bin/aspell")
+  (setq ispell-program-name "enchant-2")
   (add-hook 'text-mode-hook 'flyspell-mode))
 #+end_src
 
