@@ -571,6 +571,18 @@ Auto pair brackets, quotes etc.
 (electric-pair-mode 1)
 #+end_src
 
+Extend auto pair symbols for org mode markups.
+# https://emacs.stackexchange.com/a/2559/29493
+#+begin_src emacs-lisp
+(defvar org-electric-pairs '((?/ . ?/) (?= . ?=) (?* . ?*) (?_ . ?_) (?+ . ?+)) "Electric pairs for org-mode.")
+
+(defun org-add-electric-pairs ()
+  (setq-local electric-pair-pairs (append electric-pair-pairs org-electric-pairs))
+  (setq-local electric-pair-text-pairs electric-pair-pairs))
+
+(add-hook 'org-mode-hook 'org-add-electric-pairs)
+#+end_src
+
 Overwrite selection on pasting.
 #+begin_src emacs-lisp
 (delete-selection-mode 1)
