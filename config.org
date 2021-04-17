@@ -817,6 +817,11 @@ Change org unordered list styles.
 (setq org-appear-autolinks t)
 #+end_src
 
+*** Org Download
+[[https://github.com/abo-abo/org-download][org-download]] provides drag and drop images.
+#+begin_src emacs-lisp
+(use-package org-download)
+#+end_src
 ** Markdown Mode
 # TODO: Markdown hide emphasis in Emacs
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
