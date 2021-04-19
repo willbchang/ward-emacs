@@ -100,17 +100,9 @@ Enable left fringe.
 #+end_src
 
 ** Line Number
-Default line number width with 3 characters.
+Disable line number.
 #+begin_src emacs-lisp
-(setq-default display-line-numbers-width 3)
-#+end_src
-
-Display relative line numbers on text mode and code mode.
-#+begin_src emacs-lisp
-(setq-default display-line-numbers-type 'relative
-              display-line-numbers-current-absolute t)
-(add-hook 'text-mode-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(display-line-numbers-mode -1)
 #+end_src
 
 ** Color Theme
@@ -1014,3 +1006,4 @@ Make keybindings work under Chinese input method.
 (global-set-key (kbd "s-】") 'next-buffer)
 (global-set-key (kbd "s-，") 'open-config-file)
 #+end_src
+
