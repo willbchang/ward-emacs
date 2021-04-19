@@ -716,11 +716,12 @@ https://github.com/magnars/multiple-cursors.el
 
 ** Spell and Grammar
 # TODO: Check grammar
-Check spelling of words in text mode, required =ispell=.
+# TODO: use enchant-2
+Check spelling of words in text mode, required =aspell=.
 #+begin_src emacs-lisp
 (use-package flyspell
   :config
-  (setq ispell-program-name "enchant-2")
+  (setq ispell-program-name "aspell")
   (add-hook 'text-mode-hook 'flyspell-mode))
 #+end_src
 
