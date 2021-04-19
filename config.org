@@ -980,6 +980,12 @@ Break lines normally for Chinese characters in visual line mode.
   (global-evil-pinyin-mode))
 #+end_src
 
+
+[[https://github.com/cute-jumper/ace-pinyin][ace-pinyin]] make you jump to Chinese character by pinyin with avy.
+#+begin_src emacs-lisp
+(use-package ace-pinyin)
+(ace-pinyin-global-mode +1)
+#+end_src
 ** Input Method
 [[https://github.com/laishulu/emacs-smart-input-source][sis]] can auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 #+begin_src emacs-lisp
