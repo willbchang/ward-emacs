@@ -1,4 +1,10 @@
 * Package Manager
+** Proxy
+Set http(s) proxy for Emacs. /You might not need it, or need to change it./
+#+begin_src emacs-lisp
+(setenv "https_proxy" "http://127.0.0.1:7890")
+(setenv "http_proxy" "http://127.0.0.1:7890")
+#+end_src
 ** Package
 Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
 #+begin_src emacs-lisp
