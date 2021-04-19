@@ -116,6 +116,18 @@ Display relative line numbers on text mode and code mode.
 ** Color Theme
 Use default color theme.
 
+Set blurred background.
+# https://github.com/mlyapin/config.d/commit/e8baafc0096b4daf85b213a7ca194264f47f5a20
+#+begin_src emacs-lisp
+(set-face-background 'default "mac:windowBackgroundColor")
+(dolist (f (face-list)) (set-face-stipple f "alpha:60%"))
+(setq face-remapping-alist (append face-remapping-alist '((default my/default-blurred))))
+(defface my/default-blurred
+   '((t :inherit 'default :stipple "alpha:60%"))
+   "Like 'default but blurred."
+   :group 'my)
+#+end_src
+
 *** Programming face
 #+begin_src emacs-lisp
 (set-face-foreground 'font-lock-function-name-face "DodgerBlue")
@@ -142,7 +154,6 @@ Use default color theme.
 #+end_src
 
 **** Markdown
-
 
 *** Components Face
 
