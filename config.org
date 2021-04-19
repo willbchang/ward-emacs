@@ -640,6 +640,14 @@ Records changes to separate undo instead of a big one in insert state.
 (setq evil-want-fine-undo t)
 #+end_src
 
+*** Evil Better Visual Line
+[[https://github.com/YourFin/evil-better-visual-line][evil-better-visual-line]] allows you to easily navigate with =j= and =k= in visual line mode. 
+#+begin_src emacs-lisp
+(use-package evil-better-visual-line
+  :config
+  (evil-better-visual-line-on))
+#+end_src
+
 *** Evil Collection
 [[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
