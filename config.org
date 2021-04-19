@@ -676,6 +676,15 @@ Records changes to separate undo instead of a big one in insert state.
 (evil-snipe-override-mode +1)
 #+end_src
 
+*** Avy
+[[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
+#+begin_src emacs-lisp
+(use-package avy)
+(define-key evil-normal-state-map (kbd "gf") 'avy-goto-char)
+(define-key evil-normal-state-map (kbd "gs") 'avy-goto-char-2)
+(define-key evil-normal-state-map (kbd "gl") 'avy-goto-line)
+#+end_src
+
 *** Evil Goggles
 [[https://github.com/edkolev/evil-goggles][Evil Goggles]] displays visual hint on evil edit operations.
 #+begin_src emacs-lisp
@@ -803,6 +812,7 @@ Do not display image actual width.
 #+begin_src emacs-lisp
 (setq org-image-actual-width nil)
 #+end_src
+
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
