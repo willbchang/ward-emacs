@@ -221,7 +221,7 @@ Count column number from 1 instead of 0.
 
   :config
   (use-package flx)
-  (use-package smex)
+  (use-package amx)
 
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)

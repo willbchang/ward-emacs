@@ -19,7 +19,7 @@
  '(display-line-numbers-type 'relative)
  '(git-gutter:update-interval 2)
  '(package-selected-packages
-   '(restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
+   '(amx evil-anzu evil-better-visual-line ace-pinyin avy org-download restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
