@@ -31,8 +31,9 @@ The configuration is in [config.org](config.org).
 </details>
 
 ## Installation
-Requires Emacs 28.
+Please visit [star-guardian-macos/emacs](https://github.com/willbchang/star-guardian-macos/blob/master/applications/emacs.org) for prerequisites.
 
+```
 Install to `XDG_CONFIG_HOME` (default to `~/.config`).
 
 ```bash
@@ -44,7 +45,7 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ### Word Processing
 
 | Moving Cursor          | Features                          | Convention |
-|:-----------------------|:----------------------------------|:-----------|
+|-----------------------|----------------------------------|-----------|
 | <kbd>Command + ↑</kbd> | Move to the top of the file.      | MacOS      |
 | <kbd>Command + ↓</kbd> | Move to the bottom of the file    | MacOS      |
 | <kbd>Command + ←</kbd> | Move to the beginning of the line | MacOS      |
@@ -54,7 +55,7 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 | <kbd>Option + →</kbd>  | Move to the next word             | MacOS      |
 
 | Selecting Text                 | Features                            | Convention |
-|:-------------------------------|:------------------------------------|:-----------|
+|-------------------------------|-----------------------------------|-----------|
 | <kbd>Command + A</kbd>         | Select all text                     | MacOS      |
 | <kbd>Shift + ↑</kbd>           | Select one line up                  | MacOS      |
 | <kbd>Shift + ↓</kbd>           | Select one line down                | MacOS      |
@@ -70,7 +71,7 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 
 
 | Editing Text                        | Features                            | Convention |
-|:------------------------------------|:------------------------------------|:-----------|
+|------------------------------------|------------------------------------|-----------|
 | <kbd>Command + C</kbd>              | Copy selected text                  | MacOS      |
 | <kbd>Command + V</kbd>              | Paste text from clipboard           | MacOS      |
 | <kbd>Command + X</kbd>              | Cut selected text                   | MacOS      |
