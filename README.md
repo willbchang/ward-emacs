@@ -33,8 +33,7 @@ The configuration is in [config.org](config.org).
 ## Installation
 Please visit [star-guardian-macos/emacs](https://github.com/willbchang/star-guardian-macos/blob/master/applications/emacs.org) for prerequisites.
 
-```
-Install to `XDG_CONFIG_HOME` (default to `~/.config`).
+Install to `XDG_CONFIG_HOME` (default to `~/.config`). 
 
 ```bash
 git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
