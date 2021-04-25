@@ -665,7 +665,15 @@ Records changes to separate undo instead of a big one in insert state.
 (use-package evil-surround
   :after evil
   :config
-  (global-evil-surround-mode 1))
+  (global-evil-surround-mode 1)
+  ;; use non-spaced pairs when surrounding with an opening brace.
+  (evil-add-to-alist 'evil-surround-pairs-alist
+                      ?\( '("(" . ")")
+                      ?\[ '("[" . "]")
+                      ?\{ '("{" . "}")
+                      ?\) '("( " . " )")
+                      ?\] '("[ " . " ]")
+                      ?\} '("{ " . " }")))
 #+end_src
 
 *** Evil Snip
