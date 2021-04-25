@@ -706,7 +706,6 @@ Records changes to separate undo instead of a big one in insert state.
 [[https://github.com/edkolev/evil-goggles][Evil Goggles]] displays visual hint on evil edit operations.
 #+begin_src emacs-lisp
 (use-package evil-goggles
-  :ensure t
   :config
   (evil-goggles-mode)
 
