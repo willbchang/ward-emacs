@@ -669,11 +669,11 @@ Records changes to separate undo instead of a big one in insert state.
 #+end_src
 
 *** Evil Snip
-[[https://github.com/hlissner/evil-snipe][Evil Snip]] enables 2-char searching, incremental highlighting, repeat searches with =f=, =F=, =t= and =T=.
+[[https://github.com/hlissner/evil-snipe][Evil Snip]] enables incremental highlighting, repeat searches with =f=, =F=, =t= and =T=.
 #+begin_src emacs-lisp
-(use-package evil-snipe)
-(evil-snipe-mode +1)
-(evil-snipe-override-mode +1)
+(use-package evil-snipe
+  :config
+  (evil-snipe-override-mode +1)
 #+end_src
 
 *** Evil Anzu
