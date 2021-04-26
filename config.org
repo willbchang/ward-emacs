@@ -681,7 +681,7 @@ Records changes to separate undo instead of a big one in insert state.
 #+begin_src emacs-lisp
 (use-package evil-snipe
   :config
-  (evil-snipe-override-mode +1)
+  (evil-snipe-override-mode +1))
 #+end_src
 
 *** Evil Anzu
