@@ -963,7 +963,7 @@ Change colors.
 #+end_src
 
 * Chinese Optimization
-  # TODO: Slipt word https://github.com/cireu/jieba.el
+# TODO: Slipt word https://github.com/cireu/jieba.el
 ** Font
 # FIX: Bold is too Bold.
 Use macOS's default Chinese font for Chinese characters in Emacs.
@@ -1017,6 +1017,10 @@ Break lines normally for Chinese characters in visual line mode.
   (sis-global-context-mode t))
 #+end_src
 
+Improve typing fluency experience.
+#+begin_src emacs-lisp
+(set-language-environment "UTF-8")
+#+end_src
 ** Keybindings
 Make keybindings work under Chinese input method.
 
