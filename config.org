@@ -409,23 +409,30 @@ Ignore buffers start with * while moving to previous or next buffer.
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
-# TODO: Better comment
 *** Displaying Text
+**** Keybindings
+
+| Keybindings | Features            |
+|-------------+---------------------|
+| =Command + += | Increase text scale |
+| =Command + -= | Decrease text scale |
+| =Command + 0= | Reset text scale    |
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-0") 'text-scale-reset)
+(global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "s--") 'text-scale-decrease)
+
+(defun text-scale-reset ()
+  (interactive)
+  (text-scale-set 0))
+#+end_src
+
 **** Font
 Use MacOS default font SF Mono.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "SF Mono 18")
-#+end_src
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-0") 'reset-font-size)
-(global-set-key (kbd "s-=") 'text-scale-increase)
-(global-set-key (kbd "s--") 'text-scale-decrease)
-
-(defun reset-font-size ()
-  (interactive)
-  (text-scale-set 0))
 #+end_src
 
 **** Behaviors
@@ -451,15 +458,16 @@ Enable word wrap globally.
 #+end_src
 
 *** Moving Cursor
-Make =Command + ArrowKey= behaves like MacOS app.
+**** Keybindings
+Make =Command/Option + ArrowKey= behaves like MacOS app.
 
 | Keybindings   | Features                          |
 |---------------+-----------------------------------|
-| =Command + ↑= | Move to the top of the file       |
+| =Command + ↑=   | Move to the top of the file       |
 | =Command + ↓= | Move to the bottom of the file    |
-| =Command + ←= | Move to the beginning of the line |
-| =Command + →= | Move to the end of the line       |
-| =Command + L= | Go to line                        |
+| =Command + ←=   | Move to the beginning of the line |
+| =Command + →=   | Move to the end of the line       |
+| =Command + L=   | Go to line                        |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
@@ -470,14 +478,23 @@ Make =Command + ArrowKey= behaves like MacOS app.
 #+end_src
 
 *** Searching Text
-| =Command + F= | Search text |
-# TODO: - =Shift + Command + F=: Search text in current folder.
+**** Keybindings
+
+| Keybindings         | Features                      |
+|---------------------+-------------------------------|
+| =Command + F=         | Search text in Buffer         |
+| =Shift + Command + F= | Search text in current folder |
+
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-f") 'swiper)
 ;; (global-set-key (kbd "s-F") 'isearch-backward)
 #+end_src
 
 *** Selecting Text
+**** Keybindings
+
+| Keybindings         | Features                      |
+|---------------------+-------------------------------|
 | =Command + A= | Select all the content in current file |
 
 #+begin_src emacs-lisp
@@ -491,13 +508,17 @@ Highlight region with pink color.
 #+end_src
 *** Editing Text
 **** Keybindings
+
+| Keybindings                 | Features                                         |
+|-----------------------------+--------------------------------------------------|
 | =Command + C=                 | Copy text                                        |
 | =Command + X=                 | Cut text                                         |
 | =Command + V=                 | Paste text                                       |
 | =Command + Return=            | Force newline                                    |
 | =Command + Backspace=         | Delete current line from cursor to the beginning |
 | =Command + Shift + Backspace= | Delete whole line entirely                       |
-| =Command + /=               | Comment/Uncomment line(s)                        |
+| =Command + /=                 | Comment/Uncomment line(s)                        |
+
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-c") 'kill-ring-save)
 (global-set-key (kbd "s-x") 'kill-region)
@@ -893,6 +914,12 @@ Change org unordered list styles.
 (use-package vterm)
 #+end_src
 
+*** Keybindings
+# TODO: Open, focus and hide vterm instance, create new instance.
+#+begin_src emacs-lisp
+(define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
+#+end_src
+
 *** Behaviors
 Disable evil mode for vterm.
 #+begin_src emacs-lisp
@@ -903,12 +930,6 @@ Close vterm buffer without confriming.
 #+begin_src emacs-lisp
 (add-hook 'vterm-mode-hook
           (lambda () (setq kill-buffer-query-functions nil)))
-#+end_src
-
-*** Keybindings
-# TODO: Open, focus and hide vterm instance, create new instance.
-#+begin_src emacs-lisp
-(define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
 #+end_src
 
 * Version Control
@@ -955,7 +976,7 @@ Change colors.
 #+end_src
 
 * Chinese Optimization
-# TODO: Slipt word https://github.com/cireu/jieba.el
+# TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
 ** Font
 # FIX: Bold is too Bold.
 Use macOS's default Chinese font for Chinese characters in Emacs.
