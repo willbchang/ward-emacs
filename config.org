@@ -24,7 +24,6 @@ Configure package.el to include MELPA.
 ** Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
 
-Always ensure the package is installed.
 Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
 #+begin_src emacs-lisp
 (when (not (package-installed-p 'use-package))
@@ -41,9 +40,9 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 Always compile packages, and use the newest version available.
 #+begin_src emacs-lisp
 (use-package auto-compile
-  :config (auto-compile-on-load-mode))
-
-(setq load-prefer-newer t)
+  :config
+  (auto-compile-on-load-mode)
+  (setq load-prefer-newer t))
 #+end_src
 
 Keep the packages up to date.
@@ -110,6 +109,8 @@ Disable line number.
 Use default color theme.
 
 Set blurred background.
+# FIX: Org mode headline *
+# FIX: minibuffer
 # https://github.com/mlyapin/config.d/commit/e8baafc0096b4daf85b213a7ca194264f47f5a20
 #+begin_src emacs-lisp
 (set-face-background 'default "mac:windowBackgroundColor")
@@ -203,17 +204,17 @@ Count column number from 1 instead of 0.
 #+begin_src emacs-lisp
 (setq column-number-indicator-zero-based nil)
 #+end_src
-
+  
 * Basic UX
 ** Which Key
 [[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
 #+begin_src emacs-lisp
-(use-package which-key)
-(which-key-mode)
+(use-package which-key
+  :config
+  (which-key-mode))
 #+end_src
 
 ** Ivy
-# TODO: remember command history.
 [[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
 #+begin_src emacs-lisp
 (use-package counsel
@@ -239,7 +240,7 @@ Count column number from 1 instead of 0.
 (use-package ivy-rich)
 (ivy-rich-mode 1)
 #+end_src
-
+  
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
@@ -384,6 +385,7 @@ Cancel partially typed or accidental command.
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 #+end_src
 
+# FIX: Not working.
 Ask =y= or =n= instead of =yes= or =no=. Use ~return~ to act ~y~.
 #+begin_src emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -401,6 +403,8 @@ When you double-click on a file in the Mac Finder open it as a buffer in the exi
 #+end_src
 
 Ignore buffers start with * while moving to previous or next buffer.
+# TODO: Hide magit buffers by default
+# TODO: Make vterm as a popup buffer, like doom emacs.
 # https://emacs.stackexchange.com/a/27770/29493
 #+begin_src emacs-lisp
 (set-frame-parameter (selected-frame) 'buffer-predicate
