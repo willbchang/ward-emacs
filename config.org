@@ -8,7 +8,8 @@ Set http(s) proxy for Emacs. /You might not need it, or need to change it./
 ** Package
 Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
 #+begin_src emacs-lisp
-(setq package-native-compile t)
+;; Wait until 28.1
+;; (setq package-native-compile t)
 #+end_src
 
 Configure package.el to include MELPA.
