@@ -252,19 +252,18 @@ Count column number from 1 instead of 0.
 # TODO: Make the buffers independent in each frame.
 # TODO: System-wide popup Emacs windows for quick edits
 *** Keybindings
-=Ctrl + Command + F=: Set window full screen.
-#+begin_src emacs-lisp
-(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
-#+end_src
+| Keybindings          | Features                                               |
+|----------------------+--------------------------------------------------------|
+| =Command + Q=          | Quit Emacs                                             |
+| =Command + N=          | Create new window, default with org-mode and evil-mode |
+| =Shift + Command + W=  | Close current window                                   |
+| =Ctrl + Command + F= | Set/Unset window full screen                           |
 
-=Command + Q=: Quit Emacs.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
-#+end_src
-
-=Command + N=: Create new window, default with org-mode and evil-mode
-#+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
+(global-set-key (kbd "s-W") 'delete-frame)
+(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 
 (defun new-empty-frame ()
   "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
@@ -274,11 +273,6 @@ Count column number from 1 instead of 0.
     (org-mode)
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-
-=Shift + Command + W=: Close current window.
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-W") 'delete-frame)
 #+end_src
 
 *** Behavior
@@ -458,21 +452,25 @@ Enable word wrap globally.
 
 *** Moving Cursor
 Make =Command + ArrowKey= behaves like MacOS app.
-- =Command + ↑=: move to the top of the file.
-- =Command + ↓=: move to the bottom of the file.
-- =Command + ←=: move to the beginning of the line.
-- =Command + →=: move to the end of the line.
-- =Command + L=: go to line.
+
+| Keybindings   | Features                          |
+|---------------+-----------------------------------|
+| =Command + ↑= | Move to the top of the file       |
+| =Command + ↓= | Move to the bottom of the file    |
+| =Command + ←= | Move to the beginning of the line |
+| =Command + →= | Move to the end of the line       |
+| =Command + L= | Go to line                        |
+
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "s-<down>") 'end-of-buffer)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
+(global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-l") 'goto-line)
 #+end_src
 
 *** Searching Text
-- =Command + F=: Search text.
+| =Command + F= | Search text |
 # TODO: - =Shift + Command + F=: Search text in current folder.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-f") 'swiper)
@@ -480,7 +478,8 @@ Make =Command + ArrowKey= behaves like MacOS app.
 #+end_src
 
 *** Selecting Text
-=Command + A=: Select all the content in current file.
+| =Command + A= | Select all the content in current file |
+
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 #+end_src
@@ -492,45 +491,26 @@ Highlight region with pink color.
 #+end_src
 *** Editing Text
 **** Keybindings
-- =Command + C=: Copy text.
-- =Command + X=: Cut text.
-- =Command + V=: Paste text.
+| =Command + C=                 | Copy text                                        |
+| =Command + X=                 | Cut text                                         |
+| =Command + V=                 | Paste text                                       |
+| =Command + Return=            | Force newline                                    |
+| =Command + Backspace=         | Delete current line from cursor to the beginning |
+| =Command + Shift + Backspace= | Delete whole line entirely                       |
+| =Command + /=               | Comment/Uncomment line(s)                        |
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-c") 'kill-ring-save)
 (global-set-key (kbd "s-x") 'kill-region)
 (global-set-key (kbd "s-v") 'yank)
-#+end_src
-
-=Command + Return=: Force newline.
-#+begin_src emacs-lisp
 (global-set-key (kbd "<s-return>") 'newline)
-#+end_src
-
-=Command + Backspace=: Delete current line from cursor to the beginning
-#+begin_src emacs-lisp
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
+(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
   (kill-line (- 1 arg)))
-#+end_src
-
-=Command + Shift + Backspace=: Delete whole line entirely.\\
-/This is not the default behavior of MacOS, but I found it's useful./
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-#+end_src
-
-
-# TODO:
-# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
-# 2. Comment one line, it adds before and forward one line
-# 3. Comment on region, it add and move to the next line of the region
-# 4. Cannot uncomment inside org mode code block
-=Command + /=: Comment/Uncomment line(s).
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 
 (defun comment-or-uncomment-region-or-line ()
   "Comments or uncomments the region or the current line if
@@ -542,6 +522,13 @@ there's no active region."
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 #+end_src
+
+
+# TODO:
+# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
+# 2. Comment one line, it adds before and forward one line
+# 3. Comment on region, it add and move to the next line of the region
+# 4. Cannot uncomment inside org mode code block
 **** Undo
 Increase undo limit.
 #+begin_src emacs-lisp
