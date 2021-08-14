@@ -5,6 +5,7 @@ Set http(s) proxy for Emacs. /You might not need it, or need to change it./
 (setenv "https_proxy" "http://127.0.0.1:7890")
 (setenv "http_proxy" "http://127.0.0.1:7890")
 #+end_src
+
 ** Package
 Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
 #+begin_src emacs-lisp
@@ -37,7 +38,7 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 (setq use-package-always-ensure t)
 #+end_src
 
-Always compile packages, and use the newest version available.
+Always compile packages.
 #+begin_src emacs-lisp
 (use-package auto-compile
   :config
@@ -45,13 +46,13 @@ Always compile packages, and use the newest version available.
   (setq load-prefer-newer t))
 #+end_src
 
-Keep the packages up to date.
+Do not keep the packages up to date. I'm getting old and tired of endless new things. 
 #+begin_src emacs-lisp
-(use-package auto-package-update
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+;; (use-package auto-package-update
+;;   :config
+;;   (setq auto-package-update-delete-old-versions t)
+;;   (setq auto-package-update-hide-results t)
+;;   (auto-package-update-maybe))
 #+end_src
 
 ** Straight
