@@ -857,6 +857,7 @@ Change org unordered list styles.
 (use-package org-appear)
 (add-hook 'org-mode-hook 'org-appear-mode)
 (setq org-appear-autolinks t)
+(setq org-appear-delay 1)
 #+end_src
 
 *** Org Download
