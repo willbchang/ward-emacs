@@ -370,11 +370,6 @@ Save cursor position for each file.
 (save-place-mode t)
 #+end_src
 
-Save/Restore opened files and windows configuration.
-#+begin_src emacs-lisp
-(desktop-save-mode 1)
-#+end_src
-
 Cancel partially typed or accidental command.
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
