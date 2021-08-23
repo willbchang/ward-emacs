@@ -160,6 +160,12 @@ Use awesome tray to make modeline simple.
 (awesome-tray-mode 1)
 #+end_src
 
+Only load necessary modules: Row:Column, Scroll position, mode and git branch.
+#+begin_src emacs-lisp
+(setq awesome-tray-active-modules '("location" "mode-name" "git"))
+#+end_src
+
+
 
 * Basic UX
 ** Which Key
