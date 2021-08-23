@@ -153,7 +153,6 @@ Set blurred background.
 ** Mode Line
 Use [[https://github.com/manateelazycat/awesome-tray][awesome tray]] to make modeline simple.
 #+begin_src emacs-lisp
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp"))
 (require 'awesome-tray)
 (awesome-tray-mode 1)
 #+end_src

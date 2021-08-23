@@ -7,8 +7,12 @@
       x-select-enable-clipboard 't
       mac-command-modifier 'super
       mac-option-modifier 'meta)
+;; load local elisp files
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp"))
+
 (org-babel-load-file "~/.config/emacs/config.org")
 (set 'ad-redefinition-action 'accept)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -35,5 +39,4 @@
  '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed))))
- '(mode-line ((t (:weight light)))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
