@@ -217,7 +217,7 @@
   :group 'awesome-tray)
 
 (defcustom awesome-tray-active-modules
-  '("location" "parent-dir" "mode-name" "battery" "date")
+  '("location" "mode-name" "git")
   "Default active modules."
   :type 'list
   :group 'awesome-tray)
@@ -299,7 +299,7 @@ These goes before those shown in their full names."
 
 (defface awesome-tray-module-git-face
   '((((background light))
-     :foreground "#cc2444" :bold t)
+     :foreground "#00a400" :norma t)
     (t
      :foreground "#ff2d55" :bold t))
   "Git face."
@@ -323,7 +323,7 @@ These goes before those shown in their full names."
 
 (defface awesome-tray-module-mode-name-face
   '((((background light))
-     :foreground "#00a400" :bold t)
+     :foreground "deep pink" :normal t)
     (t
      :foreground "green3" :bold t))
   "Mode name face."
@@ -331,7 +331,7 @@ These goes before those shown in their full names."
 
 (defface awesome-tray-module-location-face
   '((((background light))
-     :foreground "#cc7700" :bold t)
+     :foreground "dodger blue" :normal t)
     (t
      :foreground "#ff9500" :bold t))
   "Location face."
@@ -426,7 +426,7 @@ These goes before those shown in their full names."
       (awesome-tray-enable)
     (awesome-tray-disable)))
 
-(defvar awesome-tray-info-padding-right 0)
+(defvar awesome-tray-info-padding-right 1)
 
 (defvar awesome-tray-mode-line-colors nil)
 
@@ -740,7 +740,7 @@ NAME is a string, typically a directory name."
 (defun awesome-tray-update-git-command-cache ()
   (let* ((git-info (awesome-tray-process-exit-code-and-output "git" "symbolic-ref" "--short" "HEAD"))
          (status (nth 0 git-info))
-         (result (format "git:%s" (nth 1 git-info))))
+         (result (format "%s" (nth 1 git-info))))
     (setq awesome-tray-git-command-cache
           (if (equal status 0)
               (replace-regexp-in-string "\n" "" result)

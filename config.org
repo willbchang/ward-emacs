@@ -158,38 +158,6 @@ Use [[https://github.com/manateelazycat/awesome-tray][awesome tray]] to make mod
 (awesome-tray-mode 1)
 #+end_src
 
-Only load necessary modules: Row:Column, Scroll position, mode and git branch.
-#+begin_src emacs-lisp
-(setq awesome-tray-active-modules '("location" "mode-name" "git"))
-#+end_src
-
-Make awesome tray display without new line.
-#+begin_src emacs-lisp
-(setq awesome-tray-info-padding-right 1)
-#+end_src
-
-Change awesome tray face colors.
-#+begin_src emacs-lisp
-(custom-set-faces
-   '(awesome-tray-module-git-face       ((t (:stipple "alpha:60%" :foreground "#00a400" :weight normal))))
-   '(awesome-tray-module-location-face  ((t (:stipple "alpha:60%" :foreground "dodger blue" :weight normal))))
-   '(awesome-tray-module-mode-name-face ((t (:stipple "alpha:60%" :foreground "deep pink" :weight normal))))
-)
-#+end_src
-
-Ignore ~git:~ before branch.
-#+begin_src emacs-lisp
-(defun awesome-tray-update-git-command-cache ()
-  (let* ((git-info (awesome-tray-process-exit-code-and-output "git" "symbolic-ref" "--short" "HEAD"))
-         (status (nth 0 git-info))
-         (result (format "%s" (nth 1 git-info))))
-    (setq awesome-tray-git-command-cache
-          (if (equal status 0)
-              (replace-regexp-in-string "\n" "" result)
-            ""))
-    awesome-tray-git-command-cache))
-#+end_src
-
 * Basic UX
 ** Which Key
 [[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
