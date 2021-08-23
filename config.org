@@ -165,15 +165,19 @@ Only load necessary modules: Row:Column, Scroll position, mode and git branch.
 (setq awesome-tray-active-modules '("location" "mode-name" "git"))
 #+end_src
 
-
 Make awesome tray display without new line.
 #+begin_src emacs-lisp
 (setq awesome-tray-info-padding-right 1)
 #+end_src
 
-
-
-
+Change awesome tray face colors.
+#+begin_src emacs-lisp
+(custom-set-faces
+   '(awesome-tray-module-git-face       ((t (:stipple "alpha:60%" :foreground "#00a400" :weight normal))))
+   '(awesome-tray-module-location-face  ((t (:stipple "alpha:60%" :foreground "dodger blue" :weight normal))))
+   '(awesome-tray-module-mode-name-face ((t (:stipple "alpha:60%" :foreground "deep pink" :weight normal))))
+)
+#+end_src
 
 * Basic UX
 ** Which Key
