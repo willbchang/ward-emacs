@@ -23,6 +23,7 @@ Configure package.el to include MELPA.
 #+end_src
 
 ** Use Package
+# TODO: Remove Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
 
 Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
@@ -54,9 +55,6 @@ Do not keep the packages up to date. I'm getting old and tired of endless new th
 ;;   (setq auto-package-update-hide-results t)
 ;;   (auto-package-update-maybe))
 #+end_src
-
-** Straight
-[[https://github.com/raxod502/straight.el][straight]]: next-generation, purely functional package manager for the Emacs hacker.
 
 * Basic UI
 ** Title Bar
@@ -112,7 +110,7 @@ Use default color theme.
 Set blurred background.
 # FIX: Org mode headline *
 # FIX: minibuffer
-# https://github.com/mlyapin/config.d/commit/e8baafc0096b4daf85b213a7ca194264f47f5a20
+# https://www.reddit.com/r/emacs/comments/msqzoy
 #+begin_src emacs-lisp
 (set-face-background 'default "mac:windowBackgroundColor")
 (dolist (f (face-list)) (set-face-stipple f "alpha:60%"))
@@ -153,7 +151,7 @@ Set blurred background.
 *** Components Face
 
 ** Mode Line
-Use awesome tray to make modeline simple.
+Use [[https://github.com/manateelazycat/awesome-tray][awesome tray]] to make modeline simple.
 #+begin_src emacs-lisp
 (add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp"))
 (require 'awesome-tray)
@@ -178,7 +176,6 @@ Change awesome tray face colors.
    '(awesome-tray-module-mode-name-face ((t (:stipple "alpha:60%" :foreground "deep pink" :weight normal))))
 )
 #+end_src
-
 
 Ignore ~git:~ before branch.
 #+begin_src emacs-lisp
@@ -839,6 +836,7 @@ Change org unordered list styles.
 #+end_src
 
 *** Org Appear
+# TODO: set delay for evil normal mode, remove delay for evil insert mode.
 [[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
 #+begin_src emacs-lisp
 (use-package org-appear)
@@ -848,6 +846,7 @@ Change org unordered list styles.
 #+end_src
 
 *** Org Download
+# TODO: Only for images, no files
 [[https://github.com/abo-abo/org-download][org-download]] provides drag and drop images.
 #+begin_src emacs-lisp
 (use-package org-download)
