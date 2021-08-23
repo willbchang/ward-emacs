@@ -166,6 +166,14 @@ Only load necessary modules: Row:Column, Scroll position, mode and git branch.
 #+end_src
 
 
+Make awesome tray display without new line.
+#+begin_src emacs-lisp
+(setq awesome-tray-info-padding-right 1)
+#+end_src
+
+
+
+
 
 * Basic UX
 ** Which Key
