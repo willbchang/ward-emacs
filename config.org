@@ -153,59 +153,14 @@ Set blurred background.
 *** Components Face
 
 ** Mode Line
-# TODO: Simple Modeline Row: Column, Scroll Position, Git
+Use awesome tray to make modeline simple.
 #+begin_src emacs-lisp
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
-(setq doom-modeline-buffer-encoding nil)
-(setq doom-modeline-indent-info t)
-(setq column-number-mode t)
-(dolist (modeline-face '(
-      doom-modeline-buffer-path
-      doom-modeline-buffer-file
-      doom-modeline-project-dir
-      doom-modeline-buffer-modified
-      doom-modeline-buffer-major-mode
-      doom-modeline-info))
-  (set-face-attribute modeline-face nil :weight 'light))
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp"))
+(require 'awesome-tray)
+(awesome-tray-mode 1)
 #+end_src
 
-Hide file icon and file name in mode line.
-#+begin_src emacs-lisp
-(doom-modeline-def-segment buffer-info
-  "buffer info segment."
-  "")
-(doom-modeline-def-segment buffer-info-simple
-  "simple buffer info segment."
-  "")
-#+end_src
 
-Hide all icons in mode line.
-#+begin_src emacs-lisp
-(setq doom-modeline-icon nil)
-#+end_src
-
-Hide Evil state in modeline.
-#+begin_src emacs-lisp
-(setq evil-normal-state-tag ""
-      evil-insert-state-tag ""
-      evil-visual-state-tag ""
-      evil-motion-state-tag ""
-      evil-emacs-state-tag ""
-      evil-operator-state-tag "")
-#+end_src
-
-Set modeline height to font size 18 * 2 = 36.\\
-It won't hide part of the line while scrolling.
-#+begin_src emacs-lisp
-(setq doom-modeline-height 36)
-#+end_src
-
-Count column number from 1 instead of 0.
-#+begin_src emacs-lisp
-(setq column-number-indicator-zero-based nil)
-#+end_src
-  
 * Basic UX
 ** Which Key
 [[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
