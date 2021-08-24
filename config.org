@@ -603,18 +603,6 @@ https://github.com/gabesoft/evil-mc
 https://github.com/syl20bnr/evil-iedit-state
 https://github.com/magnars/multiple-cursors.el
 
-** Spell and Grammar
-# TODO: Check grammar
-# TODO: use enchant-2
-Check spelling of words in text mode, required =aspell=.
-DISABLE: until use enchant-2 with apple dictionary correctly.
-#+begin_src emacs-lisp
-;; (use-package flyspell
-;;   :config
-;;   (setq ispell-program-name "aspell")
-;;   (add-hook 'text-mode-hook 'flyspell-mode))
-#+end_src
-
 ** Keybinding References
 *Keybinding Values*:
 | Meaning | Emacs Key Value | MacOS Key           |
