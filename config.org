@@ -57,12 +57,6 @@ Do not keep the packages up to date. I'm getting old and tired of endless new th
 #+end_src
 
 * Basic UI
-** Fringe
-Enable left fringe.
-#+begin_src emacs-lisp
-(fringe-mode '(10 . 0))
-#+end_src
-
 ** Color Theme
 Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 #+begin_src emacs-lisp
@@ -74,6 +68,12 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 Disable scroll bar.
 #+begin_src emacs-lisp
 (scroll-bar-mode 0)
+#+end_src
+
+** Fringe
+Enable left fringe with 2 width.
+#+begin_src emacs-lisp
+(fringe-mode '(2 . 0))
 #+end_src
 
 * Basic UX
@@ -275,7 +275,6 @@ Disable automatic backup~ file.
 #+begin_src emacs-lisp
 (setq make-backup-files nil)
 #+end_src
-
 
 * Word Processing
 # TODO: Diff text
