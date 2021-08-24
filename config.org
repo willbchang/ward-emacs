@@ -683,9 +683,12 @@ Hide emphasis makers.
 (setq org-hide-emphasis-markers t)
 #+end_src
 
-Enable shift selection.
+Enable shift selection for evil insert mode.
 #+begin_src emacs-lisp
-(setq org-support-shift-select 'always)
+(add-hook 'evil-insert-state-entry-hook (lambda()
+          (setq org-support-shift-select 'always)))
+(add-hook 'evil-insert-state-exit-hook (lambda()
+          (setq org-support-shift-select nil)))
 #+end_src
 
 Disable reindent on every time editing code block.
