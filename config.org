@@ -151,10 +151,9 @@ Set blurred background.
 *** Components Face
 
 ** Mode Line
-Use [[https://github.com/manateelazycat/awesome-tray][awesome tray]] to make modeline simple.
+Disable mode line.
 #+begin_src emacs-lisp
-(require 'awesome-tray)
-(awesome-tray-mode 1)
+(setq-default mode-line-format nil)
 #+end_src
 
 * Basic UX
