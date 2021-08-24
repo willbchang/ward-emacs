@@ -497,11 +497,11 @@ Unbind =return= key in for using it to open link in org mode.
 Set Evil cursor color and styles in different situations.
 You can try these commands independently to test the effects: =Esc, i, v, d, r=
 #+begin_src emacs-lisp
-(setq evil-normal-state-cursor '(box "#e2416c")
-      evil-insert-state-cursor '(bar "#e2416c")
-      evil-visual-state-cursor '(hollow "#e2416c")
-      evil-operator-state-cursor '(evil-half-cursor "#e2416c")
-      evil-replace-state-cursor '(hbar "#e2416c"))
+(setq evil-normal-state-cursor '(box "deep pink")
+      evil-insert-state-cursor '(bar "deep pink")
+      evil-visual-state-cursor '(hollow "deep pink")
+      evil-operator-state-cursor '(evil-half-cursor "deep pink")
+      evil-replace-state-cursor '(hbar "deep pink"))
 #+end_src
 
 Set default cursor style to bar when evil use emacs state.
