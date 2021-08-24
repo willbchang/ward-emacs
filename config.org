@@ -123,17 +123,19 @@ Enable left fringe with 2 width.
 # TODO: Make the buffers independent in each frame.
 # TODO: System-wide popup Emacs windows for quick edits
 *** Keybindings
-| Keybindings          | Features                                               |
-|----------------------+--------------------------------------------------------|
-| =Command + Q=          | Quit Emacs                                             |
-| =Command + N=          | Create new window, default with org-mode and evil-mode |
-| =Shift + Command + W=  | Close current window                                   |
-| =Ctrl + Command + F= | Set/Unset window full screen                           |
+| Keybindings         | Features                                               |
+|---------------------+--------------------------------------------------------|
+| =Command + Q=         | Quit Emacs                                             |
+| =Command + N=         | Create new window, default with org-mode and evil-mode |
+| =Command + `=         | Change to other frame                                  |
+| =Shift + Command + W= | Close current window                                   |
+| =Ctrl + Command + F=  | Set/Unset window full screen                           |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "s-n") 'new-empty-frame)
 (global-set-key (kbd "s-W") 'delete-frame)
+(global-set-key (kbd "s-`") 'other-frame)
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 
 (defun new-empty-frame ()
