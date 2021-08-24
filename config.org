@@ -57,51 +57,10 @@ Do not keep the packages up to date. I'm getting old and tired of endless new th
 #+end_src
 
 * Basic UI
-** Title Bar
-# FIX: Doesn't show folder path in dired.
-# FIX: Doesn't show file icon when file is in iCloud.
-Show icon and full path in title bar.
-#+begin_src emacs-lisp
-(setq frame-title-format
-    '(:eval
-       (if buffer-file-name
-           (abbreviate-file-name buffer-file-name)
-           "%b")))
-#+end_src
-
-** Tool Bar
-Disable tool bar.
-#+begin_src emacs-lisp
-(tool-bar-mode 0)
-#+end_src
-
-** Tab Bar
-https://www.emacswiki.org/emacs/TabBarMode
-https://github.com/manateelazycat/awesome-tab
-https://github.com/ema2159/centaur-tabs
-
-** Scroll Bar
-Disable scroll bar.
-#+begin_src emacs-lisp
-(scroll-bar-mode 0)
-#+end_src
-
-** Side Bar
-https://github.com/Alexander-Miller/treemacs
-
-** Gutter
-https://github.com/emacsorphanage/git-gutter
-
 ** Fringe
 Enable left fringe.
 #+begin_src emacs-lisp
 (fringe-mode '(10 . 0))
-#+end_src
-
-** Line Number
-Disable line number.
-#+begin_src emacs-lisp
-(display-line-numbers-mode -1)
 #+end_src
 
 ** Color Theme
@@ -109,6 +68,12 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 #+begin_src emacs-lisp
 (add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp/nano-theme"))
 (require 'nano)
+#+end_src
+
+** Scroll Bar
+Disable scroll bar.
+#+begin_src emacs-lisp
+(scroll-bar-mode 0)
 #+end_src
 
 * Basic UX
