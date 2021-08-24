@@ -105,55 +105,10 @@ Disable line number.
 #+end_src
 
 ** Color Theme
-Use default color theme.
-
-Set blurred background.
-# FIX: Org mode headline *
-# FIX: minibuffer
-# https://www.reddit.com/r/emacs/comments/msqzoy
+Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 #+begin_src emacs-lisp
-(set-face-background 'default "mac:windowBackgroundColor")
-(dolist (f (face-list)) (set-face-stipple f "alpha:60%"))
-(setq face-remapping-alist (append face-remapping-alist '((default my/default-blurred))))
-(defface my/default-blurred
-   '((t :inherit 'default :stipple "alpha:60%"))
-   "Like 'default but blurred."
-   :group 'my)
-#+end_src
-
-*** Programming face
-#+begin_src emacs-lisp
-(set-face-foreground 'font-lock-function-name-face "DodgerBlue")
-;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
-(set-face-foreground 'font-lock-keyword-face "#874bf8")
-(set-face-foreground 'font-lock-comment-face "DarkGray")
-;; (set-face-foreground 'font-lock-type-face "#1E90FF")
-;; (set-face-foreground 'font-lock-constant-face "#1E90FF")
-;; (set-face-foreground 'font-lock-builtin-face "#1E90FF")
-;; (set-face-foreground 'font-lock-string-face "#1E90FF")
-#+end_src
-
-*** Markup face
-#+begin_src emacs-lisp
-(set-face-foreground 'outline-4 "Firebrick")
-#+end_src
-
-**** Org Mode
-#+begin_src emacs-lisp
-(set-face-foreground 'org-meta-line "Gray")
-(set-face-foreground 'org-drawer "Gray")
-(set-face-foreground 'org-document-info-keyword "Gray")
-(set-face-foreground 'org-date "Gray")
-#+end_src
-
-**** Markdown
-
-*** Components Face
-
-** Mode Line
-Disable mode line.
-#+begin_src emacs-lisp
-(setq-default mode-line-format nil)
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp/nano-theme"))
+(require 'nano)
 #+end_src
 
 * Basic UX

@@ -7,8 +7,6 @@
       x-select-enable-clipboard 't
       mac-command-modifier 'super
       mac-option-modifier 'meta)
-;; load local elisp files
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp"))
 
 (org-babel-load-file "~/.config/emacs/config.org")
 (set 'ad-redefinition-action 'accept)
