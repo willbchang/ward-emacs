@@ -304,7 +304,8 @@ Disable automatic backup~ file.
 Use MacOS default font SF Mono.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-                    :font "SF Mono 18")
+                    :font "SF Mono 18"
+                    :weight 'normal)
 #+end_src
 
 **** Behaviors
