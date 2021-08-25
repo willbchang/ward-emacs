@@ -272,11 +272,6 @@ Disable the ring bell when scroll beyond the document.
 (setq ring-bell-function 'ignore)
 #+end_src
 
-When you double-click on a file in the Mac Finder open it as a buffer in the existing Emacs frame, rather than creating a new frame just for that file.
-#+begin_src emacs-lisp
-(setq ns-pop-up-frames nil)
-#+end_src
-
 Ignore buffers start with * while moving to previous or next buffer.
 # TODO: Hide magit buffers by default
 # TODO: Make vterm as a popup buffer, like doom emacs.
