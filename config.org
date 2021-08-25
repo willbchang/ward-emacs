@@ -568,15 +568,6 @@ Records changes to separate undo instead of a big one in insert state.
   (evil-snipe-override-mode +1))
 #+end_src
 
-*** Evil Anzu
-[[https://github.com/emacsorphanage/evil-anzu][evil-anzu]] provides a minor mode which displays current match and total matches information in the mode-line in various search modes.
-#+begin_src emacs-lisp
-(use-package evil-anzu
-  :after evil
-  :config
-  (global-anzu-mode +1))
-#+end_src
-
 *** Avy
 [[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
 #+begin_src emacs-lisp
