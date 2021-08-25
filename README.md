@@ -10,6 +10,11 @@
 
 
 ## Introduction
+**This project is working in progress, but should work for most cases. I'm using it everyday.**
+
+![ward emacs screenshot](.github/images/ward-emacs.png)
+
+
 | MacOS Preferred Keybindings             | Powerful Features                               | Suitable Features | Chinese Optimization     |
 |-----------------------------------------|-------------------------------------------------|-------------------|--------------------------|
 | [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                | Markdown          | Improved  Display        |
@@ -23,10 +28,10 @@ The configuration is in [config.org](config.org).
 <details>
 <summary>Notes</summary>
 
-- Press <kbd>alt + x</kbd> and type `describe-` then press <kbd>TAB</kbd>, you can find almost anything in Emacs by yourself.
+- Press <kbd>alt + x</kbd> and type `describe-`, you can findout almost anything in Emacs by yourself.
 - Emacs is more highly customizable than you think.
-- I only use Emacs as a Text Editor, no coding features will be added expect elisp. [JetBrains](https://www.jetbrains.com/products/) provides the best IDE for most programming languages, [EAP](https://www.jetbrains.com/resources/eap/) versions are free to use.
-- I mainly support the version that I'm using(currently is [emacs-plus@28 native comp](https://github.com/d12frosted/homebrew-emacs-plus)), most of the code should work for other versions, but I don't have time to make them compatible. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
+- I only use Emacs as a **Text Editor**, no coding features will be added expect elisp. [JetBrains](https://www.jetbrains.com/products/) provides the best IDE for most programming languages, [EAP](https://www.jetbrains.com/resources/eap/) versions are free to use.
+- I mainly support the version that I'm using(currently is [emacs mac 27](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
 </details>
 
@@ -124,6 +129,7 @@ It learns from:
 - [hrs/dotfiles](https://github.com/hrs/dotfiles)
 - [hlissner/doom-emacs](https://github.com/hlissner/doom-emacs)
 - [Practical Emacs Tutorial](http://ergoemacs.org/emacs/emacs.html)
+- [Nano Emacs](https://github.com/rougier/nano-emacs)
 
 ## LICENSE
 
