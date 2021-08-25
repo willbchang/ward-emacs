@@ -340,11 +340,6 @@ Highlight paired brackets, includes (), [], {} and so on...
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+end_src
 
-Enable word wrap globally.
-#+begin_src emacs-lisp
-(global-visual-line-mode 1)
-#+end_src
-
 *** Moving Cursor
 **** Keybindings
 Make =Command/Option + ArrowKey= behaves like MacOS app.
