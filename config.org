@@ -286,6 +286,11 @@ Disable automatic backup~ file.
 (setq make-backup-files nil)
 #+end_src
 
+Hide all the information about files and folders except their names.
+#+begin_src emacs-lisp
+(dired-hide-details-mode 0)
+#+end_src
+
 * Word Processing
 # TODO: Diff text
 # TODO: company for elisp, especially for completion emacs functions/variables
