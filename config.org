@@ -63,6 +63,19 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 (add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp/nano-theme"))
 (require 'nano)
 #+end_src
+  
+*** Org Mode
+# Rainbow
+#+begin_src emacs-lisp
+;; (set-face-foreground 'org-level-1 "dodger Blue")
+(set-face-foreground 'org-level-2 "dodger Blue")
+(set-face-foreground 'org-level-3 "#874bf8")
+(set-face-foreground 'org-level-4 "violet red")
+(set-face-foreground 'org-level-5 "SpringGreen4")
+;; (set-face-foreground 'org-level-6 "SpringGreen4")
+;; (set-face-foreground 'org-level-7 "SpringGreen4")
+;; (set-face-foreground 'org-level-8 "SpringGreen4")
+#+end_src
 
 ** Scroll Bar
 Disable scroll bar.
