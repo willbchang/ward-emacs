@@ -464,6 +464,11 @@ Auto pair brackets, quotes etc.
 (electric-pair-mode 1)
 #+end_src
 
+Do not indent on newlines.
+#+begin_src emacs-lisp
+(electric-indent-mode -1)
+#+end_src
+
 Overwrite selection on pasting.
 #+begin_src emacs-lisp
 (delete-selection-mode 1)
