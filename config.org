@@ -132,6 +132,11 @@ Enable left fringe with 2 width.
 (use-package restart-emacs)
 #+end_src
 
+Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-editor]] to open folder in a new frame by ~emacsclient~.
+#+begin_src emacs-lisp
+(server-start)
+#+end_src
+
 ** Frame
 # TODO: Make the buffers independent in each frame.
 # TODO: System-wide popup Emacs windows for quick edits
@@ -159,12 +164,6 @@ Enable left fringe with 2 width.
     (org-mode)
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-
-*** Behavior
-Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-editor]] to open folder in a new frame by ~emacsclient~.
-#+begin_src emacs-lisp
-(server-start)
 #+end_src
 
 ** Buffer
