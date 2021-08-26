@@ -68,13 +68,13 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 # Rainbow
 #+begin_src emacs-lisp
 ;; (set-face-foreground 'org-level-1 "dodger Blue")
-(set-face-foreground 'org-level-2 "dodger Blue")
+(set-face-foreground 'org-level-2 "dodger blue")
 (set-face-foreground 'org-level-3 "#874bf8")
 (set-face-foreground 'org-level-4 "violet red")
 (set-face-foreground 'org-level-5 "SpringGreen4")
-;; (set-face-foreground 'org-level-6 "SpringGreen4")
-;; (set-face-foreground 'org-level-7 "SpringGreen4")
-;; (set-face-foreground 'org-level-8 "SpringGreen4")
+(set-face-foreground 'org-level-6 "orange red")
+(set-face-foreground 'org-level-7 "light sea green")
+(set-face-foreground 'org-level-8 "chocolate")
 #+end_src
 
 ** Scroll Bar
