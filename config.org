@@ -288,7 +288,7 @@ Disable automatic backup~ file.
 
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
-(dired-hide-details-mode 0)
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
 #+end_src
 
 * Word Processing
