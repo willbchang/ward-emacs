@@ -706,6 +706,11 @@ Do not display image actual width.
 (setq org-image-actual-width nil)
 #+end_src
 
+Prettify things like sub/super script. Required by org appear autosubmarkers.
+#+begin_src emacs-lisp
+(setq org-pretty-entities t)
+#+end_src
+
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
@@ -737,6 +742,7 @@ Change org unordered list styles.
 (add-hook 'org-mode-hook 'org-appear-mode)
 (setq org-appear-autolinks t)
 (setq org-appear-delay 1)
+(setq org-appear-autosubmarkers t)
 #+end_src
 
 *** Org Download
