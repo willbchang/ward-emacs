@@ -741,10 +741,16 @@ Change org unordered list styles.
 (use-package org-appear)
 (add-hook 'org-mode-hook 'org-appear-mode)
 (setq org-appear-autolinks t)
-(setq org-appear-delay 1)
 (setq org-appear-autosubmarkers t)
 #+end_src
 
+Instant toggle raw format on insert mode, 1 second delay on normal mode.
+#+begin_src emacs-lisp
+(add-hook 'evil-insert-state-entry-hook (lambda()
+          (setq org-appear-delay 0)))
+(add-hook 'evil-normal-state-entry-hook (lambda()
+          (setq org-appear-delay 1)))
+#+end_src
 *** Org Download
 # TODO: Only for images, no files
 [[https://github.com/abo-abo/org-download][org-download]] provides drag and drop images.
