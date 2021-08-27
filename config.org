@@ -47,15 +47,6 @@ Always compile packages.
   (setq load-prefer-newer t))
 #+end_src
 
-Do not keep the packages up to date. I'm getting old and tired of endless new things. 
-#+begin_src emacs-lisp
-;; (use-package auto-package-update
-;;   :config
-;;   (setq auto-package-update-delete-old-versions t)
-;;   (setq auto-package-update-hide-results t)
-;;   (auto-package-update-maybe))
-#+end_src
-
 * Basic UI
 ** Color Theme
 Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
@@ -65,7 +56,6 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 #+end_src
   
 *** Org Mode
-# Rainbow
 #+begin_src emacs-lisp
 ;; (set-face-foreground 'org-level-1 "dodger Blue")
 (set-face-foreground 'org-level-2 "dodger blue")
@@ -84,7 +74,8 @@ Disable scroll bar.
 #+end_src
 
 ** Fringe
-Enable left fringe with 2 width.
+Enable left fringe with 2 width.\\
+This effects to diff-hl package.
 #+begin_src emacs-lisp
 (fringe-mode '(2 . 0))
 #+end_src
@@ -273,7 +264,6 @@ Disable the ring bell when scroll beyond the document.
 
 Ignore buffers start with * while moving to previous or next buffer.
 # TODO: Hide magit buffers by default
-# TODO: Make vterm as a popup buffer, like doom emacs.
 # https://emacs.stackexchange.com/a/27770/29493
 #+begin_src emacs-lisp
 (set-frame-parameter (selected-frame) 'buffer-predicate
@@ -285,13 +275,13 @@ Disable automatic backup~ file.
 (setq make-backup-files nil)
 #+end_src
 
+*** Dired
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
 #+end_src
 
 * Word Processing
-# TODO: Diff text
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
@@ -636,16 +626,10 @@ https://github.com/magnars/multiple-cursors.el
 - =(kbd "s-Z")=
 - ~"s-Z"~
 - ~[s-Z]~
-
+  
 * Markup Language
 # TODO: LaTex Support
 ** Org Mode
-# TODO: org render code block with hiding begin & end
-# TODO: org latex
-# TODO: Enable partial horizontal scroll in Emacs: https://github.com/misohena/phscroll
-# TODO: Smooth scrolling over images in Emacs
-# TODO: Preview equations live in org-mode
-# TODO: org roam
 # FIX: Make not*Bold*AtAll work!
 # FIX: new line with unexpected 2 space indent.
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
@@ -675,11 +659,6 @@ Enable headline and subcontent in the indented view.
 Fold all contents on opening a org file.
 #+begin_src emacs-lisp
 (setq org-startup-folded t)
-#+end_src
-
-Hide emphasis makers.
-#+begin_src emacs-lisp
-(setq org-hide-emphasis-markers t)
 #+end_src
 
 Enable shift selection for evil insert and visual mode.
@@ -723,7 +702,6 @@ Prettify things like sub/super script. Required by org appear autosubmarkers.
 #+end_src
 
 Change org headlines' style to ~›~.
-# TODO: 
 #+begin_src emacs-lisp
 (setq org-superstar-headline-bullets-list '("›"))
 #+end_src
@@ -737,7 +715,6 @@ Change org unordered list styles.
 #+end_src
 
 *** Org Appear
-# TODO: set delay for evil normal mode, remove delay for evil insert mode.
 [[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
 #+begin_src emacs-lisp
 (use-package org-appear)
@@ -782,11 +759,8 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 #+end_src
 
 ** Vterm
-# TODO: Open as a mini buffer
-# TODO: Left marign
-# TODO: No modeline
+# TODO: Open as a mini buffer, like doom emacs and vscode
 # TODO: Text Editing keybindings are not supported
-# TODO: New term when calling vterm
 # TODO: Native keybindings, no evil mode  
 # FIX: Word wrap is not normal
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
@@ -795,7 +769,6 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 #+end_src
 
 *** Keybindings
-# TODO: Open, focus and hide vterm instance, create new instance.
 #+begin_src emacs-lisp
 (define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
 #+end_src
