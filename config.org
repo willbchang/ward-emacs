@@ -928,8 +928,8 @@ Make keybindings work under Chinese input method.
 | ~Command + ,~ | ~Command + ，~        | Open config file      |
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-【") 'previous-buffer)
-(global-set-key (kbd "s-】") 'next-buffer)
-(global-set-key (kbd "s-，") 'open-config-file)
+(define-key key-translation-map (kbd "s-【") (kbd "s-["))
+(define-key key-translation-map (kbd "s-】") (kbd "s-]"))
+(define-key key-translation-map (kbd "s-，") (kbd "s-,"))
 #+end_src
 
