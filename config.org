@@ -296,6 +296,7 @@ Hide all the information about files and folders except their names.
 
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
+# TODO: better syntax highlight for elisp
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
 *** Displaying Text
@@ -342,6 +343,22 @@ Highlight paired brackets, includes (), [], {} and so on...
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+end_src
 
+# TODO: coding system to utf-8
+#+begin_src emacs-lisp
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+(set-buffer-file-coding-system 'utf-8-unix)
+(set-clipboard-coding-system 'utf-8-unix)
+(set-file-name-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(set-next-selection-coding-system 'utf-8-unix)
+(set-selection-coding-system 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(setq locale-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+#+end_src
+
+
 *** Moving Cursor
 **** Keybindings
 Make =Command/Option + ArrowKey= behaves like MacOS app.
@@ -370,6 +387,7 @@ Make =Command/Option + ArrowKey= behaves like MacOS app.
 | =Command + F=         | Search text in Buffer         |
 | =Shift + Command + F= | Search text in current folder |
 
+# TODO: Search & Replace text in current folder 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-f") 'swiper)
 ;; (global-set-key (kbd "s-F") 'isearch-backward)
