@@ -801,7 +801,7 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 *** Keybindings
 #+begin_src emacs-lisp
 (define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
-(define-key vterm-mode-map (kbd "c-c") 'vterm-send-C-c)
+(define-key vterm-mode-map (kbd "C-c") 'vterm-send-C-c)
 #+end_src
 
 *** Behaviors
