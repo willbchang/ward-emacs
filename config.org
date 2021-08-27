@@ -67,6 +67,13 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 (set-face-foreground 'org-level-8 "chocolate")
 #+end_src
 
+  
+*** Cursor
+Set default cursor type to bar.
+#+begin_src emacs-lisp
+(setq-default cursor-type 'bar) 
+#+end_src
+
 ** Scroll Bar
 Disable scroll bar.
 #+begin_src emacs-lisp
