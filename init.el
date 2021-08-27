@@ -28,6 +28,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bold ((t (:inherit nano-face-strong :weight semi-bold))))
  '(diff-hl-change ((t (:background "#8fe9e3"))))
  '(diff-hl-delete ((t (:background "#f5cce1"))))
  '(diff-hl-insert ((t (:background "#80f1a4"))))
