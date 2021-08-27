@@ -761,7 +761,6 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 ** Vterm
 # TODO: Open as a mini buffer, like doom emacs and vscode
 # TODO: Text Editing keybindings are not supported
-# TODO: Native keybindings, no evil mode  
 # FIX: Word wrap is not normal
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
@@ -771,12 +770,13 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 *** Keybindings
 #+begin_src emacs-lisp
 (define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
+(define-key vterm-mode-map (kbd "c-c") 'vterm-send-C-c)
 #+end_src
 
 *** Behaviors
 Disable evil mode for vterm.
 #+begin_src emacs-lisp
-(add-hook 'vterm-mode-hook 'evil-emacs-state)
+(evil-set-initial-state 'vterm-mode 'emacs)
 #+end_src
 
 Close vterm buffer without confriming.
