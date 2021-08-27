@@ -58,6 +58,9 @@ undo-fu-session/
 # elpa packages
 /elpa/
 
+# Projectile
+projectile-bookmarks.eld
+
 # reftex files
 *.rel
 

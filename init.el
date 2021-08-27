@@ -20,7 +20,7 @@
  '(column-number-mode t)
  '(display-line-numbers-type 'relative)
  '(package-selected-packages
-   '(amx evil-anzu evil-better-visual-line ace-pinyin avy org-download restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
+   '(projectile dired magit org-superstar evil-surround undo-fu-session flx counsel auto-compile amx evil-better-visual-line ace-pinyin avy org-download restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
