@@ -136,8 +136,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+end_src
 
 ** Frame
-# TODO: Make the buffers independent in each frame.
-# TODO: System-wide popup Emacs windows for quick edits
 *** Keybindings
 | Keybindings         | Features                                               |
 |---------------------+--------------------------------------------------------|
@@ -162,12 +160,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
     (org-mode)
     (evil-mode 1)
     (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-*** Projectile
-#+begin_src emacs-lisp
-(use-package projectile)
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-find-file)
 #+end_src
 
 ** Buffer
@@ -292,6 +284,14 @@ Disable automatic backup~ file.
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
+#+end_src
+
+*** Find File in Project
+[[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
+#+begin_src emacs-lisp
+(use-package find-file-in-project
+  :defer t
+  :bind ("s-p" . find-file-in-project))
 #+end_src
 
 * Word Processing
