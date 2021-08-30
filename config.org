@@ -513,6 +513,11 @@ Unbind =return= key in for using it to open link in org mode.
 (setq org-return-follows-link t)
 #+end_src
 
+#+begin_src emacs-lisp
+(define-key evil-normal-state-map "j" 'evil-next-visual-line)
+(define-key evil-normal-state-map "k" 'evil-previous-visual-line)
+#+end_src
+
 Set Evil cursor color and styles in different situations.
 You can try these commands independently to test the effects: =Esc, i, v, d, r=
 #+begin_src emacs-lisp
@@ -531,14 +536,6 @@ Set default cursor style to bar when evil use emacs state.
 Records changes to separate undo instead of a big one in insert state.
 #+begin_src emacs-lisp
 (setq evil-want-fine-undo t)
-#+end_src
-
-*** Evil Better Visual Line
-[[https://github.com/YourFin/evil-better-visual-line][evil-better-visual-line]] allows you to easily navigate with =j= and =k= in visual line mode. 
-#+begin_src emacs-lisp
-(use-package evil-better-visual-line
-  :config
-  (evil-better-visual-line-on))
 #+end_src
 
 *** Evil Collection
