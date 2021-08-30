@@ -854,7 +854,8 @@ Break lines normally for Chinese characters in visual line mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  :hook org-mode
+  :hook
+  (org-mode . valign-mode)
   :config
   (setq valign-fancy-bar 1))
 #+end_src
