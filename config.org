@@ -620,106 +620,78 @@ https://github.com/magnars/multiple-cursors.el
 * Markup Language
 # TODO: LaTex Support
 ** Org Mode
+*** Config
 # FIX: Make not*Bold*AtAll work!
 # FIX: new line with unexpected 2 space indent.
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
-
-*** Keybindings
-Set option key to default behavior, use ctrl key for org features.
-# https://stackoverflow.com/a/19874563/5520270
 #+begin_src emacs-lisp
-(eval-after-load "org"
-  '(progn
-   (define-key org-mode-map (kbd "<M-S-left>") nil)
-   (define-key org-mode-map (kbd "<M-S-right>") nil)
-   (define-key org-mode-map (kbd "<M-left>") nil)
-   (define-key org-mode-map (kbd "<M-right>") nil)
-   (define-key org-mode-map [C-S-right] 'org-shiftmetaright)
-   (define-key org-mode-map [C-S-left] 'org-shiftmetaleft)
-   (define-key org-mode-map [C-right] 'org-metaright)
-   (define-key org-mode-map [C-left] 'org-metaleft)))
-#+end_src
-
-*** Behaviors
-Enable headline and subcontent in the indented view.
-#+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+end_src
-
-Fold all contents on opening a org file.
-#+begin_src emacs-lisp
-(setq org-startup-folded t)
-#+end_src
-
-Enable shift selection for evil insert and visual mode.
-#+begin_src emacs-lisp
-(add-hook 'evil-insert-state-entry-hook (lambda()
-          (setq org-support-shift-select 'always)))
-(add-hook 'evil-normal-state-entry-hook (lambda()
-          (setq org-support-shift-select nil)))
-(add-hook 'evil-visual-state-entry-hook (lambda()
-          (setq org-support-shift-select 'always)))
-#+end_src
-
-Disable reindent on every time editing code block.
-#+begin_src emacs-lisp
-(setq org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0)
-#+end_src
-
-Always display images.
-#+begin_src emacs-lisp
-(setq org-startup-with-inline-images t)
-#+end_src
-
-Do not display image actual width.
-#+begin_src emacs-lisp
-(setq org-image-actual-width nil)
-#+end_src
-
-Prettify things like sub/super script. Required by org appear autosubmarkers.
-#+begin_src emacs-lisp
-(setq org-pretty-entities t)
+(use-package org
+  :hook
+  ;; Enable headline and subcontent in the indented view.
+  (org-mode . org-indent-mode)
+  :bind
+  (:map evil-insert-state-map
+   ("<M-S-left>"  . nil)
+   ("<M-S-right>" . nil)
+   ("<M-left>"    . nil)
+   ("<M-right>"   . nil))
+  :init
+  ;; Enable shift selection in insert and visual mode.
+  (add-hook 'evil-insert-state-entry-hook (lambda()
+            (setq org-support-shift-select 'always)))
+  (add-hook 'evil-normal-state-entry-hook (lambda()
+            (setq org-support-shift-select nil)))
+  (add-hook 'evil-visual-state-entry-hook (lambda()
+            (setq org-support-shift-select 'always)))
+  :custom
+  ;; Fold all contents on opening a org file.
+  (org-startup-folded t)
+  ;; Disable reindent on every time editing code block.
+  (org-src-preserve-indentation nil)
+  (org-edit-src-content-indentation 0)
+  ;; Use return to open link.
+  (org-return-follows-link t)
+  ;; Always display images.
+  (org-startup-with-inline-images t)
+  ;; Do not display image actual width.
+  (org-image-actual-width nil)
+  ;; Required by Org Superstar.
+  (org-hide-leading-stars t)
+   ;; Prettify things like sub/super script. Required by Org Appear autosubmarkers.
+  (org-pretty-entities t))
 #+end_src
 
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
 (use-package org-superstar
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (setq org-hide-leading-stars t))
-#+end_src
-
-Change org headlines' style to ~›~.
-#+begin_src emacs-lisp
-(setq org-superstar-headline-bullets-list '("›"))
-#+end_src
-
-Change org unordered list styles.
-#+begin_src emacs-lisp
-(setq org-superstar-prettify-item-bullets t)
-(setq org-superstar-item-bullet-alist '((?* . ?•)
-                                        (?+ . ?•)
-                                        (?- . ?•)))
+  :hook
+  (org-mode . org-superstar-mode)
+  :custom
+  ;; Change org headlines' style to ›.
+  (org-superstar-headline-bullets-list '("›"))
+  ;; Change org unordered list styles.
+  (org-superstar-prettify-item-bullets t)
+  (org-superstar-item-bullet-alist '((?* . ?•)
+                                     (?+ . ?•)
+                                     (?- . ?•))))
 #+end_src
 
 *** Org Appear
 [[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
 #+begin_src emacs-lisp
-(use-package org-appear)
-(add-hook 'org-mode-hook 'org-appear-mode)
-(setq org-appear-autolinks t)
-(setq org-appear-autosubmarkers t)
+(use-package org-appear
+  :hook
+  (org-mode . org-appear-mode)
+  :init
+  ;; Instant toggle raw format on insert mode, 1 second delay on normal mode.
+  (add-hook 'evil-insert-state-entry-hook (lambda() (setq org-appear-delay 0)))
+  (add-hook 'evil-normal-state-entry-hook (lambda() (setq org-appear-delay 1)))
+  :custom
+  (org-appear-autolinks t)
+  (org-appear-autosubmarkers t))
 #+end_src
 
-Instant toggle raw format on insert mode, 1 second delay on normal mode.
-#+begin_src emacs-lisp
-(add-hook 'evil-insert-state-entry-hook (lambda()
-          (setq org-appear-delay 0)))
-(add-hook 'evil-normal-state-entry-hook (lambda()
-          (setq org-appear-delay 1)))
-#+end_src
 *** Org Download
 # TODO: Only for images, no files
 [[https://github.com/abo-abo/org-download][org-download]] provides drag and drop images.
