@@ -24,6 +24,7 @@ config.el
 places
 tramp
 .\#*
+package-quickstart.el
 
 # Native Comp
 eln-cache/
