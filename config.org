@@ -66,7 +66,6 @@ Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
 (set-face-foreground 'org-level-7 "light sea green")
 (set-face-foreground 'org-level-8 "chocolate")
 #+end_src
-
   
 *** Cursor
 Set default cursor type to bar.
@@ -393,6 +392,7 @@ Highlight region with pink color.
 #+begin_src emacs-lisp
 (set-face-attribute 'region nil :background "#f5cce1")
 #+end_src
+
 *** Editing Text
 **** Keybindings
 
@@ -490,8 +490,9 @@ Indent with 2 space.
 (setq indent-line-function 'insert-tab)
 #+end_src
 
-** Vim Emulator
+** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
+*** Config
 #+begin_src emacs-lisp
 (use-package evil
   :bind (:map evil-normal-state-map
@@ -501,19 +502,21 @@ Indent with 2 space.
          ("RET" . nil))
   :init
   (setq evil-want-keybinding nil)
+  ;; Set Evil cursor color and styles in different situations.
+  (setq evil-emacs-state-cursor 'bar)
+  (setq evil-normal-state-cursor '(box "deep pink"))
+  (setq evil-insert-state-cursor '(bar "deep pink"))
+  (setq evil-visual-state-cursor '(hollow "deep pink"))
+  (setq evil-operator-state-cursor '(evil-half-cursor "deep pink"))
+  (setq evil-replace-state-cursor '(hbar "deep pink"))
   :config
   (evil-mode 1)
+  ;; (setq-default evil-emacs-state-cursor 'bar)
   :custom
   ;; Use native keybindings on insert state.
   (evil-disable-insert-state-bindings t)
   ;; Records changes to separate undo instead of a big one in insert state.
-  ;; Set Evil cursor color and styles in different situations.
-  (evil-want-fine-undo t)
-  (evil-normal-state-cursor '(box "deep pink"))
-  (evil-insert-state-cursor '(bar "deep pink"))
-  (evil-visual-state-cursor '(hollow "deep pink"))
-  (evil-operator-state-cursor '(evil-half-cursor "deep pink"))
-  (evil-replace-state-cursor '(hbar "deep pink")))
+  (evil-want-fine-undo t))
 #+end_src
 
 *** Evil Collection
