@@ -795,32 +795,25 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 (use-package magit
   :bind
   ("s-k" . magit)
-  :config
-  (setq magit-diff-refine-hunk t))
+  :custom
+  (magit-diff-refine-hunk t))
 #+end_src
 
 ** Diff HL
 [[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
 #+begin_src emacs-lisp
 (use-package diff-hl
+  :init
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :config
-  (global-diff-hl-mode))
-
-(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-#+end_src
-
-Disable border.
-#+begin_src emacs-lisp
-(setq diff-hl-draw-borders nil)
-#+end_src
-
-Change colors.
-#+begin_src emacs-lisp
-(custom-set-faces
-'(diff-hl-change ((t (:background "#8fe9e3"))))
-'(diff-hl-insert ((t (:background "#80f1a4"))))
-'(diff-hl-delete ((t (:background "#f5cce1")))))
+  (global-diff-hl-mode)
+  :custom
+  (diff-hl-draw-borders nil)
+  :custom-face
+  (diff-hl-change ((t (:background "#8fe9e3"))))
+  (diff-hl-insert ((t (:background "#80f1a4"))))
+  (diff-hl-delete ((t (:background "#f5cce1")))))
 #+end_src
 
 ** Git Modes
