@@ -795,25 +795,15 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 # FIX: Word wrap is not normal
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
-(use-package vterm)
-#+end_src
-
-*** Keybindings
-#+begin_src emacs-lisp
-(define-key vterm-mode-map (kbd "s-k") 'vterm-clear)
-(define-key vterm-mode-map (kbd "C-c") 'vterm-send-C-c)
-#+end_src
-
-*** Behaviors
-Disable evil mode for vterm.
-#+begin_src emacs-lisp
-(evil-set-initial-state 'vterm-mode 'emacs)
-#+end_src
-
-Close vterm buffer without confriming.
-#+begin_src emacs-lisp
-(add-hook 'vterm-mode-hook
-          (lambda () (setq kill-buffer-query-functions nil)))
+(use-package vterm
+  :bind (:map vterm-mode-map
+         ("s-k" . vterm-clear)
+         ("C-c" . vterm-send-C-c))
+  :config
+  ;; Disable evil mode for vterm.
+  (evil-set-initial-state 'vterm-mode 'emacs)
+  ;; Close vterm buffer without confriming.
+  (setq kill-buffer-query-functions nil))
 #+end_src
 
 * Version Control
