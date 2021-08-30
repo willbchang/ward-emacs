@@ -796,7 +796,8 @@ Instant toggle raw format on insert mode, 1 second delay on normal mode.
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
-  :bind (:map vterm-mode-map
+  :bind (("C-`" . vterm)
+         :map vterm-mode-map
          ("s-k" . vterm-clear)
          ("C-c" . vterm-send-C-c))
   :config
