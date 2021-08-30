@@ -873,8 +873,8 @@ Break lines normally for Chinese characters in visual line mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
+  :hook org-mode
   :config
-  (add-hook 'org-mode-hook #'valign-mode)
   (setq valign-fancy-bar 1))
 #+end_src
 
@@ -890,9 +890,11 @@ Break lines normally for Chinese characters in visual line mode.
 
 [[https://github.com/cute-jumper/ace-pinyin][ace-pinyin]] make you jump to Chinese character by pinyin with avy.
 #+begin_src emacs-lisp
-(use-package ace-pinyin)
-(ace-pinyin-global-mode +1)
+(use-package ace-pinyin
+  :config
+  (ace-pinyin-global-mode +1))
 #+end_src
+
 ** Input Method
 [[https://github.com/laishulu/emacs-smart-input-source][sis]] can auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 #+begin_src emacs-lisp
@@ -902,13 +904,11 @@ Break lines normally for Chinese characters in visual line mode.
    "com.apple.keylayout.ABC"
    "com.apple.inputmethod.SCIM.ITABC")
   (sis-global-respect-mode t)
-  (sis-global-context-mode t))
+  (sis-global-context-mode t)
+  ;; Improve typing fluency experience.
+  (set-language-environment "UTF-8"))
 #+end_src
 
-Improve typing fluency experience.
-#+begin_src emacs-lisp
-(set-language-environment "UTF-8")
-#+end_src
 ** Keybindings
 Make keybindings work under Chinese input method.
 
