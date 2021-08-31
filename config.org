@@ -636,8 +636,8 @@ https://github.com/magnars/multiple-cursors.el
   (org-mode . org-indent-mode)
   :bind
   (:map evil-insert-state-map
-   ("<M-S-left>"  . nil)
-   ("<M-S-right>" . nil)
+   ("<M-S-left>"  . org-shiftcontrolleft)
+   ("<M-S-right>" . org-shiftcontrolright)
    ("<M-left>"    . left-word)
    ("<M-right>"   . right-word))
   :init
