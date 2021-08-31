@@ -735,6 +735,8 @@ https://github.com/magnars/multiple-cursors.el
 (use-package vterm
   :bind (:map vterm-mode-map
          ("s-k"             . vterm-clear)
+         ("<s-left>"        . vterm-send-C-a)
+         ("<s-right>"       . vterm-send-C-e)
          ("C-c"             . vterm-send-C-c))
   :config
   ;; Disable evil mode for vterm.
