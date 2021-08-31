@@ -639,8 +639,8 @@ https://github.com/magnars/multiple-cursors.el
   (:map evil-insert-state-map
    ("<M-S-left>"  . nil)
    ("<M-S-right>" . nil)
-   ("<M-left>"    . nil)
-   ("<M-right>"   . nil))
+   ("<M-left>"    . left-word)
+   ("<M-right>"   . right-word))
   :init
   ;; Enable shift selection in insert and visual mode.
   (add-hook 'evil-insert-state-entry-hook (lambda()
