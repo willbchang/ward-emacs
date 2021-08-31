@@ -172,11 +172,10 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Command + T~ | Create New Buffer     |
 | ~Command + S~ | Save Buffer           |
 | ~Command + R~ | Revert Buffer         |
-| ~Command + '~ | Move to next Buffer   |
 | ~Command + ,~ | Open Preferences      |
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-w") 'kill-this-buffer)
+(global-set-key (kbd "s-w") 'kill-buffer-and-window)
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-t") 'new-empty-buffer)
