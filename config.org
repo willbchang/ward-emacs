@@ -149,6 +149,7 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 (global-set-key (kbd "s-n") 'new-empty-frame)
 (global-set-key (kbd "s-W") 'delete-frame)
 (global-set-key (kbd "s-`") 'other-frame)
+(global-set-key (kbd "M-`") 'other-window)
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 
 (defun new-empty-frame ()
@@ -181,7 +182,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 (global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer-no-confirm)
-(global-set-key (kbd "s-'") 'other-window)
 (global-set-key (kbd "s-,") 'open-config-file)
 #+end_src
 
