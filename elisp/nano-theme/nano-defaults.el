@@ -39,7 +39,7 @@
 (setq use-dialog-box nil)
 
 ;; No popup windows
-(setq pop-up-windows nil)
+;; (setq pop-up-windows nil)
 
 ;; User name
 (setq user-full-name "Nicolas P. Rougier")
