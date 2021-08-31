@@ -733,15 +733,23 @@ https://github.com/magnars/multiple-cursors.el
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
-  :bind (("C-`" . vterm)
-         :map vterm-mode-map
-         ("s-k" . vterm-clear)
-         ("C-c" . vterm-send-C-c))
+  :bind (:map vterm-mode-map
+         ("s-k"             . vterm-clear)
+         ("C-c"             . vterm-send-C-c))
   :config
   ;; Disable evil mode for vterm.
   (evil-set-initial-state 'vterm-mode 'emacs)
   ;; Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
+
+(defun vterm-split-window-below ()
+       (interactive)
+       (vterm)
+       (split-window-below -12)
+       (previous-buffer)
+       (other-window 1))
+
+(global-set-key (kbd "C-`") 'vterm-split-window-below)
 #+end_src
 
 * Version Control
