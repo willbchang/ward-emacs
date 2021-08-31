@@ -23,7 +23,6 @@ Configure package.el to include MELPA.
 #+end_src
 
 ** Use Package
-# TODO: Remove Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
 
 Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
@@ -705,7 +704,6 @@ https://github.com/magnars/multiple-cursors.el
 (use-package org-download)
 #+end_src
 ** Markdown Mode
-# TODO: Markdown hide emphasis in Emacs
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
 (use-package markdown-mode
@@ -727,8 +725,6 @@ https://github.com/magnars/multiple-cursors.el
 #+end_src
 
 ** Vterm
-# TODO: Open as a mini buffer, like doom emacs and vscode
-# TODO: Text Editing keybindings are not supported
 # FIX: Word wrap is not normal
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
