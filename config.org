@@ -659,11 +659,7 @@ https://github.com/magnars/multiple-cursors.el
   ;; Always display images.
   (org-startup-with-inline-images t)
   ;; Do not display image actual width.
-  (org-image-actual-width nil)
-  ;; Required by Org Superstar.
-  (org-hide-leading-stars t)
-   ;; Prettify things like sub/super script. Required by Org Appear autosubmarkers.
-  (org-pretty-entities t))
+  (org-image-actual-width nil))
 #+end_src
 
 *** Org Superstar
@@ -672,6 +668,8 @@ https://github.com/magnars/multiple-cursors.el
 (use-package org-superstar
   :hook
   (org-mode . org-superstar-mode)
+  :config
+  (setq org-hide-leading-stars t)
   :custom
   ;; Change org headlines' style to ›.
   (org-superstar-headline-bullets-list '("›"))
@@ -692,6 +690,11 @@ https://github.com/magnars/multiple-cursors.el
   ;; Instant toggle raw format on insert mode, 1 second delay on normal mode.
   (add-hook 'evil-insert-state-entry-hook (lambda() (setq org-appear-delay 0)))
   (add-hook 'evil-normal-state-entry-hook (lambda() (setq org-appear-delay 1)))
+  :config
+  ;; Hide emphasis makers.
+  (setq org-hide-emphasis-markers t)
+  ;; Prettify things like sub/super script.
+  (setq org-pretty-entities t)
   :custom
   (org-appear-autolinks t)
   (org-appear-autosubmarkers t))
