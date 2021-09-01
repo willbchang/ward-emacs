@@ -128,8 +128,8 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 
 ** Frame
 *** Keybindings
-| Keybindings         | Features                                               |
-|---------------------+--------------------------------------------------------|
+| Keybindings           | Features                                               |
+|-----------------------+--------------------------------------------------------|
 | =Command + Q=         | Quit Emacs                                             |
 | =Command + N=         | Create new window, default with org-mode and evil-mode |
 | =Command + `=         | Change to other frame                                  |
@@ -151,8 +151,8 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 
 ** Buffer
 *** Keybindings
-| Keybindings | Features              |
-|-------------+-----------------------|
+| Keybindings   | Features              |
+|---------------+-----------------------|
 | ~Command + W~ | Close Current Buffer  |
 | ~Command + [~ | Go to previous Buffer |
 | ~Command + ]~ | Go to next Buffer     |
@@ -274,8 +274,8 @@ Hide all the information about files and folders except their names.
 *** Displaying Text
 **** Keybindings
 
-| Keybindings | Features            |
-|-------------+---------------------|
+| Keybindings   | Features            |
+|---------------+---------------------|
 | =Command + += | Increase text scale |
 | =Command + -= | Decrease text scale |
 | =Command + 0= | Reset text scale    |
@@ -348,13 +348,10 @@ Make =Command/Option + ArrowKey= behaves like MacOS app.
 *** Selecting Text
 **** Keybindings
 
-| Keybindings         | Features                      |
-|---------------------+-------------------------------|
+| Keybindings   | Features                               |
+|---------------+----------------------------------------|
 | =Command + A= | Select all the content in current file |
 
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
-#+end_src
 
 **** Behaviors
 Highlight region with pink color.
@@ -365,8 +362,8 @@ Highlight region with pink color.
 *** Editing Text
 **** Keybindings
 
-| Keybindings                 | Features                                         |
-|-----------------------------+--------------------------------------------------|
+| Keybindings                   | Features                                         |
+|-------------------------------+--------------------------------------------------|
 | =Command + C=                 | Copy text                                        |
 | =Command + X=                 | Cut text                                         |
 | =Command + V=                 | Paste text                                       |
@@ -541,14 +538,14 @@ https://github.com/magnars/multiple-cursors.el
 
 ** Keybinding References
 *Keybinding Values*:
-| Meaning | Emacs Key Value | MacOS Key           |
-|---------+-----------------+---------------------|
-| Control | =C=               | =Control(Ctrl)=       |
-| Meta    | =M=               | =Option(Alt)=         |
-| Super   | =s=               | =Command=             |
-| Shift   | =S=               | =Shift=               |
-| -       | =s-z=             | =Command + Z=         |
-| -       | =s-Z=             | =Command + Shift + Z= |
+| Meaning | Emacs Key Value | MacOS Key             |
+|---------+-----------------+-----------------------|
+| Control | =C=             | =Control(Ctrl)=       |
+| Meta    | =M=             | =Option(Alt)=         |
+| Super   | =s=             | =Command=             |
+| Shift   | =S=             | =Shift=               |
+| -       | =s-z=           | =Command + Z=         |
+| -       | =s-Z=           | =Command + Shift + Z= |
 
 *Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
 - =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
