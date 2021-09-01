@@ -504,21 +504,6 @@ Indent with 2 space.
   (evil-snipe-override-mode +1))
 #+end_src
 
-*** Evil Goggles
-[[https://github.com/edkolev/evil-goggles][Evil Goggles]] displays visual hint on evil edit operations.
-#+begin_src emacs-lisp
-(use-package evil-goggles
-  :config
-  (evil-goggles-mode)
-
-  ;; optionally use diff-mode's faces; as a result, deleted text
-  ;; optionally use diff-mode's faces; as a result, deleted text
-  ;; will be highlighed with `diff-removed` face which is typically
-  ;; some red color (as defined by the color theme)
-  ;; other faces such as `diff-added` will be used for other actions
-  (evil-goggles-use-diff-faces))
-#+end_src
-
 *** Avy
 [[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
 #+begin_src emacs-lisp
@@ -637,12 +622,6 @@ https://github.com/magnars/multiple-cursors.el
   (org-appear-autosubmarkers t))
 #+end_src
 
-*** Org Download
-# TODO: Only for images, no files
-[[https://github.com/abo-abo/org-download][org-download]] provides drag and drop images.
-#+begin_src emacs-lisp
-(use-package org-download)
-#+end_src
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
