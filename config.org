@@ -78,13 +78,6 @@ Disable scroll bar.
 (scroll-bar-mode 0)
 #+end_src
 
-** Fringe
-Enable left fringe with 2 width.\\
-This effects to diff-hl package.
-#+begin_src emacs-lisp
-(fringe-mode '(2 . 0))
-#+end_src
-
 * Basic UX
 ** Which Key
 [[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.

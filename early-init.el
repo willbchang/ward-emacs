@@ -23,6 +23,20 @@
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
+;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
+;; Faster to disable these here (before they've been initialized)
+(setq default-frame-alist
+      (append (list
+	           '(min-height . 1)
+               '(height     . 55)
+	           '(min-width  . 1)
+               '(width      . 125)
+               '(vertical-scroll-bars . nil)
+               '(horizontal-scroll-bars . nil)
+               '(internal-border-width . 24)
+               '(left-fringe    . 2)
+               '(right-fringe   . 0)
+               '(tool-bar-lines . 0))))
 
 
 ;;-------------------------Key Bindings----------------------------------------
