@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
-(org-babel-load-file "~/.config/emacs/config.org")
+(org-babel-load-file (expand-file-name "config.org" user-emacs-directory))
 (set 'ad-redefinition-action 'accept)
 
 ;; https://www.reddit.com/r/emacs/comments/4q4ixw
