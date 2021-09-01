@@ -354,21 +354,6 @@ function is a convenience wrapper used by `describe-package-1'."
                'face button-face 'follow-link t properties))))
 
 
-(defun nano-theme--flyspell ()
-  "Derive flyspell faces from nano faces."
-  (with-eval-after-load 'flyspell
-    (set-face 'flyspell-duplicate                     'nano-face-popout)
-    (set-face 'flyspell-incorrect                     'nano-face-popout)))
-
-
-(defun nano-theme--ido ()
-  "Derive ido faces from nano faces."
-  (with-eval-after-load 'ido
-    (set-face 'ido-first-match                       'nano-face-salient)
-    (set-face 'ido-only-match                          'nano-face-faded)
-    (set-face 'ido-subdir                             'nano-face-strong)))
-
-
 (defun nano-theme--diff ()
   "Derive diff faces from nano faces."
   (with-eval-after-load 'diff-mode
@@ -412,38 +397,9 @@ function is a convenience wrapper used by `describe-package-1'."
                          :foreground "#EF5350"   ;; material color red L400
                          :background "#FFCDD2")  ;; material color red L100
     (set-face-attribute 'term-color-yellow nil
-                         :foreground "#FFEE58"    ;; material color yellow L400
+                         :foreground "#FFAB91"    ;; material color yellow L400
                          :background "#FFF9C4"))) ;; material color yellow L100
 
-
-(defun nano-theme--calendar ()
-  "Derive calendar faces from nano faces."
-  (with-eval-after-load 'calendar
-    (set-face 'calendar-today                         'nano-face-strong)))
-
-
-(defun nano-theme--agenda ()
-  "Derive agenda faces from nano faces."
-  (with-eval-after-load 'org-agenda
-    (set-face 'org-agenda-calendar-event             'nano-face-default)
-    (set-face 'org-agenda-calendar-sexp              'nano-face-salient)
-    (set-face 'org-agenda-clocking                     'nano-face-faded)
-    (set-face 'org-agenda-column-dateline              'nano-face-faded)
-    (set-face 'org-agenda-current-time                'nano-face-strong)
-    (set-face 'org-agenda-date                       'nano-face-salient)
-    (set-face 'org-agenda-date-today                '(nano-face-salient
-                                                       nano-face-strong))
-    (set-face 'org-agenda-date-weekend                 'nano-face-faded)
-    (set-face 'org-agenda-diary                        'nano-face-faded)
-    (set-face 'org-agenda-dimmed-todo-face             'nano-face-faded)
-    (set-face 'org-agenda-done                         'nano-face-faded)
-    (set-face 'org-agenda-filter-category              'nano-face-faded)
-    (set-face 'org-agenda-filter-effort                'nano-face-faded)
-    (set-face 'org-agenda-filter-regexp                'nano-face-faded)
-    (set-face 'org-agenda-filter-tags                  'nano-face-faded)
-    ;;  (set-face 'org-agenda-property-face                'nano-face-faded)
-    (set-face 'org-agenda-restriction-lock             'nano-face-faded)
-    (set-face 'org-agenda-structure                   'nano-face-strong)))
 
 
 (defun nano-theme--org ()
@@ -514,99 +470,6 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'org-verse                               'nano-face-faded)
     (set-face 'org-warning                            'nano-face-popout)))
 
-
-(defun nano-theme--mu4e ()
-  "Derive mu4e faces from nano faces."
-  (with-eval-after-load 'mu4e
-    (set-face 'mu4e-attach-number-face                'nano-face-strong)
-    (set-face 'mu4e-cited-1-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-2-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-3-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-4-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-5-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-6-face                       'nano-face-faded)
-    (set-face 'mu4e-cited-7-face                       'nano-face-faded)
-    (set-face 'mu4e-compose-header-face                'nano-face-faded)
-    (set-face 'mu4e-compose-separator-face             'nano-face-faded)
-    (set-face 'mu4e-contact-face                     'nano-face-salient)
-    (set-face 'mu4e-context-face                       'nano-face-faded)
-    (set-face 'mu4e-draft-face                         'nano-face-faded)
-    (set-face 'mu4e-flagged-face                      'nano-face-popout)
-    (set-face 'mu4e-footer-face                        'nano-face-faded)
-    (set-face 'mu4e-forwarded-face                   'nano-face-default)
-    (set-face 'mu4e-header-face                      'nano-face-default)
-    (set-face 'mu4e-header-highlight-face                      'hl-line)
-    (set-face 'mu4e-header-key-face                   'nano-face-strong)
-    (set-face 'mu4e-header-marks-face                  'nano-face-faded)
-    (set-face 'mu4e-header-title-face                 'nano-face-strong)
-    (set-face 'mu4e-header-value-face                'nano-face-default)
-    (set-face 'mu4e-highlight-face                    'nano-face-popout)
-    (set-face 'mu4e-link-face                        'nano-face-salient)
-    (set-face 'mu4e-modeline-face                      'nano-face-faded)
-    (set-face 'mu4e-moved-face                         'nano-face-faded)
-    (set-face 'mu4e-ok-face                            'nano-face-faded)
-    (set-face 'mu4e-region-code                        'nano-face-faded)
-    (set-face 'mu4e-replied-face                     'nano-face-default)
-    (set-face 'mu4e-special-header-value-face        'nano-face-default)
-    (set-face 'mu4e-system-face                        'nano-face-faded)
-    (set-face 'mu4e-title-face                        'nano-face-strong)
-    (set-face 'mu4e-trashed-face                       'nano-face-faded)
-    (set-face 'mu4e-unread-face                       'nano-face-strong)
-    ;;(set-face-attribute 'mu4e-unread-face nil :weight 'regular)
-    (set-face 'mu4e-url-number-face                    'nano-face-faded)
-    (set-face 'mu4e-view-body-face                   'nano-face-default)
-    (set-face 'mu4e-warning-face                      'nano-face-popout)))
-
-
-(defun nano-theme--elfeed ()
-  "Derive elfeed faces from nano faces."
-  (with-eval-after-load 'elfeed
-    (set-face 'elfeed-log-date-face                    'nano-face-faded)
-    (set-face 'elfeed-log-info-level-face            'nano-face-default)
-    (set-face 'elfeed-log-debug-level-face           'nano-face-default)
-    (set-face 'elfeed-log-warn-level-face             'nano-face-popout)
-    (set-face 'elfeed-log-error-level-face            'nano-face-popout)
-    (set-face 'elfeed-search-tag-face                  'nano-face-faded)
-    (set-face 'elfeed-search-date-face                 'nano-face-faded)
-    (set-face 'elfeed-search-feed-face               'nano-face-salient)
-    (set-face 'elfeed-search-filter-face               'nano-face-faded)
-    (set-face 'elfeed-search-last-update-face        'nano-face-salient)
-    (set-face 'elfeed-search-title-face              'nano-face-default)
-    (set-face 'elfeed-search-tag-face                  'nano-face-faded)
-    (set-face 'elfeed-search-unread-count-face        'nano-face-strong)
-    (set-face 'elfeed-search-unread-title-face        'nano-face-strong)))
-
-(defun nano-theme--deft ()
-  "Derive deft faces from nano faces."
-  (with-eval-after-load 'deft
-    (set-face 'deft-filter-string-error-face         'nano-face-popout)
-    (set-face 'deft-filter-string-face              'nano-face-default)
-    (set-face 'deft-header-face                     'nano-face-salient)
-    (set-face 'deft-separator-face                    'nano-face-faded)
-    (set-face 'deft-summary-face                      'nano-face-faded)
-    (set-face 'deft-time-face                       'nano-face-salient)
-    (set-face 'deft-title-face                       'nano-face-strong)))
-
-(defun nano-theme--rst ()
-  "Derive rst faces from nano faces."
-  (with-eval-after-load 'rst
-    (set-face 'rst-adornment                           'nano-face-faded)
-    (set-face 'rst-block                             'nano-face-default)
-    (set-face 'rst-comment                             'nano-face-faded)
-    (set-face 'rst-definition                        'nano-face-salient)
-    (set-face 'rst-directive                         'nano-face-salient)
-    (set-face 'rst-emphasis1                           'nano-face-faded)
-    (set-face 'rst-emphasis2                          'nano-face-strong)
-    (set-face 'rst-external                          'nano-face-salient)
-    (set-face 'rst-level-1                            'nano-face-strong)
-    (set-face 'rst-level-2                            'nano-face-strong)
-    (set-face 'rst-level-3                            'nano-face-strong)
-    (set-face 'rst-level-4                            'nano-face-strong)
-    (set-face 'rst-level-5                            'nano-face-strong)
-    (set-face 'rst-level-6                            'nano-face-strong)
-    (set-face 'rst-literal                           'nano-face-salient)
-    (set-face 'rst-reference                         'nano-face-salient)
-    (set-face 'rst-transition                        'nano-face-default)))
 
 
 (defun nano-theme--markdown ()
@@ -683,40 +546,6 @@ function is a convenience wrapper used by `describe-package-1'."
     (set-face 'ivy-virtual                             'nano-face-faded)
     (set-face 'ivy-yanked-word                         'nano-face-faded)))
 
-(defun nano-theme--helm ()
-  "Derive helm faces from nano faces."
-  (with-eval-after-load 'helm
-    (set-face 'helm-selection                '(nano-face-strong nano-face-subtle))
-    (set-face 'helm-match                                       'nano-face-strong)
-    (set-face 'helm-source-header                              'nano-face-salient)
-    (set-face 'helm-visible-mark                                'nano-face-strong)))
-
-(defun nano-theme--helm-swoop ()
-  "Derive helm faces from nano faces."
-  (with-eval-after-load 'helm-swoop
-    (set-face 'helm-swoop-target-line-face   '(nano-face-strong nano-face-subtle))))
-
-(defun nano-theme--helm-occur ()
-  "Derive helm faces from nano faces."
-  (with-eval-after-load 'helm-occur
-    (set-face 'helm-moccur-buffer                               'nano-face-strong)))
-
-(defun nano-theme--helm-ff ()
-  "Derive helm faces from nano faces."
-  (with-eval-after-load 'helm-ff
-    (set-face 'helm-ff-file                                      'nano-face-faded)
-    (set-face 'helm-ff-prefix                                   'nano-face-strong)
-    (set-face 'helm-ff-dotted-directory                          'nano-face-faded)
-    (set-face 'helm-ff-directory                                'nano-face-strong)
-    (set-face 'helm-ff-executable                               'nano-face-popout)))
-
-(defun nano-theme--helm-grep ()
-  "Derive helm faces from nano faces."
-  (with-eval-after-load 'helm-grep
-    (set-face 'helm-grep-match                                  'nano-face-strong)
-    (set-face 'helm-grep-file                                    'nano-face-faded)
-    (set-face 'helm-grep-lineno                                  'nano-face-faded)
-    (set-face 'helm-grep-finish                                'nano-face-default)))
 
 (defun nano-theme--company ()
   "Derive company tooltip window from nano faces."
@@ -753,24 +582,11 @@ function is a convenience wrapper used by `describe-package-1'."
   (nano-theme--outline)
   (nano-theme--customize)
   (nano-theme--package)
-  (nano-theme--flyspell)
-  (nano-theme--ido)
   (nano-theme--diff)
   (nano-theme--term)
-  (nano-theme--calendar)
-  (nano-theme--agenda)
   (nano-theme--org)
-  (nano-theme--mu4e)
-  (nano-theme--elfeed)
-  (nano-theme--deft)
-  (nano-theme--rst)
   (nano-theme--markdown)
   (nano-theme--ivy)
-  (nano-theme--helm)
-  (nano-theme--helm-swoop)
-  (nano-theme--helm-occur)
-  (nano-theme--helm-ff)
-  (nano-theme--helm-grep)
   (nano-theme--hl-line)
   (nano-theme--company))
 
