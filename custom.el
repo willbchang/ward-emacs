@@ -6,7 +6,7 @@
  '(column-number-mode t)
  '(display-line-numbers-type 'relative)
  '(package-selected-packages
-   '(projectile dired magit org-superstar evil-surround undo-fu-session flx counsel auto-compile amx evil-better-visual-line ace-pinyin avy org-download restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich evil-goggles diff-hl evil-snipe ivy-prescient ivy org-appear sis auto-package-update evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
+   '(dired magit org-superstar evil-surround undo-fu-session flx counsel auto-compile amx ace-pinyin avy org-download restart-emacs gitignore-mode gitconfig-mode gitattributes-mode ivy-rich diff-hl evil-snipe ivy-prescient ivy org-appear sis evil-pinyin valign undo-fu markdown-mode exec-path-from-shell vterm evil use-package))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -14,7 +14,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bold ((t (:inherit nano-face-strong :weight semi-bold))))
  '(diff-hl-change ((t (:background "#8fe9e3"))))
  '(diff-hl-delete ((t (:background "#f5cce1"))))
  '(diff-hl-insert ((t (:background "#80f1a4"))))
@@ -24,4 +23,5 @@
  '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed))))
+ '(fringe ((t nil))))

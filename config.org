@@ -48,34 +48,77 @@ Always compile packages.
 
 * Basic UI
 ** Color Theme
-Use [[https://github.com/rougier/nano-emacs][nano-emacs]].
+*** Programming face
 #+begin_src emacs-lisp
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/elisp/nano-theme"))
-(require 'nano)
+(set-face-foreground 'font-lock-function-name-face "DodgerBlue")
+;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
+(set-face-foreground 'font-lock-keyword-face "#874bf8")
+(set-face-foreground 'font-lock-comment-face "DarkGray")
+;; (set-face-foreground 'font-lock-type-face "#1E90FF")
+;; (set-face-foreground 'font-lock-constant-face "#1E90FF")
+;; (set-face-foreground 'font-lock-builtin-face "#1E90FF")
+;; (set-face-foreground 'font-lock-string-face "#1E90FF")
 #+end_src
-  
-*** Org Mode
+
+*** Markup face
+**** Org Mode
 #+begin_src emacs-lisp
-;; (set-face-foreground 'org-level-1 "dodger Blue")
-(set-face-foreground 'org-level-2 "dodger blue")
-(set-face-foreground 'org-level-3 "#874bf8")
+(set-face-foreground 'org-meta-line "Gray")
+(set-face-foreground 'org-drawer "Gray")
+(set-face-foreground 'org-document-info-keyword "Gray")
+(set-face-foreground 'org-date "Gray")
+
+(set-face-foreground 'org-level-1 "dodger Blue")
+(set-face-foreground 'org-level-2 "#874bf8")
+(set-face-foreground 'org-level-3 "dark cyan")
 (set-face-foreground 'org-level-4 "violet red")
 (set-face-foreground 'org-level-5 "SpringGreen4")
 (set-face-foreground 'org-level-6 "orange red")
 (set-face-foreground 'org-level-7 "light sea green")
 (set-face-foreground 'org-level-8 "chocolate")
 #+end_src
-  
-*** Cursor
+
+**** Markdown
+
+** Title Bar
+# FIX: Doesn't show folder path in dired.
+# FIX: Doesn't show file icon when file is in iCloud.
+Show icon and full path in title bar.
+#+begin_src emacs-lisp
+(setq frame-title-format
+    '(:eval
+       (if buffer-file-name
+           (abbreviate-file-name buffer-file-name)
+           "%b")))
+#+end_src
+
+** Cursor
 Set default cursor type to bar.
 #+begin_src emacs-lisp
 (setq-default cursor-type 'bar) 
+#+end_src
+
+** Slot
+Display … and ↩ for truncation and wrap.
+#+begin_src emacs-lisp
+(set-display-table-slot standard-display-table 'truncation
+                        (make-glyph-code ?…))
+(set-display-table-slot standard-display-table 'wrap
+                        (make-glyph-code ?↩))
 #+end_src
 
 ** Scroll Bar
 Disable scroll bar.
 #+begin_src emacs-lisp
 (scroll-bar-mode 0)
+#+end_src
+
+** Modeline
+Turn modeline into a line.
+#+begin_src emacs-lisp
+(setq-default mode-line-format'(""))
+(set-face-attribute 'mode-line nil :height 0.1)
+(set-face-attribute 'mode-line-inactive nil :height 0.1)
 #+end_src
 
 * Basic UX
