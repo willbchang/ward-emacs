@@ -144,12 +144,7 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | =Ctrl + Command + F=  | Set/Unset window full screen                           |
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "s-n") 'new-empty-frame)
-(global-set-key (kbd "s-W") 'delete-frame)
-(global-set-key (kbd "s-`") 'other-frame)
-(global-set-key (kbd "M-`") 'other-window)
-(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 
 (defun new-empty-frame ()
   "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
@@ -174,13 +169,8 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Command + ,~ | Open Preferences      |
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-w") 'kill-buffer-and-window)
-(global-set-key (kbd "s-[") 'previous-buffer)
-(global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-t") 'new-empty-buffer)
-(global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer-no-confirm)
-(global-set-key (kbd "s-,") 'open-config-file)
 #+end_src
 
 # http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
@@ -201,14 +191,6 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
   (save-buffer t)
   (revert-buffer t t)
   (message "Reverted `%s'" (buffer-name)))
-
-(defun open-config-file ()
-  (interactive)
-  (find-file "~/.config/emacs/config.org"))
-
-(defun reload-init-file ()
-  (interactive)
-  (load-file user-init-file))
 #+end_src
 
 *** Behaviors
@@ -346,25 +328,21 @@ Make =Command/Option + ArrowKey= behaves like MacOS app.
 
 | Keybindings   | Features                          |
 |---------------+-----------------------------------|
-| =Command + ↑=   | Move to the top of the file       |
+| =Command + ↑= | Move to the top of the file       |
 | =Command + ↓= | Move to the bottom of the file    |
-| =Command + ←=   | Move to the beginning of the line |
-| =Command + →=   | Move to the end of the line       |
-| =Command + L=   | Go to line                        |
+| =Command + ←= | Move to the beginning of the line |
+| =Command + →= | Move to the end of the line       |
+| =Command + L= | Go to line                        |
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "s-<down>") 'end-of-buffer)
-(global-set-key (kbd "s-<left>") 'move-beginning-of-line)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
 (global-set-key (kbd "s-l") 'goto-line)
 #+end_src
 
 *** Searching Text
 **** Keybindings
 
-| Keybindings         | Features                      |
-|---------------------+-------------------------------|
+| Keybindings           | Features                      |
+|-----------------------+-------------------------------|
 | =Command + F=         | Search text in Buffer         |
 | =Shift + Command + F= | Search text in current folder |
 
@@ -403,31 +381,6 @@ Highlight region with pink color.
 | =Command + Backspace=         | Delete current line from cursor to the beginning |
 | =Command + Shift + Backspace= | Delete whole line entirely                       |
 | =Command + /=                 | Comment/Uncomment line(s)                        |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-c") 'kill-ring-save)
-(global-set-key (kbd "s-x") 'kill-region)
-(global-set-key (kbd "s-v") 'yank)
-(global-set-key (kbd "<s-return>") 'newline)
-(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
-(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
-
-(defun backward-kill-line (arg)
-  "Kill ARG lines backward."
-  (interactive "p")
-  (kill-line (- 1 arg)))
-
-(defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if
-there's no active region."
-  (interactive)
-  (let (beg end)
-    (if (region-active-p)
-        (setq beg (region-beginning) end (region-end))
-      (setq beg (line-beginning-position) end (line-end-position)))
-    (comment-or-uncomment-region beg end)))
-#+end_src
 
 
 # TODO:
