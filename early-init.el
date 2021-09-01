@@ -28,12 +28,11 @@
 (setq default-frame-alist
       (append (list
 	           '(min-height . 1)
-               '(height     . 55)
+               '(height     . 60)
 	           '(min-width  . 1)
                '(width      . 125)
                '(vertical-scroll-bars . nil)
-               '(horizontal-scroll-bars . nil)
-               '(internal-border-width . 24)
+               '(internal-border-width . 18)
                '(left-fringe    . 2)
                '(right-fringe   . 0)
                '(tool-bar-lines . 0))))
