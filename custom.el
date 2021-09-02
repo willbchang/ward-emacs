@@ -24,4 +24,6 @@
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
  '(evil-goggles-yank-face ((t (:inherit diff-changed))))
- '(fringe ((t nil))))
+ '(fringe ((t nil)))
+ '(mode-line ((t (:underline t :height 0.1))))
+ '(mode-line-inactive ((t (:inherit mode-line)))))

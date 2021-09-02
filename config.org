@@ -48,7 +48,7 @@ Always compile packages.
 
 * Basic UI
 ** Color Theme
-*** Programming face
+*** Programming Face
 #+begin_src emacs-lisp
 (set-face-foreground 'font-lock-function-name-face "DodgerBlue")
 ;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
@@ -60,7 +60,7 @@ Always compile packages.
 ;; (set-face-foreground 'font-lock-string-face "#1E90FF")
 #+end_src
 
-*** Markup face
+*** Markup Face
 **** Org Mode
 #+begin_src emacs-lisp
 (set-face-foreground 'org-meta-line "Gray")
@@ -79,6 +79,8 @@ Always compile packages.
 #+end_src
 
 **** Markdown
+
+*** Terminal Face
 
 ** Title Bar
 # FIX: Doesn't show folder path in dired.
