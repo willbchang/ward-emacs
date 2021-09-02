@@ -687,7 +687,7 @@ https://github.com/magnars/multiple-cursors.el
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 #+end_src
-
+  
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
@@ -709,6 +709,8 @@ https://github.com/magnars/multiple-cursors.el
          ("<s-left>"  . vterm-send-C-a)
          ("<s-right>" . vterm-send-C-e)
          ("C-c"       . vterm-send-C-c))
+  :custom
+  (vterm-always-compile-module t)
   :config
   ;; Disable evil mode for vterm.
   (evil-set-initial-state 'vterm-mode 'emacs)
