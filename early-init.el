@@ -17,26 +17,24 @@
 
 ;;(setq warning-minimum-level :error)
 
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
 
+;;-------------------------Frame-----------------------------------------------
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
-;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
-;; Faster to disable these here (before they've been initialized)
-(setq default-frame-alist
-      (append (list
-	           '(min-height . 1)
-               '(height     . 60)
-	           '(min-width  . 1)
-               '(width      . 125)
-               '(vertical-scroll-bars . nil)
-               '(internal-border-width . 18)
-               '(left-fringe    . 2)
-               '(right-fringe   . 0)
-               '(tool-bar-lines . 0))))
-
+;; Set the frame parameters before it's drawing. Save times for redrawing.
+(setq default-frame-alist '((tool-bar-lines . 0)
+                            (menu-bar-lines . 0)
+                            (height     . 60)
+                            (font . "SF Mono 18")
+                            (internal-border-width . 18)
+                            (left-fringe    . 2)
+                            (right-fringe   . 0)
+                            (vertical-scroll-bars . nil)))
 
 ;;-------------------------Key Bindings----------------------------------------
 ;; Make the macOS like keybinding work even Emacs's init file has bug, so I don't need to use the default keybinding which makes me like a dumb.

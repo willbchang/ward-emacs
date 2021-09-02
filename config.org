@@ -335,14 +335,6 @@ Hide all the information about files and folders except their names.
   (text-scale-set 0))
 #+end_src
 
-**** Font
-Use MacOS default font SF Mono.
-#+begin_src emacs-lisp
-(set-face-attribute 'default nil
-                    :font "SF Mono 18"
-                    :weight 'normal)
-#+end_src
-
 **** Behaviors
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
