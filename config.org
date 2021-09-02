@@ -716,6 +716,14 @@ https://github.com/magnars/multiple-cursors.el
 #+begin_src emacs-lisp
 (use-package vterm-toggle
   :bind ("C-`" . vterm-toggle))
+
+;; Minimize vterm buffer window height
+(setq vterm-toggle-fullscreen-p nil)
+(add-to-list 'display-buffer-alist
+             '((lambda(bufname _) (with-current-buffer bufname (equal major-mode 'vterm-mode)))
+                (display-buffer-reuse-window display-buffer-at-bottom)
+                (reusable-frames . visible)
+                (window-height . 0.3)))
 #+end_src
 
 * Version Control
