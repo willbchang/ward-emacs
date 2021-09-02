@@ -597,7 +597,8 @@ https://github.com/magnars/multiple-cursors.el
 (use-package org
   :hook
   ;; Enable headline and subcontent in the indented view.
-  (org-mode . org-indent-mode)
+  ((org-mode . org-indent-mode)
+   (org-mode . prettify-symbols-mode))
   :bind
   (:map evil-insert-state-map
    ("<M-S-left>"  . org-shiftcontrolleft)
@@ -623,7 +624,19 @@ https://github.com/magnars/multiple-cursors.el
   ;; Always display images.
   (org-startup-with-inline-images t)
   ;; Do not display image actual width.
-  (org-image-actual-width nil))
+  (org-image-actual-width nil)
+  :config
+  (setq-default prettify-symbols-alist
+                '(("<-" . ?←)
+                  ("->" . ?→)
+                  ("=>" . ?⇒)
+                  ("/=" . ?≠)
+                  ("!=" . ?≠)
+                  ("==" . ?≡)
+                  ("<=" . ?≤)
+                  (">=" . ?≥)))
+  (setq prettify-symbols-unprettify-at-point 'right-edge))
+
 #+end_src
 
 *** Org Superstar
