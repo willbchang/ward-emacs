@@ -247,16 +247,6 @@ Revert (update) buffers automatically when underlying files are changed external
 (global-auto-revert-mode t)
 #+end_src
 
-Disable startup screen.
-#+begin_src emacs-lisp
-(setq inhibit-startup-screen t)
-#+end_src
-
-Empty scratch file on init.
-#+begin_src emacs-lisp
-(setq initial-scratch-message nil)
-#+end_src
-
 Set initial buffer mode to org-mode.
 #+begin_src emacs-lisp
 (setq-default initial-major-mode 'org-mode)
@@ -587,7 +577,6 @@ https://github.com/magnars/multiple-cursors.el
 - ~[s-Z]~
   
 * Markup Language
-# TODO: LaTex Support
 ** Org Mode
 *** Config
 # FIX: Make not*Bold*AtAll work!
@@ -636,7 +625,6 @@ https://github.com/magnars/multiple-cursors.el
                   ("<=" . ?≤)
                   (">=" . ?≥)))
   (setq prettify-symbols-unprettify-at-point 'right-edge))
-
 #+end_src
 
 *** Org Superstar
