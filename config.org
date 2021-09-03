@@ -100,6 +100,11 @@ Set default cursor type to bar.
 (setq-default cursor-type 'bar) 
 #+end_src
 
+Disable cursor in inactive window.
+#+begin_src emacs-lisp
+(setq-default cursor-in-non-selected-windows nil)
+#+end_src
+
 ** Slot
 Display … and ↩ for truncation and wrap.
 #+begin_src emacs-lisp
