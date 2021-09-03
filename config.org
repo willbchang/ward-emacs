@@ -286,8 +286,10 @@ Hide all the information about files and folders except their names.
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t . ivy--regex-fuzzy))))
+        '((swiper     . ivy--regex-plus)
+          (counsel-rg . ivy--regex-plus)
+          (t          . ivy--regex-fuzzy))))
+
 
 ;; https://reddit.com/r/emacs/comments/a6yrqx/
 (defun ivy-find-file-in-project ()
@@ -297,6 +299,8 @@ Hide all the information about files and folders except their names.
     (ivy-quit-and-run (counsel-file-jump))))
 
 (global-set-key (kbd "s-p") 'ivy-find-file-in-project)
+(global-set-key (kbd "s-F") 'counsel-rg)
+(add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
 #+end_src
 
 **** Ivy Rich
