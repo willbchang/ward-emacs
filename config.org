@@ -124,8 +124,6 @@ Disable scroll bar.
 Turn modeline into a line.
 #+begin_src emacs-lisp
 (setq-default mode-line-format'(""))
-(set-face-attribute 'mode-line nil :height 0.1)
-(set-face-attribute 'mode-line-inactive nil :height 0.1)
 #+end_src
 
 * Basic UX
