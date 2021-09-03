@@ -729,7 +729,15 @@ https://github.com/magnars/multiple-cursors.el
   :bind
   ("s-k" . magit)
   :custom
-  (magit-diff-refine-hunk t))
+  (magit-diff-refine-hunk t)
+  :config
+
+  (defun magit-disable-fringe()
+    "Disable fringe in `magit-mode'."
+    (setq left-fringe-width 0
+          right-fringe-width 0))
+  
+  (add-hook 'magit-mode-hook 'magit-disable-fringe))
 #+end_src
 
 ** Diff HL
