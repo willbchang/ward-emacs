@@ -108,10 +108,12 @@ Disable cursor in inactive window.
 ** Slot
 Display … and ↩ for truncation and wrap.
 #+begin_src emacs-lisp
+(defface fallback '((t :family "Fira Code Light"
+                       :foreground "gray")) "Fallback")
 (set-display-table-slot standard-display-table 'truncation
-                        (make-glyph-code ?…))
+                        (make-glyph-code ?… 'fallback))
 (set-display-table-slot standard-display-table 'wrap
-                        (make-glyph-code ?↩))
+                        (make-glyph-code ?↩ 'fallback))
 #+end_src
 
 ** Scroll Bar
