@@ -5,7 +5,7 @@
 </h1>
 
 <div align="center">
-    <sub>Make <a href="https://www.gnu.org/software/emacs/">Emacs</a> as a great Word Processor in MacOS.</sub>
+    <sub>Make <a href="https://www.gnu.org/software/emacs/">Emacs</a> an easy to use Text Editor for English and Chinese on macOS.</sub>
 </div>
 
 
@@ -94,31 +94,24 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 
 
 ### Window Management
-| Window                         | Features             | Convention |
-|--------------------------------|----------------------|------------|
-| <kbd>Command + Shift + W</kbd> | Close Current Window | macOS      |
-| <kbd>Command + Shift + =</kbd> | Zoom in Window       | Personal   |
-| <kbd>Command + Shit + -</kbd>  | Zoom out Window      | Personal   |
-| <kbd>Command + Shit + 0</kbd>  | Reset Zoom Window    | Personal   |
-| <kbd>Command + N</kbd>         | Create New Window    | macOS      |
-| <kbd>Command + `</kbd>         | Move to next Window  | macOS      |
-| <kbd>Command + Q</kbd>         | Quit Emacs           | macOS      |
-
-
-
-| Buffer                 | Features              | Convention |
-|------------------------|-----------------------|------------|
-| <kbd>Command + W</kbd> | Close Current Buffer  | macOS      |
-| <kbd>Command + [</kbd> | Go to previous Buffer | macOS      |
-| <kbd>Command + ]</kbd> | Go to next Buffer     | macOS      |
-| <kbd>Command + =</kbd> | Zoom in Buffer        | macOS      |
-| <kbd>Command + -</kbd> | Zoom out Buffer       | macOS      |
-| <kbd>Command + 0</kbd> | Reset Zoom Buffer     | macOS      |
-| <kbd>Command + T</kbd> | Create New Buffer     | macOS      |
-| <kbd>Command + S</kbd> | Save Buffer           | macOS      |
-| <kbd>Command + R</kbd> | Revert Buffer         | macOS      |
-| <kbd>Command + '</kbd> | Move to next Buffer   | Emacs      |
-| <kbd>Command + ,</kbd> | Open Preferences      | macOS      |
+| Window                         | Features               | Convention |
+|--------------------------------|------------------------|------------|
+| <kbd>Command + Shift + W</kbd> | Close Current Window   | macOS      |
+| <kbd>Command + N</kbd>         | Create New Window      | macOS      |
+| <kbd>Command + Q</kbd>         | Quit Emacs             | macOS      |
+| <kbd>Command + W</kbd>         | Close Current Buffer   | macOS      |
+| <kbd>Command + [</kbd>         | Go to previous Buffer  | macOS      |
+| <kbd>Command + ]</kbd>         | Go to next Buffer      | macOS      |
+| <kbd>Command + =</kbd>         | Zoom in Buffer         | macOS      |
+| <kbd>Command + -</kbd>         | Zoom out Buffer        | macOS      |
+| <kbd>Command + 0</kbd>         | Reset Zoom Buffer      | macOS      |
+| <kbd>Command + T</kbd>         | Create New Buffer      | macOS      |
+| <kbd>Command + S</kbd>         | Save Buffer            | macOS      |
+| <kbd>Command + R</kbd>         | Revert Buffer          | macOS      |
+| <kbd>Command + ,</kbd>         | Open Preferences       | macOS      |
+| <kbd>Command + `</kbd>         | Move to next Window    | macOS      |
+| <kbd>Alt + `</kbd>             | Move to next Buffer    | Personal   |
+| <kbd>Control + `</kbd>         | Open Terminal Emulator | Personal   |
 
 
 
