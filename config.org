@@ -155,6 +155,15 @@ Turn modeline into a line.
   (setq ivy-re-builders-alist
         '((swiper . ivy--regex-plus)
           (t . ivy--regex-fuzzy))))
+
+;; https://reddit.com/r/emacs/comments/a6yrqx/
+(defun ivy-find-file-in-project ()
+  "Find file recursively in current project."
+  (interactive)
+  (let ((input (ivy--input)))
+    (ivy-quit-and-run (counsel-file-jump))))
+
+(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
 #+end_src
 
 *** Ivy Rich
@@ -296,14 +305,6 @@ Disable automatic backup~ file.
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
-#+end_src
-
-*** Find File in Project
-[[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
-#+begin_src emacs-lisp
-(use-package find-file-in-project
-  :defer t
-  :bind ("s-p" . find-file-in-project))
 #+end_src
 
 * Word Processing
