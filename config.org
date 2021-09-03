@@ -128,51 +128,6 @@ Turn modeline into a line.
 (setq-default mode-line-format'(""))
 #+end_src
 
-* Basic UX
-** Which Key
-[[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
-#+begin_src emacs-lisp
-(use-package which-key
-  :config
-  (which-key-mode))
-#+end_src
-
-** Ivy
-[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
-#+begin_src emacs-lisp
-(use-package counsel
-  :bind
-  ("M-x" . 'counsel-M-x)
-
-  :config
-  (use-package flx)
-  (use-package amx)
-
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t . ivy--regex-fuzzy))))
-
-;; https://reddit.com/r/emacs/comments/a6yrqx/
-(defun ivy-find-file-in-project ()
-  "Find file recursively in current project."
-  (interactive)
-  (let ((input (ivy--input)))
-    (ivy-quit-and-run (counsel-file-jump))))
-
-(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
-#+end_src
-
-*** Ivy Rich
-[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
-#+begin_src emacs-lisp
-(use-package ivy-rich)
-(ivy-rich-mode 1)
-#+end_src
-  
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
@@ -307,6 +262,50 @@ Hide all the information about files and folders except their names.
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
 #+end_src
 
+*** Which Key
+[[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
+#+begin_src emacs-lisp
+(use-package which-key
+  :config
+  (which-key-mode))
+#+end_src
+
+*** Ivy
+[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
+#+begin_src emacs-lisp
+(use-package counsel
+  :bind
+  ("M-x" . 'counsel-M-x)
+
+  :config
+  (use-package flx)
+  (use-package amx)
+
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+        '((swiper . ivy--regex-plus)
+          (t . ivy--regex-fuzzy))))
+
+;; https://reddit.com/r/emacs/comments/a6yrqx/
+(defun ivy-find-file-in-project ()
+  "Find file recursively in current project."
+  (interactive)
+  (let ((input (ivy--input)))
+    (ivy-quit-and-run (counsel-file-jump))))
+
+(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
+#+end_src
+
+**** Ivy Rich
+[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
+#+begin_src emacs-lisp
+(use-package ivy-rich)
+(ivy-rich-mode 1)
+#+end_src
+  
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: better syntax highlight for elisp
