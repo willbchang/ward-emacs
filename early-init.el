@@ -30,7 +30,7 @@
 (setq default-frame-alist '((tool-bar-lines . 0)
                             (menu-bar-lines . 0)
                             (height     . 60)
-                            (font . "SF Mono 18")
+                            (font . "Roboto Mono 18")
                             (internal-border-width . 18)
                             (left-fringe    . 2)
                             (right-fringe   . 0)
