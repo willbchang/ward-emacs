@@ -428,11 +428,7 @@ Increase undo limit.
 #+begin_src emacs-lisp
 (use-package undo-fu
   :bind (("s-z" . undo-fu-only-undo)
-         ("s-Z" . undo-fu-only-redo)
-         :map evil-normal-state-map
-         ("u"   . undo-fu-only-undo)
-         ("C-r" . undo-fu-only-redo)))
-
+         ("s-Z" . undo-fu-only-redo)))
 #+end_src
 
 [[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
@@ -475,6 +471,8 @@ Indent with 2 space.
   :bind (:map evil-normal-state-map
          ("j" . evil-next-visual-line)
          ("k" . evil-previous-visual-line)
+         ("u"   . undo-fu-only-undo)
+         ("C-r" . undo-fu-only-redo)
          :map evil-motion-state-map
          ("RET" . nil))
   :init
