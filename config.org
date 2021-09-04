@@ -600,11 +600,15 @@ https://github.com/magnars/multiple-cursors.el
   ((org-mode . org-indent-mode)
    (org-mode . prettify-symbols-mode))
   :bind
-  (:map evil-insert-state-map
-   ("<M-S-left>"  . org-shiftcontrolleft)
-   ("<M-S-right>" . org-shiftcontrolright)
+  (:map org-mode-map
+   ("<M-S-left>"  . nil)
+   ("<M-S-right>" . nil)
    ("<M-left>"    . left-word)
-   ("<M-right>"   . right-word))
+   ("<M-right>"   . right-word)
+   ("<C-S-right>" . org-shiftmetaright)
+   ("<C-S-left>"  . org-shiftmetaleft)
+   ("<C-right>"   . org-metaright)
+   ("<C-left>"    . org-metaleft))
   :init
   ;; Enable shift selection in insert and visual mode.
   (add-hook 'evil-insert-state-entry-hook (lambda()
