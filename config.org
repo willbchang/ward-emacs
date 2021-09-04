@@ -142,13 +142,13 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 
 ** Frame
 *** Keybindings
-| Keybindings           | Features                                               |
-|-----------------------+--------------------------------------------------------|
-| =Command + Q=         | Quit Emacs                                             |
-| =Command + N=         | Create new window, default with org-mode and evil-mode |
-| =Command + `=         | Change to other frame                                  |
-| =Shift + Command + W= | Close current window                                   |
-| =Ctrl + Command + F=  | Set/Unset window full screen                           |
+| Keybindings         | Features                     |
+|---------------------+------------------------------|
+| =Command + Q=         | Quit Emacs                   |
+| =Command + N=         | Create new window            |
+| =Command + `=         | Change to other frame        |
+| =Shift + Command + W= | Close current window         |
+| =Ctrl + Command + F=  | Set/Unset window full screen |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
@@ -165,8 +165,9 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 
 ** Buffer
 *** Keybindings
-| Keybindings   | Features              |
-|---------------+-----------------------|
+| Keybindings | Features              |
+|-------------+-----------------------|
+| ~Command + F~ | Find File in Project  |
 | ~Command + W~ | Close Current Buffer  |
 | ~Command + [~ | Go to previous Buffer |
 | ~Command + ]~ | Go to next Buffer     |
@@ -299,6 +300,7 @@ Hide all the information about files and folders except their names.
     (ivy-quit-and-run (counsel-file-jump))))
 
 (global-set-key (kbd "s-p") 'ivy-find-file-in-project)
+(global-set-key (kbd "s-f") 'swiper)
 (global-set-key (kbd "s-F") 'counsel-rg)
 (add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
 #+end_src
@@ -316,10 +318,12 @@ Hide all the information about files and folders except their names.
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
 *** Displaying Text
+**** Font
+English font refer to early-init.el ~default-frame-alist~.
 **** Keybindings
 
-| Keybindings   | Features            |
-|---------------+---------------------|
+| Keybindings | Features            |
+|-------------+---------------------|
 | =Command + += | Increase text scale |
 | =Command + -= | Decrease text scale |
 | =Command + 0= | Reset text scale    |
@@ -374,35 +378,35 @@ Make =Command/Option + ArrowKey= behaves like MacOS app.
 
 *** Searching Text
 **** Keybindings
-
-| Keybindings           | Features                      |
-|-----------------------+-------------------------------|
+| Keybindings         | Features                      |
+|---------------------+-------------------------------|
 | =Command + F=         | Search text in Buffer         |
 | =Shift + Command + F= | Search text in current folder |
 
-# TODO: Search & Replace text in current folder 
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-f") 'swiper)
-;; (global-set-key (kbd "s-F") 'isearch-backward)
-#+end_src
-
 *** Selecting Text
 **** Keybindings
-
-| Keybindings   | Features                               |
-|---------------+----------------------------------------|
-| =Command + A= | Select all the content in current file |
-
+| Keybindings                    | Features                               |       |
+|--------------------------------+----------------------------------------+-------|
+| =Command + A=                    | Select all the content in current file |       |
+| =Shift + ↑=         | Select one line up                     | MacOS |
+| =Shift + ↓=         | Select one line down                   | MacOS |
+| =Shift + ←=         | Select one character left              | MacOS |
+| =Shift + →=         | Select one character right             | MacOS |
+| =Shift + Option + ←= | Select one word left                   | MacOS |
+| =Shift + Option + →= | Select one word right                  | MacOS |
+| =Shift + Command + ↑= | Select to ttop of the file             | MacOS |
+| =Shift + Command + ↓= | Select to bottom of the file           | MacOS |
+| =Shift + Command + ←= | Select to t`he beginning of the line   | MacOS |
+| =Shift + Command + →= | Select to the end of the line          | MacOS |
 
 **** Behaviors
-Highlight region with pink color.
+Highlight region(selection) with pink color.
 #+begin_src emacs-lisp
 (set-face-attribute 'region nil :background "#f5cce1")
 #+end_src
 
 *** Editing Text
 **** Keybindings
-
 | Keybindings                   | Features                                         |
 |-------------------------------+--------------------------------------------------|
 | =Command + C=                 | Copy text                                        |
@@ -419,6 +423,29 @@ Highlight region with pink color.
 # 2. Comment one line, it adds before and forward one line
 # 3. Comment on region, it add and move to the next line of the region
 # 4. Cannot uncomment inside org mode code block
+**** Behaviors
+Auto pair brackets, quotes etc.
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+#+end_src
+
+Do not indent on newlines.
+#+begin_src emacs-lisp
+(electric-indent-mode -1)
+#+end_src
+
+Overwrite selection on pasting.
+#+begin_src emacs-lisp
+(delete-selection-mode 1)
+#+end_src
+
+Indent with 2 space.
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+#+end_src
+
 **** Undo
 ***** Config
 Increase undo limit.
@@ -449,29 +476,6 @@ Increase undo limit.
 (global-undo-fu-session-mode)
 #+end_src
  
-**** Behaviors
-Auto pair brackets, quotes etc.
-#+begin_src emacs-lisp
-(electric-pair-mode 1)
-#+end_src
-
-Do not indent on newlines.
-#+begin_src emacs-lisp
-(electric-indent-mode -1)
-#+end_src
-
-Overwrite selection on pasting.
-#+begin_src emacs-lisp
-(delete-selection-mode 1)
-#+end_src
-
-Indent with 2 space.
-#+begin_src emacs-lisp
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq indent-line-function 'insert-tab)
-#+end_src
-
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 *** Config
@@ -792,6 +796,7 @@ Break lines normally for Chinese characters in visual line mode.
 #+end_src
 
 # FIX: Performance is lack.
+# FIX: Not align on org indent mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
