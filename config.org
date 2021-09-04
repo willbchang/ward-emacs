@@ -128,6 +128,13 @@ Turn modeline into a line.
 (setq-default mode-line-format'(""))
 #+end_src
 
+** Minibuffer
+Disable startup minibuffer message.
+#+begin_src emacs-lisp
+(defun display-startup-echo-area-message ()
+  (message nil))
+#+end_src
+
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
