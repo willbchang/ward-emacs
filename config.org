@@ -802,6 +802,7 @@ Break lines normally for Chinese characters in visual line mode.
 (use-package valign
   :hook
   (org-mode . valign-mode)
+  (markdown-mode . valign-mode)
   :config
   (setq valign-fancy-bar 1))
 #+end_src
