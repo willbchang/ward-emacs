@@ -4,7 +4,30 @@
 ;; before package and UI initialization happens.
 
 ;; Defer garbage collection further back in the startup process
-(setq gc-cons-threshold most-positive-fixnum)
+;; https://github.com/casouri/lunarymacs/blob/6ce1a6da38d5e5c261d71a495ee2fdbd051303f9/early-init.el#L3-L26
+(add-hook 'emacs-startup-hook
+          (let ((old-list file-name-handler-alist)
+                ;; If x10, half of cpu time is spent on gc when
+                ;; scrolling.
+                (threshold (* 100 gc-cons-threshold))
+                (percentage gc-cons-percentage))
+            (lambda ()
+              (message "Emacs ready in %s with %d garbage collections."
+                       (format "%.2f seconds"
+                               (float-time
+                                (time-subtract after-init-time before-init-time)))
+                       gcs-done)
+              (setq file-name-handler-alist old-list
+                    gc-cons-threshold threshold
+                    gc-cons-percentage percentage)
+              (garbage-collect)))
+          t)
+
+(setq file-name-handler-alist nil
+      message-log-max 16384
+      gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6
+      auto-window-vscroll nil)
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. Doom handles package initialization, so
