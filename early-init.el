@@ -52,7 +52,6 @@
 ;; Set the frame parameters before it's drawing. Save times for redrawing.
 (setq default-frame-alist '((tool-bar-lines . 0)
                             (menu-bar-lines . 0)
-                            (height     . 60)
                             (font . "Roboto Mono 18")
                             (internal-border-width . 18)
                             (left-fringe    . 2)
