@@ -135,6 +135,16 @@ Disable startup minibuffer message.
   (message nil))
 #+end_src
 
+* Basic UX
+Smooth scrolling.
+#+begin_src emacs-lisp
+(setq scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01
+      scroll-margin 0
+      scroll-conservatively 5
+      redisplay-skip-fontification-on-input t)
+#+end_src
+
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
