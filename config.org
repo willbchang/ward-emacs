@@ -836,6 +836,11 @@ Break lines normally for Chinese characters in visual line mode.
   (global-evil-pinyin-mode))
 #+end_src
 
+[[https://github.com/pengpengxp/swiper/wiki/ivy-support-chinese-pinyin][ivy-support-chinese-pinyin]] Support Chinese pinyin match, start with !.
+#+begin_src emacs-lisp
+(load-file "~/.config/emacs/elisp/ivy-chinese-pinyin.el")
+#+end_src
+
 
 [[https://github.com/cute-jumper/ace-pinyin][ace-pinyin]] make you jump to Chinese character by pinyin with avy.
 #+begin_src emacs-lisp
