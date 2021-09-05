@@ -83,8 +83,6 @@ Always compile packages.
 *** Terminal Face
 
 ** Title Bar
-# FIX: Doesn't show folder path in dired.
-# FIX: Doesn't show file icon when file is in iCloud.
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
@@ -136,6 +134,7 @@ Disable startup minibuffer message.
 #+end_src
 
 * Basic UX
+** Scroll
 Smooth scrolling.
 #+begin_src emacs-lisp
 (setq scroll-up-aggressively 0.01
@@ -145,6 +144,61 @@ Smooth scrolling.
       redisplay-skip-fontification-on-input t)
 #+end_src
 
+** Dired
+Hide all the information about files and folders except their names.
+#+begin_src emacs-lisp
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
+#+end_src
+
+** Which Key
+[[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
+#+begin_src emacs-lisp
+(use-package which-key
+  :config
+  (which-key-mode))
+#+end_src
+
+** Ivy
+[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
+#+begin_src emacs-lisp
+(use-package counsel
+  :bind
+  ("M-x" . 'counsel-M-x)
+
+  :config
+  (use-package flx)
+  (use-package amx)
+
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+        '((swiper     . ivy--regex-plus)
+          (counsel-rg . ivy--regex-plus)
+          (t          . ivy--regex-fuzzy))))
+
+
+;; https://reddit.com/r/emacs/comments/a6yrqx/
+(defun ivy-find-file-in-project ()
+  "Find file recursively in current project."
+  (interactive)
+  (let ((input (ivy--input)))
+    (ivy-quit-and-run (counsel-file-jump))))
+
+(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
+(global-set-key (kbd "s-f") 'swiper)
+(global-set-key (kbd "s-F") 'counsel-rg)
+(add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
+#+end_src
+
+*** Ivy Rich
+[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
+#+begin_src emacs-lisp
+(use-package ivy-rich)
+(ivy-rich-mode 1)
+#+end_src
+  
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
@@ -274,61 +328,6 @@ Disable automatic backup~ file.
 (setq make-backup-files nil)
 #+end_src
 
-*** Dired
-Hide all the information about files and folders except their names.
-#+begin_src emacs-lisp
-(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
-#+end_src
-
-*** Which Key
-[[https://github.com/justbur/emacs-which-key][which-key]] displays available keybindings in popup.
-#+begin_src emacs-lisp
-(use-package which-key
-  :config
-  (which-key-mode))
-#+end_src
-
-*** Ivy
-[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
-#+begin_src emacs-lisp
-(use-package counsel
-  :bind
-  ("M-x" . 'counsel-M-x)
-
-  :config
-  (use-package flx)
-  (use-package amx)
-
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-re-builders-alist
-        '((swiper     . ivy--regex-plus)
-          (counsel-rg . ivy--regex-plus)
-          (t          . ivy--regex-fuzzy))))
-
-
-;; https://reddit.com/r/emacs/comments/a6yrqx/
-(defun ivy-find-file-in-project ()
-  "Find file recursively in current project."
-  (interactive)
-  (let ((input (ivy--input)))
-    (ivy-quit-and-run (counsel-file-jump))))
-
-(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
-(global-set-key (kbd "s-f") 'swiper)
-(global-set-key (kbd "s-F") 'counsel-rg)
-(add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
-#+end_src
-
-**** Ivy Rich
-[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
-#+begin_src emacs-lisp
-(use-package ivy-rich)
-(ivy-rich-mode 1)
-#+end_src
-  
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: better syntax highlight for elisp
