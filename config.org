@@ -643,8 +643,8 @@ https://github.com/magnars/multiple-cursors.el
   (org-return-follows-link t)
   ;; Always display images.
   (org-startup-with-inline-images t)
-  ;; Do not display image actual width.
-  (org-image-actual-width nil)
+  ;; Do not display image actual width, set to 500px by default.
+  (org-image-actual-width 500)
   :config
   (setq-default prettify-symbols-alist
                 '(("<-" . ?←)
