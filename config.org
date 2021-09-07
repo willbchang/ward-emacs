@@ -131,13 +131,6 @@ Use customized awesome tray.
   (awesome-tray-mode 1))
 #+end_src
 
-** Minibuffer
-Disable startup minibuffer message.
-#+begin_src emacs-lisp
-(defun display-startup-echo-area-message ()
-  (message nil))
-#+end_src
-
 * Basic UX
 ** Scroll
 Smooth scrolling.
