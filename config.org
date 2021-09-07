@@ -513,8 +513,9 @@ Increase undo limit.
   (setq evil-replace-state-cursor '(hbar "deep pink"))
   :config
   (evil-mode 1)
-  ;; (setq-default evil-emacs-state-cursor 'bar)
   :custom
+  ;; Do not echo the state in minibuffer.
+  (evil-echo-state nil)
   ;; Use native keybindings on insert state.
   (evil-disable-insert-state-bindings t)
   ;; Records changes to separate undo instead of a big one in insert state.
