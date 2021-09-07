@@ -115,15 +115,20 @@ Display … and ↩ for truncation and wrap.
 #+end_src
 
 ** Scroll Bar
+# TODO: Scroll bar background and width
 Disable scroll bar.
 #+begin_src emacs-lisp
 (scroll-bar-mode 0)
 #+end_src
 
 ** Modeline
-Turn modeline into a line.
+Use customized awesome tray.
 #+begin_src emacs-lisp
-(setq-default mode-line-format'(""))
+(use-package awesome-tray
+  :load-path "~/.config/emacs/elisp"
+  :config
+  (setq-default mode-line-format'(""))
+  (awesome-tray-mode 1))
 #+end_src
 
 ** Minibuffer
