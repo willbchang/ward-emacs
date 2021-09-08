@@ -130,11 +130,7 @@ Disable scroll bar.
 ** Modeline
 Use customized awesome tray.
 #+begin_src emacs-lisp
-(use-package awesome-tray
-  :load-path "~/.config/emacs/elisp"
-  :config
-  (setq-default mode-line-format '(""))
-  (awesome-tray-mode 1))
+(setq-default mode-line-format '(""))
 #+end_src
 
 * Basic UX
