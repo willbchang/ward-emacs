@@ -276,6 +276,11 @@ Save files automatically.
 (auto-save-visited-mode 1)
 #+end_src
 
+Save file silently.
+#+begin_src emacs-lisp
+(setq save-silently t)
+#+end_src
+
 Ensure files end with newline.
 #+begin_src emacs-lisp
 (setq require-final-newline t)
