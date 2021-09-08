@@ -127,7 +127,7 @@ Use customized awesome tray.
 (use-package awesome-tray
   :load-path "~/.config/emacs/elisp"
   :config
-  (setq-default mode-line-format'(""))
+  (setq-default mode-line-format '(""))
   (awesome-tray-mode 1))
 #+end_src
 

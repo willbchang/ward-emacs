@@ -79,19 +79,6 @@
   '(("location" . (awesome-tray-module-location-info default))))
 
 (defun awesome-tray-enable ()
-  ;; Disable mode line.
-  (set-face-attribute 'mode-line nil
-                      :background nil
-                      :height 0.1
-                      :underline t
-                      :box nil)
-  (set-face-attribute 'mode-line-inactive nil
-                      :background nil
-                      :box nil
-                      :inherit 'mode-line)
-  (set-face-attribute 'header-line nil
-                      :inherit nil)
-
   ;; Add update timer.
   (setq awesome-tray-timer
         (run-with-timer 0 awesome-tray-refresh-idle-delay 'awesome-tray-show-info))
