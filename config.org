@@ -178,15 +178,6 @@ Hide all the information about files and folders except their names.
           (counsel-rg . ivy--regex-plus)
           (t          . ivy--regex-fuzzy))))
 
-
-;; https://reddit.com/r/emacs/comments/a6yrqx/
-(defun ivy-find-file-in-project ()
-  "Find file recursively in current project."
-  (interactive)
-  (let ((input (ivy--input)))
-    (ivy-quit-and-run (counsel-file-jump))))
-
-(global-set-key (kbd "s-p") 'ivy-find-file-in-project)
 (global-set-key (kbd "s-f") 'swiper)
 (global-set-key (kbd "s-F") 'counsel-rg)
 (add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
@@ -331,6 +322,15 @@ Ignore buffers start with * while moving to previous or next buffer.
 Disable automatic backup~ file.
 #+begin_src emacs-lisp
 (setq make-backup-files nil)
+#+end_src
+
+*** Find File in Project
+[[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
+#+begin_src emacs-lisp
+(use-package find-file-in-project
+  :bind ("s-p" . find-file-in-project)
+  :custom
+  (ffip-use-rust-fd t))
 #+end_src
 
 * Word Processing
