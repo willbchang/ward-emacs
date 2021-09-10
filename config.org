@@ -109,7 +109,15 @@ Disable cursor in inactive window.
 (setq-default cursor-in-non-selected-windows nil)
 #+end_src
 
-** Slot
+** Fringe
+Disable ugly [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Fringe-Bitmaps.html
+][bitmap]] in fringe.
+#+begin_src emacs-lisp
+(define-fringe-bitmap 'left-arrow [])
+(define-fringe-bitmap 'left-curly-arrow [])
+(define-fringe-bitmap 'left-triangle [])
+#+end_src
+
 Display … and ↩ for truncation and wrap.
 #+begin_src emacs-lisp
 (defface fallback '((t :family "Fira Code Light"
@@ -766,14 +774,8 @@ https://github.com/magnars/multiple-cursors.el
   ("s-k" . magit)
   :custom
   (magit-diff-refine-hunk t)
-  :config
-
-  (defun magit-disable-fringe()
-    "Disable fringe in `magit-mode'."
-    (setq left-fringe-width 0
-          right-fringe-width 0))
-  
-  (add-hook 'magit-mode-hook 'magit-disable-fringe))
+  ;; Disable ulgy bitmap in fringe in magit mode.
+  (magit-section-visibility-indicator nil))
 #+end_src
 
 ** Diff HL
