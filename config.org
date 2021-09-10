@@ -163,13 +163,15 @@ Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (use-package counsel
   :bind
-  ("M-x" . 'counsel-M-x)
-
+  (("M-x" . counsel-M-x)
+   ("s-f" . swiper)
+   ("s-F" . counsel-rg))
   :config
   (use-package flx)
   (use-package amx)
 
   (ivy-mode 1)
+  (add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-initial-inputs-alist nil)
@@ -178,9 +180,6 @@ Hide all the information about files and folders except their names.
           (counsel-rg . ivy--regex-plus)
           (t          . ivy--regex-fuzzy))))
 
-(global-set-key (kbd "s-f") 'swiper)
-(global-set-key (kbd "s-F") 'counsel-rg)
-(add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
 #+end_src
 
 *** Ivy Rich
