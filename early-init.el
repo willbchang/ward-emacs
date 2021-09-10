@@ -79,6 +79,7 @@
 (global-set-key (kbd "s-]") 'next-buffer)
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-,") 'open-config-file)
+(global-set-key (kbd "s-.") 'reload-init-file)
 
 (defun open-config-file ()
   (interactive)

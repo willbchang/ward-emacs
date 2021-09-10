@@ -876,12 +876,14 @@ Make keybindings work under Chinese input method.
 | ~Command + [~ | ~Command + 】~        | Go to previous Buffer |
 | ~Command + ]~ | ~Command + 【~        | Go to next Buffer     |
 | ~Command + ,~ | ~Command + ，~        | Open config file      |
+| ~Command + ,~ | ~Command + 。~        | Reload init file |
 | ~Control + ·~ | ~Control + `~         | Toggle vterm          |
 
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "s-【") (kbd "s-["))
 (define-key key-translation-map (kbd "s-】") (kbd "s-]"))
 (define-key key-translation-map (kbd "s-，") (kbd "s-,"))
+(define-key key-translation-map (kbd "s-。") (kbd "s-."))
 (define-key key-translation-map (kbd "C-·") (kbd "C-`"))
 #+end_src
 
