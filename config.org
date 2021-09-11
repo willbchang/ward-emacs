@@ -853,6 +853,11 @@ Break lines normally for Chinese characters in visual line mode.
 #+end_src
 
 ** Search
+[[https://github.com/cute-jumper/pinyinlib.el][Pinyinlib]] is a elisp library for converting first letter of Pinyin to Simplified/Traditional Chinese characters.
+#+begin_src emacs-lisp
+(use-package pinyinlib)
+#+end_src
+
 [[https://github.com/laishulu/evil-pinyin][evil-pinyin]]: Search Chinese characters with the first letter of Pinyin.
 #+begin_src emacs-lisp
 (use-package evil-pinyin
