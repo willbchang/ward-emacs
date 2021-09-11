@@ -390,11 +390,6 @@ Highlight paired brackets, includes (), [], {} and so on...
 (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+end_src
 
-Enable word wrap globally.
-#+begin_src emacs-lisp
-(global-visual-line-mode 1)
-#+end_src
-
 *** Moving Cursor
 **** Keybindings
 Make =Command/Option + ArrowKey= behaves like MacOS app.
@@ -666,6 +661,8 @@ https://github.com/magnars/multiple-cursors.el
   (org-startup-with-inline-images t)
   ;; Do not display image actual width, set to 500px by default.
   (org-image-actual-width 500)
+  ;; Turncate lines
+  (org-startup-truncated nil)
   ;; Export org to pdf through latex, support Chinese.
   (org-latex-pdf-process '("xelatex -interaction nonstopmode %f" "xelatex -interaction nonstopmode %f"))
   :config
