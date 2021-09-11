@@ -66,6 +66,16 @@ Always compile packages.
 ;; (set-face-foreground 'font-lock-string-face "#1E90FF")
 #+end_src
 
+*** Emacs Lisp
+[[https://github.com/Fanael/highlight-defined][highlight-defined]] is an Emacs minor mode that highlights defined Emacs Lisp symbols in source code.
+
+Currently it recognizes Lisp function, built-in function, macro, face and variable names.
+#+begin_src emacs-lisp
+(use-package highlight-defined
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode))
+#+end_src
+
 *** Markup Face
 **** Org Mode
 #+begin_src emacs-lisp
@@ -87,6 +97,7 @@ Always compile packages.
 **** Markdown
 
 *** Terminal Face
+
 
 ** Title Bar
 Show icon and full path in title bar.
