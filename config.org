@@ -666,6 +666,8 @@ https://github.com/magnars/multiple-cursors.el
   (org-startup-with-inline-images t)
   ;; Do not display image actual width, set to 500px by default.
   (org-image-actual-width 500)
+  ;; Export org to pdf through latex, support Chinese.
+  (org-latex-pdf-process '("xelatex -interaction nonstopmode %f" "xelatex -interaction nonstopmode %f"))
   :config
   (setq-default prettify-symbols-alist
                 '(("<-" . ?←)
