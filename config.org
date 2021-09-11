@@ -136,9 +136,15 @@ Disable scroll bar.
 #+end_src
 
 ** Modeline
-Use customized awesome tray.
+Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
+# TODO: add org-mode-line-clock
+# TODO: add selection
 #+begin_src emacs-lisp
-(setq-default mode-line-format '(""))
+(use-package awesome-tray
+  :load-path "~/.config/emacs/elisp"
+  :config
+  (setq-default mode-line-format '(""))
+  (awesome-tray-mode 1))
 #+end_src
 
 * Basic UX
@@ -330,6 +336,7 @@ Disable automatic backup~ file.
 #+begin_src emacs-lisp
 (setq make-backup-files nil)
 #+end_src
+
 
 *** Find File in Project
 [[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
