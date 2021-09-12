@@ -804,6 +804,8 @@ https://github.com/magnars/multiple-cursors.el
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :config
   (global-diff-hl-mode)
+  ;; Highlight changes on editing.
+  (diff-hl-flydiff-mode 1)
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
