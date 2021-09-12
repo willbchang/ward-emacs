@@ -761,28 +761,28 @@ https://github.com/magnars/multiple-cursors.el
          ("C-c"       . vterm-send-C-c))
   :custom
   (vterm-always-compile-module t)
+  :init
+  ;; Toggle vterm open and hide with Control + `
+  (defun vterm-split-window-below ()
+    (interactive)
+    (vterm)
+    (split-window-below -12)
+    (previous-buffer)
+    (other-window 1))
+
+  (defun vterm-toggle ()
+    (interactive)
+    (if (eq major-mode 'vterm-mode)
+        (delete-window)
+      (vterm-split-window-below)))
+
+  (bind-key (kbd "C-`") 'vterm-toggle)
   :config
   ;; Disable evil mode for vterm.
   (evil-set-initial-state 'vterm-mode 'emacs)
   ;; Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
 #+end_src
-
-*** Vterm Toggle
-[[https://github.com/jixiuf/vterm-toggle][vterm-toggle]] toggles between the vterm buffer and whatever buffer you are editing.
-#+begin_src emacs-lisp
-(use-package vterm-toggle
-  :bind ("C-`" . vterm-toggle))
-
-;; Minimize vterm buffer window height
-(setq vterm-toggle-fullscreen-p nil)
-(add-to-list 'display-buffer-alist
-             '((lambda(bufname _) (with-current-buffer bufname (equal major-mode 'vterm-mode)))
-                (display-buffer-reuse-window display-buffer-at-bottom)
-                (reusable-frames . visible)
-                (window-height . 0.3)))
-#+end_src
-
 * Version Control
 ** Magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
