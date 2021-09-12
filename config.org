@@ -98,7 +98,6 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 
 *** Terminal Face
 
-
 ** Title Bar
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
@@ -204,7 +203,6 @@ Hide all the information about files and folders except their names.
         '((swiper     . ivy--regex-plus)
           (counsel-rg . ivy--regex-plus)
           (t          . ivy--regex-fuzzy))))
-
 #+end_src
 
 *** Ivy Rich
