@@ -335,12 +335,11 @@ Disable the ring bell when scroll beyond the document.
 (setq ring-bell-function 'ignore)
 #+end_src
 
-Ignore buffers start with * while moving to previous or next buffer.
-# TODO: Hide magit buffers by default
+Ignore buffers start with ~*~ and ~magit:~ while moving to previous or next buffer.
 # https://emacs.stackexchange.com/a/27770/29493
 #+begin_src emacs-lisp
 (set-frame-parameter (selected-frame) 'buffer-predicate
-  (lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))
+  (lambda (buf) (not (string-match-p "^\\(magit:\\|*\\)" (buffer-name buf)))))
 #+end_src
 
 Disable automatic backup~ file.
