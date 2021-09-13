@@ -152,6 +152,10 @@ Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
 #+begin_src emacs-lisp
 (use-package awesome-tray
   :load-path "~/.config/emacs/elisp"
+  :custom-face
+  (header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
+  (mode-line ((t (:foreground "dim gray" :underline t :height 0.1))))
+  (mode-line-inactive ((t (:inherit mode-line))))
   :config
   (setq-default mode-line-format '(""))
   (awesome-tray-mode 1))
