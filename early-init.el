@@ -54,7 +54,7 @@
                             (menu-bar-lines . 0)
                             (font . "Roboto Mono 18")
                             (internal-border-width . 18)
-                            (left-fringe    . 2)
+                            (left-fringe    . 3)
                             (right-fringe   . 0)
                             (vertical-scroll-bars . nil)))
 
