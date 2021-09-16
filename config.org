@@ -637,7 +637,11 @@ https://github.com/magnars/multiple-cursors.el
 ** Org Mode
 *** Config
 # FIX: Make not*Bold*AtAll work!
+#      https://stackoverflow.com/a/24540651/9984029
+#      https://emacs-china.org/t/orgmode/9740
 # FIX: new line with unexpected 2 space indent.
+# TODO: Do not truncate org table
+#       https://github.com/misohena/phscroll
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 #+begin_src emacs-lisp
 (use-package org
