@@ -354,7 +354,8 @@ Disable automatic backup~ file.
 [[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
 #+begin_src emacs-lisp
 (use-package find-file-in-project
-  :bind ("s-p" . find-file-in-project)
+  :bind
+  ("s-p" . find-file-in-project)
   :custom
   (ffip-use-rust-fd t))
 #+end_src
@@ -505,17 +506,17 @@ Increase undo limit.
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
-  :bind (("s-z" . undo-fu-only-undo)
-         ("s-Z" . undo-fu-only-redo)))
+  :bind
+  (("s-z" . undo-fu-only-undo)
+   ("s-Z" . undo-fu-only-redo)))
 #+end_src
 
 [[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
 #+begin_src emacs-lisp
 (use-package undo-fu-session
   :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
-
-(global-undo-fu-session-mode)
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
+  (global-undo-fu-session-mode))
 #+end_src
  
 ** Evil Mode
@@ -523,13 +524,14 @@ Increase undo limit.
 *** Config
 #+begin_src emacs-lisp
 (use-package evil
-  :bind (:map evil-normal-state-map
-         ("j" . evil-next-visual-line)
-         ("k" . evil-previous-visual-line)
-         ("u"   . undo-fu-only-undo)
-         ("C-r" . undo-fu-only-redo)
-         :map evil-motion-state-map
-         ("RET" . nil))
+  :bind
+  (:map evil-normal-state-map
+        ("j"   . evil-next-visual-line)
+        ("k"   . evil-previous-visual-line)
+        ("u"   . undo-fu-only-undo)
+        ("C-r" . undo-fu-only-redo)
+   :map evil-motion-state-map
+        ("RET" . nil))
   :init
   (setq evil-want-keybinding nil)
   ;; Set Evil cursor color and styles in different situations.
@@ -597,9 +599,9 @@ Increase undo limit.
 (use-package avy
   :bind 
   (:map evil-normal-state-map
-   ("gf" . avy-goto-char)
-   ("gs" . avy-goto-char-2)
-   ("gl" . avy-goto-line)))
+        ("gf" . avy-goto-char)
+        ("gs" . avy-goto-char-2)
+        ("gl" . avy-goto-line)))
 #+end_src
   
 ** Multiple Cursor
@@ -645,22 +647,25 @@ https://github.com/magnars/multiple-cursors.el
    (org-mode . prettify-symbols-mode))
   :bind
   (:map org-mode-map
-   ("<M-S-left>"  . nil)
-   ("<M-S-right>" . nil)
-   ("<M-left>"    . left-word)
-   ("<M-right>"   . right-word)
-   ("<C-S-right>" . org-shiftmetaright)
-   ("<C-S-left>"  . org-shiftmetaleft)
-   ("<C-right>"   . org-metaright)
-   ("<C-left>"    . org-metaleft))
+        ("<M-S-left>"  . nil)
+        ("<M-S-right>" . nil)
+        ("<M-left>"    . left-word)
+        ("<M-right>"   . right-word)
+        ("<C-S-right>" . org-shiftmetaright)
+        ("<C-S-left>"  . org-shiftmetaleft)
+        ("<C-right>"   . org-metaright)
+        ("<C-left>"    . org-metaleft))
   :init
   ;; Enable shift selection in insert and visual mode.
-  (add-hook 'evil-insert-state-entry-hook (lambda()
-            (setq org-support-shift-select 'always)))
-  (add-hook 'evil-normal-state-entry-hook (lambda()
-            (setq org-support-shift-select nil)))
-  (add-hook 'evil-visual-state-entry-hook (lambda()
-            (setq org-support-shift-select 'always)))
+  (add-hook 'evil-insert-state-entry-hook
+            (lambda()
+              (setq org-support-shift-select 'always)))
+  (add-hook 'evil-normal-state-entry-hook
+            (lambda()
+              (setq org-support-shift-select nil)))
+  (add-hook 'evil-visual-state-entry-hook
+            (lambda()
+              (setq org-support-shift-select 'always)))
   :custom
   ;; Fold all contents on opening a org file.
   (org-startup-folded t)
