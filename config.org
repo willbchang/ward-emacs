@@ -172,13 +172,14 @@ Smooth scrolling.
       redisplay-skip-fontification-on-input t)
 #+end_src
 
-Disable these messages by setting command-error-function to a function that ignores signals buffer-read-only, beginning-of-buffer, and end-of-buffer.
+Disable these messages by setting command-error-function to a function that ignores unused signals.
 https://emacs.stackexchange.com/a/20039/19518
 #+begin_src emacs-lisp
 (defun filter-command-error-function (data context caller)
-  "Ignore the buffer-read-only, beginning-of-buffer,
-end-of-buffer signals; pass the rest to the default handler."
+  "Ignore the buffer-read-only, beginning-of-line, end-of-line, beginning-of-buffer, end-of-buffer signals; pass the rest to the default handler."
   (when (not (memq (car data) '(buffer-read-only
+                                beginning-of-line
+                                end-of-line
                                 beginning-of-buffer
                                 end-of-buffer)))
     (command-error-default-function data context caller)))
