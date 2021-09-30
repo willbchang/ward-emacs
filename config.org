@@ -408,6 +408,11 @@ English font refer to early-init.el ~default-frame-alist~.
 #+end_src
 
 **** Behaviors
+Improve the readability by increasing line spacing.
+#+begin_src emacs-lisp
+(setq-default line-spacing 0.1)
+#+end_src
+
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
 ;; This will work until emacs 28.1
