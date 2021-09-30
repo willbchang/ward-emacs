@@ -927,12 +927,13 @@ Break lines normally for Chinese characters in visual line mode.
 
 ** Input Method
 [[https://github.com/laishulu/emacs-smart-input-source][sis]] can auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
+# FIX: Check evil state and set input method when refousing Emacs.
 #+begin_src emacs-lisp
 (use-package sis
   :config
   (sis-ism-lazyman-config
    "com.apple.keylayout.ABC"
-   "com.apple.inputmethod.SCIM.ITABC")
+   "im.rime.inputmethod.Squirrel.Rime")
   (sis-global-respect-mode t)
   (sis-global-context-mode t)
   ;; Improve typing fluency experience.
