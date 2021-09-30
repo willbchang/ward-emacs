@@ -772,12 +772,13 @@ https://github.com/magnars/multiple-cursors.el
   :config
   ;; Hide emphasis makers.
   (setq org-hide-emphasis-markers t)
-  ;; Prettify things like sub/super script.
+  ;; Prettify things like \pi, sub/super script.
   (setq org-pretty-entities t)
   ;; Hide keywords like #+TITLE:
   (setq org-hidden-keywords '(title email date author))
   :custom
   (org-appear-autolinks t)
+  (org-appear-autoentities t)
   (org-appear-autokeywords t)
   (org-appear-autosubmarkers t))
 #+end_src
