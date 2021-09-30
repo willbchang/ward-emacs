@@ -44,14 +44,6 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 (setq use-package-always-ensure t)
 #+end_src
 
-Always compile packages.
-#+begin_src emacs-lisp
-(use-package auto-compile
-  :config
-  (auto-compile-on-load-mode)
-  (setq load-prefer-newer t))
-#+end_src
-
 * Basic UI
 ** Color Theme
 *** Programming Face
