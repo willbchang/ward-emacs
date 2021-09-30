@@ -311,6 +311,7 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 #+end_src
 
 *** Behaviors
+# TODO: Set init and fallback buffer to untitle instead of *scratch*.
 Save files automatically.
 #+begin_src emacs-lisp
 (auto-save-visited-mode 1)
@@ -795,6 +796,22 @@ https://github.com/magnars/multiple-cursors.el
   :init (setq markdown-command "multimarkdown"))
 #+end_src
   
+* Data Interchange
+** YAML
+[[https://yaml.org/][YAML]] is a human friendly data serialization language for all programming languages.
+#+begin_src emacs-lisp
+(use-package yaml-mode
+  :mode
+  (("\\.yaml\\'" . yaml-mode)
+   ("\\.yml\\'" . yaml-mode)))
+#+end_src
+
+** JSON
+[[https://json.org][JSON]] (JavaScript Object Notation) is a lightweight data-interchange format. 
+#+begin_src emacs-lisp
+(use-package json-mode)
+#+end_src
+
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
