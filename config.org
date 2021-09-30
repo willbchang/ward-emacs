@@ -358,6 +358,7 @@ Disable the ring bell when scroll beyond the document.
 (setq ring-bell-function 'ignore)
 #+end_src
 
+# TODO: No * and magit buffers after Cmd + W.
 Ignore buffers start with ~*~ and ~magit:~ while moving to previous or next buffer.
 # https://emacs.stackexchange.com/a/27770/29493
 #+begin_src emacs-lisp
