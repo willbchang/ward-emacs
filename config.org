@@ -648,6 +648,12 @@ Increase undo limit.
         ("gl" . avy-goto-line)))
 #+end_src
   
+** Sudo Edit
+[[https://github.com/nflath/sudo-edit][Sudo Edit]] can edit read only file.
+#+begin_src emacs-lisp
+(use-package sudo-edit)
+#+end_src
+
 ** Multiple Cursor
 https://github.com/hlissner/evil-multiedit
 https://github.com/gabesoft/evil-mc
