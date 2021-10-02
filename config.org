@@ -792,6 +792,7 @@ https://github.com/magnars/multiple-cursors.el
   ;; Hide keywords like #+TITLE:
   (setq org-hidden-keywords '(title email date author))
   :custom
+  (org-appear-delay 0)
   (org-appear-autolinks t)
   (org-appear-autoentities t)
   (org-appear-autokeywords t)
