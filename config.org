@@ -894,6 +894,8 @@ https://github.com/magnars/multiple-cursors.el
   (global-diff-hl-mode)
   ;; Highlight changes on editing.
   (diff-hl-flydiff-mode)
+  ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
+  (diff-hl-show-hunk-mouse-mode)
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
