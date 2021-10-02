@@ -654,6 +654,14 @@ Increase undo limit.
 (use-package sudo-edit)
 #+end_src
 
+** Large File
+[[https://github.com/m00natic/vlfi/][vlf]] can make you view large files in Emacs.
+#+begin_src emacs-lisp
+(use-package vlf
+  :custom
+  (vlf-application 'dont-ask))
+#+end_src
+
 ** Multiple Cursor
 https://github.com/hlissner/evil-multiedit
 https://github.com/gabesoft/evil-mc
