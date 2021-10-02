@@ -385,7 +385,6 @@ Disable automatic backup~ file.
 
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
-# TODO: better syntax highlight for elisp
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
 ** Basic Features
 *** Displaying Text
@@ -810,7 +809,7 @@ https://github.com/magnars/multiple-cursors.el
   :init (setq markdown-command "multimarkdown"))
 #+end_src
   
-* Data Interchange
+* Data Format
 ** YAML
 [[https://yaml.org/][YAML]] is a human friendly data serialization language for all programming languages.
 #+begin_src emacs-lisp
