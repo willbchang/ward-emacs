@@ -48,7 +48,7 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 ** Color Theme
 *** Programming Face
 #+begin_src emacs-lisp
-(set-face-foreground 'font-lock-function-name-face "DodgerBlue")
+(set-face-foreground 'font-lock-function-name-face "#006eee")
 ;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
 (set-face-foreground 'font-lock-keyword-face "#874bf8")
 (set-face-foreground 'font-lock-comment-face "DarkGray")
@@ -76,7 +76,7 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 (set-face-foreground 'org-document-info-keyword "Gray")
 (set-face-foreground 'org-date "Gray")
 
-(set-face-foreground 'org-level-1 "dodger Blue")
+;; (set-face-foreground 'org-level-1 "#006eee")
 (set-face-foreground 'org-level-2 "#874bf8")
 (set-face-foreground 'org-level-3 "dark cyan")
 (set-face-foreground 'org-level-4 "violet red")

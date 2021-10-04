@@ -24,6 +24,6 @@
  '(header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
  '(mode-line ((t (:foreground "dim gray" :underline t :height 0.1))))
  '(mode-line-inactive ((t (:inherit mode-line))))
- '(term-color-blue ((t (:background "blue2" :foreground "dodger blue"))))
+ '(term-color-blue ((t (:background "blue2" :foreground "#006eee"))))
  '(term-color-red ((t (:background "red3" :foreground "red"))))
  '(term-color-yellow ((t (:background "yellow3" :foreground "orange")))))
