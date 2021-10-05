@@ -23,7 +23,7 @@
 |                                         |                                                 |                   | Compatible Keybindings   |
 
 
-The configuration is in [config.org](config.org).
+The configuration is in [config.org](config.org). It defaults with proxy, please [REMOVE IT](https://github.com/willbchang/ward-emacs/blob/master/config.org#proxy) after cloning the folder.
 
 <details>
 <summary>Notes</summary>
@@ -31,7 +31,7 @@ The configuration is in [config.org](config.org).
 - Press <kbd>alt + x</kbd> and type `describe-`, you can findout almost anything in Emacs by yourself.
 - Emacs is more highly customizable than you think.
 - I only use Emacs as a **Text Editor**, no coding features will be added expect elisp. [JetBrains](https://www.jetbrains.com/products/) provides the best IDE for most programming languages, [EAP](https://www.jetbrains.com/resources/eap/) versions are free to use.
-- I mainly support the version that I'm using(currently is [emacs mac 27](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
+- I mainly support the version that I'm using(currently is [emacs mac 27](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
 </details>
 
