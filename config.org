@@ -19,23 +19,15 @@ Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEma
 
 Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
 #+begin_src emacs-lisp
-(eval-when-compile
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
 
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package)
-    (package-install 'quelpa)
-    (package-install 'bind-key))
-
-  (setq use-package-always-ensure t)
-  (setq use-package-expand-minimally t)
-
-  (require 'use-package))
-(require 'bind-key)
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
 #+end_src
 
 The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system, it won't affect local packages. Enable ~:ensure t~ to be global for all packages.
@@ -371,7 +363,6 @@ Disable automatic backup~ file.
 #+begin_src emacs-lisp
 (setq make-backup-files nil)
 #+end_src
-
 
 *** Find File in Project
 [[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
