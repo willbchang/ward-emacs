@@ -587,20 +587,11 @@ Increase undo limit.
   :after evil
   :config
   (global-evil-surround-mode 1)
-  ;; use non-spaced pairs when surrounding with an opening brace.
+  ;; Use non-spaced pairs when surrounding with an opening brace.
   (evil-add-to-alist 'evil-surround-pairs-alist
                       ?\( '("(" . ")")
                       ?\[ '("[" . "]")
-                      ?\{ '("{" . "}")
-                      ?\) '("( " . " )")
-                      ?\] '("[ " . " ]")
-                      ?\} '("{ " . " }")
-                      ?\* '("*" . "*")
-                      ?\+ '("+" . "+")
-                      ?\/ '("/" . "/")
-                      ?\~ '("~" . "~")
-                      ?\= '("=" . "=")
-                      ?\_ '("_" . "_")))
+                      ?\{ '("{" . "}")))
 #+end_src
 
 *** Evil Snip
