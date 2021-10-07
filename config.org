@@ -520,7 +520,6 @@ Increase undo limit.
 #+end_src
 
 ***** Undo Fu
-# Split and move to editing text
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
@@ -779,6 +778,37 @@ https://github.com/magnars/multiple-cursors.el
   (org-appear-autoentities t)
   (org-appear-autokeywords t)
   (org-appear-autosubmarkers t))
+#+end_src
+
+*** Org Surround Markup
+Surround selection with org mode markup.
+https://github.com/alphapapa/unpackaged.el#surround-region-with-emphasis-or-syntax-characters
+#+begin_src emacs-lisp
+;;;###autoload
+(defmacro org-surround-markup (&rest keys)
+  "Define and bind interactive commands for each of KEYS that surround the region or insert text.
+Commands are bound in `org-mode-map' to each of KEYS.  If the
+region is active, commands surround it with the key character,
+otherwise call `org-self-insert-command'."
+  `(progn
+     ,@(cl-loop for key in keys
+                for name = (intern (concat "unpackaged/org-maybe-surround-" key))
+                for docstring = (format "If region is active, surround it with \"%s\", otherwise call `org-self-insert-command'." key)
+                collect `(defun ,name ()
+                           ,docstring
+                           (interactive)
+                           (if (region-active-p)
+                               (let ((beg (region-beginning))
+                                     (end (region-end)))
+                                 (save-excursion
+                                   (goto-char end)
+                                   (insert ,key)
+                                   (goto-char beg)
+                                   (insert ,key)))
+                             (call-interactively #'org-self-insert-command)))
+                collect `(define-key org-mode-map (kbd ,key) #',name))))
+
+(org-surround-markup "~" "=" "*" "/" "+")
 #+end_src
 
 ** Markdown Mode
