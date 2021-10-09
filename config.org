@@ -780,6 +780,20 @@ https://github.com/magnars/multiple-cursors.el
   (org-appear-autosubmarkers t))
 #+end_src
 
+*** Org Fragtog
+[[https://github.com/io12/org-fragtog][Org Fragtog]] automatically toggle Org mode LaTeX fragment previews as the cursor enters and exits them.
+$r_{xx} =  \frac{\Sigma(X - \bar{X})(Y - \bar{Y})}{NS_{x}_{}S_{y}}$
+#+begin_src emacs-lisp
+(use-package org-fragtog
+  :hook
+  (org-mode . org-fragtog-mode)
+  :config
+  (setq org-startup-with-latex-preview t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  :custom
+  (org-fragtog-preview-delay 1.0))
+#+end_src
+
 *** Org Surround Markup
 Surround selection with org mode markup.
 https://github.com/alphapapa/unpackaged.el#surround-region-with-emphasis-or-syntax-characters
