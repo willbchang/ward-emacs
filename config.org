@@ -104,6 +104,10 @@ Disable cursor in inactive window.
 #+end_src
 
 ** Fringe
+#+begin_src emacs-lisp
+(set-face-attribute 'fringe nil :background nil)
+#+end_src
+
 Disable ugly [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Fringe-Bitmaps.html
 ][bitmap]] in fringe.
 #+begin_src emacs-lisp
@@ -875,6 +879,10 @@ otherwise call `org-self-insert-command'."
          ("C-c"       . vterm-send-C-c))
   :custom
   (vterm-always-compile-module t)
+  :custom-face
+  (term-color-blue ((t (:background "blue2" :foreground "#006eee"))))
+  (term-color-red ((t (:background "red3" :foreground "red"))))
+  (term-color-yellow ((t (:background "yellow3" :foreground "orange"))))
   :init
   ;; Toggle vterm open and hide with Control + `
   (defun vterm-split-window-below ()
