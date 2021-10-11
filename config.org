@@ -724,6 +724,8 @@ https://github.com/magnars/multiple-cursors.el
   (org-startup-with-inline-images t)
   ;; Do not display image actual width, set to 500px by default.
   (org-image-actual-width 500)
+  ;; Always download and display remote images.
+  (org-display-remote-inline-image 'download)
   ;; Turncate lines
   (org-startup-truncated nil)
   ;; Export org to pdf through latex, support Chinese.
