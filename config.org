@@ -826,7 +826,7 @@ otherwise call `org-self-insert-command'."
                              (call-interactively #'org-self-insert-command)))
                 collect `(define-key org-mode-map (kbd ,key) #',name))))
 
-(org-surround-markup "~" "=" "*" "/" "+")
+(org-surround-markup "~" "=" "*" "/" "+" "$")
 #+end_src
 
 ** Markdown Mode
