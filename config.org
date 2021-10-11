@@ -847,6 +847,7 @@ otherwise call `org-self-insert-command'."
 [[https://yaml.org/][YAML]] is a human friendly data serialization language for all programming languages.
 #+begin_src emacs-lisp
 (use-package yaml-mode
+  :defer t
   :mode
   (("\\.yaml\\'" . yaml-mode)
    ("\\.yml\\'" . yaml-mode)))
@@ -855,7 +856,8 @@ otherwise call `org-self-insert-command'."
 ** JSON
 [[https://json.org][JSON]] (JavaScript Object Notation) is a lightweight data-interchange format. 
 #+begin_src emacs-lisp
-(use-package json-mode)
+(use-package json-mode
+  :defer t)
 #+end_src
 
 * Terminal Emulator
