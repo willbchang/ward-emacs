@@ -591,10 +591,18 @@ Increase undo limit.
   :config
   (global-evil-surround-mode 1)
   ;; Use non-spaced pairs when surrounding with an opening brace.
+  ;; Insert zero width space for org inline markup.
   (evil-add-to-alist 'evil-surround-pairs-alist
                       ?\( '("(" . ")")
                       ?\[ '("[" . "]")
-                      ?\{ '("{" . "}")))
+                      ?\{ '("{" . "}")
+                      ?\* '("\x200B*" . "*\x200B")
+                      ?\+ '("\x200B+" . "+\x200B")
+                      ?\/ '("\x200B/" . "/\x200B")
+                      ?\~ '("\x200B~" . "~\x200B")
+                      ?\= '("\x200B=" . "=\x200B")
+                      ?\$ '("\x200B$" . "$\x200B")
+                      ?\_ '("\x200B_" . "_\x200B")))
 #+end_src
 
 *** Evil Snip
@@ -823,12 +831,14 @@ otherwise call `org-self-insert-command'."
                                  (save-excursion
                                    (goto-char end)
                                    (insert ,key)
+                                   (insert-char #x200b) ;; Insert zero width space to make inline markup work.
                                    (goto-char beg)
+                                   (insert-char #x200b)
                                    (insert ,key)))
                              (call-interactively #'org-self-insert-command)))
                 collect `(define-key org-mode-map (kbd ,key) #',name))))
 
-(org-surround-markup "~" "=" "*" "/" "+" "$")
+(org-surround-markup "~" "=" "*" "/" "_" "+" "$")
 #+end_src
 
 ** Markdown Mode
