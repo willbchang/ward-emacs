@@ -25,6 +25,7 @@ places
 tramp
 .\#*
 package-quickstart.el
+custom.el
 
 # Native Comp
 eln-cache/
