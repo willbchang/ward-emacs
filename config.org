@@ -564,6 +564,15 @@ Increase undo limit.
   (setq evil-replace-state-cursor '(hbar "deep pink"))
   :config
   (evil-mode 1)
+  ;; https://stackoverflow.com/a/10166400/9984029
+  ;; Make ESC cancel selection in insert mode.
+  (defun evil-escape-cancel-selection-first ()
+    "In evil insert state, make ESC to cancel selection first, then press ESC to go to normal state."
+    (interactive)
+    (if (and delete-selection-mode transient-mark-mode mark-active)
+        (setq deactivate-mark  t)
+      (evil-normal-state)))
+  (define-key evil-insert-state-map [escape] 'evil-escape-cancel-selection-first)
   :custom
   ;; Do not echo the state in minibuffer.
   (evil-echo-state nil)
