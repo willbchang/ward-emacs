@@ -307,6 +307,11 @@ New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 #+end_src
 
 *** Behaviors
+No popup windows.
+#+begin_src emacs-lisp
+(setq pop-up-windows nil)
+#+end_src
+
 # TODO: Set init and fallback buffer to untitle instead of *scratch*.
 Save files automatically.
 #+begin_src emacs-lisp
