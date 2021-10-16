@@ -104,6 +104,7 @@ Disable cursor in inactive window.
 #+end_src
 
 ** Fringe
+# FIX: not work in new frame.
 #+begin_src emacs-lisp
 (set-face-attribute 'fringe nil :background nil)
 #+end_src
@@ -135,6 +136,7 @@ Disable scroll bar.
 
 ** Modeline
 Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
+# TODO: try https://github.com/tautologyclub/feebleline
 # TODO: add org-mode-line-clock
 # TODO: add selection
 #+begin_src emacs-lisp
@@ -193,6 +195,12 @@ https://superuser.com/a/1025827/1114552
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
+
+;; For Emacs 28
+;; (use-package dired
+;;   :ensure nil
+;;   :custom
+;;   (dired-kill-when-opening-new-dired-buffer t))
 #+end_src
 
 ** Which Key
@@ -432,7 +440,7 @@ Highlight paired brackets, includes (), [], {} and so on...
 
 *** Moving Cursor
 **** Keybindings
-Make =Command/Option + ArrowKey= behaves like MacOS app.
+Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 
 | Keybindings   | Features                          |
 |---------------+-----------------------------------|
@@ -472,8 +480,8 @@ Highlight region(selection) with pink color.
 
 *** Editing Text
 **** Keybindings
-| Keybindings                   | Features                                         |
-|-------------------------------+--------------------------------------------------|
+| Keybindings                 | Features                                         |
+|-----------------------------+--------------------------------------------------|
 | =Command + C=                 | Copy text                                        |
 | =Command + X=                 | Cut text                                         |
 | =Command + V=                 | Paste text                                       |
@@ -646,6 +654,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   (global-evil-surround-mode 1)
   ;; Use non-spaced pairs when surrounding with an opening brace.
   ;; Insert zero width space for org inline markup.
+  ;; FIX: have to run Command + . again.
   (evil-add-to-alist 'evil-surround-pairs-alist
                       ?\( '("(" . ")")
                       ?\[ '("[" . "]")
@@ -681,7 +690,6 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   ;; other faces such as `diff-added` will be used for other actions
   (evil-goggles-use-diff-faces))
 #+end_src
-
 
 *** Avy
 [[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
@@ -746,6 +754,7 @@ https://github.com/magnars/multiple-cursors.el
 # FIX: new line with unexpected 2 space indent.
 # TODO: Do not truncate org table
 #       https://github.com/misohena/phscroll
+# TODO: Draw a line with -----
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 #+begin_src emacs-lisp
 (use-package org
@@ -764,6 +773,7 @@ https://github.com/magnars/multiple-cursors.el
         ("<C-right>"   . org-metaright)
         ("<C-left>"    . org-metaleft))
   :init
+  ;; Fix not working sometimes.
   ;; Enable shift selection in insert and visual mode.
   (add-hook 'evil-insert-state-entry-hook
             (lambda()
@@ -812,7 +822,6 @@ https://github.com/magnars/multiple-cursors.el
                   (">=" . ?≥)))
   (setq prettify-symbols-unprettify-at-point 'right-edge))
 #+end_src
-
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
@@ -943,6 +952,7 @@ otherwise call `org-self-insert-command'."
 ** Vterm
 *** Config
 # FIX: Word wrap is not normal
+# FIX: vterm toggle not always in bottom check https://github.com/manateelazycat/aweshell or https://github.com/karthink/popper
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
@@ -1074,6 +1084,7 @@ Break lines normally for Chinese characters in visual line mode.
 ** Input Method
 [[https://github.com/laishulu/emacs-smart-input-source][sis]] can auto switch to English input method and save the previous input method when entering Evil normal mode, restore the saved input method when switching back to Evil insert mode.
 # FIX: Check evil state and set input method when refousing Emacs.
+# FIX: sis-context-mode cannot detect org mode heading correctly.
 #+begin_src emacs-lisp
 (use-package sis
   :config

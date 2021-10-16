@@ -39,6 +39,9 @@ url
 *_archive
 ltximg/**
 
+# Xenops
+xenops/**
+
 # Magit
 transient/
 
