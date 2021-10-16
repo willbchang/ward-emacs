@@ -551,6 +551,8 @@ Increase undo limit.
         ("k"   . evil-previous-visual-line)
         ("u"   . undo-fu-only-undo)
         ("C-r" . undo-fu-only-redo)
+   :map evil-insert-state-map
+        ("C-v" . evil-visual-block)
    :map evil-motion-state-map
         ("RET" . nil))
   :init
