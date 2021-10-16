@@ -540,6 +540,29 @@ Increase undo limit.
   (global-undo-fu-session-mode))
 #+end_src
  
+**** Comment
+https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-modes.md#newcomment
+# TODO: (un)comment to jump to the next line.
+#+begin_src emacs-lisp
+(use-package newcomment
+  :ensure nil
+  :bind ([remap comment-dwim] . #'comment-or-uncomment)
+  :config
+  (defun comment-or-uncomment ()
+    (interactive)
+    (if (region-active-p)
+        (comment-or-uncomment-region (region-beginning) (region-end))
+      (if (save-excursion
+            (beginning-of-line)
+            (looking-at "\\s-*$"))
+          (call-interactively 'comment-dwim)
+        (comment-or-uncomment-region (line-beginning-position) (line-end-position)))))
+  (global-set-key (kbd "s-/") 'comment-or-uncomment)
+  :custom
+  (comment-auto-fill-only-comments t))
+#+end_src
+
+
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 *** Config

@@ -106,20 +106,8 @@
 (global-set-key (kbd "<s-return>") 'newline)
 (global-set-key (kbd "s-<backspace>") 'backward-kill-line)
 (global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
 
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
   (interactive "p")
   (kill-line (- 1 arg)))
-
-(defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if
-there's no active region."
-  (interactive)
-  (let (beg end)
-    (if (region-active-p)
-        (setq beg (region-beginning) end (region-end))
-      (setq beg (line-beginning-position) end (line-end-position)))
-    (comment-or-uncomment-region beg end)))
-
