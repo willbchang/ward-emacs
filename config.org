@@ -753,6 +753,10 @@ https://github.com/magnars/multiple-cursors.el
   ;; Make verbatim highlight text background with yellow.
   (add-to-list 'org-emphasis-alist
              '("=" (:background "yellow")))
+  ;; Make deletion(obsolote) text foreground with dark gray.
+  (add-to-list 'org-emphasis-alist
+             '("+" (:foreground "dark gray"
+                    :strike-through t)))
 
   (setq-default prettify-symbols-alist
                 '(("<-" . ?←)
