@@ -440,11 +440,6 @@ Make =Command/Option + ArrowKey= behaves like MacOS app.
 | =Command + ↓= | Move to the bottom of the file    |
 | =Command + ←= | Move to the beginning of the line |
 | =Command + →= | Move to the end of the line       |
-| =Command + L= | Go to line                        |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-l") 'goto-line)
-#+end_src
 
 *** Searching Text
 **** Keybindings
