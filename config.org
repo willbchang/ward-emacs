@@ -939,6 +939,40 @@ otherwise call `org-self-insert-command'."
   :defer t)
 #+end_src
 
+* Version Control
+** Magit
+[[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
+#+begin_src emacs-lisp
+(use-package magit
+  :bind
+  ("s-k" . magit)
+  :custom
+  (magit-diff-refine-hunk t)
+  ;; Disable ulgy bitmap in fringe in magit mode.
+  (magit-section-visibility-indicator nil))
+#+end_src
+
+** Diff HL
+[[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
+#+begin_src emacs-lisp
+(use-package diff-hl
+  :init
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  :config
+  (global-diff-hl-mode)
+  ;; Highlight changes on editing.
+  (diff-hl-flydiff-mode)
+  ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
+  (diff-hl-show-hunk-mouse-mode)
+  :custom
+  (diff-hl-draw-borders nil)
+  :custom-face
+  (diff-hl-change ((t (:background "#8fe9e3"))))
+  (diff-hl-insert ((t (:background "#80f1a4"))))
+  (diff-hl-delete ((t (:background "#f5cce1")))))
+#+end_src
+
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
@@ -989,40 +1023,6 @@ otherwise call `org-self-insert-command'."
   ;; Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
 #+end_src
-* Version Control
-** Magit
-[[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
-#+begin_src emacs-lisp
-(use-package magit
-  :bind
-  ("s-k" . magit)
-  :custom
-  (magit-diff-refine-hunk t)
-  ;; Disable ulgy bitmap in fringe in magit mode.
-  (magit-section-visibility-indicator nil))
-#+end_src
-
-** Diff HL
-[[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
-#+begin_src emacs-lisp
-(use-package diff-hl
-  :init
-  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  :config
-  (global-diff-hl-mode)
-  ;; Highlight changes on editing.
-  (diff-hl-flydiff-mode)
-  ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
-  (diff-hl-show-hunk-mouse-mode)
-  :custom
-  (diff-hl-draw-borders nil)
-  :custom-face
-  (diff-hl-change ((t (:background "#8fe9e3"))))
-  (diff-hl-insert ((t (:background "#80f1a4"))))
-  (diff-hl-delete ((t (:background "#f5cce1")))))
-#+end_src
-
 * Chinese Optimization
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
 ** Font
