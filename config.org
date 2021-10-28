@@ -824,6 +824,11 @@ https://github.com/magnars/multiple-cursors.el
   (add-to-list 'org-emphasis-alist
              '("+" (:foreground "dark gray"
                     :strike-through t)))
+  ;; Make code style around with box.
+  (add-to-list 'org-emphasis-alist
+             '("~" (:box (:line-width 1
+                          :color "grey75"
+                          :style released-button))))
 
   (setq-default prettify-symbols-alist
                 '(("<-" . ?←)
