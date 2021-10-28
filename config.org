@@ -222,7 +222,7 @@ Hide all the information about files and folders except their names.
 (use-package counsel
   :bind
   (("M-x" . counsel-M-x)
-   ("s-f" . swiper)
+   ("s-f" . swiper-isearch)
    ("s-F" . counsel-rg))
   :config
   (use-package flx)
