@@ -980,7 +980,9 @@ otherwise call `org-self-insert-command'."
 #+begin_src emacs-lisp
 (use-package magit
   :bind
-  ("s-k" . magit)
+  (("s-k" . magit)
+   :map transient-base-map
+   ("<escape>" . transient-quit-one))
   :custom
   (magit-diff-refine-hunk t)
   ;; Disable ulgy bitmap in fringe in magit mode.
