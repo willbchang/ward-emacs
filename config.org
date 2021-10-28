@@ -677,6 +677,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 [[https://github.com/hlissner/evil-snipe][Evil Snip]] enables incremental highlighting, repeat searches with =f=, =F=, =t= and =T=.
 #+begin_src emacs-lisp
 (use-package evil-snipe
+  :custom-face
+  (evil-snipe-matches-face ((t (:inherit region :background "#cb8af8"))))
   :config
   (evil-snipe-override-mode +1))
 #+end_src
