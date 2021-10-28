@@ -575,6 +575,13 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   (comment-auto-fill-only-comments t))
 #+end_src
 
+** Super Save
+[[https://github.com/bbatsov/super-save][Super Save]] auto-saves your buffers, when certain events happen.
+#+begin_src emacs-lisp
+(use-package super-save
+  :config
+  (super-save-mode +1))
+#+end_src
 
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
