@@ -224,6 +224,7 @@ Hide all the information about files and folders except their names.
   :bind
   (("M-x" . counsel-M-x)
    ("s-f" . swiper-isearch)
+   ("s-b" . ivy-switch-buffer)
    ("s-F" . counsel-rg))
   :config
   (use-package flx)
