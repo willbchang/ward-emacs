@@ -141,7 +141,7 @@ Disable scroll bar.
 
 ** Modeline
 Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
-# TODO: try https://github.com/tautologyclub/feebleline
+# TODO: Use https://github.com/kiennq/emacs-mini-modeline
 # TODO: add org-mode-line-clock
 # TODO: add selection
 #+begin_src emacs-lisp
@@ -157,6 +157,7 @@ Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
 #+end_src
 
 * Basic UX
+# TODO: https://github.com/tecosaur/emacs-everywhere
 ** Scroll
 Smooth scrolling.
 #+begin_src emacs-lisp
@@ -399,6 +400,9 @@ Disable automatic backup~ file.
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
+# TODO: Consist keybindings in different evil states.
+# TODO: Lock file with password and TouchID, like Notes.app
+# TODO: https://github.com/bbatsov/super-save
 ** Basic Features
 *** Displaying Text
 **** Font
@@ -512,6 +516,7 @@ Do not indent on newlines.
 (electric-indent-mode -1)
 #+end_src
 
+# FIX: not working via Command + V.
 Overwrite selection on pasting.
 #+begin_src emacs-lisp
 (delete-selection-mode 1)
@@ -731,10 +736,11 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 #+end_src
 
 ** Multiple Cursor
-https://github.com/hlissner/evil-multiedit
-https://github.com/gabesoft/evil-mc
-https://github.com/syl20bnr/evil-iedit-state
-https://github.com/magnars/multiple-cursors.el
+- https://github.com/victorhge/iedit
+- https://github.com/hlissner/evil-multiedit
+- https://github.com/gabesoft/evil-mc
+- https://github.com/syl20bnr/evil-iedit-state
+- https://github.com/magnars/multiple-cursors.el
 
 ** Keybinding References
 *Keybinding Values*:
@@ -769,6 +775,7 @@ https://github.com/magnars/multiple-cursors.el
 # TODO: Do not truncate org table
 #       https://github.com/misohena/phscroll
 # TODO: Draw a line with -----
+# TODO: dynamic headline bullets https://github.com/legalnonsense/org-visual-outline
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 #+begin_src emacs-lisp
 (use-package org
@@ -887,6 +894,8 @@ https://github.com/magnars/multiple-cursors.el
 *** Xenops
   $r_{xx} =  \frac{\Sigma(X - \bar{X})(Y - \bar{Y})}{NS_{x}S_{y}}$
 
+# FIX: delete selection mode won't work.
+# FIX: inline CJK
 [[https://github.com/dandavison/xenops][xenops]] is an editing environment for LaTeX mathematical documents with async rendering.
 #+begin_src emacs-lisp
 (use-package xenops
@@ -899,6 +908,12 @@ https://github.com/magnars/multiple-cursors.el
 *** Org Surround Markup
 Surround selection with org mode markup.
 https://github.com/alphapapa/unpackaged.el#surround-region-with-emphasis-or-syntax-characters
+# TODO: https://emacs-china.org/t/org-mode/597/51
+#   1. org heading ending with x200b
+#   2. make x200b invisible
+#   3. auto delete x200b with backspace
+#   4. combine link code with surround markup
+#   5. https://github.com/zk-phi/electric-spacing
 #+begin_src emacs-lisp
 ;;;###autoload
 (defmacro org-surround-markup (&rest keys)
@@ -960,6 +975,7 @@ otherwise call `org-self-insert-command'."
 
 * Version Control
 ** Magit
+# TODO: auto save file(s) when calling magit
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
