@@ -1,8 +1,13 @@
 * Package Manager
+** Lexical Binding
+In order to enable lexical binding in the config, this must be the first line of Emacs Lisp.
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t -*-
+#+end_src
+
 ** Proxy
 Set http(s) proxy for Emacs. /You might not need it, or need to change it./
 #+begin_src emacs-lisp
-;;; -*- lexical-binding: t -*-
 (setenv "https_proxy" "http://127.0.0.1:7890")
 (setenv "http_proxy" "http://127.0.0.1:7890")
 #+end_src
