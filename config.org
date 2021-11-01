@@ -483,9 +483,9 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 | ~Shift + Command + →~ | Select to the end of the line          | MacOS |
 
 **** Behaviors
-Highlight region(selection) with pink color.
+Highlight selection with system accent color.
 #+begin_src emacs-lisp
-(set-face-attribute 'region nil :background "#f5cce1")
+(set-face-attribute 'region nil :background "mac:selectedTextbackgroundColor")
 #+end_src
 
 *** Editing Text
