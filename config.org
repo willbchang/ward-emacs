@@ -242,7 +242,7 @@ Hide all the information about files and folders except their names.
 #+end_src
 
 *** Ivy Rich
-[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in =M-x=.
+[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in ~M-x~.
 #+begin_src emacs-lisp
 (use-package ivy-rich)
 (ivy-rich-mode 1)
@@ -250,7 +250,7 @@ Hide all the information about files and folders except their names.
 
 * Window Management
 ** Session
-[[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command =restart-emacs=.
+[[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command ~restart-emacs~.
 #+begin_src emacs-lisp
 (use-package restart-emacs)
 #+end_src
@@ -264,11 +264,11 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 *** Keybindings
 | Keybindings         | Features                     |
 |---------------------+------------------------------|
-| =Command + Q=         | Quit Emacs                   |
-| =Command + N=         | Create new window            |
-| =Command + `=         | Change to other frame        |
-| =Shift + Command + W= | Close current window         |
-| =Ctrl + Command + F=  | Set/Unset window full screen |
+| ~Command + Q~         | Quit Emacs                   |
+| ~Command + N~         | Create new window            |
+| ~Command + `~         | Change to other frame        |
+| ~Shift + Command + W~ | Close current window         |
+| ~Ctrl + Command + F~  | Set/Unset window full screen |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-n") 'new-empty-frame)
@@ -364,7 +364,7 @@ Cancel partially typed or accidental command.
 #+end_src
 
 # FIX: Not working.
-Ask =y= or =n= instead of =yes= or =no=. Use ~return~ to act ~y~.
+Ask ~y~ or ~n~ instead of ~yes~ or ~no~. Use ~return~ to act ~y~.
 #+begin_src emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
 (define-key y-or-n-p-map (kbd "RET") 'act)
@@ -412,9 +412,9 @@ English font refer to early-init.el ~default-frame-alist~.
 
 | Keybindings | Features            |
 |-------------+---------------------|
-| =Command + += | Increase text scale |
-| =Command + -= | Decrease text scale |
-| =Command + 0= | Reset text scale    |
+| ~Command + +~ | Increase text scale |
+| ~Command + -~ | Decrease text scale |
+| ~Command + 0~ | Reset text scale    |
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-0") 'text-scale-reset)
@@ -454,33 +454,33 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 
 | Keybindings   | Features                          |
 |---------------+-----------------------------------|
-| =Command + ↑= | Move to the top of the file       |
-| =Command + ↓= | Move to the bottom of the file    |
-| =Command + ←= | Move to the beginning of the line |
-| =Command + →= | Move to the end of the line       |
+| ~Command + ↑~ | Move to the top of the file       |
+| ~Command + ↓~ | Move to the bottom of the file    |
+| ~Command + ←~ | Move to the beginning of the line |
+| ~Command + →~ | Move to the end of the line       |
 
 *** Searching Text
 **** Keybindings
 | Keybindings         | Features                      |
 |---------------------+-------------------------------|
-| =Command + F=         | Search text in Buffer         |
-| =Shift + Command + F= | Search text in current folder |
+| ~Command + F~         | Search text in Buffer         |
+| ~Shift + Command + F~ | Search text in current folder |
 
 *** Selecting Text
 **** Keybindings
 | Keybindings                    | Features                               |       |
 |--------------------------------+----------------------------------------+-------|
-| =Command + A=                    | Select all the content in current file |       |
-| =Shift + ↑=         | Select one line up                     | MacOS |
-| =Shift + ↓=         | Select one line down                   | MacOS |
-| =Shift + ←=         | Select one character left              | MacOS |
-| =Shift + →=         | Select one character right             | MacOS |
-| =Shift + Option + ←= | Select one word left                   | MacOS |
-| =Shift + Option + →= | Select one word right                  | MacOS |
-| =Shift + Command + ↑= | Select to ttop of the file             | MacOS |
-| =Shift + Command + ↓= | Select to bottom of the file           | MacOS |
-| =Shift + Command + ←= | Select to t`he beginning of the line   | MacOS |
-| =Shift + Command + →= | Select to the end of the line          | MacOS |
+| ~Command + A~                    | Select all the content in current file |       |
+| ~Shift + ↑~         | Select one line up                     | MacOS |
+| ~Shift + ↓~         | Select one line down                   | MacOS |
+| ~Shift + ←~         | Select one character left              | MacOS |
+| ~Shift + →~         | Select one character right             | MacOS |
+| ~Shift + Option + ←~ | Select one word left                   | MacOS |
+| ~Shift + Option + →~ | Select one word right                  | MacOS |
+| ~Shift + Command + ↑~ | Select to ttop of the file             | MacOS |
+| ~Shift + Command + ↓~ | Select to bottom of the file           | MacOS |
+| ~Shift + Command + ←~ | Select to t`he beginning of the line   | MacOS |
+| ~Shift + Command + →~ | Select to the end of the line          | MacOS |
 
 **** Behaviors
 Highlight region(selection) with pink color.
@@ -492,13 +492,13 @@ Highlight region(selection) with pink color.
 **** Keybindings
 | Keybindings                 | Features                                         |
 |-----------------------------+--------------------------------------------------|
-| =Command + C=                 | Copy text                                        |
-| =Command + X=                 | Cut text                                         |
-| =Command + V=                 | Paste text                                       |
-| =Command + Return=            | Force newline                                    |
-| =Command + Backspace=         | Delete current line from cursor to the beginning |
-| =Command + Shift + Backspace= | Delete whole line entirely                       |
-| =Command + /=                 | Comment/Uncomment line(s)                        |
+| ~Command + C~                 | Copy text                                        |
+| ~Command + X~                 | Cut text                                         |
+| ~Command + V~                 | Paste text                                       |
+| ~Command + Return~            | Force newline                                    |
+| ~Command + Backspace~         | Delete current line from cursor to the beginning |
+| ~Command + Shift + Backspace~ | Delete whole line entirely                       |
+| ~Command + /~                 | Comment/Uncomment line(s)                        |
 
 
 # TODO:
@@ -687,7 +687,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 #+end_src
 
 *** Evil Snip
-[[https://github.com/hlissner/evil-snipe][Evil Snip]] enables incremental highlighting, repeat searches with =f=, =F=, =t= and =T=.
+[[https://github.com/hlissner/evil-snipe][Evil Snip]] enables incremental highlighting, repeat searches with ​~f~​, ~F~, ~t~ and ~T~.
 #+begin_src emacs-lisp
 (use-package evil-snipe
   :custom-face
