@@ -591,6 +591,28 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   (comment-auto-fill-only-comments t))
 #+end_src
 
+** Rainbow Mode
+[[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :hook
+  ((prog-mode . rainbow-delimiters-mode)
+   (latex-mode . rainbow-delimiters-mode))
+  :config
+  (setq rainbow-delimiters-max-face-count 6)
+  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                      :foreground 'unspecified
+                      :inherit 'error
+                      :strike-through t)
+  :custom-face
+  (rainbow-delimiters-depth-1-face ((t (:foreground "black"))))
+  (rainbow-delimiters-depth-2-face ((t (:foreground "sienna1"))))
+  (rainbow-delimiters-depth-3-face ((t (:foreground "lime green"))))
+  (rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
+  (rainbow-delimiters-depth-5-face ((t (:foreground "dark orange"))))
+  (rainbow-delimiters-depth-6-face ((t (:foreground "orchid")))))
+#+end_src
+
 ** Super Save
 [[https://github.com/bbatsov/super-save][Super Save]] auto-saves your buffers, when certain events happen.
 #+begin_src emacs-lisp
