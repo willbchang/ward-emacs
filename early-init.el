@@ -73,6 +73,10 @@
 (global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 
 ;; Buffer shortcuts
+;; Disable swipe left/right to change buffer.
+(global-unset-key [swipe-left])
+(global-unset-key [swipe-right])
+
 (global-set-key (kbd "s-w") 'kill-buffer-and-window)
 (global-set-key (kbd "s-[") 'previous-buffer)
 (global-set-key (kbd "s-]") 'next-buffer)
