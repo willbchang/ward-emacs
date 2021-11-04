@@ -851,7 +851,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   :config
   ;; Make verbatim with highlight text background.
   (add-to-list 'org-emphasis-alist
-             '("=" (:background "#fff8c5")))
+             '("=" (:background "#fef7ca")))
   ;; Make deletion(obsolote) text foreground with dark gray.
   (add-to-list 'org-emphasis-alist
              '("+" (:foreground "dark gray"
