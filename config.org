@@ -807,8 +807,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 (use-package org
   :hook
   ;; Enable headline and subcontent in the indented view.
-  ((org-mode . org-indent-mode)
-   (org-mode . prettify-symbols-mode))
+  (org-mode . org-indent-mode)
   :bind
   (:map org-mode-map
         ("<M-S-left>"  . nil)
@@ -861,18 +860,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   (add-to-list 'org-emphasis-alist
              '("~" (:box (:line-width 1
                           :color "grey75"
-                          :style released-button))))
-
-  (setq-default prettify-symbols-alist
-                '(("<-" . ?←)
-                  ("->" . ?→)
-                  ("=>" . ?⇒)
-                  ("/=" . ?≠)
-                  ("!=" . ?≠)
-                  ("==" . ?≡)
-                  ("<=" . ?≤)
-                  (">=" . ?≥)))
-  (setq prettify-symbols-unprettify-at-point 'right-edge))
+                          :style released-button)))))
 #+end_src
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
