@@ -1040,11 +1040,12 @@ otherwise call `org-self-insert-command'."
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
-  :bind (:map vterm-mode-map
-         ("s-k"       . vterm-clear)
-         ("<s-left>"  . vterm-send-C-a)
-         ("<s-right>" . vterm-send-C-e)
-         ("C-c"       . vterm-send-C-c))
+  :bind
+  (:map vterm-mode-map
+   ("s-k"       . vterm-clear)
+   ("<s-left>"  . vterm-send-C-a)
+   ("<s-right>" . vterm-send-C-e)
+   ("C-c"       . vterm-send-C-c))
   :custom
   (vterm-always-compile-module t)
   :custom-face
