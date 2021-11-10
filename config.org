@@ -193,6 +193,9 @@ https://superuser.com/a/1025827/1114552
       (advice-remove 'message #'silence))))
 
 (advice-add 'org-cycle :around #'suppress-messages)
+Disable init message.
+#+begin_src emacs-lisp
+(fset 'display-startup-echo-area-message 'ignore)
 #+end_src
 
 ** Dired
