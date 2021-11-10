@@ -149,20 +149,15 @@ Disable scroll bar.
 #+end_src
 
 ** Modeline
-Use customized [[https://github.com/manateelazycat/awesome-tray][awesome tray]].
-# TODO: Use https://github.com/kiennq/emacs-mini-modeline
-# TODO: add org-mode-line-clock
-# TODO: add selection
+Use a single line as modeline.
 #+begin_src emacs-lisp
-(use-package awesome-tray
-  :load-path "~/.config/emacs/elisp"
+(use-package emacs
   :custom-face
   (header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
   (mode-line ((t (:foreground "dim gray" :underline t :height 0.1))))
   (mode-line-inactive ((t (:inherit mode-line))))
   :config
-  (setq-default mode-line-format '(""))
-  (awesome-tray-mode 1))
+  (setq-default mode-line-format '("")))
 #+end_src
 
 * Basic UX
