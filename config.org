@@ -1004,6 +1004,12 @@ otherwise call `org-self-insert-command'."
   ;; Disable ulgy bitmap in fringe in magit mode.
   (magit-section-visibility-indicator nil))
 #+end_src
+** Git Modes
+[[https://github.com/magit/git-modes/][git-modes]] is Emacs major modes for Git configuration files.
+#+begin_src emacs-lisp
+(use-package git-modes
+  :defer t)
+#+end_src
 
 ** Diff HL
 [[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
