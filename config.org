@@ -43,6 +43,15 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 
 * Basic UI
 ** Color Theme
+*** Default Face
+#+begin_src emacs-lisp
+(set-face-foreground 'default "mac:textColor")
+(set-face-foreground 'link "mac:linkColor")
+(set-face-background 'isearch "mac:findHighlightColor")
+(set-face-foreground 'isearch nil)
+(set-face-background 'lazy-highlight "mac:findHighlightColor")
+#+end_src
+
 *** Programming Face
 #+begin_src emacs-lisp
 (set-face-foreground 'font-lock-function-name-face "#006eee")
@@ -61,12 +70,6 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 Currently it recognizes Lisp function, built-in function, macro, face and variable names.
 #+begin_src emacs-lisp
 (use-package highlight-defined
-
-*** Search Face
-#+begin_src emacs-lisp
-(set-face-background 'isearch "mac:findHighlightColor")
-(set-face-foreground 'isearch nil)
-(set-face-background 'lazy-highlight "mac:findHighlightColor")
   :hook
   (emacs-lisp-mode . highlight-defined-mode))
 #+end_src
