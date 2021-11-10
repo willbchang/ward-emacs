@@ -12,11 +12,6 @@
                 (threshold (* 100 gc-cons-threshold))
                 (percentage gc-cons-percentage))
             (lambda ()
-              (message "Emacs ready in %s with %d garbage collections."
-                       (format "%.2f seconds"
-                               (float-time
-                                (time-subtract after-init-time before-init-time)))
-                       gcs-done)
               (setq file-name-handler-alist old-list
                     gc-cons-threshold threshold
                     gc-cons-percentage percentage)
