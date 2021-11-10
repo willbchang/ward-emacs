@@ -118,27 +118,22 @@ Disable cursor in inactive window.
 #+end_src
 
 ** Fringe
-# FIX: not work in new frame.
 #+begin_src emacs-lisp
-(set-face-attribute 'fringe nil :background nil)
-#+end_src
-
-Disable ugly [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Fringe-Bitmaps.html
-][bitmap]] in fringe.
-#+begin_src emacs-lisp
-(define-fringe-bitmap 'left-arrow [])
-(define-fringe-bitmap 'left-curly-arrow [])
-(define-fringe-bitmap 'left-triangle [])
-#+end_src
-
-Display … and ↩ for truncation and wrap.
-#+begin_src emacs-lisp
-(defface fallback '((t :family "Fira Code Light"
-                       :foreground "gray")) "Fallback")
-(set-display-table-slot standard-display-table 'truncation
-                        (make-glyph-code ?… 'fallback))
-(set-display-table-slot standard-display-table 'wrap
-                        (make-glyph-code ?↩ 'fallback))
+(use-package emacs
+  :custom-face
+  (fringe ((t (:background nil))))
+  :config
+  ;; Disable ugly bitmap in fringe.
+  (define-fringe-bitmap 'left-arrow [])
+  (define-fringe-bitmap 'left-curly-arrow [])
+  (define-fringe-bitmap 'left-triangle [])
+  ;; Display … and ↩ for truncation and wrap.
+  (defface fallback '((t :family "Fira Code Light"
+                         :foreground "gray")) "Fallback")
+  (set-display-table-slot standard-display-table 'truncation
+                          (make-glyph-code ?… 'fallback))
+  (set-display-table-slot standard-display-table 'wrap
+                        (make-glyph-code ?↩ 'fallback)))
 #+end_src
 
 ** Scroll Bar
@@ -159,7 +154,6 @@ Use a single line as modeline.
   :config
   (setq-default mode-line-format '("")))
 #+end_src
-
 * Basic UX
 # TODO: https://github.com/tecosaur/emacs-everywhere
 ** Scroll
