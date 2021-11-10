@@ -54,7 +54,7 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 
 *** Programming Face
 #+begin_src emacs-lisp
-(set-face-foreground 'font-lock-function-name-face "#006eee")
+(set-face-foreground 'font-lock-function-name-face "mac:linkColor")
 ;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
 (set-face-foreground 'font-lock-keyword-face "#874bf8")
 (set-face-foreground 'font-lock-comment-face "DarkGray")
@@ -82,7 +82,7 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 (set-face-foreground 'org-document-info-keyword "Gray")
 (set-face-foreground 'org-date "Gray")
 
-;; (set-face-foreground 'org-level-1 "#006eee")
+;; (set-face-foreground 'org-level-1 "mac:linkColor")
 (set-face-foreground 'org-level-2 "#874bf8")
 (set-face-foreground 'org-level-3 "dark cyan")
 (set-face-foreground 'org-level-4 "violet red")
@@ -1058,7 +1058,7 @@ otherwise call `org-self-insert-command'."
   :custom
   (vterm-always-compile-module t)
   :custom-face
-  (term-color-blue ((t (:background "blue2" :foreground "#006eee"))))
+  (term-color-blue ((t (:background "blue2" :foreground "mac:linkColor"))))
   (term-color-red ((t (:background "red3" :foreground "red"))))
   (term-color-yellow ((t (:background "yellow3" :foreground "orange"))))
   :init
