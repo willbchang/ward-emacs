@@ -1053,18 +1053,11 @@ otherwise call `org-self-insert-command'."
   (term-color-yellow ((t (:background "yellow3" :foreground "orange"))))
   :init
   ;; Toggle vterm open and hide with Control + `
-  (defun vterm-split-window-below ()
-    (interactive)
-    (vterm)
-    (split-window-below -12)
-    (previous-buffer)
-    (other-window 1))
-
   (defun vterm-toggle ()
     (interactive)
     (if (eq major-mode 'vterm-mode)
-        (delete-window)
-      (vterm-split-window-below)))
+        (previous-buffer)
+      (vterm)))
 
   (bind-key (kbd "C-`") 'vterm-toggle)
   :config
