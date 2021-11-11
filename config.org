@@ -718,7 +718,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 #+begin_src emacs-lisp
 (use-package avy
   :bind 
-  (:map evil-normal-state-map
+  (("s-l" . avy-goto-line)
+   :map evil-normal-state-map
         ("gf" . avy-goto-char)
         ("gs" . avy-goto-char-2)
         ("gl" . avy-goto-line)))
