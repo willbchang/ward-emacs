@@ -23,7 +23,7 @@
 |                                         |                                                 |                   | Compatible Keybindings   |
 
 
-The configuration is in [config.org](config.org). It defaults with proxy, please [REMOVE IT](https://github.com/willbchang/ward-emacs/blob/master/config.org#proxy) after cloning the folder.
+The configuration is in [config.org](config.org).
 
 <details>
 <summary>Notes</summary>
