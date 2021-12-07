@@ -9,6 +9,9 @@
          (apply old-fun args)
       (advice-remove 'message #'silence))))
 
+(advice-add 'load :around #'suppress-messages)
+(advice-add 'org-babel-load-file :around #'suppress-messages)
+(advice-add 'write-region :around #'suppress-messages)
 
 (org-babel-load-file (expand-file-name "config.org" user-emacs-directory))
 (set 'ad-redefinition-action 'accept)
