@@ -1122,6 +1122,7 @@ Break lines normally for Chinese characters in visual line mode.
   (org-mode . valign-mode)
   (markdown-mode . valign-mode)
   :config
+  (setq valign-max-table-size 10000)
   (setq valign-fancy-bar 1))
 #+end_src
 
