@@ -190,17 +190,6 @@ https://emacs.stackexchange.com/a/20039/19518
 (setq command-error-function #'filter-command-error-function)
 #+end_src
 
-Disable unhelpful mesages in minibuffer.
-https://superuser.com/a/1025827/1114552
-#+begin_src emacs-lisp
-(defun suppress-messages (old-fun &rest args)
-  (cl-flet ((silence (&rest args1) (ignore)))
-    (advice-add 'message :around #'silence)
-    (unwind-protect
-         (apply old-fun args)
-      (advice-remove 'message #'silence))))
-
-(advice-add 'org-cycle :around #'suppress-messages)
 Disable init message.
 #+begin_src emacs-lisp
 (fset 'display-startup-echo-area-message 'ignore)
@@ -862,6 +851,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   ;; Export org to pdf through latex, support Chinese.
   (org-latex-pdf-process '("xelatex -interaction nonstopmode %f" "xelatex -interaction nonstopmode %f"))
   :config
+  ;; Suppress org cycle message when pressing tab.
+  (advice-add 'org-cycle :around #'suppress-messages)
   ;; Make verbatim with highlight text background.
   (add-to-list 'org-emphasis-alist
              '("=" (:background "#fef7ca")))
@@ -924,11 +915,14 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 # FIX: delete selection mode won't work.
 # FIX: inline CJK
 [[https://github.com/dandavison/xenops][xenops]] is an editing environment for LaTeX mathematical documents with async rendering.
+#   (kill-buffer "*Xenops-Doctor*")
 #+begin_src emacs-lisp
 (use-package xenops
   :hook
   (org-mode . xenops-mode)
   :config
+  ;; Suppress xenops startup messages.
+  (advice-add 'xenops-mode :around #'suppress-messages)
   (setq xenops-math-image-scale-factor 1.8))
 #+end_src
 

@@ -1,4 +1,14 @@
 ;;; -*- lexical-binding: t; -*-
+;; Disable unhelpful mesages in minibuffer.
+;; https://superuser.com/a/1025827/1114552
+
+(defun suppress-messages (old-fun &rest args)
+  (cl-flet ((silence (&rest args1) (ignore)))
+    (advice-add 'message :around #'silence)
+    (unwind-protect
+         (apply old-fun args)
+      (advice-remove 'message #'silence))))
+
 
 (org-babel-load-file (expand-file-name "config.org" user-emacs-directory))
 (set 'ad-redefinition-action 'accept)
