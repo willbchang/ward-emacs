@@ -83,6 +83,10 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 (set-face-foreground 'org-level-6 "orange red")
 (set-face-foreground 'org-level-7 "light sea green")
 (set-face-foreground 'org-level-8 "chocolate")
+
+(set-face-foreground 'org-headline-done "gray")
+(set-face-attribute 'org-done nil :foreground "gray"
+                                  :weight 'normal)
 #+end_src
 
 **** Markdown
