@@ -164,6 +164,17 @@ Smooth scrolling.
 #+end_src
 
 ** Messages
+Use return to act as yes.
+# http://mbork.pl/Comments_on_2021-11-13_y-or-n-p_but_with_RET_meaning_yes
+#+begin_src emacs-lisp
+(defconst y-or-n-p-ret-yes-map
+  (let ((map (make-sparse-keymap)))
+    (set-keymap-parent map y-or-n-p-map)
+    (define-key map [return] 'act)
+    map)
+  "A keymap for y-or-n-p with RET meaning \"yes\".")
+#+end_src
+
 Disable these messages by setting command-error-function to a function that ignores unused signals.
 https://emacs.stackexchange.com/a/20039/19518
 #+begin_src emacs-lisp
