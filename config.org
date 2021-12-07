@@ -551,7 +551,9 @@ Increase undo limit.
 (use-package undo-fu
   :bind
   (("s-z" . undo-fu-only-undo)
-   ("s-Z" . undo-fu-only-redo)))
+   ("s-Z" . undo-fu-only-redo))
+  :config
+  (setq undo-fu-allow-undo-in-region t))
 #+end_src
 
 [[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
