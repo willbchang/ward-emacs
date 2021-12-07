@@ -448,11 +448,9 @@ Highlight urls and make them clickable.
 
 Highlight paired brackets, includes (), [], {} and so on...
 #+begin_src emacs-lisp
-(show-paren-mode 1)
-(require 'paren)
-(set-face-background 'show-paren-match (face-background 'default))
-(set-face-foreground 'show-paren-match "#e2416c")
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+(use-package paren
+  :config
+  (show-paren-mode 1))
 #+end_src
 
 *** Moving Cursor
