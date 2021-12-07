@@ -302,6 +302,10 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-t") 'new-empty-buffer)
 (global-set-key (kbd "s-r") 'revert-buffer-no-confirm)
+
+(defun reveal-in-finder ()
+  (interactive)
+  (shell-command "open -R ."))
 #+end_src
 
 # http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
