@@ -1,4 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
+;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+;; (kill-buffer "*Messages*")
+
 ;; Disable unhelpful mesages in minibuffer.
 ;; https://superuser.com/a/1025827/1114552
 

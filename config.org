@@ -224,6 +224,7 @@ Hide all the information about files and folders except their names.
    ("s-f" . swiper-isearch)
    ("s-b" . ivy-switch-buffer)
    ("s-F" . counsel-rg))
+
   :config
   (use-package flx)
   (use-package amx)
@@ -387,6 +388,7 @@ Disable the ring bell when scroll beyond the document.
 #+end_src
 
 # TODO: No * and magit buffers after Cmd + W.
+# TODO: magit-process
 Ignore buffers start with ~*~ and ~magit:~ while moving to previous or next buffer.
 # https://emacs.stackexchange.com/a/27770/29493
 #+begin_src emacs-lisp
@@ -412,9 +414,7 @@ Disable automatic backup~ file.
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
-# TODO: Consist keybindings in different evil states.
 # TODO: Lock file with password and TouchID, like Notes.app
-# TODO: https://github.com/bbatsov/super-save
 ** Basic Features
 *** Displaying Text
 **** Font
@@ -469,6 +469,7 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 | ~Command + →~ | Move to the end of the line       |
 
 *** Searching Text
+# TODO: Disable persistant highlight
 **** Keybindings
 | Keybindings         | Features                      |
 |---------------------+-------------------------------|
@@ -591,6 +592,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   :custom
   (comment-auto-fill-only-comments t))
 #+end_src
+
+** Yasnippet
 
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
@@ -716,6 +719,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 
 *** Avy
 [[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
+# TODO: Change avy leading face color
 #+begin_src emacs-lisp
 (use-package avy
   :bind 
@@ -726,8 +730,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
         ("gs" . avy-goto-char-2)
         ("gl" . avy-goto-line)))
 #+end_src
-  
-** Rainbow Mode
+
+** Rainbow Delimiters
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
 #+begin_src emacs-lisp
 (use-package rainbow-delimiters
@@ -887,6 +891,7 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 
 *** Org Appear
 [[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
+# FIX: not working in latex frament
 #+begin_src emacs-lisp
 (use-package org-appear
   :hook
@@ -1056,9 +1061,8 @@ Support mouse click.
 #+end_src
 
 ** Vterm
-*** Config
 # FIX: Word wrap is not normal
-# FIX: vterm toggle not always in bottom check https://github.com/manateelazycat/aweshell or https://github.com/karthink/popper
+# FIX: gray color for zsh auto-suggesstion
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
@@ -1089,10 +1093,10 @@ Support mouse click.
   ;; Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
 #+end_src
+
 * Chinese Optimization
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
 ** Font
-# FIX: Bold is too Bold.
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
@@ -1172,7 +1176,7 @@ Make keybindings work under Chinese input method.
 | ~Command + [~ | ~Command + 】~        | Go to previous Buffer |
 | ~Command + ]~ | ~Command + 【~        | Go to next Buffer     |
 | ~Command + ,~ | ~Command + ，~        | Open config file      |
-| ~Command + ,~ | ~Command + 。~        | Reload init file |
+| ~Command + ,~ | ~Command + 。~        | Reload init file      |
 | ~Control + ·~ | ~Control + `~         | Toggle vterm          |
 
 #+begin_src emacs-lisp
@@ -1181,5 +1185,6 @@ Make keybindings work under Chinese input method.
 (define-key key-translation-map (kbd "s-，") (kbd "s-,"))
 (define-key key-translation-map (kbd "s-。") (kbd "s-."))
 (define-key key-translation-map (kbd "C-·") (kbd "C-`"))
+;; (define-key key-translation-map (kbd "M-·") (kbd "M-`"))
 #+end_src
 
