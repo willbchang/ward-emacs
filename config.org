@@ -716,17 +716,19 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 
 *** Avy
 [[https://github.com/abo-abo/avy][Avy]] is for jumping to visible text using a char-based decision tree.
+# TODO: Change avy leading face color
 #+begin_src emacs-lisp
 (use-package avy
   :bind 
   (("s-l" . avy-goto-line)
    :map evil-normal-state-map
+        ("gt" . avy-goto-char)
         ("gf" . avy-goto-char)
         ("gs" . avy-goto-char-2)
         ("gl" . avy-goto-line)))
 #+end_src
-  
-** Rainbow Mode
+
+** Rainbow Delimiters
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
 #+begin_src emacs-lisp
 (use-package rainbow-delimiters
@@ -915,7 +917,6 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 # FIX: delete selection mode won't work.
 # FIX: inline CJK
 [[https://github.com/dandavison/xenops][xenops]] is an editing environment for LaTeX mathematical documents with async rendering.
-#   (kill-buffer "*Xenops-Doctor*")
 #+begin_src emacs-lisp
 (use-package xenops
   :hook
