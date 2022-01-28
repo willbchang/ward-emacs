@@ -34,6 +34,18 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 (setq use-package-always-ensure t)
 #+end_src
 
+[[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least auto-package-update-interval days have passed since the last update.
+#+begin_src emacs-lisp
+(use-package auto-package-update
+  :custom
+  (auto-package-update-interval 7) ;; in days
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-delete-old-versions t)
+  (auto-package-update-hide-results t)
+  :config
+  (auto-package-update-maybe))
+#+end_src
+
 * Basic UI
 ** Color Theme
 *** Default Face
