@@ -411,6 +411,16 @@ Disable automatic backup~ file.
   (ffip-use-rust-fd t))
 #+end_src
 
+*** Persistent Scratch
+[[https://github.com/Fanael/persistent-scratch][Persistent scratch]] can preserve the scratch buffer across Emacs sessions.
+#+begin_src emacs-lisp
+(use-package persistent-scratch
+  :config
+  (setq persistent-scratch-autosave-interval 5)
+  (ignore-errors
+    (persistent-scratch-setup-default)))
+#+end_src
+
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el

@@ -53,6 +53,9 @@ recentf*
 # Undo Fu
 undo-fu-session/
 
+# Persistent Scratch
+.persistent-scratch
+
 # flymake-mode
 *_flymake.*
 
