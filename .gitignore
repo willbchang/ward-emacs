@@ -34,6 +34,9 @@ eln-cache/
 .last-package-update-day
 url
 
+# Quelpa
+quelpa/
+
 # Org-mode
 .org-id-locations
 *_archive

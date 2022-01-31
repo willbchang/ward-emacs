@@ -46,6 +46,21 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
   (auto-package-update-maybe))
 #+end_src
 
+** Quelpa
+[[https://github.com/quelpa/quelpa][Quelpa]]: Build and install your Emacs Lisp packages on-the-fly directly from source.
+#+begin_src emacs-lisp
+(unless (package-installed-p 'quelpa)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+    (eval-buffer)
+    (quelpa-self-upgrade)))
+#+end_src
+
+[[https://github.com/quelpa/quelpa-use-package][quelpa-use-package]]: Emacs quelpa handler for use-package.
+#+begin_src emacs-lisp
+(use-package quelpa-use-package)
+#+end_src
+
 * Basic UI
 ** Color Theme
 *** Default Face
