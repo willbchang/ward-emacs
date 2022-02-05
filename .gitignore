@@ -42,6 +42,9 @@ quelpa/
 *_archive
 ltximg/**
 
+# Undo Tree
+undo-tree-history/
+
 # Xenops
 xenops/**
 

@@ -668,7 +668,6 @@ Indent with 2 space.
 #+end_src
 
 **** Undo
-***** Config
 Increase undo limit.
 #+begin_src emacs-lisp
 ;; default is 160000
@@ -678,26 +677,6 @@ Increase undo limit.
 ;; default is 24000000
 (setq undo-outer-limit 120000000)
 #+end_src
-
-***** Undo Fu
-[[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
-#+begin_src emacs-lisp
-(use-package undo-fu
-  :bind
-  (("s-z" . undo-fu-only-undo)
-   ("s-Z" . undo-fu-only-redo))
-  :config
-  (setq undo-fu-allow-undo-in-region t))
-#+end_src
-
-[[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
-#+begin_src emacs-lisp
-(use-package undo-fu-session
-  :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
-  (global-undo-fu-session-mode))
-#+end_src
- 
 **** Comment
 https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-modes.md#newcomment
 # TODO: (un)comment to jump to the next line.
@@ -731,8 +710,8 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
   (:map evil-normal-state-map
         ("j"   . evil-next-visual-line)
         ("k"   . evil-previous-visual-line)
-        ("u"   . undo-fu-only-undo)
-        ("C-r" . undo-fu-only-redo)
+        ("u"   . undo-tree-undo)
+        ("C-r" . undo-tree-redo)
    :map evil-insert-state-map
         ("C-v" . evil-visual-block)
    :map evil-motion-state-map
@@ -856,6 +835,22 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
         ("gf" . avy-goto-char)
         ("gs" . avy-goto-char-2)
         ("gl" . avy-goto-line)))
+#+end_src
+
+** Undo Tree
+[[https://www.emacswiki.org/emacs/UndoTree][Undo tree]] provides persistant undo and redo even if Emacs is restarted.
+#+begin_src emacs-lisp
+(use-package undo-tree
+  :bind
+  (("s-z" . undo-tree-undo)
+   ("s-Z" . undo-tree-redo))
+  :init
+  (global-undo-tree-mode)
+  :custom
+  (undo-tree-auto-save-history t)
+  (undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo-tree-history")))
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t))
 #+end_src
 
 ** Rainbow Delimiters
