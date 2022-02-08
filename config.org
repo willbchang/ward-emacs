@@ -165,13 +165,13 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 *** Programming Face
 #+begin_src emacs-lisp
 (set-face-foreground 'font-lock-function-name-face "mac:linkColor")
-;; (set-face-foreground 'font-lock-variable-name-face "#1E90FF")
+;; (set-face-foreground 'font-lock-variable-name-face "orange red")
 (set-face-foreground 'font-lock-keyword-face "#874bf8")
 (set-face-foreground 'font-lock-comment-face "DarkGray")
 ;; (set-face-foreground 'font-lock-type-face "#1E90FF")
-;; (set-face-foreground 'font-lock-constant-face "#1E90FF")
+(set-face-foreground 'font-lock-constant-face "dark cyan")
 ;; (set-face-foreground 'font-lock-builtin-face "#1E90FF")
-;; (set-face-foreground 'font-lock-string-face "#1E90FF")
+(set-face-foreground 'font-lock-string-face "chocolate")
 #+end_src
 
 *** Emacs Lisp
