@@ -235,8 +235,6 @@ Disable cursor in inactive window.
 ** Fringe
 #+begin_src emacs-lisp
 (use-package emacs
-  :custom-face
-  (fringe ((t (:background nil))))
   :config
   ;; Disable ugly bitmap in fringe.
   (define-fringe-bitmap 'left-arrow [])
