@@ -262,11 +262,12 @@ Use a single line as modeline.
 (use-package emacs
   :custom-face
   (header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
-  (mode-line ((t (:foreground "dim gray" :underline t :height 0.1))))
+  (mode-line ((t (:foreground "dim gray" :height 0.1))))
   (mode-line-inactive ((t (:inherit mode-line))))
   :config
   (setq-default mode-line-format '("")))
 #+end_src
+
 * Basic UX
 # TODO: https://github.com/tecosaur/emacs-everywhere
 ** Scroll
