@@ -191,17 +191,18 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 (set-face-foreground 'org-drawer "Gray")
 (set-face-foreground 'org-document-info-keyword "Gray")
 (set-face-foreground 'org-date "Gray")
+(set-face-foreground 'org-link "mac:linkColor")
 
-;; (set-face-foreground 'org-level-1 "mac:linkColor")
-(set-face-foreground 'org-level-2 "#874bf8")
-(set-face-foreground 'org-level-3 "dark cyan")
-(set-face-foreground 'org-level-4 "violet red")
-(set-face-foreground 'org-level-5 "SpringGreen4")
-(set-face-foreground 'org-level-6 "orange red")
-(set-face-foreground 'org-level-7 "light sea green")
-(set-face-foreground 'org-level-8 "chocolate")
+(set-face-attribute 'org-level-1 nil :foreground "mac:linkColor")
+(set-face-attribute 'org-level-2 nil :foreground "#874bf8")
+(set-face-attribute 'org-level-3 nil :foreground "dark cyan")
+(set-face-attribute 'org-level-4 nil :foreground "violet red")
+(set-face-attribute 'org-level-5 nil :foreground "SpringGreen4")
+(set-face-attribute 'org-level-6 nil :foreground "orange red")
+(set-face-attribute 'org-level-7 nil :foreground "light sea green")
+(set-face-attribute 'org-level-8 nil :foreground "chocolate")
 
-(set-face-foreground 'org-headline-done "gray")
+(set-face-attribute 'org-headline-done nil :foreground "gray")
 (set-face-attribute 'org-done nil :foreground "gray"
                                   :weight 'normal)
 #+end_src
