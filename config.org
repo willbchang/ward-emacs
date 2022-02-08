@@ -249,13 +249,6 @@ Disable cursor in inactive window.
                         (make-glyph-code ?↩ 'fallback)))
 #+end_src
 
-** Scroll Bar
-# TODO: Scroll bar background and width
-Disable scroll bar.
-#+begin_src emacs-lisp
-(scroll-bar-mode 0)
-#+end_src
-
 ** Modeline
 Use a single line as modeline.
 #+begin_src emacs-lisp
