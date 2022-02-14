@@ -262,17 +262,6 @@ Use a single line as modeline.
 #+end_src
 
 * Basic UX
-# TODO: https://github.com/tecosaur/emacs-everywhere
-** Scroll
-Smooth scrolling.
-#+begin_src emacs-lisp
-(setq scroll-up-aggressively 0.01
-      scroll-down-aggressively 0.01
-      scroll-margin 0
-      scroll-conservatively 5
-      redisplay-skip-fontification-on-input t)
-#+end_src
-
 ** Messages
 Use return to act as yes.
 # http://mbork.pl/Comments_on_2021-11-13_y-or-n-p_but_with_RET_meaning_yes
