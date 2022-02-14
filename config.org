@@ -299,7 +299,8 @@ Disable init message.
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
-
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
 ;; For Emacs 28
 ;; (use-package dired
 ;;   :ensure nil
