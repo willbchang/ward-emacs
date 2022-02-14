@@ -30,7 +30,6 @@ The configuration is in [config.org](config.org).
 
 - Press <kbd>alt + x</kbd> and type `describe-`, you can findout almost anything in Emacs by yourself.
 - Emacs is more highly customizable than you think.
-- I only use Emacs as a **Text Editor**, no coding features will be added expect elisp. [JetBrains](https://www.jetbrains.com/products/) provides the best IDE for most programming languages, [EAP](https://www.jetbrains.com/resources/eap/) versions are free to use.
 - I mainly support the version that I'm using(currently is [emacs mac 27](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
 </details>
@@ -123,7 +122,7 @@ It learns from:
 - [hlissner/doom-emacs](https://github.com/hlissner/doom-emacs)
 - [Practical Emacs Tutorial](http://ergoemacs.org/emacs/emacs.html)
 - [Nano Emacs](https://github.com/rougier/nano-emacs)
-
+- [MatthewZMD/.emacs.d](https://github.com/MatthewZMD/.emacs.d)
 ## LICENSE
 
 [AGPL-3.0](./LICENSE)
