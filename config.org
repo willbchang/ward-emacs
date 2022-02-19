@@ -38,8 +38,7 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 #+begin_src emacs-lisp
 (use-package auto-package-update
   :custom
-  (auto-package-update-interval 7) ;; in days
-  (auto-package-update-prompt-before-update t)
+  (auto-package-update-now-async)
   (auto-package-update-delete-old-versions t)
   (auto-package-update-hide-results t)
   :config
