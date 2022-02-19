@@ -301,6 +301,7 @@ Hide all the information about files and folders except their names.
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
+(setq dired-use-ls-dired nil)
 ;; For Emacs 28
 ;; (use-package dired
 ;;   :ensure nil
