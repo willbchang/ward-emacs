@@ -760,12 +760,12 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 #+end_src
 
 *** Evil Collection
-[[https://github.com/emacs-evil/evil-collection][evil-collection]], which provides evil-friendly bindings for many modes.
+[[https://github.com/emacs-evil/evil-collection][evil-collection]] provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-collection
   :after evil
   :config
-  (setq evil-collection-mode-list '(dired magit which-key))
+  (setq evil-collection-mode-list '(dired magit which-key diff-hl))
   (evil-collection-init))
 #+end_src
 
