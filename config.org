@@ -1052,9 +1052,13 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 (use-package xenops
   :hook
   (org-mode . xenops-mode)
+  :bind
+  (:map xenops-mode-map
+   ;; xenops overrides the default paste behavior with xenops-handle-paste through xenops-util-define-key-with-fallback in xenops-define-key which breaks the delete-selection-mode
+   ("s-v" . yank))
   :config
   ;; Suppress xenops startup messages.
-  (advice-add 'xenops-mode :around #'suppress-messages)
+  ;; (advice-add 'xenops-mode :around #'suppress-messages)
   (setq xenops-math-image-scale-factor 1.8))
 #+end_src
 
