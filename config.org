@@ -896,6 +896,14 @@ https://github.com/condy0919/emacs-newbie/blob/master/introduction-to-builtin-mo
 - https://github.com/gabesoft/evil-mc
 - https://github.com/syl20bnr/evil-iedit-state
 - https://github.com/magnars/multiple-cursors.el
+#+begin_src emacs-lisp
+(use-package multiple-cursors
+  :bind
+   (("s-d" . mc/mark-next-like-this)
+    ("s-D" . mc/mark-all-like-this)
+    :map mc/keymap
+     ("<return>" .  newline)))
+#+end_src
 
 ** Keybinding References
 *Keybinding Values*:
