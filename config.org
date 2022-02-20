@@ -222,6 +222,18 @@ Use a single line as modeline.
   (setq-default mode-line-format '("")))
 #+end_src
 
+** Background
+Blurred background.
+#+begin_src emacs-lisp
+(set-face-background 'default "mac:windowBackgroundColor")
+(dolist (f (face-list)) (set-face-stipple f "alpha:60%"))
+(setq face-remapping-alist (append face-remapping-alist '((default my/default-blurred))))
+(defface my/default-blurred
+   '((t :inherit 'default :stipple "alpha:60%"))
+   "Like 'default but blurred."
+   :group 'my)
+#+end_src
+
 * Basic UX
 ** Messages
 Use return to act as yes.
