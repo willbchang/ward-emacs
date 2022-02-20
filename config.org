@@ -96,6 +96,8 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
       ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
+      modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
+
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
       ;; Options for `modus-themes-region' are either nil (the default),
