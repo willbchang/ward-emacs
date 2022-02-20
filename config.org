@@ -8,8 +8,7 @@ In order to enable lexical binding in the config, this must be the first line of
 ** Package
 Compile external packages for [[https://www.emacswiki.org/emacs/GccEmacs][GccEmacs]].
 #+begin_src emacs-lisp
-;; Wait until 28.1
-;; (setq package-native-compile t)
+(setq package-native-compile t)
 #+end_src
 
 ** Use Package
@@ -532,9 +531,7 @@ Improve the readability by increasing line spacing.
 
 Highlight urls and make them clickable.
 #+begin_src emacs-lisp
-;; This will work until emacs 28.1
-;; (global-goto-address-mode 1)
-(add-hook 'text-mode-hook 'goto-address-mode)
+(global-goto-address-mode 1)
 #+end_src
 
 Highlight paired brackets, includes (), [], {} and so on...
@@ -638,7 +635,7 @@ Increase undo limit.
 (setq undo-outer-limit 120000000)
 #+end_src
 ** Yasnippet
-
+https://github.com/joaotavora/yasnippet
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 *** Config
@@ -896,7 +893,9 @@ Increase undo limit.
         ("<C-S-right>" . org-shiftmetaright)
         ("<C-S-left>"  . org-shiftmetaleft)
         ("<C-right>"   . org-metaright)
-        ("<C-left>"    . org-metaleft))
+        ("<C-left>"    . org-metaleft)
+   :map evil-normal-state-map
+        ("TAB"         . org-cycle))
   :init
   ;; Fix not working sometimes.
   ;; Enable shift selection in insert and visual mode.
@@ -1564,8 +1563,7 @@ According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 ** Display
 Break lines normally for Chinese characters in visual line mode.
 #+begin_src emacs-lisp
-;; This will work until emacs 28.1
-;; (setq word-wrap-by-category t)
+(setq word-wrap-by-category t)
 #+end_src
 
 # FIX: Performance is lack.
