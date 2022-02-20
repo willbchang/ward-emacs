@@ -636,7 +636,7 @@ Increase undo limit.
 (setq undo-outer-limit 120000000)
 #+end_src
 ** Yasnippet
-https://github.com/joaotavora/yasnippet
+
 ** Evil Mode
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 *** Config
@@ -968,11 +968,11 @@ https://github.com/joaotavora/yasnippet
 (use-package org-appear
   :hook
   (org-mode . org-appear-mode)
-  :init
-  ;; Instant toggle raw format on insert mode, 1 second delay on normal mode.
-  (add-hook 'evil-insert-state-entry-hook (lambda() (setq org-appear-delay 0)))
-  (add-hook 'evil-normal-state-entry-hook (lambda() (setq org-appear-delay 1)))
   :config
+  ;; Instant toggle raw format on insert mode
+  (setq org-appear-trigger 'manual)
+  (add-hook 'evil-insert-state-entry-hook #'org-appear-manual-start nil t)
+  (add-hook 'evil-insert-state-exit-hook #'org-appear-manual-stop nil t)
   ;; Hide emphasis makers.
   (setq org-hide-emphasis-markers t)
   ;; Prettify things like \pi, sub/super script.
