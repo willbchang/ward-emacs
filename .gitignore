@@ -59,6 +59,9 @@ recentf*
 # Undo Fu
 undo-fu-session/
 
+# Multiple Cursor
+.mc-lists.el
+
 # Persistent Scratch
 .persistent-scratch
 
