@@ -483,6 +483,11 @@ Disable automatic backup~ file.
 (setq make-backup-files nil)
 #+end_src
 
+Delete trailing whitespace on save.
+#+begin_src emacs-lisp
+(add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
+#+end_src
+
 *** Find File in Project
 [[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
 #+begin_src emacs-lisp
