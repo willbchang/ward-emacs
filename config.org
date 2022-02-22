@@ -260,16 +260,18 @@ Disable init message.
 *** Dired
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
-(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
-;; Auto-refresh dired on file change
-(add-hook 'dired-mode-hook 'auto-revert-mode)
-(setq dired-use-ls-dired nil)
 ;; For Emacs 28
-;; (use-package dired
-;;   :ensure nil
-;;   :custom
-;;   (dired-kill-when-opening-new-dired-buffer t))
+(use-package dired
+  :ensure nil
+  :hook
+  (auto-revert-mode . dired-mode)
+  :custom
+  (dired-use-ls-dired nil)
+  (dired-kill-when-opening-new-dired-buffer t)
+  :config
+  (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode))))
 #+end_src
+
 *** Dired Subtree
 [[https://github.com/Fuco1/dired-hacks#dired-subtree][Dired Subtree]] can list subdirectories with ~Tab~.
 #+begin_src emacs-lisp
