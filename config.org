@@ -497,6 +497,14 @@ Disable automatic backup~ file.
   (ffip-use-rust-fd t))
 #+end_src
 
+*** Popwin
+[[https://github.com/emacsorphanage/popwin][Popwin]] is a popup window manager for Emacs. It moves cursor to the new popup window and you can quit it with ~q~.
+#+begin_src emacs-lisp
+(use-package popwin
+  :config
+  (popwin-mode t))
+#+end_src
+
 * Word Processing
 # TODO: company for elisp, especially for completion emacs functions/variables
 # TODO: Edit comment or string/docstring or code block inside them in separate buffer with your favorite mode https://github.com/twlz0ne/separedit.el
