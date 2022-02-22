@@ -1535,10 +1535,6 @@ If all failed, try to complete the common part with `company-complete-common'"
    ("C-c"           . vterm-send-C-c))
   :custom
   (vterm-always-compile-module t)
-  :custom-face
-  (term-color-blue ((t (:background "blue2" :foreground "mac:linkColor"))))
-  (term-color-red ((t (:background "red3" :foreground "red"))))
-  (term-color-yellow ((t (:background "yellow3" :foreground "orange"))))
   :init
   ;; Toggle vterm open and hide with Control + `
   (defun vterm-toggle ()
