@@ -1566,14 +1566,13 @@ Break lines normally for Chinese characters in visual line mode.
 (setq word-wrap-by-category t)
 #+end_src
 
-# FIX: Performance is lack.
-# FIX: Not align on org indent mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  :hook
-  (org-mode . valign-mode)
-  (markdown-mode . valign-mode)
+  ;; :hook
+  ;; FIX: Performance is lack, cause slow movement.
+  ;; (org-mode . valign-mode)
+  ;; (markdown-mode . valign-mode)
   :config
   (setq valign-max-table-size 10000)
   (setq valign-fancy-bar 1))
