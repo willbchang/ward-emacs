@@ -117,16 +117,15 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 
 *** Default Face
 #+begin_src emacs-lisp
-(set-face-foreground 'default "mac:textColor")
-(set-face-foreground 'link "mac:linkColor")
-(set-face-background 'isearch "mac:findHighlightColor")
+(set-face-foreground 'link "#0168da")
+(set-face-background 'isearch "#feff00")
 (set-face-foreground 'isearch nil)
-(set-face-background 'lazy-highlight "mac:findHighlightColor")
+(set-face-background 'lazy-highlight "#feff00")
 #+end_src
 
 *** Programming Face
 #+begin_src emacs-lisp
-(set-face-foreground 'font-lock-function-name-face "mac:linkColor")
+(set-face-foreground 'font-lock-function-name-face "#0168da")
 ;; (set-face-foreground 'font-lock-variable-name-face "orange red")
 (set-face-foreground 'font-lock-keyword-face "#874bf8")
 (set-face-foreground 'font-lock-comment-face "DarkGray")
@@ -153,9 +152,9 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 (set-face-foreground 'org-drawer "Gray")
 (set-face-foreground 'org-document-info-keyword "Gray")
 (set-face-foreground 'org-date "Gray")
-(set-face-foreground 'org-link "mac:linkColor")
+(set-face-foreground 'org-link "#0168da")
 
-(set-face-attribute 'org-level-1 nil :foreground "mac:linkColor")
+(set-face-attribute 'org-level-1 nil :foreground "#0168da")
 (set-face-attribute 'org-level-2 nil :foreground "#874bf8")
 (set-face-attribute 'org-level-3 nil :foreground "dark cyan")
 (set-face-attribute 'org-level-4 nil :foreground "violet red")
@@ -327,9 +326,9 @@ Hide all the information about files and folders except their names.
         '((swiper     . ivy--regex-plus)
           (counsel-rg . ivy--regex-plus)
           (t          . ivy--regex-fuzzy)))
-  (set-face-background 'ivy-current-match "mac:selectedContentBackgroundColor")
-  (set-face-background 'ivy-minibuffer-match-face-2 "mac:findHighlightColor")
-  (set-face-background 'ivy-minibuffer-match-face-4 "mac:findHighlightColor"))
+  (set-face-background 'ivy-current-match "#fccae2")
+  (set-face-background 'ivy-minibuffer-match-face-2 "#feff00")
+  (set-face-background 'ivy-minibuffer-match-face-4 "#feff00"))
 #+end_src
 
 *** Ivy Rich
@@ -605,7 +604,7 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 **** Behaviors
 Highlight selection with system accent color.
 #+begin_src emacs-lisp
-(set-face-attribute 'region nil :background "mac:selectedTextbackgroundColor")
+(set-face-attribute 'region nil :background "#fccae2")
 #+end_src
 
 *** Editing Text
@@ -762,7 +761,7 @@ https://github.com/joaotavora/yasnippet
 #+begin_src emacs-lisp
 (use-package evil-snipe
   :custom-face
-  (evil-snipe-matches-face ((t (:inherit region :background "mac:findHighlightColor"))))
+  (evil-snipe-matches-face ((t (:inherit region :background "#feff00"))))
   :config
   (evil-snipe-override-mode t))
 #+end_src
