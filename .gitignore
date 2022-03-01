@@ -91,6 +91,9 @@ dist/
 # Flycheck
 flycheck_*.el
 
+# LSP Mode
+.lsp*
+
 # server auth directory
 /server/
 
