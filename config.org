@@ -256,6 +256,20 @@ Disable init message.
 (fset 'display-startup-echo-area-message 'ignore)
 #+end_src
 
+Disable unhelpful mesages in minibuffer.
+https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/df3kko/suppress_some_message_in_minibuffer/
+#+begin_src emacs-lisp
+;; (kill-buffer "*Messages*")
+(defun suppress-messages (func &rest args)
+  (cl-letf (((symbol-function 'message)
+              (lambda (&rest args) nil)))
+     (apply func args)))
+
+(advice-add 'load :around #'suppress-messages)
+;; (advice-add 'org-babel-load-file :around #'suppress-messages)
+;; (advice-add 'write-region :around #'suppress-messages)
+#+end_src
+
 ** Dired
 *** Dired
 Hide all the information about files and folders except their names.
