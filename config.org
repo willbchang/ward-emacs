@@ -545,6 +545,11 @@ English font refer to early-init.el ~default-frame-alist~.
 #+end_src
 
 **** Behaviors
+Enable global line break.
+#+begin_src emacs-lisp
+(global-visual-line-mode 1)
+#+end_src
+
 Improve the readability by increasing line spacing.
 #+begin_src emacs-lisp
 (setq-default line-spacing 0.1)
@@ -929,6 +934,7 @@ https://github.com/joaotavora/yasnippet
   (add-hook 'evil-visual-state-entry-hook
             (lambda()
               (setq org-support-shift-select 'always)))
+
   :custom
   ;; Fold all contents on opening a org file.
   (org-startup-folded t)
