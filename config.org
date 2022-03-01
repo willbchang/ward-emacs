@@ -1642,8 +1642,8 @@ Break lines normally for Chinese characters in visual line mode.
 (use-package sis
   :config
   (sis-ism-lazyman-config
-   "com.apple.keylayout.ABC"
-   "com.apple.inputmethod.SCIM.ITABC")
+   "com.apple.keylayout.US"
+   "im.rime.inputmethod.Squirrel.Rime")
   (sis-global-respect-mode t)
   (sis-global-context-mode t)
   ;; Improve typing fluency experience.
