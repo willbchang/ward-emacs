@@ -1030,8 +1030,8 @@ https://github.com/joaotavora/yasnippet
 #   (kill-buffer "*Xenops-Doctor*")
 #+begin_src emacs-lisp
 (use-package xenops
-  :hook
-  (org-mode . xenops-mode)
+  ;; :hook
+  ;; (org-mode . xenops-mode)
   :bind
   (:map xenops-mode-map
    ;; xenops overrides the default paste behavior with xenops-handle-paste through xenops-util-define-key-with-fallback in xenops-define-key which breaks the delete-selection-mode
