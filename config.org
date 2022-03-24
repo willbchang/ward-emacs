@@ -97,8 +97,6 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
-      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
-
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
       ;; `no-extend', `bg-only', `accented'
