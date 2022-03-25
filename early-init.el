@@ -35,10 +35,6 @@
 
 (setq warning-minimum-level :error)
 
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
-(setq inhibit-startup-message t)
-
 ;;-------------------------Frame-----------------------------------------------
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we easily halve startup times with fonts that are

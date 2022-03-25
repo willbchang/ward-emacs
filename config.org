@@ -248,23 +248,13 @@ https://emacs.stackexchange.com/a/20039/19518
 (setq command-error-function #'filter-command-error-function)
 #+end_src
 
-Disable init message.
-#+begin_src emacs-lisp
-(fset 'display-startup-echo-area-message 'ignore)
-#+end_src
-
 Disable unhelpful mesages in minibuffer.
 https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/df3kko/suppress_some_message_in_minibuffer/
 #+begin_src emacs-lisp
-;; (kill-buffer "*Messages*")
 (defun suppress-messages (func &rest args)
   (cl-letf (((symbol-function 'message)
               (lambda (&rest args) nil)))
      (apply func args)))
-
-(advice-add 'load :around #'suppress-messages)
-;; (advice-add 'org-babel-load-file :around #'suppress-messages)
-;; (advice-add 'write-region :around #'suppress-messages)
 #+end_src
 
 ** Dired
@@ -961,8 +951,6 @@ https://github.com/joaotavora/yasnippet
   :config
   ;; Add REVIEW to org todo keywords.
   (setq org-todo-keywords '((sequence "TODO" "REVIEW" "DONE")))
-  ;; Suppress org cycle message when pressing tab.
-  (advice-add 'org-cycle :around #'suppress-messages)
   ;; Make verbatim with highlight text background.
   (add-to-list 'org-emphasis-alist
              '("=" (:background "#fef7ca")))
