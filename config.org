@@ -322,8 +322,9 @@ Hide all the information about files and folders except their names.
 *** Ivy Rich
 [[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in ~M-x~.
 #+begin_src emacs-lisp
-(use-package ivy-rich)
-(ivy-rich-mode 1)
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode 1))
 #+end_src
 
 ** Cursor
@@ -607,12 +608,6 @@ Highlight selection with system accent color.
 | ~Command + Shift + Backspace~ | Delete whole line entirely                       |
 | ~Command + /~                 | Comment/Uncomment line(s)                        |
 
-
-# TODO:
-# 1. Comment on empty line, it adds (e.g.) and put the cursor behind
-# 2. Comment one line, it adds before and forward one line
-# 3. Comment on region, it add and move to the next line of the region
-# 4. Cannot uncomment inside org mode code block
 **** Behaviors
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
@@ -624,7 +619,6 @@ Do not indent on newlines.
 (electric-indent-mode -1)
 #+end_src
 
-# FIX: not working via Command + V.
 Overwrite selection on pasting.
 #+begin_src emacs-lisp
 (delete-selection-mode 1)
@@ -1074,6 +1068,7 @@ Support mouse click.
   :ensure nil)
 #+end_src
 
+*** Org Modern
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
