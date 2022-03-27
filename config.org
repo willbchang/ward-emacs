@@ -356,19 +356,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Shift + Command + W~ | Close current window         |
 | ~Ctrl + Command + F~  | Set/Unset window full screen |
 
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-n") 'new-empty-frame)
-
-(defun new-empty-frame ()
-  "Create a new frame with a new empty buffer. With org-mode and evil-mode enabled."
-  (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (set-buffer buffer)
-    (org-mode)
-    (evil-mode 1)
-    (display-buffer buffer '(display-buffer-pop-up-frame . nil))))
-#+end_src
-
 ** Buffer
 *** Keybindings
 | Keybindings | Features              |
@@ -381,35 +368,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Command + S~ | Save Buffer           |
 | ~Command + R~ | Revert Buffer         |
 | ~Command + ,~ | Open Preferences      |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-t") 'new-empty-buffer)
-(global-set-key (kbd "s-r") 'revert-buffer-no-confirm)
-
-(defun reveal-in-finder ()
-  (interactive)
-  (shell-command "open -R ."))
-#+end_src
-
-# http://ergoemacs.org/emacs/emacs_new_empty_buffer.html
-#+begin_src emacs-lisp
-(defun new-empty-buffer ()
-  "Create a new empty buffer.
-New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc."
-  (interactive)
-  (let (($buffer (generate-new-buffer "untitled")))
-    (switch-to-buffer $buffer)
-    (funcall initial-major-mode)
-    (setq buffer-offer-save t)
-    $buffer))
-
-(defun revert-buffer-no-confirm ()
-  "Revert buffer without confirmation."
-  (interactive)
-  (save-buffer t)
-  (revert-buffer t t)
-  (message "Reverted `%s'" (buffer-name)))
-#+end_src
 
 *** Behaviors
 # TODO: Set init and fallback buffer to untitle instead of *scratch*.
@@ -441,18 +399,6 @@ Set initial buffer mode to org-mode.
 Save cursor position for each file.
 #+begin_src emacs-lisp
 (save-place-mode t)
-#+end_src
-
-Cancel partially typed or accidental command.
-#+begin_src emacs-lisp
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-#+end_src
-
-# FIX: Not working.
-Ask ~y~ or ~n~ instead of ~yes~ or ~no~. Use ~return~ to act ~y~.
-#+begin_src emacs-lisp
-(fset 'yes-or-no-p 'y-or-n-p)
-(define-key y-or-n-p-map (kbd "RET") 'act)
 #+end_src
 
 Disable the ring bell when scroll beyond the document.
@@ -508,18 +454,9 @@ English font refer to early-init.el ~default-frame-alist~.
 | Keybindings | Features            |
 |-------------+---------------------|
 | ~Command + +~ | Increase text scale |
+| ~Command + =~ | Increase text scale |
 | ~Command + -~ | Decrease text scale |
 | ~Command + 0~ | Reset text scale    |
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-0") 'text-scale-reset)
-(global-set-key (kbd "s-=") 'text-scale-increase)
-(global-set-key (kbd "s--") 'text-scale-decrease)
-
-(defun text-scale-reset ()
-  (interactive)
-  (text-scale-set 0))
-#+end_src
 
 **** Behaviors
 Enable global line break.
@@ -1258,12 +1195,3 @@ Make keybindings work under Chinese input method.
 | ~Command + ,~ | ~Command + ，~        | Open config file      |
 | ~Command + ,~ | ~Command + 。~        | Reload init file      |
 | ~Control + ·~ | ~Control + `~         | Toggle vterm          |
-
-#+begin_src emacs-lisp
-(define-key key-translation-map (kbd "s-【") (kbd "s-["))
-(define-key key-translation-map (kbd "s-】") (kbd "s-]"))
-(define-key key-translation-map (kbd "s-，") (kbd "s-,"))
-(define-key key-translation-map (kbd "s-。") (kbd "s-."))
-(define-key key-translation-map (kbd "C-·") (kbd "C-`"))
-;; (define-key key-translation-map (kbd "M-·") (kbd "M-`"))
-#+end_src

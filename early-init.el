@@ -50,29 +50,6 @@
                             (vertical-scroll-bars . nil)))
 
 ;;-------------------------Key Bindings----------------------------------------
-;; Make the macOS like keybinding work even Emacs's init file has bug, so I don't need to use the default keybinding which makes me like a dumb.
-;; Make Option and Command work normal in Emacs Mac Port.
-(setq mac-option-key-is-meta t
-      x-select-enable-clipboard 't
-      mac-command-modifier 'super
-      mac-option-modifier 'meta)
-
-;; Frame shortcuts
-(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
-(global-set-key (kbd "s-W") 'delete-frame)
-(global-set-key (kbd "s-`") 'other-frame)
-(global-set-key (kbd "M-`") 'other-window)
-(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
-
-;; Buffer shortcuts
-;; Disable swipe left/right to change buffer.
-(global-unset-key [swipe-left])
-(global-unset-key [swipe-right])
-
-(global-set-key (kbd "s-w") 'kill-this-buffer)
-(global-set-key (kbd "s-[") 'previous-buffer)
-(global-set-key (kbd "s-]") 'next-buffer)
-(global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-,") 'open-config-file)
 (global-set-key (kbd "s-.") 'reload-init-file)
 
@@ -83,50 +60,3 @@
 (defun reload-init-file ()
   (interactive)
   (load-file user-init-file))
-
-;; Moving Cursor
-;; https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-(global-set-key (kbd "s-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "s-<down>") 'end-of-buffer)
-(global-set-key (kbd "s-<left>") 'smarter-move-beginning-of-line)
-(global-set-key (kbd "s-<right>") 'move-end-of-line)
-
-;; Selecting Text
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
-
-;; Editing Text
-(global-set-key (kbd "s-c") 'kill-ring-save)
-(global-set-key (kbd "s-x") 'kill-region)
-(global-set-key (kbd "s-v") 'yank)
-(global-set-key (kbd "s-z") 'undo)
-(global-set-key (kbd "<s-return>") 'newline)
-(global-set-key (kbd "s-<backspace>") 'backward-kill-line)
-(global-set-key (kbd "s-S-<backspace>") 'kill-whole-line)
-
-(defun backward-kill-line (arg)
-  "Kill ARG lines backward."
-  (interactive "p")
-  (kill-line (- 1 arg)))
