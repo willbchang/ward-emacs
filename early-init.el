@@ -16,9 +16,9 @@
 (setq package-quickstart t)
 
 ;; Make libgccjit able to use gcc which installed from homebrew
-(setenv "LIBRARY_PATH" "/usr/local/opt/gcc/lib/gcc/11:/usr/local/opt/gcc/lib/gcc/11/gcc/x86_64-apple-darwin21/11")
+;; (setenv "LIBRARY_PATH" "/usr/local/opt/gcc/lib/gcc/11:/usr/local/opt/gcc/lib/gcc/11/gcc/x86_64-apple-darwin21/11")
 
-(setq warning-minimum-level :error)
+;; (setq warning-minimum-level :error)
 
 ;;-------------------------Frame-----------------------------------------------
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
