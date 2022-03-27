@@ -567,6 +567,7 @@ https://github.com/joaotavora/yasnippet
         ("RET" . nil))
   :init
   (setq evil-want-keybinding nil)
+  (setq evil-want-C-i-jump nil)
   ;; Set Evil cursor color and styles in different situations.
   (setq evil-emacs-state-cursor 'bar)
   (setq evil-normal-state-cursor '(box "deep pink"))
@@ -817,9 +818,7 @@ https://github.com/joaotavora/yasnippet
         ("<C-S-right>" . org-shiftmetaright)
         ("<C-S-left>"  . org-shiftmetaleft)
         ("<C-right>"   . org-metaright)
-        ("<C-left>"    . org-metaleft)
-   :map evil-normal-state-map
-        ("TAB"         . org-cycle))
+        ("<C-left>"    . org-metaleft))
   :init
   ;; Fix not working sometimes.
   ;; Enable shift selection in insert and visual mode.
