@@ -185,20 +185,15 @@ Disable cursor in inactive window.
 #+end_src
 
 ** Fringe
+https://stackoverflow.com/a/27854648/9984029
+Disable ugly fringe bitmaps.
 #+begin_src emacs-lisp
-(use-package emacs
-  :config
-  ;; Disable ugly bitmap in fringe.
-  (define-fringe-bitmap 'left-arrow [])
-  (define-fringe-bitmap 'left-curly-arrow [])
-  (define-fringe-bitmap 'left-triangle [])
-  ;; Display … and ↩ for truncation and wrap.
-  (defface fallback '((t :family "Fira Code Light"
-                         :foreground "gray")) "Fallback")
-  (set-display-table-slot standard-display-table 'truncation
-                          (make-glyph-code ?… 'fallback))
-  (set-display-table-slot standard-display-table 'wrap
-                        (make-glyph-code ?↩ 'fallback)))
+(setf (cdr (assq 'continuation fringe-indicator-alist))
+      '(nil nil) ;; no continuation indicators
+      ;; '(nil right-curly-arrow) ;; right indicator only
+      ;; '(left-curly-arrow nil) ;; left indicator only
+      ;; '(left-curly-arrow right-curly-arrow) ;; default
+      )
 #+end_src
 
 ** Modeline

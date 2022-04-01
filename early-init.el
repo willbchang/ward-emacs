@@ -31,7 +31,7 @@
                             (font . "Roboto Mono 18")
                             (internal-border-width . 18)
                             (left-fringe    . 3)
-                            (right-fringe   . 0)
+                            (right-fringe   . 1)
                             (vertical-scroll-bars . nil)))
 
 ;;-------------------------Key Bindings----------------------------------------
