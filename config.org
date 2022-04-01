@@ -55,6 +55,8 @@ Refresh packages on installing.
 * Basic UI
 ** Color Theme
 *** Modus Themes
+# TODO: merge customize color into modus-themes
+# FIX: some words' background in code block in white instead of gray.
 #+begin_src emacs-lisp
 (use-package modus-themes
   :init
@@ -160,10 +162,13 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 #+end_src
 
 **** Markdown
+# TODO: markdown heading faces
 
 *** Terminal Face
+# TODO: fd directories color
 
 ** Title Bar
+# PATCH: UI
 Show icon and full path in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
@@ -174,6 +179,7 @@ Show icon and full path in title bar.
 #+end_src
 
 ** Cursor
+# PATCH: UI
 Set default cursor type to bar.
 #+begin_src emacs-lisp
 (setq-default cursor-type 'bar)
@@ -185,6 +191,7 @@ Disable cursor in inactive window.
 #+end_src
 
 ** Fringe
+# PATCH: UI
 https://stackoverflow.com/a/27854648/9984029
 Disable ugly fringe bitmaps.
 #+begin_src emacs-lisp
@@ -197,6 +204,7 @@ Disable ugly fringe bitmaps.
 #+end_src
 
 ** Modeline
+# PATCH: UI
 Use a single line as modeline.
 #+begin_src emacs-lisp
 (use-package emacs
@@ -209,6 +217,7 @@ Use a single line as modeline.
 #+end_src
 
 * Basic UX
+# TODO: try consult,vertico etc.
 ** Messages
 Disable these messages by setting command-error-function to a function that ignores unused signals.
 https://emacs.stackexchange.com/a/20039/19518
@@ -305,6 +314,7 @@ Hide all the information about files and folders except their names.
 #+end_src
 
 ** Cursor
+# PATCH: UX
 Disable cursor blink.
 #+begin_src emacs-lisp
 (blink-cursor-mode 0)
@@ -358,6 +368,8 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 | ~Command + ,~ | Open Preferences      |
 
 *** Behaviors
+# PATCH: UX
+
 # TODO: Set init and fallback buffer to untitle instead of *scratch*.
 Save files automatically.
 #+begin_src emacs-lisp
@@ -433,6 +445,7 @@ Delete trailing whitespace on save.
 
 * Word Processing
 # TODO: Lock file with password and TouchID, like Notes.app
+# TODO: (Global) Replace with the context preview like swiper.
 ** Basic Features
 *** Displaying Text
 **** Font
@@ -447,6 +460,7 @@ English font refer to early-init.el ~default-frame-alist~.
 | ~Command + 0~ | Reset text scale    |
 
 **** Behaviors
+# PATCH: UX
 Enable global line break.
 #+begin_src emacs-lisp
 (global-visual-line-mode 1)
@@ -523,6 +537,7 @@ Highlight selection with system accent color.
 | ~Command + /~                 | Comment/Uncomment line(s)                        |
 
 **** Behaviors
+# PATCH: UX
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
 (electric-pair-mode 1)
@@ -621,6 +636,7 @@ https://github.com/joaotavora/yasnippet
 #+end_src
 
 *** Evil Collection
+# FIX: which-key diff-hl cannot use evil
 [[https://github.com/emacs-evil/evil-collection][evil-collection]] provides evil-friendly bindings for many modes.
 #+begin_src emacs-lisp
 (use-package evil-collection
@@ -654,6 +670,7 @@ https://github.com/joaotavora/yasnippet
 #+end_src
 
 *** Evil Snip
+# TODO: first match background to orange
 [[https://github.com/hlissner/evil-snipe][Evil Snip]] enables incremental highlighting, repeat searches with ​~f~​, ~F~, ~t~ and ~T~.
 #+begin_src emacs-lisp
 (use-package evil-snipe
@@ -664,6 +681,7 @@ https://github.com/joaotavora/yasnippet
 #+end_src
 
 *** Evil Goggles
+# TODO: use same color as diff hl
 [[https://github.com/edkolev/evil-goggles][Evil Goggles]] displays visual hint on evil edit operations.
 #+begin_src emacs-lisp
 (use-package evil-goggles
@@ -722,6 +740,9 @@ https://github.com/joaotavora/yasnippet
   (global-undo-fu-session-mode))
 #+end_src
 
+*** Undo Highlight
+https://github.com/casouri/undo-hl
+
 ** Rainbow Delimiters
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
 #+begin_src emacs-lisp
@@ -742,7 +763,7 @@ https://github.com/joaotavora/yasnippet
 #+begin_src emacs-lisp
 (use-package super-save
   :config
-  (super-save-mode +1))
+  (super-save-mode 1))
 #+end_src
 
 ** Sudo Edit
@@ -760,6 +781,7 @@ https://github.com/joaotavora/yasnippet
 #+end_src
 
 ** Multiple Cursor
+# FIX: a better UX multiple cursors
 - https://github.com/victorhge/iedit
 - https://github.com/hlissner/evil-multiedit
 - https://github.com/gabesoft/evil-mc
@@ -773,29 +795,6 @@ https://github.com/joaotavora/yasnippet
     :map mc/keymap
      ("<return>" .  newline)))
 #+end_src
-
-** Keybinding References
-*Keybinding Values*:
-| Meaning | Emacs Key Value | MacOS Key             |
-|---------+-----------------+-----------------------|
-| Control | =C=             | =Control(Ctrl)=       |
-| Meta    | =M=             | =Option(Alt)=         |
-| Super   | =s=             | =Command=             |
-| Shift   | =S=             | =Shift=               |
-| -       | =s-z=           | =Command + Z=         |
-| -       | =s-Z=           | =Command + Shift + Z= |
-
-*Keybinding Functions*: [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][Reference]]
-- =(define-key KEYMAP KEY DEF)=: Defines a key against a keyboard map. Use this if you want to change a keymap that isn’t the current buffer map.
-- =(local-set-key KEY COMMAND)=: Binds a key to the local keymap used by the active buffer, unlike define-key which takes an explicit keymap to bind a key against.
-- =(local-unset-key KEY)=: Removes KEY from the active, local keymap.
-- =(global-set-key KEY COMMAND)=: Binds a key to the global keymap, making it available in all buffers (with a caveat – see below.)
-- =(global-unset-key KEY)=: Removes KEY from the global keymap
-
-*Keybinding Value Styles*:
-- =(kbd "s-Z")=
-- ~"s-Z"~
-- ~[s-Z]~
 
 * Markup Language
 ** Org Mode
@@ -871,6 +870,7 @@ https://github.com/joaotavora/yasnippet
                           :color "grey75"
                           :style released-button)))))
 #+end_src
+
 *** Org Superstar
 [[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
 #+begin_src emacs-lisp
@@ -898,6 +898,7 @@ https://github.com/joaotavora/yasnippet
   (org-mode . org-appear-mode)
   :config
   ;; Instant toggle raw format on insert mode
+  ;; FIX: not working well
   (setq org-appear-trigger 'manual)
   (add-hook 'evil-insert-state-entry-hook #'org-appear-manual-start nil t)
   (add-hook 'evil-insert-state-exit-hook #'org-appear-manual-stop nil t)
@@ -927,7 +928,7 @@ https://github.com/joaotavora/yasnippet
   ;; (org-mode . xenops-mode)
   :bind
   (:map xenops-mode-map
-   ;; xenops overrides the default paste behavior with xenops-handle-paste through xenops-util-define-key-with-fallback in xenops-define-key which breaks the delete-selection-mode
+   ;; FIX: xenops overrides the default paste behavior with xenops-handle-paste through xenops-util-define-key-with-fallback in xenops-define-key which breaks the delete-selection-mode
    ("s-v" . yank))
   :config
   ;; Suppress xenops startup messages.
@@ -1013,6 +1014,7 @@ Support mouse click.
 * Version Control
 ** Magit
 # TODO: auto save file(s) when calling magit
+# TODO: cancel selection with ESC.
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
@@ -1045,6 +1047,7 @@ Support mouse click.
   ;; Highlight changes on editing.
   (diff-hl-flydiff-mode)
   ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
+  ;; FIX: not working by default
   (diff-hl-show-hunk-mouse-mode)
   :custom
   (diff-hl-draw-borders nil)
@@ -1065,7 +1068,7 @@ Support mouse click.
 #+end_src
 
 ** Vterm
-# FIX: Word wrap is not normal
+# FIX: Word wrap eats one char in the end
 [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully capable, fast, and it can seamlessly handle large outputs.
 #+begin_src emacs-lisp
 (use-package vterm
@@ -1080,6 +1083,7 @@ Support mouse click.
   :custom
   (vterm-always-compile-module t)
   :init
+  ;; FIX: https://github.com/jixiuf/vterm-toggle
   (defun vterm-split-window-below ()
     (interactive)
     (vterm)
@@ -1096,13 +1100,15 @@ Support mouse click.
   :config
   ;; Disable evil mode for vterm.
   (evil-set-initial-state 'vterm-mode 'emacs)
-  ;; Close vterm buffer without confriming.
+  ;; FIX: Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
 #+end_src
 
 * Chinese Optimization
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
 ** Font
+# PATCH: Font
+# TODO: Apple Color Emoji
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
@@ -1143,6 +1149,7 @@ Break lines normally for Chinese characters in visual line mode.
   (global-evil-pinyin-mode))
 #+end_src
 
+# TODO: move to github repo, download by quepla
 [[https://github.com/pengpengxp/swiper/wiki/ivy-support-chinese-pinyin][ivy-support-chinese-pinyin]] Support Chinese pinyin match, start with !.
 #+begin_src emacs-lisp
 (load-file "~/.config/emacs/elisp/ivy-chinese-pinyin.el")
@@ -1182,3 +1189,4 @@ Make keybindings work under Chinese input method.
 | ~Command + ,~ | ~Command + ，~        | Open config file      |
 | ~Command + ,~ | ~Command + 。~        | Reload init file      |
 | ~Control + ·~ | ~Control + `~         | Toggle vterm          |
+# FIX: M-· is not recognized
