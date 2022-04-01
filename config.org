@@ -27,6 +27,16 @@ The ~:ensure~ keyword causes the package(s) to be installed automatically if not
 (setq use-package-always-ensure t)
 #+end_src
 
+# https://github.com/jwiegley/use-package/issues/256#issuecomment-263313693
+Refresh packages on installing.
+#+begin_src emacs-lisp
+(defun my-package-install-refresh-contents (&rest args)
+  (package-refresh-contents)
+  (advice-remove 'package-install 'my-package-install-refresh-contents))
+
+(advice-add 'package-install :before 'my-package-install-refresh-contents)
+#+end_src
+
 ** Quelpa
 [[https://github.com/quelpa/quelpa][Quelpa]]: Build and install your Emacs Lisp packages on-the-fly directly from source.
 #+begin_src emacs-lisp
