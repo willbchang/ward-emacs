@@ -320,18 +320,6 @@ Disable cursor blink.
 (blink-cursor-mode 0)
 #+end_src
 
-** Helpful
-[[https://github.com/Wilfred/helpful][Helpful]] is an alternative to the built-in Emacs help that provides much more contextual information.
-#+begin_src emacs-lisp
-(use-package helpful
-  :bind
-  (("C-h f" . helpful-callable)
-   ("C-h v" . helpful-variable)
-   ("C-h k" . helpful-key)
-   :map evil-normal-state-map
-        ("q" . quit-window)))
-#+end_src
-
 * Window Management
 ** Session
 [[https://github.com/iqbalansari/restart-emacs][restart-emacs]] offers a command ~restart-emacs~.
