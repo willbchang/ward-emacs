@@ -331,6 +331,12 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+begin_src emacs-lisp
 (server-start)
 #+end_src
+** Window
+No popup windows.
+#+begin_src emacs-lisp
+(setq pop-up-windows nil)
+#+end_src
+
 
 ** Frame
 *** Keybindings
@@ -421,14 +427,6 @@ Delete trailing whitespace on save.
   ("s-p" . find-file-in-project)
   :custom
   (ffip-use-rust-fd t))
-#+end_src
-
-*** Popwin
-[[https://github.com/emacsorphanage/popwin][Popwin]] is a popup window manager for Emacs. It moves cursor to the new popup window and you can quit it with ~q~.
-#+begin_src emacs-lisp
-(use-package popwin
-  :config
-  (popwin-mode t))
 #+end_src
 
 * Word Processing
