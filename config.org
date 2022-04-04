@@ -857,24 +857,6 @@ https://github.com/casouri/undo-hl
                           :style released-button)))))
 #+end_src
 
-*** Org Superstar
-[[https://github.com/integral-dw/org-superstar-mode][Org Superstar]] prettifies headings and plain lists in Org mode.
-#+begin_src emacs-lisp
-(use-package org-superstar
-  :hook
-  (org-mode . org-superstar-mode)
-  :config
-  (setq org-hide-leading-stars t)
-  :custom
-  ;; Change org headlines' style to ›.
-  (org-superstar-headline-bullets-list '("›"))
-  ;; Change org unordered list styles.
-  (org-superstar-prettify-item-bullets t)
-  (org-superstar-item-bullet-alist '((?* . ?•)
-                                     (?+ . ?•)
-                                     (?- . ?•))))
-#+end_src
-
 *** Org Appear
 [[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
 # FIX: not working in latex frament
@@ -969,6 +951,18 @@ Support mouse click.
 #+end_src
 
 *** Org Modern
+#+begin_src emacs-lisp
+(use-package org-modern
+  :hook
+  (org-mode . org-modern-mode)
+  :custom
+  (org-modern-star ["›"] )
+  ;; For org-indent-mode works normally.
+  (org-modern-hide-stars nil)
+  ;; Use valign instead
+  (org-modern-table nil))
+#+end_src
+
 ** Markdown Mode
 [[https://github.com/jrblevin/markdown-mode][Markdown]] allows you to write using an easy-to-read, easy-to-write plain text format.
 #+begin_src emacs-lisp
