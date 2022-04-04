@@ -337,7 +337,6 @@ No popup windows.
 (setq pop-up-windows nil)
 #+end_src
 
-
 ** Frame
 *** Keybindings
 | Keybindings         | Features                     |
@@ -432,6 +431,7 @@ Delete trailing whitespace on save.
 * Word Processing
 # TODO: Lock file with password and TouchID, like Notes.app
 # TODO: (Global) Replace with the context preview like swiper.
+# FIX: line height English 中文 😊
 ** Basic Features
 *** Displaying Text
 **** Font
@@ -995,6 +995,7 @@ Support mouse click.
 ** Magit
 # TODO: auto save file(s) when calling magit
 # TODO: cancel selection with ESC.
+# TODO: one buffer split window on commit message
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
