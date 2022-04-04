@@ -1006,7 +1006,16 @@ Support mouse click.
   :custom
   (magit-diff-refine-hunk t)
   ;; Disable ulgy bitmap in fringe in magit mode.
-  (magit-section-visibility-indicator nil))
+  (magit-section-visibility-indicator nil)
+  :config
+  ;; https://manuel-uberti.github.io/emacs/2018/02/17/magit-bury-buffer/
+  (evil-define-key 'normal magit-status-mode-map (kbd "q") 'magit-kill-buffers)
+  (defun magit-kill-buffers ()
+    "Restore window configuration and kill all Magit buffers."
+    (interactive)
+    (let ((buffers (magit-mode-get-buffers)))
+      (magit-restore-window-configuration)
+      (mapc #'kill-buffer buffers))))
 #+end_src
 
 ** Git Modes
