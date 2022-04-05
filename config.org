@@ -56,7 +56,6 @@ Refresh packages on installing.
 ** Color Theme
 *** Modus Themes
 # TODO: merge customize color into modus-themes
-# FIX: some words' background in code block in white instead of gray.
 #+begin_src emacs-lisp
 (use-package modus-themes
   :init
@@ -135,7 +134,9 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 #+begin_src emacs-lisp
 (use-package highlight-defined
   :hook
-  (emacs-lisp-mode . highlight-defined-mode))
+  (emacs-lisp-mode . highlight-defined-mode)
+  :custom-face
+  (highlight-defined-face-name-face  ((t :inherit org-block))))
 #+end_src
 
 *** Markup Face
