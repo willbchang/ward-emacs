@@ -1046,7 +1046,8 @@ Support mouse click.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
   :config
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (advice-add 'exec-path-from-shell-initialize :around #'suppress-messages))
 #+end_src
 
 ** Vterm
