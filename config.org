@@ -354,7 +354,7 @@ No popup windows.
 | Keybindings         | Features                     |
 |---------------------+------------------------------|
 | ~Command + Q~         | Quit Emacs                   |
-| ~Command + N~         | Create new window            |
+| ~Command + N~         | Create new frame             |
 | ~Command + `~         | Change to other frame        |
 | ~Shift + Command + W~ | Close current window         |
 | ~Ctrl + Command + F~  | Set/Unset window full screen |
@@ -558,11 +558,9 @@ Increase undo limit.
 ;; default is 24000000
 (setq undo-outer-limit 120000000)
 #+end_src
-** Yasnippet
-https://github.com/joaotavora/yasnippet
-** Evil Mode
+** Vim Emulator
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
-*** Config
+*** Evil
 #+begin_src emacs-lisp
 (use-package evil
   :bind
@@ -706,7 +704,8 @@ https://github.com/joaotavora/yasnippet
         ("gl" . avy-goto-line)))
 #+end_src
 
-** Undo Fu
+** Undo
+*** Undo Fu
 [[https://gitlab.com/ideasman42/emacs-undo-fu][Undo Fu]] is a simple, stable linear undo with redo.
 #+begin_src emacs-lisp
 (use-package undo-fu
@@ -720,6 +719,7 @@ https://github.com/joaotavora/yasnippet
   (undo-fu-allow-undo-in-region t))
 #+end_src
 
+*** Undo fu Session
 [[https://gitlab.com/ideasman42/emacs-undo-fu-session][Undo fu session]] writes undo/redo information upon file save which is restored where possible when the file is loaded again.
 #+begin_src emacs-lisp
 (use-package undo-fu-session
@@ -768,7 +768,7 @@ https://github.com/casouri/undo-hl
   (vlf-application 'dont-ask))
 #+end_src
 
-** Multiple Cursor
+** Multiple Cursors
 # FIX: a better UX multiple cursors
 - https://github.com/victorhge/iedit
 - https://github.com/hlissner/evil-multiedit
@@ -784,7 +784,9 @@ https://github.com/casouri/undo-hl
      ("<return>" .  newline)))
 #+end_src
 
-* Markup Language
+** Yasnippet
+https://github.com/joaotavora/yasnippet
+* Markup Languages
 ** Org Mode
 *** Config
 # FIX: Make not*Bold*AtAll work!
@@ -976,6 +978,9 @@ Support mouse click.
   :init (setq markdown-command "multimarkdown"))
 #+end_src
 
+* Script Languages
+** Apple Script
+https://github.com/emacsorphanage/applescript-mode
 * Data Format
 ** YAML
 [[https://yaml.org/][YAML]] is a human friendly data serialization language for all programming languages.
@@ -1012,6 +1017,7 @@ Support mouse click.
   :config
   ;; https://manuel-uberti.github.io/emacs/2018/02/17/magit-bury-buffer/
   (evil-define-key 'normal magit-status-mode-map (kbd "q") 'magit-kill-buffers)
+
   (defun magit-kill-buffers ()
     "Restore window configuration and kill all Magit buffers."
     (interactive)
