@@ -5,20 +5,37 @@ In order to enable lexical binding in the config, this must be the first line of
 ;;; -*- lexical-binding: t -*-
 #+end_src
 
-** Use Package
-[[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
+** Package
 
-Ensure that use-package is installed. If use-package isn't already installed, it's extremely likely that this is a fresh installation! So we'll want to update the package repository and install use-package before loading the literate configuration.
 #+begin_src emacs-lisp
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
+#+end_src
 
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
+** Straight
+
+#+begin_src emacs-lisp
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+#+end_src
+
+** Use Package
+[[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
+#+begin_src emacs-lisp
+(straight-use-package 'use-package)
 #+end_src
 
 The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system, it won't affect local packages. Enable ~:ensure t~ to be global for all packages.
@@ -35,21 +52,6 @@ Refresh packages on installing.
   (advice-remove 'package-install 'my-package-install-refresh-contents))
 
 (advice-add 'package-install :before 'my-package-install-refresh-contents)
-#+end_src
-
-** Quelpa
-[[https://github.com/quelpa/quelpa][Quelpa]]: Build and install your Emacs Lisp packages on-the-fly directly from source.
-#+begin_src emacs-lisp
-(unless (package-installed-p 'quelpa)
-  (with-temp-buffer
-    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
-    (eval-buffer)
-    (quelpa-self-upgrade)))
-#+end_src
-
-[[https://github.com/quelpa/quelpa-use-package][quelpa-use-package]]: Emacs quelpa handler for use-package.
-#+begin_src emacs-lisp
-(use-package quelpa-use-package)
 #+end_src
 
 * Basic UI
@@ -274,10 +276,9 @@ Hide all the information about files and folders except their names.
 [[https://github.com/jtbm37/all-the-icons-dired][All the icon dired]] adds dired support to all-the-icons.
 #+begin_src emacs-lisp
 (use-package all-the-icons-dired
-  :quelpa
-  (all-the-icons-dired :fetcher github :repo "jtbm37/all-the-icons-dired")
-  :hook
-  (dired-mode . all-the-icons-dired-mode))
+ :straight t
+ :hook
+ (dired-mode . all-the-icons-dired-mode))
 #+end_src
 
 ** Which Key
