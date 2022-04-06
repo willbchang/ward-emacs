@@ -244,7 +244,7 @@ https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/
      (apply func args)))
 #+end_src
 
-** Dired
+** File Manager
 *** Dired
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
@@ -268,6 +268,16 @@ Hide all the information about files and folders except their names.
   (:map  dired-mode-map
    ("<tab>"     . dired-subtree-toggle)
    ("<backtab>" . dired-subtree-cycle)))
+#+end_src
+
+*** All The Icon Dired
+[[https://github.com/jtbm37/all-the-icons-dired][All the icon dired]] adds dired support to all-the-icons.
+#+begin_src emacs-lisp
+(use-package all-the-icons-dired
+  :quelpa
+  (all-the-icons-dired :fetcher github :repo "jtbm37/all-the-icons-dired")
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
 #+end_src
 
 ** Which Key
@@ -332,6 +342,7 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+begin_src emacs-lisp
 (server-start)
 #+end_src
+
 ** Window
 No popup windows.
 #+begin_src emacs-lisp
@@ -352,7 +363,7 @@ No popup windows.
 *** Keybindings
 | Keybindings | Features              |
 |-------------+-----------------------|
-| ~Command + F~ | Find File in Project  |
+| ~Command + P~ | Find File in Project  |
 | ~Command + W~ | Close Current Buffer  |
 | ~Command + [~ | Go to previous Buffer |
 | ~Command + ]~ | Go to next Buffer     |
@@ -363,7 +374,6 @@ No popup windows.
 
 *** Behaviors
 # PATCH: UX
-
 # TODO: Set init and fallback buffer to untitle instead of *scratch*.
 Save files automatically.
 #+begin_src emacs-lisp
