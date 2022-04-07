@@ -276,7 +276,6 @@ Hide all the information about files and folders except their names.
 [[https://github.com/jtbm37/all-the-icons-dired][All the icon dired]] adds dired support to all-the-icons.
 #+begin_src emacs-lisp
 (use-package all-the-icons-dired
- :straight t
  :hook
  (dired-mode . all-the-icons-dired-mode))
 #+end_src
@@ -1047,7 +1046,7 @@ https://github.com/emacsorphanage/applescript-mode
   (diff-hl-flydiff-mode)
   ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
   ;; FIX: not working by default
-  (diff-hl-show-hunk-mouse-mode)
+  ;; (diff-hl-show-hunk-mouse-mode)
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
