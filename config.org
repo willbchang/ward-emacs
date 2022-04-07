@@ -246,6 +246,11 @@ https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/
      (apply func args)))
 #+end_src
 
+Disable mouse command on y-or-n-p.
+#+begin_src emacs-lisp
+(setq use-dialog-box nil)
+#+end_src
+
 ** File Manager
 *** Dired
 Hide all the information about files and folders except their names.
