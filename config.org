@@ -1000,6 +1000,10 @@ Support mouse click.
 * Script Languages
 ** Apple Script
 https://github.com/emacsorphanage/applescript-mode
+#+begin_src emacs-lisp
+(use-package applescript-mode)
+#+end_src
+
 * Data Format
 ** YAML
 [[https://yaml.org/][YAML]] is a human friendly data serialization language for all programming languages.
