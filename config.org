@@ -734,7 +734,14 @@ Increase undo limit.
 #+end_src
 
 *** Undo Highlight
-https://github.com/casouri/undo-hl
+[[https://github.com/casouri/undo-hl][undo hl]] highlights undo operations, like evil-goggles.
+# FIX: became default face after redo.
+#+begin_src emacs-lisp
+(use-package undo-hl
+  :straight (undo-hl :type git :host github :repo "casouri/undo-hl")
+  :hook
+  (text-mode . undo-hl-mode))
+#+end_src
 
 ** Rainbow Delimiters
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
