@@ -1012,6 +1012,7 @@ https://github.com/emacsorphanage/applescript-mode
    ("<escape>" . transient-quit-one))
   :custom
   (magit-diff-refine-hunk t)
+  (magit-save-repository-buffers 'dontask)
   ;; Disable ulgy bitmap in fringe in magit mode.
   (magit-section-visibility-indicator nil)
   :config
