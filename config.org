@@ -5,18 +5,8 @@ In order to enable lexical binding in the config, this must be the first line of
 ;;; -*- lexical-binding: t -*-
 #+end_src
 
-** Package
-
-#+begin_src emacs-lisp
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(package-initialize)
-#+end_src
-
 ** Straight
-
+[[https://github.com/raxod502/straight.el][straight.el]] is a better replacement of the default package.el.
 #+begin_src emacs-lisp
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -36,22 +26,7 @@ In order to enable lexical binding in the config, this must be the first line of
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
 #+begin_src emacs-lisp
 (straight-use-package 'use-package)
-#+end_src
-
-The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system, it won't affect local packages. Enable ~:ensure t~ to be global for all packages.
-#+begin_src emacs-lisp
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-#+end_src
-
-# https://github.com/jwiegley/use-package/issues/256#issuecomment-263313693
-Refresh packages on installing.
-#+begin_src emacs-lisp
-(defun my-package-install-refresh-contents (&rest args)
-  (package-refresh-contents)
-  (advice-remove 'package-install 'my-package-install-refresh-contents))
-
-(advice-add 'package-install :before 'my-package-install-refresh-contents)
+(setq straight-use-package-by-default t)
 #+end_src
 
 * Basic UI
@@ -256,7 +231,7 @@ Disable mouse command on y-or-n-p.
 Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (use-package dired
-  :ensure nil
+  :straight (:type built-in)
   :hook
   (auto-revert-mode . dired-mode)
   :custom
@@ -569,6 +544,9 @@ Increase undo limit.
 #+begin_src emacs-lisp
 (use-package evil
   :bind
+  ;; FIX: Visual line mode cannot move cursor when things like this:
+  ;; Move the cursor into (a and try j or k, up or down arrow.
+;; (advice-add 'package-install :before 'my-package-install-refresh-contents)
   (:map evil-normal-state-map
         ("j"   . evil-next-visual-line)
         ("k"   . evil-previous-visual-line)
@@ -819,6 +797,7 @@ https://github.com/joaotavora/yasnippet
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 #+begin_src emacs-lisp
 (use-package org
+  :straight (:type built-in)
   :hook
   ;; Enable headline and subcontent in the indented view.
   (org-mode . org-indent-mode)
@@ -970,7 +949,7 @@ otherwise call `org-self-insert-command'."
 Support mouse click.
 #+begin_src emacs-lisp
 (use-package org-mouse
-  :ensure nil)
+  :straight (:type built-in))
 #+end_src
 
 *** Org Modern
