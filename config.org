@@ -22,6 +22,12 @@ In order to enable lexical binding in the config, this must be the first line of
   (load bootstrap-file nil 'nomessage))
 #+end_src
 
+Shadow clone git repo to improve the speed.
+#+begin_src emacs-lisp
+(setq straight-vc-git-default-clone-depth 1)
+#+end_src
+
+
 ** Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
 #+begin_src emacs-lisp
