@@ -1001,6 +1001,7 @@ https://github.com/emacsorphanage/applescript-mode
 #+end_src
 
 ** JSON
+# TODO: JSON Formatter
 [[https://json.org][JSON]] (JavaScript Object Notation) is a lightweight data-interchange format.
 #+begin_src emacs-lisp
 (use-package json-mode
@@ -1041,6 +1042,14 @@ https://github.com/emacsorphanage/applescript-mode
 #+begin_src emacs-lisp
 (use-package git-modes
   :defer t)
+#+end_src
+
+** Git Time Machine
+[[https://github.com/emacsmirror/git-timemachine][Git Time Machine]] walks through git revisions of a file.
+#+begin_src emacs-lisp
+(use-package git-timemachine
+  :custom
+  (git-timemachine-abbreviation-length 7))
 #+end_src
 
 ** Diff HL
