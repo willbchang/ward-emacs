@@ -164,14 +164,15 @@ Show icon and full path in title bar.
 
 ** Cursor
 # PATCH: UI
-Set default cursor type to bar.
 #+begin_src emacs-lisp
-(setq-default cursor-type 'bar)
-#+end_src
-
-Disable cursor in inactive window.
-#+begin_src emacs-lisp
-(setq-default cursor-in-non-selected-windows nil)
+(use-package emacs
+  :custom-face
+  (highlight ((t (:foreground nil :background nil))))
+  :config
+  ;; Set default cursor type to bar.
+  (setq-default cursor-type 'bar)
+  ;; Disable cursor in inactive window.
+  (setq-default cursor-in-non-selected-windows nil))
 #+end_src
 
 ** Fringe
