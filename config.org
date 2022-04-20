@@ -1084,8 +1084,7 @@ https://github.com/emacsorphanage/applescript-mode
 #+begin_src emacs-lisp
 (use-package vterm
   :bind
-  (("C-`"           . vterm-toggle)
-   :map vterm-mode-map
+  (:map vterm-mode-map
    ("s-k"           . vterm-clear)
    ("<s-left>"      . vterm-send-C-a)
    ("<s-right>"     . vterm-send-C-e)
@@ -1093,26 +1092,31 @@ https://github.com/emacsorphanage/applescript-mode
    ("C-c"           . vterm-send-C-c))
   :custom
   (vterm-always-compile-module t)
-  :init
-  ;; FIX: https://github.com/jixiuf/vterm-toggle
-  (defun vterm-split-window-below ()
-    (interactive)
-    (vterm)
-    (split-window-below -12)
-    (previous-buffer)
-    (other-window 1))
-
-  (defun vterm-toggle ()
-    "Toggle vterm open and hide with Control + `"
-    (interactive)
-    (if (eq major-mode 'vterm-mode)
-        (delete-window)
-      (vterm-split-window-below)))
   :config
   ;; Disable evil mode for vterm.
   (evil-set-initial-state 'vterm-mode 'emacs)
   ;; FIX: Close vterm buffer without confriming.
   (setq kill-buffer-query-functions nil))
+#+end_src
+
+** Vterm Toggle
+[[https://github.com/jixiuf/vterm-toggle][vterm-toggle]] toggles between the vterm buffer and whatever buffer you are editing.
+#+begin_src emacs-lisp
+(use-package vterm-toggle
+  :bind
+  (("C-`"        . vterm-toggle)
+   :map vterm-mode-map
+   ("<C-return>" . vterm-toggle-insert-cd))
+  :config
+  (add-to-list 'display-buffer-alist
+               '((lambda(bufname _) (with-current-buffer bufname
+                                      (or (equal major-mode 'vterm-mode)
+                                          (equal bufname vterm-buffer-name))))
+                 (display-buffer-reuse-window display-buffer-in-side-window)
+                 (side . bottom)
+                 (dedicated . t)
+                 (reusable-frames . visible)
+                 (window-height . 0.3))))
 #+end_src
 
 * Chinese Optimization
