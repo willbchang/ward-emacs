@@ -1071,9 +1071,11 @@ https://github.com/emacsorphanage/applescript-mode
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
+  :custom
+  ;; No warnings, please! I don't care!
+  (exec-path-from-shell-warn-duration-millis 99999)
   :config
-  (exec-path-from-shell-initialize)
-  (advice-add 'exec-path-from-shell-initialize :around #'suppress-messages))
+  (exec-path-from-shell-initialize))
 #+end_src
 
 ** Vterm
