@@ -62,6 +62,12 @@ recentf*
 # Undo Fu
 undo-fu-session/
 
+# Savehist
+history
+
+# Project
+projects
+
 # Multiple Cursor
 .mc-lists.el
 

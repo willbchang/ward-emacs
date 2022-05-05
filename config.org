@@ -27,7 +27,6 @@ Shadow clone git repo to improve the speed.
 (setq straight-vc-git-default-clone-depth 1)
 #+end_src
 
-
 ** Use Package
 [[https://github.com/jwiegley/use-package][Use Package]] allows you to isolate package configuration in your emacs config file in a way that is both performance-oriented and, well, tidy.
 #+begin_src emacs-lisp
@@ -166,6 +165,7 @@ Show icon and full path in title bar.
 # PATCH: UI
 #+begin_src emacs-lisp
 (use-package emacs
+  ;; TODO: disable highlight face or make it inherit current face, like region
   :custom-face
   (highlight ((t (:foreground nil :background nil))))
   :config
@@ -275,40 +275,46 @@ Hide all the information about files and folders except their names.
   (which-key-mode))
 #+end_src
 
-** Ivy
-[[https://github.com/abo-abo/swiper][Ivy]] is a generic completion front-end.
+** Completion
+*** Vertico
 #+begin_src emacs-lisp
-(use-package counsel
-  :bind
-  (("M-x" . counsel-M-x)
-   ("s-f" . swiper-isearch)
-   ("s-b" . ivy-switch-buffer)
-   ("s-F" . counsel-rg))
-
-  :config
-  (use-package flx)
-  (use-package amx)
-
-  (ivy-mode 1)
-  (add-to-list 'ivy-more-chars-alist '(counsel-rg . 1))
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-re-builders-alist
-        '((swiper     . ivy--regex-plus)
-          (counsel-rg . ivy--regex-plus)
-          (t          . ivy--regex-fuzzy)))
-  (set-face-background 'ivy-current-match "#fccae2")
-  (set-face-background 'ivy-minibuffer-match-face-2 "#feff00")
-  (set-face-background 'ivy-minibuffer-match-face-4 "#feff00"))
+(use-package vertico
+  :init
+  (vertico-mode)
+  ;; Persist history over Emacs restarts. Vertico sorts by history position.
+  (savehist-mode))
 #+end_src
 
-*** Ivy Rich
-[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] adds description to the command in ~M-x~.
+*** Marginalia
+[[https://github.com/minad/marginalia][Marginalia]] adds marginalia to the minibuffer completions.
 #+begin_src emacs-lisp
-(use-package ivy-rich
-  :config
-  (ivy-rich-mode 1))
+(use-package marginalia
+  :custom
+  (marginalia-field-width 100)
+  :init
+  (marginalia-mode))
+#+end_src
+
+*** Orderless
+[[https://github.com/oantolin/orderless][Orderless]] is a completion style that matches multiple regexps in any order.
+#+begin_src emacs-lisp
+;; Optionally use the `orderless' completion style.
+(use-package orderless
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
+#+end_src
+
+** Search
+*** Consult
+[[https://github.com/minad/consult][consult]] allows you to quickly select an item from a list of candidates that you're searching for.
+#+begin_src emacs-lisp
+(use-package consult
+  :bind
+  ("s-f" . consult-line)
+  ("s-F" . consult-ripgrep)
+  ("s-b" . consult-buffer))
 #+end_src
 
 ** Cursor
@@ -1162,7 +1168,12 @@ Break lines normally for Chinese characters in visual line mode.
 ** Search
 [[https://github.com/cute-jumper/pinyinlib.el][Pinyinlib]] is a elisp library for converting first letter of Pinyin to Simplified/Traditional Chinese characters.
 #+begin_src emacs-lisp
-(use-package pinyinlib)
+(use-package pinyinlib
+  :config
+  ;; https://emacs-china.org/t/vertico/17913/3
+  (defun completion--regex-pinyin (str)
+    (orderless-regexp (pinyinlib-build-regexp-string str)))
+  (add-to-list 'orderless-matching-styles 'completion--regex-pinyin))
 #+end_src
 
 [[https://github.com/laishulu/evil-pinyin][evil-pinyin]]: Search Chinese characters with the first letter of Pinyin.
@@ -1172,13 +1183,6 @@ Break lines normally for Chinese characters in visual line mode.
   (evil-select-search-module 'evil-search-module 'evil-search)
   (global-evil-pinyin-mode))
 #+end_src
-
-# TODO: move to github repo, download by quepla
-[[https://github.com/pengpengxp/swiper/wiki/ivy-support-chinese-pinyin][ivy-support-chinese-pinyin]] Support Chinese pinyin match, start with !.
-#+begin_src emacs-lisp
-(load-file "~/.config/emacs/elisp/ivy-chinese-pinyin.el")
-#+end_src
-
 
 [[https://github.com/cute-jumper/ace-pinyin][ace-pinyin]] make you jump to Chinese character by pinyin with avy.
 #+begin_src emacs-lisp
