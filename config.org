@@ -966,6 +966,7 @@ Support mouse click.
 #+end_src
 
 *** Org Modern
+
 #+begin_src emacs-lisp
 (use-package org-modern
   :hook
@@ -1139,12 +1140,15 @@ https://github.com/emacsorphanage/applescript-mode
 ** Font
 # PATCH: Font
 # TODO: Apple Color Emoji
+
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset (font-spec :family "PingFang SC")))
+
+(set-fontset-font t 'emoji '("Apple Color Emoji" . "iso10646-1") nil 'prepend)
 #+end_src
 
 ** Display
