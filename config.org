@@ -179,6 +179,7 @@ Show icon and full path in title bar.
 # PATCH: UI
 https://stackoverflow.com/a/27854648/9984029
 Disable ugly fringe bitmaps.
+# TODO: Transparent fringe foreground and background.
 #+begin_src emacs-lisp
 (setf (cdr (assq 'continuation fringe-indicator-alist))
       '(nil nil) ;; no continuation indicators
@@ -825,7 +826,7 @@ https://github.com/joaotavora/yasnippet
         ("<C-right>"   . org-metaright)
         ("<C-left>"    . org-metaleft))
   :init
-  ;; Fix not working sometimes.
+  ;; FIX: not working sometimes.
   ;; Enable shift selection in insert and visual mode.
   (add-hook 'evil-insert-state-entry-hook
             (lambda()
@@ -1084,6 +1085,7 @@ https://github.com/emacsorphanage/applescript-mode
 * Terminal Emulator
 ** Exec Path From Shell
 # FIX: git XDG path not working.
+# FIX: https://emacs-china.org/t/exec-path-from-shell/2515/9
 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] ensures environment variables inside Emacs look the same as in the user's shell.
 #+begin_src emacs-lisp
 (use-package exec-path-from-shell
