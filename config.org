@@ -535,18 +535,15 @@ Increase undo limit.
 #+begin_src emacs-lisp
 (use-package evil
   :bind
-  ;; FIX: Visual line mode cannot move cursor when things like this:
-  ;; Move the cursor into (a and try j or k, up or down arrow.
-;; (advice-add 'package-install :before 'my-package-install-refresh-contents)
   (:map evil-normal-state-map
         ("j"   . evil-next-visual-line)
         ("k"   . evil-previous-visual-line)
-   :map evil-insert-state-map
-        ("C-v" . evil-visual-block)
    :map evil-motion-state-map
+        ;; Make Return open link in org-mode.
         ("RET" . nil))
   :init
   (setq evil-want-keybinding nil)
+  ;; Make Tab in org mode works normally.
   (setq evil-want-C-i-jump nil)
   ;; Set Evil cursor color and styles in different situations.
   (setq evil-emacs-state-cursor 'bar)
@@ -780,18 +777,12 @@ https://github.com/joaotavora/yasnippet
 # FIX: Make not*Bold*AtAll work!
 #      https://stackoverflow.com/a/24540651/9984029
 #      https://emacs-china.org/t/orgmode/9740
-# FIX: new line with unexpected 2 space indent.
 # TODO: Do not truncate org table
 #       https://github.com/misohena/phscroll
-# TODO: Draw a line with -----
-# TODO: dynamic headline bullets https://github.com/legalnonsense/org-visual-outline
 [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format.
 #+begin_src emacs-lisp
 (use-package org
   :straight (:type built-in)
-  :hook
-  ;; Enable headline and subcontent in the indented view.
-  (org-mode . org-indent-mode)
   :bind
   (:map org-mode-map
         ("<M-S-left>"  . nil)
