@@ -1042,14 +1042,6 @@ https://github.com/emacsorphanage/applescript-mode
   :defer t)
 #+end_src
 
-** Git Time Machine
-[[https://github.com/emacsmirror/git-timemachine][Git Time Machine]] walks through git revisions of a file.
-#+begin_src emacs-lisp
-(use-package git-timemachine
-  :custom
-  (git-timemachine-abbreviation-length 7))
-#+end_src
-
 ** Diff HL
 [[https://github.com/dgutov/diff-hl][diff-hl]] highlights uncommitted changes in the left fringe.
 #+begin_src emacs-lisp
@@ -1131,8 +1123,6 @@ https://github.com/emacsorphanage/applescript-mode
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
 ** Font
 # PATCH: Font
-# TODO: Apple Color Emoji
-
 Use macOS's default Chinese font for Chinese characters in Emacs.
 According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+begin_src emacs-lisp
@@ -1152,12 +1142,11 @@ Break lines normally for Chinese characters in visual line mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  ;; :hook
+  :defer t
+  :hook
   ;; FIX: Performance is lack, cause slow movement.
-  ;; (org-mode . valign-mode)
-  ;; (markdown-mode . valign-mode)
+  ((markdown-mode org-mode) . valign-mode)
   :config
-  (setq valign-max-table-size 10000)
   (setq valign-fancy-bar 1))
 #+end_src
 
