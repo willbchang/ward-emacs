@@ -203,7 +203,6 @@ Use a single line as modeline.
 #+end_src
 
 * Basic UX
-# TODO: try consult,vertico etc.
 ** Messages
 Disable these messages by setting command-error-function to a function that ignores unused signals.
 https://emacs.stackexchange.com/a/20039/19518
@@ -313,9 +312,10 @@ Hide all the information about files and folders except their names.
 #+begin_src emacs-lisp
 (use-package consult
   :bind
-  ("s-f" . consult-line)
-  ("s-F" . consult-ripgrep)
-  ("s-b" . consult-buffer))
+  ("s-f"   . consult-line)
+  ("s-F"   . consult-ripgrep)
+  ("s-b"   . consult-project-buffer)
+  ("s-B"   . consult-buffer))
 #+end_src
 
 ** Cursor
