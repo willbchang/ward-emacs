@@ -270,10 +270,9 @@ Hide all the information about files and folders except their names.
 
 *** Marginalia
 [[https://github.com/minad/marginalia][Marginalia]] adds marginalia to the minibuffer completions.
+# TODO: show more characters with M-x
 #+begin_src emacs-lisp
 (use-package marginalia
-  :custom
-  (marginalia-field-width 100)
   :init
   (marginalia-mode))
 #+end_src
@@ -325,6 +324,7 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+end_src
 
 ** Window
+# PATCH: UX
 No popup windows.
 #+begin_src emacs-lisp
 (setq pop-up-windows nil)
@@ -350,8 +350,8 @@ No popup windows.
 | ~Command + ]~ | Go to next Buffer     |
 | ~Command + T~ | Create New Buffer     |
 | ~Command + S~ | Save Buffer           |
-| ~Command + R~ | Revert Buffer         |
-| ~Command + ,~ | Open Preferences      |
+| ~Command + ,~ | Open config file |
+| ~Command + .~ | Reload init file |
 
 *** Behaviors
 # PATCH: UX
@@ -410,7 +410,6 @@ Delete trailing whitespace on save.
 **** Font
 English font refer to early-init.el ~default-frame-alist~.
 **** Keybindings
-
 | Keybindings | Features            |
 |-------------+---------------------|
 | ~Command + +~ | Increase text scale |
@@ -463,19 +462,19 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 
 *** Selecting Text
 **** Keybindings
-| Keybindings                    | Features                               |       |
-|--------------------------------+----------------------------------------+-------|
-| ~Command + A~                    | Select all the content in current file |       |
-| ~Shift + ↑~         | Select one line up                     | MacOS |
-| ~Shift + ↓~         | Select one line down                   | MacOS |
-| ~Shift + ←~         | Select one character left              | MacOS |
-| ~Shift + →~         | Select one character right             | MacOS |
-| ~Shift + Option + ←~ | Select one word left                   | MacOS |
-| ~Shift + Option + →~ | Select one word right                  | MacOS |
-| ~Shift + Command + ↑~ | Select to ttop of the file             | MacOS |
-| ~Shift + Command + ↓~ | Select to bottom of the file           | MacOS |
-| ~Shift + Command + ←~ | Select to t`he beginning of the line   | MacOS |
-| ~Shift + Command + →~ | Select to the end of the line          | MacOS |
+| Keybindings         | Features                               |
+|---------------------+----------------------------------------|
+| ~Command + A~         | Select all the content in current file |
+| ~Shift + ↑~           | Select one line up                     |
+| ~Shift + ↓~           | Select one line down                   |
+| ~Shift + ←~           | Select one character left              |
+| ~Shift + →~           | Select one character right             |
+| ~Shift + Option + ←~  | Select one word left                   |
+| ~Shift + Option + →~  | Select one word right                  |
+| ~Shift + Command + ↑~ | Select to ttop of the file             |
+| ~Shift + Command + ↓~ | Select to bottom of the file           |
+| ~Shift + Command + ←~ | Select to the beginning of the line   |
+| ~Shift + Command + →~ | Select to the end of the line          |
 
 **** Behaviors
 Highlight selection with system accent color.
@@ -563,7 +562,7 @@ Increase undo limit.
         (setq deactivate-mark  t)
       (evil-normal-state)))
   (define-key evil-insert-state-map [escape] 'evil-escape-cancel-selection-first)
-    ;; Consist keybinding for text movements.
+  ;; Consist keybinding for text movements.
   (define-key evil-normal-state-map "\C-e" 'end-of-line)
   (define-key evil-insert-state-map "\C-e" 'end-of-line)
   (define-key evil-visual-state-map "\C-e" 'end-of-line)
@@ -574,9 +573,6 @@ Increase undo limit.
   (define-key evil-normal-state-map "\C-b" 'backward-char)
   (define-key evil-insert-state-map "\C-b" 'backward-char)
   (define-key evil-visual-state-map "\C-b" 'backward-char)
-  (define-key evil-normal-state-map "\C-d" 'delete-char)
-  (define-key evil-insert-state-map "\C-d" 'delete-char)
-  (define-key evil-visual-state-map "\C-d" 'delete-char)
   (define-key evil-normal-state-map "\C-n" 'next-line)
   (define-key evil-insert-state-map "\C-n" 'next-line)
   (define-key evil-visual-state-map "\C-n" 'next-line)
@@ -701,7 +697,7 @@ Increase undo limit.
 
 *** Undo Highlight
 [[https://github.com/casouri/undo-hl][undo hl]] highlights undo operations, like evil-goggles.
-# FIX: became default face after redo.
+# FIX: became default face after redo. https://github.com/casouri/undo-hl/issues/6
 #+begin_src emacs-lisp
 (use-package undo-hl
   :straight (undo-hl :type git :host github :repo "casouri/undo-hl")
@@ -827,6 +823,7 @@ https://github.com/joaotavora/yasnippet
   (add-to-list 'org-emphasis-alist
              '("+" (:foreground "dark gray"
                     :strike-through t)))
+  ;; TODO: Replace with gray background.
   ;; Make code style around with box.
   (add-to-list 'org-emphasis-alist
              '("~" (:box (:line-width 1
@@ -1078,6 +1075,7 @@ https://github.com/emacsorphanage/applescript-mode
    :map vterm-mode-map
    ("<C-return>" . vterm-toggle-insert-cd))
   :config
+  ;; Display vterm at bottom.
   (add-to-list 'display-buffer-alist
                '((lambda(bufname _) (with-current-buffer bufname
                                       (or (equal major-mode 'vterm-mode)
@@ -1112,7 +1110,6 @@ Break lines normally for Chinese characters in visual line mode.
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  :defer t
   :hook
   ;; FIX: Performance is lack, cause slow movement.
   ((markdown-mode org-mode) . valign-mode)
