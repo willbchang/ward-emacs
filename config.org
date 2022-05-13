@@ -935,14 +935,13 @@ Support mouse click.
 #+end_src
 
 *** Org Modern
-
+[[https://github.com/minad/org-modern][org-modern]] styles headlines, keywords, tables and source blocks by using font locking and text properties.
 #+begin_src emacs-lisp
 (use-package org-modern
   :hook
   (org-mode . org-modern-mode)
   :custom
-  (org-modern-star ["›"] )
-  ;; For org-indent-mode works normally.
+  (org-modern-star ["*"] )
   (org-modern-hide-stars nil)
   ;; Use valign instead
   (org-modern-table nil))
