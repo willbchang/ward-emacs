@@ -298,7 +298,11 @@ Hide all the information about files and folders except their names.
   ("s-f"   . consult-line)
   ("s-F"   . consult-ripgrep)
   ("s-b"   . consult-project-buffer)
-  ("s-B"   . consult-buffer))
+  ("s-B"   . consult-buffer)
+  :config
+  ;; Record recent files, call consult-recent-file.
+  (recentf-mode))
+
 #+end_src
 
 ** Cursor
