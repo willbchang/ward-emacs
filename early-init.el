@@ -36,17 +36,3 @@
                             (left-fringe    . 3)
                             (right-fringe   . 1)
                             (vertical-scroll-bars . nil)))
-
-;; PATCH: Key Binding
-;;-------------------------Key Bindings----------------------------------------
-(global-set-key (kbd "s-,") 'open-config-file)
-(global-set-key (kbd "s-.") 'reload-init-file)
-
-;; TODO: param/fallbacks for file.
-(defun open-config-file ()
-  (interactive)
-  (find-file "~/.config/emacs/config.org"))
-
-(defun reload-init-file ()
-  (interactive)
-  (load-file user-init-file))
