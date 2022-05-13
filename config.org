@@ -205,6 +205,12 @@ Use Return to act Yes
 (setq use-short-answers t)
 (define-key y-or-n-p-map (kbd "<return>") 'y-or-n-p-insert-y)
 #+end_src
+
+Visit a symbolic link pointing to a version-controlled file without asking.
+#+begin_src emacs-lisp
+(setq vc-follow-symlinks t)
+#+end_src
+
 Disable mouse command on y-or-n-p.
 #+begin_src emacs-lisp
 (setq use-dialog-box nil)
