@@ -709,13 +709,6 @@ Increase undo limit.
   (text-mode . undo-hl-mode))
 #+end_src
 
-*** Visual Undo
-[[https://github.com/casouri/vundo][vundo]] displays the undo history as a tree and lets you move in the tree to go back to previous buffer states.
-#+begin_src emacs-lisp
-(use-package vundo
-  :straight (vundo :type git :host github :repo "casouri/vundo"))
-#+end_src
-
 ** Rainbow Delimiters
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
 #+begin_src emacs-lisp
