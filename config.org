@@ -199,6 +199,12 @@ https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/
      (apply func args)))
 #+end_src
 
+# PATCH: UX or Suppress Messages
+Use Return to act Yes
+#+begin_src emacs-lisp
+(setq use-short-answers t)
+(define-key y-or-n-p-map (kbd "<return>") 'y-or-n-p-insert-y)
+#+end_src
 Disable mouse command on y-or-n-p.
 #+begin_src emacs-lisp
 (setq use-dialog-box nil)
