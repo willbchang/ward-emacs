@@ -414,16 +414,6 @@ Delete trailing whitespace on save.
 (add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
 #+end_src
 
-*** Find File in Project
-[[https://github.com/redguardtoo/find-file-in-project][Find file in project]] can quick access to project files in Emacs.
-#+begin_src emacs-lisp
-(use-package find-file-in-project
-  :bind
-  ("s-p" . find-file-in-project)
-  :custom
-  (ffip-use-rust-fd t))
-#+end_src
-
 * Word Processing
 # TODO: Lock file with password and TouchID, like Notes.app
 # TODO: (Global) Replace with the context preview like swiper.
