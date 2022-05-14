@@ -38,6 +38,7 @@ Shadow clone git repo to improve the speed.
 ** Color Theme
 *** Modus Themes
 # TODO: merge customize color into modus-themes
+[[https://protesilaos.com/emacs/modus-themes][modus-themes]] is a highly accessible themes for GNU Emacs.
 #+begin_src emacs-lisp
 (use-package modus-themes
   :init
@@ -46,14 +47,13 @@ Shadow clone git repo to improve the speed.
         modus-themes-mode-line '(borderless)
         modus-themes-markup '(background italic)
         modus-themes-paren-match '(bold intense)
-        modus-themes-links '(neutral-underline)
+        modus-themes-links '(neutral-underline background)
         modus-themes-prompts '(intense bold)
         modus-themes-org-blocks nil
         modus-themes-region '(bg-only no-extend)
-        modus-themes-headings
-        '((1 . (1.15))
-          (2 . (1.05))
-          (t . (semibold))))
+        modus-themes-headings '((1 . (1.15))
+                                (2 . (1.05))
+                                (t . (semibold))))
 
   (modus-themes-load-themes)
   :config
@@ -1089,18 +1089,6 @@ https://github.com/emacsorphanage/applescript-mode
 
 * Chinese Optimization
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
-** Font
-# PATCH: Font
-Use macOS's default Chinese font for Chinese characters in Emacs.
-According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
-#+begin_src emacs-lisp
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset (font-spec :family "PingFang SC")))
-
-(set-fontset-font t 'emoji '("Apple Color Emoji" . "iso10646-1") nil 'prepend)
-#+end_src
-
 ** Display
 Break lines normally for Chinese characters in visual line mode.
 #+begin_src emacs-lisp
