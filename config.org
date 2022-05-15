@@ -49,7 +49,7 @@ Shadow clone git repo to improve the speed.
         modus-themes-paren-match '(bold intense)
         modus-themes-links '(neutral-underline background)
         modus-themes-prompts '(intense bold)
-        modus-themes-org-blocks nil
+        modus-themes-org-blocks 'gray-background
         modus-themes-region '(bg-only no-extend)
         modus-themes-headings '((1 . (1.15))
                                 (2 . (1.05))
@@ -123,13 +123,11 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 
 ** Title Bar
 # PATCH: UI
-Show icon and full path in title bar.
+Show icon and abbreviated full path for file and directory in title bar.
 #+begin_src emacs-lisp
 (setq frame-title-format
-    '(:eval
-       (if buffer-file-name
-           (abbreviate-file-name buffer-file-name)
-           "%b")))
+      '(buffer-file-name (:eval (abbreviate-file-name buffer-file-name))
+         (dired-directory dired-directory "%b")))
 #+end_src
 
 ** Cursor
