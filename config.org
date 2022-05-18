@@ -146,6 +146,7 @@ https://emacs.stackexchange.com/a/20039/19518
 (defun filter-command-error-function (data context caller)
   "Ignore the buffer-read-only, beginning-of-line, end-of-line, beginning-of-buffer, end-of-buffer signals; pass the rest to the default handler."
   (when (not (memq (car data) '(buffer-read-only
+                                mark-inactive
                                 beginning-of-line
                                 end-of-line
                                 beginning-of-buffer
