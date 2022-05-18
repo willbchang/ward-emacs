@@ -22,17 +22,3 @@
 
 (setq warning-minimum-level :error)
 
-;;-------------------------Frame-----------------------------------------------
-;; PATCH: UI
-;; Resizing the Emacs frame can be a terribly expensive part of changing the
-;; font. By inhibiting this, we easily halve startup times with fonts that are
-;; larger than the system default.
-(setq frame-inhibit-implied-resize t)
-
-;; Set the frame parameters before it's drawing. Save times for redrawing.
-(setq default-frame-alist '((tool-bar-lines . 0)
-                            (font . "Roboto Mono 18")
-                            (internal-border-width . 18)
-                            (left-fringe    . 3)
-                            (right-fringe   . 1)
-                            (vertical-scroll-bars . nil)))

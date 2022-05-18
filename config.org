@@ -35,8 +35,11 @@ Shadow clone git repo to improve the speed.
 #+end_src
 
 * Basic UI
+# TODO: disable highlight face or make it inherit current face, like region
+# TODO: Transparent fringe foreground and background.
 ** Color Theme
 *** Modus Themes
+# PATCH: Color Theme
 # TODO: merge customize color into modus-themes
 [[https://protesilaos.com/emacs/modus-themes][modus-themes]] is a highly accessible themes for GNU Emacs.
 #+begin_src emacs-lisp
@@ -61,6 +64,7 @@ Shadow clone git repo to improve the speed.
 #+end_src
 
 *** Default Face
+# PATCH: Color Theme
 #+begin_src emacs-lisp
 (set-face-foreground 'link "#0168da")
 (set-face-background 'isearch "#feff00")
@@ -69,6 +73,7 @@ Shadow clone git repo to improve the speed.
 #+end_src
 
 *** Programming Face
+# PATCH: Color Theme
 #+begin_src emacs-lisp
 (set-face-foreground 'font-lock-function-name-face "#0168da")
 ;; (set-face-foreground 'font-lock-variable-name-face "orange red")
@@ -94,6 +99,7 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 
 *** Markup Face
 **** Org Mode
+# PATCH: Color Theme
 #+begin_src emacs-lisp
 (set-face-foreground 'org-meta-line "Gray")
 (set-face-foreground 'org-drawer "Gray")
@@ -121,54 +127,15 @@ Currently it recognizes Lisp function, built-in function, macro, face and variab
 *** Terminal Face
 # TODO: fd directories color
 
-** Title Bar
-# PATCH: UI
-Show icon and abbreviated full path for file and directory in title bar.
-#+begin_src emacs-lisp
-(setq frame-title-format
-      '(buffer-file-name (:eval (abbreviate-file-name buffer-file-name))
-         (dired-directory dired-directory "%b")))
-#+end_src
-
-** Cursor
-# PATCH: UI
-#+begin_src emacs-lisp
-(use-package emacs
-  ;; TODO: disable highlight face or make it inherit current face, like region
-  :custom-face
-  (highlight ((t (:foreground nil :background nil))))
-  :config
-  ;; Set default cursor type to bar.
-  (setq-default cursor-type 'bar)
-  ;; Disable cursor in inactive window.
-  (setq-default cursor-in-non-selected-windows nil))
-#+end_src
-
-** Fringe
-# PATCH: UI
-https://stackoverflow.com/a/27854648/9984029
-Disable ugly fringe bitmaps.
-# TODO: Transparent fringe foreground and background.
-#+begin_src emacs-lisp
-(setf (cdr (assq 'continuation fringe-indicator-alist))
-      '(nil nil) ;; no continuation indicators
-      ;; '(nil right-curly-arrow) ;; right indicator only
-      ;; '(left-curly-arrow nil) ;; left indicator only
-      ;; '(left-curly-arrow right-curly-arrow) ;; default
-      )
-#+end_src
-
 ** Modeline
-# PATCH: UI
+# PATCH: Color Theme
 Use a single line as modeline.
 #+begin_src emacs-lisp
 (use-package emacs
   :custom-face
   (header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
   (mode-line ((t (:foreground "dim gray" :height 0.1))))
-  (mode-line-inactive ((t (:inherit mode-line))))
-  :config
-  (setq-default mode-line-format '("")))
+  (mode-line-inactive ((t (:inherit mode-line)))))
 #+end_src
 
 * Basic UX
@@ -189,7 +156,9 @@ https://emacs.stackexchange.com/a/20039/19518
 #+end_src
 
 Disable unhelpful mesages in minibuffer.
-https://superuser.com/a/1025827/1114552 https://www.reddit.com/r/emacs/comments/df3kko/suppress_some_message_in_minibuffer/
+- https://superuser.com/a/1025827/1114552
+- https://www.reddit.com/r/emacs/comments/df3kko/suppress_some_message_in_minibuffer/
+
 #+begin_src emacs-lisp
 (defun suppress-messages (func &rest args)
   (cl-letf (((symbol-function 'message)
@@ -300,13 +269,6 @@ Hide all the information about files and folders except their names.
   ;; Record recent files, call consult-recent-file.
   (recentf-mode))
 
-#+end_src
-
-** Cursor
-# PATCH: UX
-Disable cursor blink.
-#+begin_src emacs-lisp
-(blink-cursor-mode 0)
 #+end_src
 
 * Window Management
