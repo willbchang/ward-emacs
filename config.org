@@ -456,6 +456,12 @@ Highlight selection with system accent color.
 | ~Command + /~                 | Comment/Uncomment line(s)                        |
 
 **** Behaviors
+# PATCH: Mac Native Keybinding
+Only cut text with selection.
+  #+begin_src emacs-lisp
+(setq mark-even-if-inactive nil)
+#+end_src
+
 # PATCH: UX
 Auto pair brackets, quotes etc.
 #+begin_src emacs-lisp
