@@ -10,17 +10,17 @@
 
 
 ## Introduction
-**This project is working in progress, but should work for most cases. I'm using it everyday.**
 
 ![ward emacs screenshot](.github/images/ward-emacs.png)
 
+A minimal Emacs configration that you can start using easily.
 
-| MacOS Preferred Keybindings             | Powerful Features                               | Suitable Features | Chinese Optimization     |
-|-----------------------------------------|-------------------------------------------------|-------------------|--------------------------|
-| [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                | Markdown          | Improved  Display        |
-| [Window Management](#window-management) | [Evil Mode](https://github.com/emacs-evil/evil#readme) | Multiple Cursor   | Search with Pinyin       |
-|                                         | [Magit](https://magit.vc/)                      | Terminal Emulator | Auto switch input method |
-|                                         |                                                 |                   | Compatible Keybindings   |
+| MacOS Preferred Keybindings             | Powerful Features                                      | Suitable Features | Chinese Optimization     |
+|-----------------------------------------|--------------------------------------------------------|-------------------|--------------------------|
+| [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                       | Markdown          | Improved Display        |
+| [Window Management](#window-management) | [Vim Emulator](https://github.com/emacs-evil/evil#readme) | Multiple Cursor   | Search with Pinyin       |
+|                                         | [Git Client](https://magit.vc/)                             | Terminal Emulator | Auto switch input method |
+|                                         |                                                        |                   | Compatible Keybindings   |
 
 
 The configuration is in [config.org](config.org).
@@ -30,16 +30,16 @@ The configuration is in [config.org](config.org).
 
 - Press <kbd>alt + x</kbd> and type `describe-`, you can findout almost anything in Emacs by yourself.
 - Emacs is more highly customizable than you think.
-- I mainly support the version that I'm using(currently is [emacs mac 27](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
+- I mainly support the version that I'm using(currently is [emacs dragon 28.1](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
 </details>
 
 ## Installation
-Please visit [star-guardian-macos/emacs](https://github.com/willbchang/star-guardian-macos/blob/master/applications/emacs.org) for prerequisites.
-
-Install to `XDG_CONFIG_HOME` (default to `~/.config`). 
+To fully experience this config, you must use [emacs-dragon](https://github.com/willbchang/homebrew-emacs-dragon).
 
 ```bash
+brew tap willbchang/homebrew-emacs-dragon
+brew install emacs-dragon
 git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ```
 
@@ -123,6 +123,7 @@ It learns from:
 - [Practical Emacs Tutorial](http://ergoemacs.org/emacs/emacs.html)
 - [Nano Emacs](https://github.com/rougier/nano-emacs)
 - [MatthewZMD/.emacs.d](https://github.com/MatthewZMD/.emacs.d)
+
 ## LICENSE
 
 [AGPL-3.0](./LICENSE)
