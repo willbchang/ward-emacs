@@ -754,6 +754,8 @@ https://github.com/joaotavora/yasnippet
 #+begin_src emacs-lisp
 (use-package org
   :straight (:type built-in)
+  :hook
+  (org-mode . org-indent-mode)
   :bind
   (:map org-mode-map
         ("<M-S-left>"  . nil)
@@ -913,7 +915,7 @@ Support mouse click.
   :hook
   (org-mode . org-modern-mode)
   :custom
-  (org-modern-star ["*"] )
+  (org-modern-star ["›"] )
   (org-modern-hide-stars nil)
   ;; Use valign instead
   (org-modern-table nil))
