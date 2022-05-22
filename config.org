@@ -400,11 +400,6 @@ English font refer to early-init.el ~default-frame-alist~.
 
 **** Behaviors
 # PATCH: UX
-Enable global line break.
-#+begin_src emacs-lisp
-(global-visual-line-mode 1)
-#+end_src
-
 Improve the readability by increasing line spacing.
 #+begin_src emacs-lisp
 (setq-default line-spacing 0.1)
@@ -1087,17 +1082,13 @@ According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
 #+end_src
 
 ** Display
-Break lines normally for Chinese characters in visual line mode.
-#+begin_src emacs-lisp
-(setq word-wrap-by-category t)
-#+end_src
-
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  :hook
+  ;; :hook
   ;; FIX: Performance is lack, cause slow movement.
-  ((markdown-mode org-mode) . valign-mode)
+  ;; Waiting for the author to rewrite the package https://github.com/casouri/valign/issues/29
+  ;; ((markdown-mode org-mode) . valign-mode)
   :config
   (setq valign-fancy-bar 1))
 #+end_src
