@@ -725,19 +725,21 @@ Increase undo limit.
 #+end_src
 
 ** Multiple Cursors
-# FIX: a better UX multiple cursors
-- https://github.com/victorhge/iedit
-- https://github.com/hlissner/evil-multiedit
-- https://github.com/gabesoft/evil-mc
-- https://github.com/syl20bnr/evil-iedit-state
-- https://github.com/magnars/multiple-cursors.el
+# TODO: Change cursor color.
+# TODO: Make PR to support undo-fu.
+# TODO: Add cursor with option + click.
+# FIXME: Redo change cursor position.
+[[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] for emacs.
 #+begin_src emacs-lisp
 (use-package multiple-cursors
   :bind
    (("s-d" . mc/mark-next-like-this)
     ("s-D" . mc/mark-all-like-this)
     :map mc/keymap
-     ("<return>" .  newline)))
+     ("<return>" . newline))
+  :custom
+  ;; Make mc slicent instead of asking almost every action.
+  (mc/always-run-for-all t))
 #+end_src
 
 ** Yasnippet
