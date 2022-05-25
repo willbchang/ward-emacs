@@ -261,7 +261,6 @@ Hide all the information about files and folders except their names.
   :config
   ;; Record recent files, call consult-recent-file.
   (recentf-mode))
-
 #+end_src
 ** Prompt
 *** Embark
@@ -1075,16 +1074,6 @@ https://github.com/emacsorphanage/applescript-mode
 
 * Chinese Optimization
 # TODO: Slipt word https://github.com/cireu/jieba.el or use https://developer.apple.com/documentation/corefoundation/cfstringtokenizer-rf8
-** Font
-# PATCH: Font
-Use macOS's default Chinese font for Chinese characters in Emacs.
-According to:  https://support.apple.com/en-us/guide/pages/tanfbd4156e/mac
-#+begin_src emacs-lisp
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset (font-spec :family "PingFang SC")))
-#+end_src
-
 ** Display
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
