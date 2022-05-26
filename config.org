@@ -830,7 +830,7 @@ Increase undo limit.
   ;; Hide emphasis makers.
   (setq org-hide-emphasis-markers t)
   ;; Prettify things like \pi, sub/super script.
-  (setq org-pretty-entities t)
+  ;; (setq org-pretty-entities t)
   ;; Hide keywords like #+TITLE:
   (setq org-hidden-keywords '(title email date author))
   :custom
