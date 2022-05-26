@@ -809,10 +809,9 @@ Increase undo limit.
              '("+" (:foreground "dark gray"
                     :strike-through t)))
   ;; Make code style around with box.
+  ;; TODO: try https://gist.github.com/rougier/f0f291f681cb5b95aef5ad51a83166fdhttps://github.com/rougier/svg-tag-mode
   (add-to-list 'org-emphasis-alist
-             '("~" (:box (:line-width 1
-                          :color "grey75"
-                          :style released-button)))))
+             '("~" (:background "#f0f0f0"))))
 #+end_src
 
 *** Org Appear
