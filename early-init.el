@@ -14,5 +14,5 @@
 ;; Make libgccjit able to use gcc which installed from homebrew
 (setenv "LIBRARY_PATH" "/usr/local/opt/gcc/lib/gcc/11:/usr/local/opt/gcc/lib/gcc/11/gcc/x86_64-apple-darwin21/11")
 
-(setq warning-minimum-level :error)
+(setq native-comp-async-report-warnings-errors nil)
 
