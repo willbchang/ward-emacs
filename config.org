@@ -2,7 +2,7 @@
 ** Lexical Binding
 In order to enable lexical binding in the config, this must be the first line of Emacs Lisp.
 #+begin_src emacs-lisp
-;;; -*- lexical-binding: t -*-
+;;; config.el -*- lexical-binding: t -*-
 #+end_src
 
 ** Straight
@@ -510,8 +510,8 @@ Increase undo limit.
 (setq undo-outer-limit 120000000)
 #+end_src
 ** Vim Emulator
-[[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 *** Evil
+[[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
 #+begin_src emacs-lisp
 (use-package evil
   :bind
@@ -686,7 +686,7 @@ Increase undo limit.
   (text-mode . undo-hl-mode))
 #+end_src
 
-** Rainbow Delimiters
+** Highlight Parens
 [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]] is a "rainbow parentheses"-like mode which highlights delimiters such as parentheses, brackets or braces according to their depth.
 #+begin_src emacs-lisp
 (use-package rainbow-delimiters
@@ -742,7 +742,7 @@ Increase undo limit.
 #+end_src
 
 ** Yasnippet
-https://github.com/joaotavora/yasnippet
+# TODO: https://github.com/joaotavora/yasnippet
 * Markup Languages
 ** Org Mode
 *** Config
@@ -808,7 +808,6 @@ https://github.com/joaotavora/yasnippet
   (add-to-list 'org-emphasis-alist
              '("+" (:foreground "dark gray"
                     :strike-through t)))
-  ;; TODO: Replace with gray background.
   ;; Make code style around with box.
   (add-to-list 'org-emphasis-alist
              '("~" (:box (:line-width 1
@@ -817,7 +816,7 @@ https://github.com/joaotavora/yasnippet
 #+end_src
 
 *** Org Appear
-[[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden Org mode element parts upon entering and leaving an element.
+[[https://github.com/awth13/org-appear][Org Appear]] toggles visibility of hidden org-mode element parts upon entering and leaving an element.
 # FIX: not working in latex frament
 #+begin_src emacs-lisp
 (use-package org-appear
@@ -963,6 +962,7 @@ https://github.com/emacsorphanage/applescript-mode
 # TODO: auto save file(s) when calling magit
 # TODO: cancel selection with ESC.
 # TODO: one buffer split window on commit message
+# FIXME: s to stage one diff instead of some regions.
 [[https://github.com/magit/magit][Magit]] is an interface for [[https://git-scm.com/][Git]] inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
