@@ -735,7 +735,7 @@ Increase undo limit.
    (("s-d" . mc/mark-next-like-this)
     ("s-D" . mc/mark-all-like-this)
     :map mc/keymap
-     ("<return>" . newline))
+     ("<return>" . nil))
   :custom
   ;; Make mc slicent instead of asking almost every action.
   (mc/always-run-for-all t))
