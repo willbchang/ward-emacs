@@ -509,6 +509,7 @@ Increase undo limit.
 ;; default is 24000000
 (setq undo-outer-limit 120000000)
 #+end_src
+
 ** Vim Emulator
 *** Evil
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
@@ -1077,10 +1078,10 @@ https://github.com/emacsorphanage/applescript-mode
 [[https://github.com/casouri/valign][valign]] can properly align tables containing variable-pitch font, CJK characters and images.
 #+begin_src emacs-lisp
 (use-package valign
-  ;; :hook
+  :hook
   ;; FIX: Performance is lack, cause slow movement.
   ;; Waiting for the author to rewrite the package https://github.com/casouri/valign/issues/29
-  ;; ((markdown-mode org-mode) . valign-mode)
+  ((markdown-mode org-mode) . valign-mode)
   :config
   (setq valign-fancy-bar 1))
 #+end_src
