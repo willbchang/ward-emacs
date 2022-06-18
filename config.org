@@ -135,7 +135,46 @@ Use a single line as modeline.
   :custom-face
   (header-line ((t (:background "grey90" :foreground "grey20" :box nil))))
   (mode-line ((t (:foreground "dim gray" :height 0.1))))
-  (mode-line-inactive ((t (:inherit mode-line)))))
+  (mode-line-inactive ((t (:inherit mode-line))))
+  (mode-line-inactive ((t (:inherit mode-line))))
+  :config
+  (setq-default mode-line-format '("")))
+#+end_src
+
+** Title Bar
+# PATCH: UI
+Show icon and abbreviated full path for file and directory in title bar.
+#+begin_src emacs-lisp
+(setq frame-title-format
+      '(buffer-file-name (:eval (abbreviate-file-name buffer-file-name))
+         (dired-directory dired-directory "%b")))
+#+end_src
+
+** Cursor
+# PATCH: UI
+#+begin_src emacs-lisp
+(use-package emacs
+  ;; TODO: disable highlight face or make it inherit current face, like region
+  :custom-face
+  (highlight ((t (:foreground nil :background nil))))
+  :config
+  ;; Set default cursor type to bar.
+  (setq-default cursor-type 'bar)
+  ;; Disable cursor in inactive window.
+  (setq-default cursor-in-non-selected-windows nil))
+#+end_src
+
+** Fringe
+https://stackoverflow.com/a/27854648/9984029
+Disable ugly fringe bitmaps.
+# TODO: Transparent fringe foreground and background.
+#+begin_src emacs-lisp
+(setf (cdr (assq 'continuation fringe-indicator-alist))
+      '(nil nil) ;; no continuation indicators
+      ;; '(nil right-curly-arrow) ;; right indicator only
+      ;; '(left-curly-arrow nil) ;; left indicator only
+      ;; '(left-curly-arrow right-curly-arrow) ;; default
+      )
 #+end_src
 
 * Basic UX
@@ -167,7 +206,6 @@ Disable unhelpful mesages in minibuffer.
      (apply func args)))
 #+end_src
 
-# PATCH: UX or Suppress Messages
 Use Return to act Yes
 #+begin_src emacs-lisp
 (setq use-short-answers t)
@@ -262,6 +300,7 @@ Hide all the information about files and folders except their names.
   ;; Record recent files, call consult-recent-file.
   (recentf-mode))
 #+end_src
+
 ** Prompt
 *** Embark
 [[https://github.com/oantolin/embark][Embark]] is a Emacs Mini-Buffer Actions Rooted in Keymaps.
@@ -800,6 +839,7 @@ Increase undo limit.
   ;; Export org to pdf through latex, support Chinese.
   (org-latex-pdf-process '("xelatex -interaction nonstopmode %f" "xelatex -interaction nonstopmode %f"))
   :config
+  (advice-add 'org-cycle :around #'suppress-messages)
   ;; Add REVIEW to org todo keywords.
   (setq org-todo-keywords '((sequence "TODO" "REVIEW" "DONE")))
   ;; Make verbatim with highlight text background.
