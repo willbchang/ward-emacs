@@ -1183,3 +1183,11 @@ Make keybindings work under Chinese input method.
 | ~Command + ,~ | ~Command + 。~        | Reload init file      |
 | ~Control + ·~ | ~Control + `~         | Toggle vterm          |
 # FIX: M-· is not recognized
+
+** Font
+Set Chinese Font.
+#+begin_src emacs-lisp
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font "fontset-default" charset
+                      '("PingFang SC" . "iso10646-1") nil 'prepend))
+#+end_src
