@@ -584,6 +584,10 @@ Increase undo limit.
       (evil-normal-state)))
   (define-key evil-insert-state-map [escape] 'evil-escape-cancel-selection-first)
   ;; Consist keybinding for text movements.
+  (define-key evil-normal-state-map "\C-a" 'beginning-of-line)
+  (define-key evil-insert-state-map "\C-a" 'beginning-of-line)
+  (define-key evil-visual-state-map "\C-a" 'beginning-of-line)
+  (define-key evil-motion-state-map "\C-a" 'beginning-of-line)
   (define-key evil-normal-state-map "\C-e" 'end-of-line)
   (define-key evil-insert-state-map "\C-e" 'end-of-line)
   (define-key evil-visual-state-map "\C-e" 'end-of-line)
