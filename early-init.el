@@ -18,10 +18,8 @@
 ;; Set the frame parameters before it's drawing. Save times for redrawing.
 (setq default-frame-alist '((ns-transparent-titlebar . t)
                             (ns-appearance . light)
-                            (top . 10)
-                            (left . 325)
                             (tool-bar-lines . 0)
-                            (font . "Roboto Mono 18")
+                            (font . "Roboto Mono-18")
                             (internal-border-width . 18)
                             (left-fringe    . 3)
                             (right-fringe   . 1)
