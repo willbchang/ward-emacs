@@ -30,16 +30,24 @@ The configuration is in [config.org](config.org).
 
 - Press <kbd>alt + x</kbd> and type `describe-`, you can findout almost anything in Emacs by yourself.
 - Emacs is more highly customizable than you think.
-- I mainly support the version that I'm using(currently is [emacs dragon 28.1](https://github.com/railwaycat/homebrew-emacsmacport)), most of the code should work for other versions, but I don't care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
+- I mainly support the version that I'm using, most of the code should work on other versions, but I don't have time to care about compatiblity. You can get help from search engine and the great emacs communities ([reddit/emacs](https://www.reddit.com/r/emacs/), [Emacs StackExchange](https://emacs.stackexchange.com/), [emacs-china](https://emacs-china.org/)).
 - Do not expect too much, and you'll be happy.
 </details>
 
 ## Installation
-To fully experience this config, you must use [emacs-dragon](https://github.com/willbchang/homebrew-emacs-dragon).
+```bash
+brew install ripgrep
+
+# Emacs 29
+brew tap daviderestivo/emacs-head
+brew install emacs-head@29 --with-cocoa --with-modern-icon-dragon
+
+# Input Source Switcher
+brew tap laishulu/macism
+brew install macism
+```
 
 ```bash
-brew tap willbchang/homebrew-emacs-dragon
-brew install emacs-dragon
 git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ```
 
@@ -66,28 +74,27 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 | <kbd>Shift + →</kbd>           | Select one character right          | MacOS      |
 | <kbd>Shift + Option + ←</kbd>  | Select one word left                | MacOS      |
 | <kbd>Shift + Option + →</kbd>  | Select one word right               | MacOS      |
-| <kbd>Shift + Command + ↑</kbd> | Select to ttop of the file          | MacOS      |
+| <kbd>Shift + Command + ↑</kbd> | Select to top of the file          | MacOS      |
 | <kbd>Shift + Command + ↓</kbd> | Select to bottom of the file        | MacOS      |
 | <kbd>Shift + Command + ←</kbd> | Select to the beginning of the line | MacOS      |
 | <kbd>Shift + Command + →</kbd> | Select to the end of the line       | MacOS      |
 
 
 
-| Editing Text                        | Features                            | Convention |
-|-------------------------------------|-------------------------------------|------------|
-| <kbd>Command + C</kbd>              | Copy selected text                  | MacOS      |
-| <kbd>Command + V</kbd>              | Paste text from clipboard           | MacOS      |
-| <kbd>Command + X</kbd>              | Cut selected text                   | MacOS      |
-| <kbd>Command + Z</kbd>              | Undo text change                    | MacOS      |
-| <kbd>Command + Shift + Z</kbd>      | Redo text change                    | MacOS      |
-| <kbd>Command + F</kbd>              | Search text                         | MacOS      |
-| <kbd>Option  + Delete</kbd>         | Delete a word back                  | MacOS      |
-| <kbd>Command + Delete</kbd>         | Delete to line start                | MacOS      |
-| <kbd>Command + Shift + Delete</kbd> | Delete entire line                  | Personal   |
-| <kbd>Command + /</kbd>              | Comment or uncomment line(s)        | MacOS      |
-| <kbd>Shift + Option + ↑</kbd>       | Swap current line and previous line | Emacs      |
-| <kbd>Shift + Option + ↓</kbd>       | Swap current line and next line     | Emacs      |
-
+| Editing Text                        | Features                            | Convention            |
+|-------------------------------------|-------------------------------------|-----------------------|
+| <kbd>Command + C</kbd>              | Copy selected text                  | MacOS                 |
+| <kbd>Command + V</kbd>              | Paste text from clipboard           | MacOS                 |
+| <kbd>Command + X</kbd>              | Cut selected text                   | MacOS                 |
+| <kbd>Command + Z</kbd>              | Undo text change                    | MacOS                 |
+| <kbd>Command + Shift + Z</kbd>      | Redo text change                    | MacOS                 |
+| <kbd>Command + F</kbd>              | Search text                         | MacOS                 |
+| <kbd>Option  + Delete</kbd>         | Delete a word back                  | MacOS                 |
+| <kbd>Command + Delete</kbd>         | Delete to line start                | MacOS                 |
+| <kbd>Command + Shift + Delete</kbd> | Delete entire line                  | Personal              |
+| <kbd>Command + /</kbd>              | Comment or uncomment line(s)        | MacOS                 |
+| <kbd>Shift + Option + ↑</kbd>       | Swap current line and previous line | Emacs (org mode only) |
+| <kbd>Shift + Option + ↓</kbd>       | Swap current line and next line     | Emacs (org mode only) |
 
 
 
@@ -95,8 +102,8 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ### Window Management
 | Window                         | Features               | Convention |
 |--------------------------------|------------------------|------------|
-| <kbd>Command + Shift + W</kbd> | Close Current Window   | macOS      |
-| <kbd>Command + N</kbd>         | Create New Window      | macOS      |
+| <kbd>Command + Shift + W</kbd> | Close Current Frame   | macOS      |
+| <kbd>Command + Shift + N</kbd>         | Create New Frame      | macOS      |
 | <kbd>Command + Q</kbd>         | Quit Emacs             | macOS      |
 | <kbd>Command + W</kbd>         | Close Current Buffer   | macOS      |
 | <kbd>Command + [</kbd>         | Go to previous Buffer  | macOS      |
@@ -104,25 +111,19 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 | <kbd>Command + =</kbd>         | Zoom in Buffer         | macOS      |
 | <kbd>Command + -</kbd>         | Zoom out Buffer        | macOS      |
 | <kbd>Command + 0</kbd>         | Reset Zoom Buffer      | macOS      |
-| <kbd>Command + T</kbd>         | Create New Buffer      | macOS      |
+| <kbd>Command + N</kbd>         | Create New Buffer      | macOS      |
 | <kbd>Command + S</kbd>         | Save Buffer            | macOS      |
 | <kbd>Command + R</kbd>         | Revert Buffer          | macOS      |
 | <kbd>Command + ,</kbd>         | Open Preferences       | macOS      |
-| <kbd>Command + `</kbd>         | Move to next Window    | macOS      |
-| <kbd>Alt + `</kbd>             | Move to next Buffer    | Personal   |
+| <kbd>Command + `</kbd>         | Move to next Frame    | macOS      |
+| <kbd>Alt + `</kbd>             | Move to next Window     | Personal   |
 | <kbd>Control + `</kbd>         | Open Terminal Emulator | Personal   |
 
 
 
 ## Credit
 
-It learns from:
-- [redguardtoo/emacs.d](https://github.com/redguardtoo/emacs.d)
-- [hrs/dotfiles](https://github.com/hrs/dotfiles)
-- [hlissner/doom-emacs](https://github.com/hlissner/doom-emacs)
-- [Practical Emacs Tutorial](http://ergoemacs.org/emacs/emacs.html)
-- [Nano Emacs](https://github.com/rougier/nano-emacs)
-- [MatthewZMD/.emacs.d](https://github.com/MatthewZMD/.emacs.d)
+It learns from the Emacs Community.
 
 ## LICENSE
 
