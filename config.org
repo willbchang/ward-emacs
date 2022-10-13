@@ -1016,8 +1016,19 @@ Support mouse click.
   :custom
   (org-modern-star ["›"] )
   (org-modern-hide-stars nil)
+  ;; Use Org-Modern-Indent's block bracket
+  (org-modern-block-fringe nil)
   ;; Use valign instead
   (org-modern-table nil))
+#+end_src
+
+*** Org Modern Indent
+[[https://github.com/jdtsmith/org-modern-indent][Org Mode Indent]] makes org-modern and org-indent working together.
+#+begin_src emacs-lisp
+(use-package org-modern-indent
+  :straight (org-modern-indent :type git :host github :repo "jdtsmith/org-modern-indent")
+  :hook
+  (org-indent-mode . org-modern-indent-mode))
 #+end_src
 
 ** Markdown Mode
