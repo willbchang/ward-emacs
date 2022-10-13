@@ -36,11 +36,18 @@ The configuration is in [config.org](config.org).
 
 ## Installation
 ```bash
+# Emacs 29
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@29 --with-dragon-icon --with-native-comp
+
+# Tools
 brew install ripgrep
 
-# Emacs 29
-brew tap daviderestivo/emacs-head
-brew install emacs-head@29 --with-cocoa --with-modern-icon-dragon
+# Font
+brew tap homebrew/cask-fonts
+brew install svn # Roboto Mono needs svn to download.
+brew install --cask font-roboto-mono
+
 
 # Input Source Switcher
 brew tap laishulu/macism
