@@ -964,12 +964,6 @@ Increase undo limit.
 *** Org Surround Markup
 Surround selection with org mode markup.
 https://github.com/alphapapa/unpackaged.el#surround-region-with-emphasis-or-syntax-characters
-# TODO: https://emacs-china.org/t/org-mode/597/51
-#   1. org heading ending with x200b
-#   2. make x200b invisible
-#   3. auto delete x200b with backspace
-#   4. combine link code with surround markup
-#   5. https://github.com/zk-phi/electric-spacing
 #+begin_src emacs-lisp
 ;;;###autoload
 (defmacro org-surround-markup (&rest keys)
@@ -990,9 +984,7 @@ otherwise call `org-self-insert-command'."
                                  (save-excursion
                                    (goto-char end)
                                    (insert ,key)
-                                   (insert-char #x200b) ;; Insert zero width space to make inline markup work.
                                    (goto-char beg)
-                                   (insert-char #x200b)
                                    (insert ,key)))
                              (call-interactively #'org-self-insert-command)))
                 collect `(define-key org-mode-map (kbd ,key) #',name))))
