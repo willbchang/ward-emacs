@@ -37,9 +37,6 @@
 (setq inhibit-startup-message t)
 (fset 'display-startup-echo-area-message 'ignore)
 
-;; Make libgccjit able to use gcc which installed from homebrew
-(setenv "LIBRARY_PATH" "/usr/local/opt/gcc/lib/gcc/11:/usr/local/opt/gcc/lib/gcc/11/gcc/x86_64-apple-darwin21/11")
-
 (setq native-comp-async-report-warnings-errors nil)
 (setq package-native-compile t)
 
