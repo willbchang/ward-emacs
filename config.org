@@ -343,7 +343,6 @@ Associate [[https://github.com/willbchang/alfred-open-in-editor][alfred-open-in-
 #+end_src
 
 ** Window
-# PATCH: UX
 No popup windows.
 #+begin_src emacs-lisp
 (setq pop-up-windows nil)
@@ -369,12 +368,10 @@ No popup windows.
 | ~Command + ]~ | Go to next Buffer     |
 | ~Command + T~ | Create New Buffer     |
 | ~Command + S~ | Save Buffer           |
-| ~Command + ,~ | Open config file |
-| ~Command + .~ | Reload init file |
+| ~Command + ,~ | Open config file      |
+| ~Command + .~ | Reload init file      |
 
 *** Behaviors
-# PATCH: UX
-# TODO: Set init and fallback buffer to untitle instead of *scratch*.
 Save files automatically.
 #+begin_src emacs-lisp
 (auto-save-visited-mode 1)

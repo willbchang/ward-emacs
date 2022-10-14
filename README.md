@@ -15,12 +15,12 @@
 
 A minimal Emacs configration that you can start using easily.
 
-| MacOS Preferred Keybindings             | Powerful Features                                      | Suitable Features | Chinese Optimization     |
-|-----------------------------------------|--------------------------------------------------------|-------------------|--------------------------|
-| [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                       | Markdown          | Improved Display        |
+| MacOS Preferred Keybindings             | Powerful Features                                         | Suitable Features | Chinese Optimization     |
+|-----------------------------------------|-----------------------------------------------------------|-------------------|--------------------------|
+| [Word Processing](#word-processing)     | [Org Mode](https://orgmode.org/)                          | Markdown          | Improved Display         |
 | [Window Management](#window-management) | [Vim Emulator](https://github.com/emacs-evil/evil#readme) | Multiple Cursor   | Search with Pinyin       |
-|                                         | [Git Client](https://magit.vc/)                             | Terminal Emulator | Auto switch input method |
-|                                         |                                                        |                   | Compatible Keybindings   |
+|                                         | [Git Client](https://magit.vc/)                           | Terminal Emulator | Auto switch input method |
+|                                         |                                                           |                   | Compatible Keybindings   |
 
 
 The configuration is in [config.org](config.org).
@@ -80,7 +80,7 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 | <kbd>Shift + →</kbd>           | Select one character right          | MacOS      |
 | <kbd>Shift + Option + ←</kbd>  | Select one word left                | MacOS      |
 | <kbd>Shift + Option + →</kbd>  | Select one word right               | MacOS      |
-| <kbd>Shift + Command + ↑</kbd> | Select to top of the file          | MacOS      |
+| <kbd>Shift + Command + ↑</kbd> | Select to top of the file           | MacOS      |
 | <kbd>Shift + Command + ↓</kbd> | Select to bottom of the file        | MacOS      |
 | <kbd>Shift + Command + ←</kbd> | Select to the beginning of the line | MacOS      |
 | <kbd>Shift + Command + →</kbd> | Select to the end of the line       | MacOS      |
@@ -108,8 +108,8 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 ### Window Management
 | Window                         | Features               | Convention |
 |--------------------------------|------------------------|------------|
-| <kbd>Command + Shift + W</kbd> | Close Current Frame   | macOS      |
-| <kbd>Command + Shift + N</kbd>         | Create New Frame      | macOS      |
+| <kbd>Command + Shift + W</kbd> | Close Current Frame    | macOS      |
+| <kbd>Command + Shift + N</kbd> | Create New Frame       | macOS      |
 | <kbd>Command + Q</kbd>         | Quit Emacs             | macOS      |
 | <kbd>Command + W</kbd>         | Close Current Buffer   | macOS      |
 | <kbd>Command + [</kbd>         | Go to previous Buffer  | macOS      |
@@ -121,8 +121,8 @@ git clone --depth=1 https://github.com/willbchang/ward-emacs.git ~/.config/emacs
 | <kbd>Command + S</kbd>         | Save Buffer            | macOS      |
 | <kbd>Command + R</kbd>         | Revert Buffer          | macOS      |
 | <kbd>Command + ,</kbd>         | Open Preferences       | macOS      |
-| <kbd>Command + `</kbd>         | Move to next Frame    | macOS      |
-| <kbd>Alt + `</kbd>             | Move to next Window     | Personal   |
+| <kbd>Command + `</kbd>         | Move to next Frame     | macOS      |
+| <kbd>Alt + `</kbd>             | Move to next Window    | Personal   |
 | <kbd>Control + `</kbd>         | Open Terminal Emulator | Personal   |
 
 
