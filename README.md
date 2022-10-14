@@ -44,9 +44,8 @@ brew install emacs-plus@29 --with-dragon-icon --with-native-comp
 brew install ripgrep
 
 # Font
-brew tap homebrew/cask-fonts
-brew install svn # Roboto Mono needs svn to download.
-brew install --cask font-roboto-mono
+brew tap willbchang/homebrew-cask-font-roboto-mono
+brew install --cask font-roboto-mono-no-svn
 
 
 # Input Source Switcher
