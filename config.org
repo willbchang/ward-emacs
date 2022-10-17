@@ -952,6 +952,8 @@ Increase undo limit.
   (:map xenops-mode-map
    ;; FIX: xenops overrides the default paste behavior with xenops-handle-paste through xenops-util-define-key-with-fallback in xenops-define-key which breaks the delete-selection-mode
    ("s-v" . yank))
+  :custom
+  (setq xenops-reveal-on-entry t)
   :config
   ;; Suppress xenops startup messages.
   (advice-add 'xenops-mode :around #'suppress-messages)
