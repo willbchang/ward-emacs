@@ -222,6 +222,14 @@ Disable mouse command on y-or-n-p.
 (setq use-dialog-box nil)
 #+end_src
 
+** Scroll
+Enable pixel scroll mode to improve scroll experience.
+#+begin_src emacs-lisp
+(use-package pixel-scroll
+  :straight (:type built-in)
+  :config
+  (pixel-scroll-precision-mode))
+#+end_src
 ** File Manager
 *** Dired
 Hide all the information about files and folders except their names.
