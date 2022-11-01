@@ -464,8 +464,8 @@ Highlight paired brackets, includes (), [], {} and so on...
 **** Keybindings
 Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 
-| Keybindings   | Features                          |
-|---------------+-----------------------------------|
+| Keybindings | Features                          |
+|-------------+-----------------------------------|
 | ~Command + ↑~ | Move to the top of the file       |
 | ~Command + ↓~ | Move to the bottom of the file    |
 | ~Command + ←~ | Move to the beginning of the line |
@@ -492,7 +492,7 @@ Make ~Command/Option + ArrowKey~ behaves like MacOS app.
 | ~Shift + Option + →~  | Select one word right                  |
 | ~Shift + Command + ↑~ | Select to ttop of the file             |
 | ~Shift + Command + ↓~ | Select to bottom of the file           |
-| ~Shift + Command + ←~ | Select to the beginning of the line   |
+| ~Shift + Command + ←~ | Select to the beginning of the line    |
 | ~Shift + Command + →~ | Select to the end of the line          |
 
 **** Behaviors
