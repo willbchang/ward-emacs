@@ -1103,8 +1103,7 @@ https://github.com/emacsorphanage/applescript-mode
   ;; Highlight changes on editing.
   (diff-hl-flydiff-mode)
   ;; Makes fringe and margin react to mouse clicks to show the curresponding hunk.
-  ;; FIX: not working by default
-  ;; (diff-hl-show-hunk-mouse-mode)
+  (global-diff-hl-show-hunk-mouse-mode)
   :custom
   (diff-hl-draw-borders nil)
   :custom-face
