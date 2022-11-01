@@ -636,20 +636,17 @@ Increase undo limit.
   :after evil
   :config
   (global-evil-surround-mode 1)
-  ;; Use non-spaced pairs when surrounding with an opening brace.
-  ;; Insert zero width space for org inline markup.
-  ;; FIX: have to run Command + . again.
   (evil-add-to-alist 'evil-surround-pairs-alist
                       ?\( '("(" . ")")
                       ?\[ '("[" . "]")
                       ?\{ '("{" . "}")
-                      ?\* '("\x200B*" . "*\x200B")
-                      ?\+ '("\x200B+" . "+\x200B")
-                      ?\/ '("\x200B/" . "/\x200B")
-                      ?\~ '("\x200B~" . "~\x200B")
-                      ?\= '("\x200B=" . "=\x200B")
-                      ?\$ '("\x200B$" . "$\x200B")
-                      ?\_ '("\x200B_" . "_\x200B")))
+                      ?\* '("*" . "*")
+                      ?\+ '("+" . "+")
+                      ?\/ '("/" . "/")
+                      ?\~ '("~" . "~")
+                      ?\= '("=" . "=")
+                      ?\$ '("$" . "$")
+                      ?\_ '("_" . "_")))
 #+end_src
 
 *** Evil Snip
