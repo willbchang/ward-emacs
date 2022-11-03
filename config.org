@@ -169,12 +169,11 @@ https://stackoverflow.com/a/27854648/9984029
 Disable ugly fringe bitmaps.
 # TODO: Transparent fringe foreground and background.
 #+begin_src emacs-lisp
-(setf (cdr (assq 'continuation fringe-indicator-alist))
-      '(nil nil) ;; no continuation indicators
-      ;; '(nil right-curly-arrow) ;; right indicator only
-      ;; '(left-curly-arrow nil) ;; left indicator only
-      ;; '(left-curly-arrow right-curly-arrow) ;; default
-      )
+(use-package fringe
+  :straight (:type built-in)
+  :config
+  (setf (cdr (assq 'continuation fringe-indicator-alist))
+        '(nil nil)))
 #+end_src
 
 * Basic UX
