@@ -167,10 +167,11 @@ Show icon and abbreviated full path for file and directory in title bar.
 ** Fringe
 https://stackoverflow.com/a/27854648/9984029
 Disable ugly fringe bitmaps.
-# TODO: Transparent fringe foreground and background.
 #+begin_src emacs-lisp
 (use-package fringe
   :straight (:type built-in)
+  :custom-face
+  (fringe ((t (:foreground nil :background nil))))
   :config
   (setf (cdr (assq 'continuation fringe-indicator-alist))
         '(nil nil)))
