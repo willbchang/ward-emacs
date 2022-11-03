@@ -38,7 +38,7 @@ The configuration is in [config.org](config.org).
 ```bash
 # Emacs 29
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@29 --with-dragon-icon --with-native-comp
+brew install emacs-plus@29 --with-dragon-icon
 
 # Tools
 brew install ripgrep
