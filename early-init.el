@@ -42,6 +42,10 @@
 
 ;; Here are some Nextstep-like bindings for command key sequences.
 
+;; Make Option and Command work normal in Emacs Mac Port.
+(setq mac-command-modifier 'super
+      mac-option-modifier 'meta)
+
 ;; Frame
 (global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "s-N") 'new-empty-frame)
