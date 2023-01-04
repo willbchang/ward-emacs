@@ -57,10 +57,8 @@ Shadow clone git repo to improve the speed.
         modus-themes-headings '((1 . (1.15))
                                 (2 . (1.05))
                                 (t . (semibold))))
-
-  (modus-themes-load-themes)
   :config
-  (modus-themes-load-operandi))
+  (load-theme 'modus-operandi :no-confim))
 #+end_src
 
 *** Default Face
