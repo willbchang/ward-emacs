@@ -568,6 +568,8 @@ Increase undo limit.
   (setq evil-want-keybinding nil)
   ;; Make Tab in org mode works normally.
   (setq evil-want-C-i-jump nil)
+  ;; Disable o to add indent below org mode heading.
+  (setq evil-auto-indent nil)
   ;; Set Evil cursor color and styles in different situations.
   (setq evil-emacs-state-cursor 'bar)
   (setq evil-normal-state-cursor '(box "deep pink"))
