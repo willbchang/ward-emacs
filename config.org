@@ -1101,15 +1101,18 @@ https://github.com/emacsorphanage/applescript-mode
    ("<C-return>" . vterm-toggle-insert-cd))
   :config
   ;; Display vterm at bottom.
+  (setq vterm-toggle-fullscreen-p nil)
   (add-to-list 'display-buffer-alist
-               '((lambda(bufname _) (with-current-buffer bufname
-                                      (or (equal major-mode 'vterm-mode)
-                                          (equal bufname vterm-buffer-name))))
-                 (display-buffer-reuse-window display-buffer-in-side-window)
-                 (side . bottom)
-                 (dedicated . t)
-                 (reusable-frames . visible)
-                 (window-height . 0.3))))
+               '((lambda (buffer-or-name _)
+                     (let ((buffer (get-buffer buffer-or-name)))
+                       (with-current-buffer buffer
+                         (or (equal major-mode 'vterm-mode)
+                             (string-prefix-p vterm-buffer-name (buffer-name buffer))))))
+                  (display-buffer-reuse-window display-buffer-in-direction)
+                  (direction . bottom)
+                  (dedicated . t)
+                  (reusable-frames . visible)
+                  (window-height . 0.3))))
 #+end_src
 
 * Chinese Optimization
